@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -61,3 +61,17 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+#RoR2
+VariantPack-Project/[Pp]ackages/[Rr]isk of Rain 2/*.dll
+VariantPack-Project/[Pp]ackages/[Rr]isk of Rain 2/[Pp]lugins/*.dll
+
+#Thunderkit Relateds
+VariantPack-Project/[Tt]hunderkit/
+VariantPack-Project/[Aa]ssets/[Tt]hunderKitSettings/Logs/
+
+#Other
+VariantPack-Project/[Aa]ssets/[Pp]lugins/NGTools/
+VariantPack-Project/[Aa]ssets/[Rr]esources/
+VariantPack-Project/[Pp]ackages/*
+!VariantPack-Project/Packages/packages-lock.json
+!VariantPack-Project/Packages/manifest.json
