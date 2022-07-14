@@ -1,0 +1,29 @@
+{
+    "name": "TheOriginal30",
+    "references": [
+        "com.unity.multiplayer-hlapi.Runtime",
+        "VarianceAPI",
+        "MoonstormSharedUtils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "HGCSharpUtils.dll",
+        "HGUnityUtils.dll",
+        "KinematicCharacterController.dll",
+        "MMHOOK_RoR2.dll",
+        "Newtonsoft.Json.dll",
+        "R2API.dll",
+        "RoR2.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll",
+        "Wwise.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
