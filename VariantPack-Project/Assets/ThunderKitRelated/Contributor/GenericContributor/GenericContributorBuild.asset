@@ -30,12 +30,13 @@ MonoBehaviour:
   Active: 1
   PerManifest: 1
   ListType: 1
-  Manifests: []
+  Manifests:
+  - {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
   Recursive: 1
   SourceRequired: 0
   EstablishDestination: 1
   Source: <BuildPath>
-  Destination: <GenericContributorPath>
+  Destination: <LaWea>
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,5 +52,5 @@ MonoBehaviour:
   Data:
   - {fileID: -3576180096776599551}
   - {fileID: -216652644370084839}
-  QuickAccess: 0
-  manifest: {fileID: 0}
+  QuickAccess: 1
+  manifest: {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}

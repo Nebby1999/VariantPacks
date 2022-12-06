@@ -7,20 +7,20 @@
       "dependencies": {}
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.3.1",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#6.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "9eba82b6376c9bdbe01e8edc698726b2b2f6a436"
+      "hash": "ed5d32591dcd4d36ed8a54f10b7dcc95eb7715a0"
     },
     "com.unity.multiplayer-hlapi": {
-      "version": "https://github.com/risk-of-thunder/UnityMultiplayerHLAPI.git#1.0.1",
+      "version": "https://github.com/risk-of-thunder/UnityMultiplayerHLAPI.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "39a7bfdc25b53c790f3816b7dcd11e56dd4f865e"
+      "hash": "ab4c0e7aca99354e4b5b211906e4acd83264ed12"
     },
     "com.unity.postprocessing": {
       "version": "2.3.0",
@@ -42,12 +42,18 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "mmhook-assemblies": {
+      "version": "file:mmhook-assemblies",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "nebby-varianceapi": {
       "version": "https://github.com/Nebby1999/VarianceAPI.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "edce0609c5b88b28fd839cee771f087c5f55ed1e"
+      "hash": "dde201d0ea963814c9aaa09f7dee1de2c5b21b94"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -68,25 +74,31 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#3.2.2",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#3.3.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7fd8f6ebac29608837caeaed90545c3ad4157592"
+      "hash": "365d133a4e80ae13510cda65229e83bc3e3988f9"
     },
     "riskofthunder-ror2importextensions": {
-      "version": "https://github.com/PassivePicasso/RoR2ImportExtensions.git",
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e11f7f1c2374828c6f23e88cac223ac9aab77681"
+      "hash": "d99aff2e663586453a5df58f44359819f4307c12"
+    },
+    "rune580-risk_of_options": {
+      "version": "file:Risk_Of_Options",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "teammoonstorm-moonstormsharedutils": {
       "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "63e4deae4bbec32eb4d3aaf9c1888c8a75f8e546"
+      "hash": "8e741503824d5a70a6a29f568c445028416cf6fd"
     },
     "tristanmcpherson-r2api": {
       "version": "file:R2API",

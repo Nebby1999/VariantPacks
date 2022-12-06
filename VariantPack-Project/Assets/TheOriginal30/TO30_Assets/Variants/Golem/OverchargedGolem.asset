@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: OverchargedGolem
+  m_EditorClassIdentifier: 
+  bodyName: GolemBody
+  variantTier: 0
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 2
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 11400000, guid: 369d47bb9477fb5449062b3c22e247d8, type: 2}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements: []
+  healthMultiplier: 1
+  regenBonus: 0
+  regenMultiplier: 1
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 3
+  attackSpeedMultiplier: 2
+  damageMultiplier: 4
+  armorBonus: -10
+  armorMultiplier: 1
+  visualModifier: {fileID: 0}
+  sizeModifier: {fileID: 0}
+  aiModifier: 0
+  nameOverrides:
+  - token: TO30_OVERCHARGED_PREFIX
+    overrideType: 0
+  componentProviders: []

@@ -32,7 +32,11 @@ MonoBehaviour:
   rootFolderName: TO30Lang
   languageFolders:
   - languageName: en
-    languageFiles: []
+    languageFiles:
+    - {fileID: 4900000, guid: fac9f0c0ff47d724da8131363e560a12, type: 3}
+  - languageName: es-459
+    languageFiles:
+    - {fileID: 4900000, guid: 9cbc2aa9566910b4597379a6a3e52182, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +58,7 @@ MonoBehaviour:
   - {fileID: 8324102109481770816}
   - {fileID: -4467616490986340797}
   identity: {fileID: 114211852988908172}
-  QuickAccess: 0
+  QuickAccess: 1
 --- !u!114 &114107831304456238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +94,7 @@ MonoBehaviour:
   Description: All of Rob's Variants, ported and modified to VarianceAPI
   Version: 2.0.0
   Dependencies:
-  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
+  - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1

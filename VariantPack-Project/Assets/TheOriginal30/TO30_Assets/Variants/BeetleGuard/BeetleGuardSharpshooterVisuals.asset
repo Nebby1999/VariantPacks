@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Name: BeetleGuardSharpshooterVisuals
+  m_EditorClassIdentifier: 
+  materialReplacements: []
+  lightReplacements: []
+  meshReplacements:
+  - rendererIndex: 0
+    mesh: {fileID: 4300000, guid: f6fb2b54b6b8faa48b7a1d9044fefeab, type: 2}
+    meshType: 2
