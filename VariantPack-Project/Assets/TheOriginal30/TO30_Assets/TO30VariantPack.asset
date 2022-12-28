@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7035143816f594298056766a5907ce, type: 3}
+  m_Name: TO30VariantPack
+  m_EditorClassIdentifier: 
+  nameToken: TO30_VARIANTPACK_NAME
+  tooltipToken: TO30_VARIANTPACK_TOOLTIP
+  descriptionToken: TO30_VARIANTPACK_DESC
+  packEnabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  packDisabledIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  variantTiers: []
+  variants:
+  - {fileID: 11400000, guid: 82d2c1a9b0eaec0429eabc7209c94148, type: 2}
+  - {fileID: 11400000, guid: 0fdc7c175a872324bbc175da1968e225, type: 2}
+  - {fileID: 11400000, guid: 0cbe9438318859d41b1c775820539986, type: 2}
+  - {fileID: 11400000, guid: 82769d4cfc9c16445981cbbc11098712, type: 2}
+  - {fileID: 11400000, guid: 6701128910149584d97464e133740b41, type: 2}
+  - {fileID: 11400000, guid: 2c1585ac9d492944a8e716170eff5630, type: 2}
+  - {fileID: 11400000, guid: 040ba53886762b24cb4565798dea692f, type: 2}
+  - {fileID: 11400000, guid: e7ae442659bdc0a4a94a8a7342c24c83, type: 2}
+  - {fileID: 11400000, guid: 8e3dc2eb35cd04b4890a2a29c750b5f9, type: 2}
+  - {fileID: 11400000, guid: ce66b09296a7ce541adabc0957f38bde, type: 2}
+  - {fileID: 11400000, guid: 5a6e484942c56ef49bffacce22a87eb9, type: 2}
+  - {fileID: 11400000, guid: e89e0fa0a31c69b4a8bda96d758931c7, type: 2}
+  - {fileID: 11400000, guid: 0365d20063dfe2146b0492c1dac8cf7f, type: 2}
+  - {fileID: 11400000, guid: 32517b759e38f4e4f9a44e84df8ce006, type: 2}
+  - {fileID: 11400000, guid: 4963cd579d90da340ac6a9000de7f126, type: 2}

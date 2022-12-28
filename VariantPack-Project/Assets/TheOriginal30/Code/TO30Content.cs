@@ -24,7 +24,7 @@ namespace TO30
                 () =>
                 {
                     Log.Info("Adding Variants");
-                    VariantCatalog.AddVariants(TO30Assets.Instance.MainAssetBundle, TO30Main.Instance.Config);
+                    VariantPackCatalog.AddVariantPacks(TO30Assets.Instance.MainAssetBundle, TO30Main.Instance.Config);
                 },
                 () =>
                 {
