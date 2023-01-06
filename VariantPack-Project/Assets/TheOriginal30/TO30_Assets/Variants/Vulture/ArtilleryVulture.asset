@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: ArtilleryVulture
+  m_EditorClassIdentifier: 
+  bodyName: VultureBody
+  variantTier: 1
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 3
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 11400000, guid: 983f0a29c04cda147ad3308472307d22, type: 2}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements: []
+  healthMultiplier: 1
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 4
+  damageMultiplier: 0.5
+  armorBonus: 100
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: 7bc0c3894999fb049864182bf29b75f1, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 1215b9f01b09ac641bb64f1c3b17645d, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: TO30_ARTILLERY_PREFIX
+    overrideType: 0
+  componentProviders: []

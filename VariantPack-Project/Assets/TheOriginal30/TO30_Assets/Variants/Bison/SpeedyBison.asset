@@ -36,5 +36,7 @@ MonoBehaviour:
   visualModifier: {fileID: 0}
   sizeModifier: {fileID: 0}
   aiModifier: 0
-  nameOverrides: []
+  nameOverrides:
+  - token: Speedy
+    overrideType: 0
   componentProviders: []

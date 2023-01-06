@@ -69,7 +69,230 @@ MonoBehaviour:
   - RoR2.dll
   - KinematicCharacterController.dll
   hookGenExecutable: {fileID: 102900000, guid: e441941fc2ce18f4cb8ae6dc66c65a21, type: 3}
-  cachedAssembliesInAppDomain: []
+  cachedAssembliesInAppDomain:
+  - mscorlib.dll
+  - UnityEngine.dll
+  - UnityEngine.AIModule.dll
+  - UnityEngine.ARModule.dll
+  - UnityEngine.AccessibilityModule.dll
+  - UnityEngine.AndroidJNIModule.dll
+  - UnityEngine.AnimationModule.dll
+  - UnityEngine.AssetBundleModule.dll
+  - UnityEngine.AudioModule.dll
+  - UnityEngine.ClothModule.dll
+  - UnityEngine.ClusterInputModule.dll
+  - UnityEngine.ClusterRendererModule.dll
+  - UnityEngine.CoreModule.dll
+  - UnityEngine.CrashReportingModule.dll
+  - UnityEngine.DSPGraphModule.dll
+  - UnityEngine.DirectorModule.dll
+  - UnityEngine.GameCenterModule.dll
+  - UnityEngine.GridModule.dll
+  - UnityEngine.HotReloadModule.dll
+  - UnityEngine.IMGUIModule.dll
+  - UnityEngine.ImageConversionModule.dll
+  - UnityEngine.InputModule.dll
+  - UnityEngine.InputLegacyModule.dll
+  - UnityEngine.JSONSerializeModule.dll
+  - UnityEngine.LocalizationModule.dll
+  - UnityEngine.ParticleSystemModule.dll
+  - UnityEngine.PerformanceReportingModule.dll
+  - UnityEngine.PhysicsModule.dll
+  - UnityEngine.Physics2DModule.dll
+  - UnityEngine.ProfilerModule.dll
+  - UnityEngine.ScreenCaptureModule.dll
+  - UnityEngine.SharedInternalsModule.dll
+  - UnityEngine.SpriteMaskModule.dll
+  - UnityEngine.SpriteShapeModule.dll
+  - UnityEngine.StreamingModule.dll
+  - UnityEngine.SubstanceModule.dll
+  - UnityEngine.SubsystemsModule.dll
+  - UnityEngine.TLSModule.dll
+  - UnityEngine.TerrainModule.dll
+  - UnityEngine.TerrainPhysicsModule.dll
+  - UnityEngine.TextCoreModule.dll
+  - UnityEngine.TextRenderingModule.dll
+  - UnityEngine.TilemapModule.dll
+  - UnityEngine.UIModule.dll
+  - UnityEngine.UIElementsModule.dll
+  - UnityEngine.UNETModule.dll
+  - UnityEngine.UmbraModule.dll
+  - UnityEngine.UnityAnalyticsModule.dll
+  - UnityEngine.UnityConnectModule.dll
+  - UnityEngine.UnityTestProtocolModule.dll
+  - UnityEngine.UnityWebRequestModule.dll
+  - UnityEngine.UnityWebRequestAssetBundleModule.dll
+  - UnityEngine.UnityWebRequestAudioModule.dll
+  - UnityEngine.UnityWebRequestTextureModule.dll
+  - UnityEngine.UnityWebRequestWWWModule.dll
+  - UnityEngine.VFXModule.dll
+  - UnityEngine.VRModule.dll
+  - UnityEngine.VehiclesModule.dll
+  - UnityEngine.VideoModule.dll
+  - UnityEngine.WindModule.dll
+  - UnityEngine.XRModule.dll
+  - UnityEditor.dll
+  - System.Core.dll
+  - System.dll
+  - Mono.Security.dll
+  - System.Configuration.dll
+  - System.Xml.dll
+  - Unity.CompilationPipeline.Common.dll
+  - UnityEditor.VR.dll
+  - UnityEditor.Graphs.dll
+  - UnityEditor.WindowsStandalone.Extensions.dll
+  - Assembly-CSharp-firstpass.dll
+  - Assembly-CSharp.dll
+  - Assembly-CSharp-Editor-firstpass.dll
+  - BsDiff.dll
+  - UnityEditor.CacheServer.dll
+  - MSU.Tests.dll
+  - VarianceAPI.Editor.dll
+  - RoR2EditorKit.dll
+  - MonoDetector.dll
+  - Unity.ScriptableBuildPipeline.Editor.dll
+  - com.unity.multiplayer-hlapi.Editor.dll
+  - RoR2EditorScripts.dll
+  - ThunderKit.Addressable.Config.dll
+  - ThunderKit.Thunderstore.dll
+  - MoonstormEditorUtils.dll
+  - UnityVersion.dll
+  - VarianceAPI.dll
+  - ThunderKit.Markdown.dll
+  - ToolbarExtender.Editor.dll
+  - RoR2Importers.dll
+  - Unity.Postprocessing.Editor.dll
+  - com.unity.multiplayer-weaver.Editor.dll
+  - MSUImporters.dll
+  - AssetsExporter.dll
+  - ThunderKit.Addressable.Tools.dll
+  - Unity.Postprocessing.Runtime.dll
+  - AssetsTools.NET.dll
+  - TheOriginal30.dll
+  - ThunderKit.Core.dll
+  - Unity.ScriptableBuildPipeline.dll
+  - MoonstormSharedUtils.dll
+  - ThunderKit.Common.dll
+  - com.unity.multiplayer-hlapi.Runtime.dll
+  - NGAssetFinderEditor.dll
+  - NGComponentReplacerEditor.dll
+  - NGComponentsInspectorEditor.dll
+  - NGConsole.dll
+  - NGConsoleEditor.dll
+  - NGCore.dll
+  - NGCoreEditor.dll
+  - NGLicenses.dll
+  - NGDraggableObjectEditor.dll
+  - NGFavEditor.dll
+  - NGFlowInspector.dll
+  - NGFlowInspectorEditor.dll
+  - NGFullscreenBindingsEditor.dll
+  - NGGameConsole.dll
+  - RemoteModule_For_NGConsole.dll
+  - NGHierarchyEnhancerEditor.dll
+  - NGHubEditor.dll
+  - NGInspectorGadgetEditor.dll
+  - NGMissingScriptRecoveryEditor.dll
+  - NGNavSelectionEditor.dll
+  - NGNavSelection_For_NGHub.dll
+  - NGPrefsEditor.dll
+  - NGRemoteScene.dll
+  - NGRemoteSceneEditor.dll
+  - NGRemoteScene_For_NGHub.dll
+  - NGRenamerEditor.dll
+  - NGScenesEditor.dll
+  - NGScenes_For_NGHub.dll
+  - NGShaderFinderEditor.dll
+  - NGSmartMenuEditor.dll
+  - NGSpotlightEditor.dll
+  - NGStaticInspectorEditor.dll
+  - NGSyncFoldersEditor.dll
+  - 0Harmony.dll
+  - 0Harmony20.dll
+  - BepInEx.Bootstrap.dll
+  - BepInEx.dll
+  - BepInEx.Harmony.dll
+  - BepInEx.Preloader.dll
+  - HarmonyXInterop.dll
+  - Mono.Cecil.dll
+  - Mono.Cecil.Mdb.dll
+  - Mono.Cecil.Pdb.dll
+  - Mono.Cecil.Rocks.dll
+  - MonoMod.RuntimeDetour.dll
+  - MonoMod.Utils.dll
+  - BepInEx.GUI.Patcher.dll
+  - FixPluginTypesSerialization.dll
+  - RoR2BepInExPack.dll
+  - Markdig.Signed.dll
+  - SharpCompress.dll
+  - ICSharpCode.SharpZipLib.dll
+  - DebugToolkit.dll
+  - MMHOOK_KinematicCharacterController.dll
+  - MMHOOK_RoR2.dll
+  - Decalicious.dll
+  - EOS.dll
+  - Facepunch.Steamworks.dll
+  - GenericIK.dll
+  - HGCSharpUtils.dll
+  - HGSignup.dll
+  - HGUnityUtils.dll
+  - KinematicCharacterController.dll
+  - LegacyResourcesAPI.dll
+  - ModLoader.dll
+  - Newtonsoft.Json.dll
+  - Rewired_Core.dll
+  - Rewired_CSharp.dll
+  - Rewired_Windows.dll
+  - RoR2.dll
+  - SimpleJSON.dll
+  - System.ComponentModel.Composition.dll
+  - System.Data.dll
+  - System.Diagnostics.StackTrace.dll
+  - System.Drawing.dll
+  - System.EnterpriseServices.dll
+  - System.Globalization.Extensions.dll
+  - System.IO.Compression.dll
+  - System.IO.Compression.FileSystem.dll
+  - System.Net.Http.dll
+  - System.Numerics.dll
+  - System.Runtime.Serialization.dll
+  - System.Runtime.Serialization.Xml.dll
+  - System.ServiceModel.Internals.dll
+  - System.Transactions.dll
+  - System.Xml.XPath.XDocument.dll
+  - Unity.Addressables.dll
+  - Unity.ProBuilder.Csg.dll
+  - Unity.ProBuilder.dll
+  - Unity.ProBuilder.KdTree.dll
+  - Unity.ProBuilder.Poly2Tri.dll
+  - Unity.ProBuilder.Stl.dll
+  - Unity.RenderPipelines.Core.Runtime.dll
+  - Unity.RenderPipelines.Core.ShaderLibrary.dll
+  - Unity.ResourceManager.dll
+  - Unity.TextMeshPro.dll
+  - Unity.Timeline.dll
+  - UnityEngine.SpatialTracking.dll
+  - UnityEngine.UI.dll
+  - UnityEngine.XR.LegacyInputHelpers.dll
+  - Wwise.dll
+  - Zio.dll
+  - BepInEx.MonoMod.HookGenPatcher.dll
+  - R2API.ArtifactCode.dll
+  - R2API.Colors.dll
+  - R2API.ContentManagement.dll
+  - R2API.Core.dll
+  - R2API.DamageType.dll
+  - R2API.Director.dll
+  - R2API.Elites.dll
+  - R2API.RecalculateStats.dll
+  - R2API.Rules.dll
+  - RiskOfOptions.dll
+  - netstandard.dll
+  - System.Xml.Linq.dll
+  - Unity.Cecil.dll
+  - Unity.SerializationLogic.dll
+  - ExCSS.Unity.dll
+  - Unity.Legacy.NRefactory.dll
 --- !u!114 &-4910651187405703643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,18 +335,26 @@ MonoBehaviour:
   submoduleIndex: -1
   serializeSelectionIntoJson: 1
   r2apiSubmodules:
-  - submoduleName: R2API_Colors
-    description: API for registering Colors to the game
-    dependedncyID: RiskofThunder-R2API_Colors
+  - submoduleName: R2API_Core
+    description: Core R2API module
+    dependedncyID: RiskofThunder-R2API_Core
+    shouldInstall: 1
+    isHardDependency: 1
+    dependencies:
+    - BepInExPack
+    - HookGenPatcher
+  - submoduleName: R2API_ArtifactCode
+    description: API for making Artifact Codes
+    dependedncyID: RiskofThunder-R2API_ArtifactCode
     shouldInstall: 1
     isHardDependency: 1
     dependencies:
     - BepInExPack
     - HookGenPatcher
     - R2API_Core
-  - submoduleName: R2API_ArtifactCode
-    description: API for making Artifact Codes
-    dependedncyID: RiskofThunder-R2API_ArtifactCode
+  - submoduleName: R2API_Colors
+    description: API for registering Colors to the game
+    dependedncyID: RiskofThunder-R2API_Colors
     shouldInstall: 1
     isHardDependency: 1
     dependencies:
@@ -148,14 +379,6 @@ MonoBehaviour:
     - BepInExPack
     - HookGenPatcher
     - R2API_Core
-  - submoduleName: R2API_Core
-    description: Core R2API module
-    dependedncyID: RiskofThunder-R2API_Core
-    shouldInstall: 1
-    isHardDependency: 1
-    dependencies:
-    - BepInExPack
-    - HookGenPatcher
   - submoduleName: R2API_DamageType
     description: API for registering damage types
     dependedncyID: RiskofThunder-R2API_DamageType
@@ -283,6 +506,15 @@ MonoBehaviour:
     dependedncyID: RiskofThunder-R2API_RecalculateStats
     shouldInstall: 1
     isHardDependency: 1
+    dependencies:
+    - BepInExPack
+    - HookGenPatcher
+    - R2API_Core
+  - submoduleName: R2API_Rulebook
+    description: API for registering rules to the Rule Catalog
+    dependedncyID: RiskofThunder-R2API_Rulebook
+    shouldInstall: 1
+    isHardDependency: 0
     dependencies:
     - BepInExPack
     - HookGenPatcher

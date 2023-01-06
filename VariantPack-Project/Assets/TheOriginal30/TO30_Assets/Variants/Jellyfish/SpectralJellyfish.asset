@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: SpectralJellyfish
+  m_EditorClassIdentifier: 
+  bodyName: JellyfishBody
+  variantTier: 2
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 4
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: TO30_SPECTRALJELLYFISH_ARRIVAL
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
+      TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  skillReplacements: []
+  healthMultiplier: 0.5
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1.5
+  attackSpeedMultiplier: 1
+  damageMultiplier: 0.5
+  armorBonus: 0
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: cb2f99555af0aef49bf31436897b1942, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 73aefcbf9b987f3469110b63c374a3a5, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: TO30_SPECTRAL_PREFIX
+    overrideType: 0
+  componentProviders: []

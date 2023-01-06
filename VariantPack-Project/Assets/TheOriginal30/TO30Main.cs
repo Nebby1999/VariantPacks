@@ -11,6 +11,7 @@ using System.Security;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using RoR2;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -41,7 +42,17 @@ namespace TO30
             new TO30Content().Init();
 
             ConfigurableFieldManager.AddMod(this);
-            TokenModifierManager.AddToManager();
+
+            RoR2Application.onLoad += AddSpectralSummons;
+        }
+
+        private void AddSpectralSummons()
+        {
+            var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
+            validMasters.Add(MasterCatalog.FindMasterIndex("BeetleMaster"));
+            validMasters.Add(MasterCatalog.FindMasterIndex("ImpMaster"));
+            validMasters.Add(MasterCatalog.FindMasterIndex("LemurianMaster"));
+            validMasters.Add(MasterCatalog.FindMasterIndex("WispMaster"));
         }
     }
 }

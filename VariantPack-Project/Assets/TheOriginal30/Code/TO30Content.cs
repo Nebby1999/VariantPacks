@@ -15,6 +15,7 @@ namespace TO30
         public override string identifier => TO30Main.GUID;
         public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = TO30Assets.LoadAsset<R2APISerializableContentPack>("TO30ContentPack");
         public override Action[] LoadDispatchers { get; protected set; }
+        private VariantPackDef variantPack;
 
         public override void Init()
         {
@@ -24,7 +25,9 @@ namespace TO30
                 () =>
                 {
                     Log.Info("Adding Variants");
-                    VariantPackCatalog.AddVariantPacks(TO30Assets.Instance.MainAssetBundle, TO30Main.Instance.Config);
+                    variantPack = TO30Assets.LoadAsset<VariantPackDef>("TO30VariantPack");
+                    variantPack.variants = TO30Assets.LoadAllAssetsOfType<VariantDef>();
+                    VariantPackCatalog.AddVariantPack(variantPack, TO30Main.Instance.Config);
                 },
                 () =>
                 {

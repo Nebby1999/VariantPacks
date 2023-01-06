@@ -53,7 +53,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "fd6aa6d8c1207be3dae2acac007f8c3d8b836fc7"
+      "hash": "79b88e168f85d9609edd19c5aa334718a244d5c2"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -111,6 +111,12 @@
     },
     "riskofthunder-r2api_recalculatestats": {
       "version": "file:R2API_RecalculateStats",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-r2api_rulebook": {
+      "version": "file:R2API_Rulebook",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}

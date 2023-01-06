@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: AlmostGreatWisp
+  m_EditorClassIdentifier: 
+  bodyName: WispBody
+  variantTier: 1
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 8
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 54117f6340f86d44d82a64853dcdc70e, type: 2}
+    skillSlot: 0
+  healthMultiplier: 3
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 0.8
+  attackSpeedMultiplier: 1
+  damageMultiplier: 1
+  armorBonus: 0
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: afe757681bc42ed41876c08984133cb3, type: 2}
+  sizeModifier: {fileID: 11400000, guid: d77be5f43773016428b92ef36b62d2be, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: TO30_ALMOSTGREAT_PREFIX
+    overrideType: 0
+  componentProviders: []

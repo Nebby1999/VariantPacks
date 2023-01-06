@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: MOAJ
+  m_EditorClassIdentifier: 
+  bodyName: JellyfishBody
+  variantTier: 2
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 2
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: TO30_MOAJ_ARRIVAL
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnJellies, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: f4f8088bba51c784daa00ebc9133f7dd, type: 2}
+    skillSlot: 0
+  healthMultiplier: 40
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 0.4
+  attackSpeedMultiplier: 1
+  damageMultiplier: 1
+  armorBonus: 80
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: e6a596a9d2d44c9409e0ddb1a21c8abb, type: 2}
+  sizeModifier: {fileID: 11400000, guid: b7c931e8e57f27844b6b695b4be8239b, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: TO30_MOAJ_PREFIX
+    overrideType: 0
+  componentProviders: []

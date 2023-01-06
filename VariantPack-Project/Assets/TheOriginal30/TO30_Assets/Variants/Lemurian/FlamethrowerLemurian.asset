@@ -17,15 +17,12 @@ MonoBehaviour:
   variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 11400000, guid: a03e492ab62b09746969667ca24b075b,
-    type: 2}
+  variantSpawnCondition: {fileID: 0}
   arrivalToken: TO30_FLAMETHROWER_ARRIVAL
   variantInventory: {fileID: 11400000, guid: 12e7829aa02248f49ba51ee9280ddeb0, type: 2}
   deathStateOverride:
     _typeName: 
-  skillReplacements:
-  - skillDef: {fileID: 11400000, guid: b7e9492b0103aee43a8a519cbbfd472f, type: 2}
-    skillSlot: 0
+  skillReplacements: []
   healthMultiplier: 1
   regenBonus: 0
   regenMultiplier: 1
@@ -40,6 +37,6 @@ MonoBehaviour:
   sizeModifier: {fileID: 0}
   aiModifier: 0
   nameOverrides:
-  - token: TO30_PREFIX_FLAMETHROWER
+  - token: TO30_FLAMETHROWER_PREFIX
     overrideType: 0
   componentProviders: []

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Name: InfernalWispVisual
+  m_EditorClassIdentifier: 
+  materialReplacements:
+  - rendererIndex: 0
+    material: {fileID: 2100000, guid: 50e34f6dc89659c41b0d7557dc44e2bb, type: 2}
+  - rendererIndex: 1
+    material: {fileID: 2100000, guid: 7cc6c76bae25e3b4f9a685f177c742c8, type: 2}
+  lightReplacements:
+  - rendererIndex: 0
+    color:
+      serializedVersion: 2
+      rgba: 16723200
+    lightType: 2
+  meshReplacements: []

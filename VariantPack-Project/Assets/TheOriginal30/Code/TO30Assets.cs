@@ -19,6 +19,8 @@ namespace TO30
         {
             var bundlePath = Path.Combine(AssemblyDir, "assetbundles", "to30assets");
             _assetBundle = AssetBundle.LoadFromFile(bundlePath);
+
+            FinalizeMaterialsWithAddressableMaterialShader(_assetBundle);
         }
     }
 }
