@@ -27,7 +27,7 @@ MonoBehaviour:
       address: Behemoth
       useDirectReference: 0
       asset: {fileID: 0}
-    amount: 3
+    amount: 2
   buffInfos: []
   equipmentInfo:
     equipmentDef:

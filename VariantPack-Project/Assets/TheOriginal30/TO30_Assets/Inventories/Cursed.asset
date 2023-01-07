@@ -17,7 +17,7 @@ MonoBehaviour:
       address: IceRing
       useDirectReference: 0
       asset: {fileID: 0}
-    amount: 2
+    amount: 1
   - itemDef:
       address: SprintOutOfCombat
       useDirectReference: 0

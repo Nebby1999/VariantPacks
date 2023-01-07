@@ -29,9 +29,9 @@ MonoBehaviour:
   shieldBonus: 0
   shieldMultiplier: 1
   moveSpeedMultiplier: 3
-  attackSpeedMultiplier: 2
-  damageMultiplier: 4
-  armorBonus: -10
+  attackSpeedMultiplier: 0.75
+  damageMultiplier: 3
+  armorBonus: -25
   armorMultiplier: 1
   visualModifier: {fileID: 0}
   sizeModifier: {fileID: 0}

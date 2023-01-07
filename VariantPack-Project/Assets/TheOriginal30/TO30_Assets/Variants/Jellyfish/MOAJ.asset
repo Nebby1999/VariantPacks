@@ -33,7 +33,7 @@ MonoBehaviour:
   shieldMultiplier: 1
   moveSpeedMultiplier: 0.4
   attackSpeedMultiplier: 1
-  damageMultiplier: 1
+  damageMultiplier: 2
   armorBonus: 80
   armorMultiplier: 1
   visualModifier: {fileID: 11400000, guid: e6a596a9d2d44c9409e0ddb1a21c8abb, type: 2}
