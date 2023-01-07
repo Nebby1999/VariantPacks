@@ -49,11 +49,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git#2.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0cc7df84eb2db65137958200aa29dc32ed9c228e"
+      "hash": "ad03ae708c84018a4ec4ab5bc18e390f8990239e"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",

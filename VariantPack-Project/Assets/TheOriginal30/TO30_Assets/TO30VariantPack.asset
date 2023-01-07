@@ -15,7 +15,6 @@ MonoBehaviour:
   nameToken: TO30_VARIANTPACK_NAME
   tooltipToken: TO30_VARIANTPACK_TOOLTIP
   descriptionToken: TO30_VARIANTPACK_DESC
-  packEnabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  packDisabledIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  packEnabledIcon: {fileID: 21300000, guid: 4255f941d6a9b0b4888f538e79fee52b, type: 3}
   variantTiers: []
   variants: []

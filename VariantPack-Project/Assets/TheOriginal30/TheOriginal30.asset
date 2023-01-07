@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPath>
-  files: []
+  files:
+  - {fileID: 2800000, guid: bb0bc82f1090aad4a9d08624f355736c, type: 3}
+  - {fileID: 4900000, guid: d81c72ed55517554586a2fcf8bef9218, type: 3}
+  - {fileID: 4900000, guid: 10765ac6fd88e214d8df13b3d11a44f1, type: 3}
 --- !u!114 &-3892906877110538616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPath>
-  url: 
+  url: https://github.com/Nebby1999/VariantPacks/tree/Main/VariantPack-Project/Assets/TheOriginal30
