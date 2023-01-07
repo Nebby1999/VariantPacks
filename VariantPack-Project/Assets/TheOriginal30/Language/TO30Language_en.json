@@ -1,57 +1,59 @@
 {
-    "strings" : {
-        "TO30_ARMORED_PREFIX" : "Armored",
-        "TO30_BATTLE_PREFIX" : "Battle",
-        "TO30_SPEEDY_PREFIX" : "Speedy",
-        "TO30_TOXIC_PREFIX" : "Toxic",
-        "TO30_TOXICBEETLE_ARRIVAL" : "A stench emmanates from the ground...",
+  "strings": {
+    "TO30_VARIANTPACK_NAME": "The Original Thirty",
+    "TO30_VARIANTPACK_DESC":  "The original thirty Variants developed by Rob. Experience the first creatures that made your runs a living hell.",
+    "TO30_ARMORED_PREFIX": "Armored",
+    "TO30_BATTLE_PREFIX": "Battle",
+    "TO30_SPEEDY_PREFIX": "Speedy",
+    "TO30_TOXIC_PREFIX": "Toxic",
+    "TO30_TOXICBEETLE_ARRIVAL": "A stench emmanates from the ground...",
 
-        "TO30_BRUTE_SUFFIX" : "Brute",
-        "TO30_SHARPSHOOTER_SUFFIX" : "Sharpshooter",
+    "TO30_BRUTE_SUFFIX": "Brute",
+    "TO30_SHARPSHOOTER_SUFFIX": "Sharpshooter",
 
-        "TO30_ALBINO_PREFIX" : "Albino",
+    "TO30_ALBINO_PREFIX": "Albino",
 
-        "TO30_FUCKING_PREFIX" : "Fucking",
+    "TO30_FUCKING_PREFIX": "Fucking",
 
-        "TO30_MOLTEN_PREFIX" : "Molten",
+    "TO30_MOLTEN_PREFIX": "Molten",
 
-        "TO30_FULLAUTO_PREFIX" : "Full-Auto",
-        "TO30_FULLAUTO_ARRIVAL" : "A highpitched laser breaks the silence...",
-        "TO30_OVERCHARGED_PREFIX" : "Overcharged",
-        "TO30_RUSH_PREFIX" : "Rush",
-        "TO30_RUSHGOLEM_ARRIVAL" : "Gold nuggets join together...",
-        "TO30_TITANISH_PREFIX" : "Titan-ish",
+    "TO30_FULLAUTO_PREFIX": "Full-Auto",
+    "TO30_FULLAUTO_ARRIVAL": "A highpitched laser breaks the silence...",
+    "TO30_OVERCHARGED_PREFIX": "Overcharged",
+    "TO30_RUSH_PREFIX": "Rush",
+    "TO30_RUSHGOLEM_ARRIVAL": "Gold nuggets join together...",
+    "TO30_TITANISH_PREFIX": "Titan-ish",
 
-        "TO30_GREATEST_PREFIX" : "Greatest",
-        "TO30_GREATESTWISP_ARRIVAL" : "The air burns around you...",
+    "TO30_GREATEST_PREFIX": "Greatest",
+    "TO30_GREATESTWISP_ARRIVAL": "The air burns around you...",
 
-        "TO30_CLOTTED_PREFIX" : "Clotted",
+    "TO30_CLOTTED_PREFIX": "Clotted",
 
-        "TO30_CURSED_PREFIX" : "Cursed",
-        "TO30_CURSED_ARRIVAL" : "A looming cursed presence goes towards you...",
-        "TO30_MOAJ_PREFIX" : "Mother of All",
-        "TO30_MOAJ_ARRIVAL" : "A beeping noise slowly becomes stronger...",
-        "TO30_NUCLEAR_PREFIX" : "Nuclear",
-        "TO30_SPECTRAL_PREFIX" : "Spectral",
-        "TO30_SPECTRALJELLYFISH_ARRIVAL" : "Ectoplasm amalgamates near you...",
+    "TO30_CURSED_PREFIX": "Cursed",
+    "TO30_CURSED_ARRIVAL": "A looming cursed presence goes towards you...",
+    "TO30_MOAJ_PREFIX": "Mother of All",
+    "TO30_MOAJ_ARRIVAL": "A beeping noise slowly becomes stronger...",
+    "TO30_NUCLEAR_PREFIX": "Nuclear",
+    "TO30_SPECTRAL_PREFIX": "Spectral",
+    "TO30_SPECTRALJELLYFISH_ARRIVAL": "Ectoplasm amalgamates near you...",
 
-        "TO30_BADASS_PREFIX" : "Badass",
-        "TO30_FLAMETHROWER_PREFIX" : "Flamethrower",
-        "TO30_FLAMETHROWER_ARRIVAL" : "Fireballs erupt from a hole...",
+    "TO30_BADASS_PREFIX": "Badass",
+    "TO30_FLAMETHROWER_PREFIX": "Flamethrower",
+    "TO30_FLAMETHROWER_ARRIVAL": "Fireballs erupt from a hole...",
 
-        "TO30_ALMOSTGREAT_PREFIX" : "Almost-Great",
-        "TO30_INFERNAL_PREFIX" : "Infernal",
-        "TO30_INFERNALWISP_ARRIVAL" : "An infernal mask appears...",
+    "TO30_ALMOSTGREAT_PREFIX": "Almost-Great",
+    "TO30_INFERNAL_PREFIX": "Infernal",
+    "TO30_INFERNALWISP_ARRIVAL": "An infernal mask appears...",
 
-        "TO30_DREAM_PREFIX" : "Dream",
+    "TO30_DREAM_PREFIX": "Dream",
 
-        "TO30_COLOSSAL_SUFFIX" : "Colosus",
-        "TO30_PYGMY_PREFIX" : "Pygmy",
+    "TO30_COLOSSAL_SUFFIX": "Colosus",
+    "TO30_PYGMY_PREFIX": "Pygmy",
 
-        "TO30_DEAGLE_SUFFIX" : "With a fucking gun!",
-        "TO30_ALLOYDEAGLE_ARRIVAL" : "Gun blasts can be heard in the sky...",
-        "TO30_ARTILLERY_PREFIX" : "Artillery",
+    "TO30_DEAGLE_SUFFIX": "With a fucking gun!",
+    "TO30_ALLOYDEAGLE_ARRIVAL": "Gun blasts can be heard in the sky...",
+    "TO30_ARTILLERY_PREFIX": "Artillery",
 
-        "TO30_UNSTABLE_PREFIX" : "Unstable"
-    }
+    "TO30_UNSTABLE_PREFIX": "Unstable"
+  }
 }

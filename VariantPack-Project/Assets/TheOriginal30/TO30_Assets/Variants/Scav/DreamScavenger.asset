@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
   m_Name: DreamScavenger
   m_EditorClassIdentifier: 
-  bodyName: ScavBoddy
+  bodyName: ScavBody
   variantTier: 0
   variantTierDef: {fileID: 0}
   isUnique: 0

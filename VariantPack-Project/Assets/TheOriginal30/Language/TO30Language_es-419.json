@@ -1,57 +1,59 @@
 {
-    "strings" : {
-        "TO30_ARMORED_PREFIX" : "(Blindado)",
-        "TO30_BATTLE_PREFIX" : "(Batallante)",
-        "TO30_SPEEDY_PREFIX" : "(Veloz)",
-        "TO30_TOXIC_PREFIX" : "(Tóxico)",
-        "TO30_TOXICBEETLE_ARRIVAL" : "Un hedor emana del suelo...",
+  "strings": {
+    "TO30_VARIANTPACK_NAME": "Los Treinta Originales",
+    "TO30_VARIANTPACK_DESC":  "Los Treinta variantes originales creados por Rob. Experimenta las primeras criaturas que hicieron tus partidas un infierno.",
+    "TO30_ARMORED_PREFIX": "(Blindado)",
+    "TO30_BATTLE_PREFIX": "(Batallante)",
+    "TO30_SPEEDY_PREFIX": "(Veloz)",
+    "TO30_TOXIC_PREFIX": "(Tóxico)",
+    "TO30_TOXICBEETLE_ARRIVAL": "Un hedor emana del suelo...",
 
-        "TO30_BRUTE_SUFFIX" : "Bruto",
-        "TO30_SHARPSHOOTER_SUFFIX" : "Tirador de primera",
+    "TO30_BRUTE_SUFFIX": "Bruto",
+    "TO30_SHARPSHOOTER_SUFFIX": "Tirador de primera",
 
-        "TO30_ALBINO_PREFIX" : "(Albino)",
+    "TO30_ALBINO_PREFIX": "(Albino)",
 
-        "TO30_FUCKING_PREFIX" : "(Hijo de Puta)",
+    "TO30_FUCKING_PREFIX": "(Hijo de Puta)",
 
-        "TO30_MOLTEN_PREFIX" : "(Derretido)",
+    "TO30_MOLTEN_PREFIX": "(Derretido)",
 
-        "TO30_FULLAUTO_PREFIX" : "(Completamente Automatico)",
-        "TO30_FULLAUTO_ARRIVAL" : "Un laser agudo rompe el silencio...",
-        "TO30_OVERCHARGED_PREFIX" : "(Sobrecargado)",
-        "TO30_RUSH_PREFIX" : "(Prisa)",
-        "TO30_RUSHGOLEM_ARRIVAL" : "Trozos de oro se ensamblan cerca...",
-        "TO30_TITANISH_PREFIX" : "(Algo Titanico)",
+    "TO30_FULLAUTO_PREFIX": "(Completamente Automatico)",
+    "TO30_FULLAUTO_ARRIVAL": "Un laser agudo rompe el silencio...",
+    "TO30_OVERCHARGED_PREFIX": "(Sobrecargado)",
+    "TO30_RUSH_PREFIX": "(Prisa)",
+    "TO30_RUSHGOLEM_ARRIVAL": "Trozos de oro se ensamblan cerca...",
+    "TO30_TITANISH_PREFIX": "(Algo Titanico)",
 
-        "TO30_GREATEST_PREFIX" : "(Grandioso)",
-        "TO30_GREATESTWISP_ARRIVAL" : "El aire empieza a quemar...",
+    "TO30_GREATEST_PREFIX": "(Grandioso)",
+    "TO30_GREATESTWISP_ARRIVAL": "El aire empieza a quemar...",
 
-        "TO30_CLOTTED_PREFIX" : "(Coagulado)",
+    "TO30_CLOTTED_PREFIX": "(Coagulado)",
 
-        "TO30_CURSED_PREFIX" : "(Maldito)",
-        "TO30_CURSED_ARRIVAL" : "Una precencia maldita se acerca hacia ti...",
-        "TO30_MOAJ_PREFIX" : "(Madre de todas las medusas)",
-        "TO30_MOAJ_ARRIVAL" : "Unos pitidos se vuelven mas fuertes...",
-        "TO30_NUCLEAR_PREFIX" : "(Nuclear)",
-        "TO30_SPECTRAL_PREFIX" : "(Espectral)",
-        "TO30_SPECTRALJELLYFISH_ARRIVAL" : "Ectoplasma se aglomera cerca de ti...",
+    "TO30_CURSED_PREFIX": "(Maldito)",
+    "TO30_CURSED_ARRIVAL": "Una precencia maldita se acerca hacia ti...",
+    "TO30_MOAJ_PREFIX": "(Madre de todas las medusas)",
+    "TO30_MOAJ_ARRIVAL": "Unos pitidos se vuelven mas fuertes...",
+    "TO30_NUCLEAR_PREFIX": "(Nuclear)",
+    "TO30_SPECTRAL_PREFIX": "(Espectral)",
+    "TO30_SPECTRALJELLYFISH_ARRIVAL": "Ectoplasma se aglomera cerca de ti...",
 
-        "TO30_BADASS_PREFIX" : "(Genial)",
-        "TO30_FLAMETHROWER_PREFIX" : "(Lanzallamas)",
-        "TO30_FLAMETHROWER_ARRIVAL" : "Llamas eruptan desde un agujero...",
-        
-        "TO30_ALMOSTGREAT_PREFIX" : "(Casi grandioso)",
-        "TO30_INFERNAL_PREFIX" : "(Infernal)",
-        "TO30_INFERNALWISP_ARRIVAL" : "Una mascara infernal aparece...",
+    "TO30_BADASS_PREFIX": "(Genial)",
+    "TO30_FLAMETHROWER_PREFIX": "(Lanzallamas)",
+    "TO30_FLAMETHROWER_ARRIVAL": "Llamas eruptan desde un agujero...",
 
-        "TO30_DREAM_PREFIX" : "(Soñador)",
+    "TO30_ALMOSTGREAT_PREFIX": "(Casi grandioso)",
+    "TO30_INFERNAL_PREFIX": "(Infernal)",
+    "TO30_INFERNALWISP_ARRIVAL": "Una mascara infernal aparece...",
 
-        "TO30_COLOSSAL_SUFFIX" : "Colosal",
-        "TO30_PYGMY_PREFIX" : "Pigmeo",
+    "TO30_DREAM_PREFIX": "(Dream)",
 
-        "TO30_DEAGLE_SUFFIX" : "Con una puta pistola!",
-        "TO30_ALLOYDEAGLE_ARRIVAL" : "Disparos se pueden escuchar desde el cielo...",
-        "TO30_ARTILLERY_PREFIX" : "(Artilleria)",
+    "TO30_COLOSSAL_SUFFIX": "Colosal",
+    "TO30_PYGMY_PREFIX": "Pigmeo",
 
-        "TO30_UNSTABLE_PREFIX" : "(Inestable)"
-    }
+    "TO30_DEAGLE_SUFFIX": "Con una puta pistola!",
+    "TO30_ALLOYDEAGLE_ARRIVAL": "Disparos se pueden escuchar desde el cielo...",
+    "TO30_ARTILLERY_PREFIX": "(Artilleria)",
+
+    "TO30_UNSTABLE_PREFIX": "(Inestable)"
+  }
 }
