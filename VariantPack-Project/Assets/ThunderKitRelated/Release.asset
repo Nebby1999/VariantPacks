@@ -46,12 +46,27 @@ MonoBehaviour:
   m_Name: Release
   m_EditorClassIdentifier: 
   Data:
+  - {fileID: 1895634176119660458}
   - {fileID: 2795398002312913296}
   - {fileID: 3526975474243183003}
   - {fileID: -640416070249004058}
   - {fileID: -4598038704487222675}
   QuickAccess: 0
   manifest: {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
+--- !u!114 &1895634176119660458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba11a23eb01c7a4aa61a8ab800c27dd, type: 3}
+  m_Name: ChangeAssemblyBuildMode
+  m_EditorClassIdentifier: 
+  Active: 1
+  buildMode: 1
 --- !u!114 &2795398002312913296
 MonoBehaviour:
   m_ObjectHideFlags: 0

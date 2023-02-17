@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9057f7f601990a4883b2cb295c4f43e, type: 3}
   m_Name: ThunderKitSettings
   m_EditorClassIdentifier: 
-  FirstLoad: 0
+  FirstLoad: 1
   ShowOnStartup: 1
   notifyWhenImportCompletes: 1
   GameExecutable: Risk of Rain 2.exe
@@ -29,5 +29,6 @@ MonoBehaviour:
   QuickAccessManifests:
   - {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
   - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
+  - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
   ImportConfiguration: {fileID: 11400000, guid: a6a984f0d80b4ea4ca1f53fe47c9a0e7,
     type: 2}
