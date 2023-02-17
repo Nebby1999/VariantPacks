@@ -32,6 +32,7 @@ MonoBehaviour:
   ListType: 1
   Manifests:
   - {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
+  - {fileID: 11400000, guid: 36f8f2fd117d48d4fb7de4e79d74e18c, type: 2}
   - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
   - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
   StrictDictionaryReplace: 1
@@ -57,7 +58,7 @@ MonoBehaviour:
   - {fileID: -3576180096776599551}
   - {fileID: -216652644370084839}
   QuickAccess: 1
-  manifest: {fileID: 11400000, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
+  manifest: {fileID: 11400000, guid: 36f8f2fd117d48d4fb7de4e79d74e18c, type: 2}
 --- !u!114 &5687208594599059348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,4 +72,4 @@ MonoBehaviour:
   m_Name: ChangeAssemblyBuildMode
   m_EditorClassIdentifier: 
   Active: 1
-  buildMode: 1
+  buildMode: 0

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: AlphaBison
+  m_EditorClassIdentifier: 
+  bodyName: BisonBody
+  variantTier: 1
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 5
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 11400000, guid: 989cc4f3783b777409adea2e3ff46f0a, type: 2}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements: []
+  healthMultiplier: 1.3
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 2
+  damageMultiplier: 1
+  armorBonus: 10
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: 9f2033fecbb330c47a164ca1844d6402, type: 2}
+  sizeModifier: {fileID: 11400000, guid: e168b346aebb0dd4a82721197f81ed5a, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_ALPHA_PREFIX
+    overrideType: 0
+  componentProviders: []

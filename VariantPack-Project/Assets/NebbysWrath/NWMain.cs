@@ -25,25 +25,24 @@ namespace NW
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInDependency(VAPI.VAPIMain.GUID)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
-    public class TO30Main : BaseUnityPlugin
+    public class NWMain : BaseUnityPlugin
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
         public const string VERSION = "2.0.1";
 
-        public static TO30Main Instance { get; private set; }
+        public static NWMain Instance { get; private set; }
         private void Awake()
         {
             Instance = this;
-            /*new Log(Logger);
-            new TO30Config().Init();
-            new TO30Assets().Init();
-            new TO30Lang().Init();
-            new TO30Content().Init();*/
+            new Log(Logger);
+            new NWConfig().Init();
+            new NWAssets().Init();
+            new NWLang().Init();
+            new NWContent().Init();
 
             ConfigurableFieldManager.AddMod(this);
-
-            RoR2Application.onLoad += AddSpectralSummons;
+            //RoR2Application.onLoad += AddSpectralSummons;
         }
 
         private void AddSpectralSummons()

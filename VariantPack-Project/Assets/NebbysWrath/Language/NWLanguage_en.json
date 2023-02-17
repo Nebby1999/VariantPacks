@@ -1,4 +1,25 @@
 {
   "strings": {
+    "NW_ENRAGED_PREFIX": "Enraged",
+    "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
+
+    "NW_STONE_PREFIX": "Stone",
+    "NW_ARCHAICSTONEWISP_ARRIVAL": "The archaic energies from the earth accumulate...",
+    "NW_AEONIC_PREFIX": "Aeonic",
+    "NW_SOMEWHATARCHAIC_PREFIX": "Somewhat-Archaic",
+
+    "NW_ANCIENT_PREFIX": "Ancient",
+    "NW_ENORMOUS_PREFIX": "Enormous",
+    "NW_PYGMY_PREFIX": "Pygmy",
+
+    "NW_MALFUNCTIONING_PREFIX": "Malfunctioning",
+    "NW_SWARMING_PREFIX": "Swarming",
+
+    "NW_EMPRESS_SUFFIX": "Imperatrix",
+    "NW_MATRIARCH_PREFIX": "Matriarchal",
+
+    "NW_ALPHA_PREFIX": "Alpha",
+
+    "NW_SWARMER_PREFIX": "Swarmer"
   }
 }
