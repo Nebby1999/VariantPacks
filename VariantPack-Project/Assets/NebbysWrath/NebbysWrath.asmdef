@@ -1,0 +1,37 @@
+{
+    "name": "NebbysWrath",
+    "references": [
+        "com.unity.multiplayer-hlapi.Runtime",
+        "VarianceAPI",
+        "MoonstormSharedUtils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "HGCSharpUtils.dll",
+        "HGUnityUtils.dll",
+        "KinematicCharacterController.dll",
+        "MMHOOK_RoR2.dll",
+        "Newtonsoft.Json.dll",
+        "RoR2.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll",
+        "Wwise.dll",
+        "R2API.ArtifactCode.dll",
+        "R2API.Colors.dll",
+        "R2API.ContentManagement.dll",
+        "R2API.Core.dll",
+        "R2API.DamageType.dll",
+        "R2API.Director.dll",
+        "R2API.Elites.dll",
+        "R2API.RecalculateStats.dll",
+        "R2API.Prefab.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

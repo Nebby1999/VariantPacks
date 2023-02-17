@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPath>
-  files: []
+  files:
+  - {fileID: 2800000, guid: bb0bc82f1090aad4a9d08624f355736c, type: 3}
+  - {fileID: 4900000, guid: 33b8d66db1da0274fb404291640ddf2e, type: 3}
+  - {fileID: 4900000, guid: 473978a723ce7c54ba8a6034296fb2b3, type: 3}
 --- !u!114 &-3892906877110538616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,10 +32,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPathPlugins>
-  rootFolderName: MyLang
+  rootFolderName: NWLang
   languageFolders:
   - languageName: en
-    languageFiles: []
+    languageFiles:
+    - {fileID: 4900000, guid: 88d8fdd73324e5047b28d3c9524e8059, type: 3}
+  - languageName: es-459
+    languageFiles:
+    - {fileID: 4900000, guid: 79fd57a8ee445ef41ad507e5ed05d63b, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,7 +50,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
-  m_Name: Manifest
+  m_Name: NebbysWrath
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 114211852988908172}
@@ -54,7 +61,7 @@ MonoBehaviour:
   - {fileID: 8324102109481770816}
   - {fileID: -4467616490986340797}
   identity: {fileID: 114211852988908172}
-  QuickAccess: 0
+  QuickAccess: 1
 --- !u!114 &114107831304456238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,7 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPathPlugins>
-  definitions: []
+  definitions:
+  - {fileID: 5897886265953266890, guid: 6f53debbbfad69a4eae8377808fbc919, type: 3}
 --- !u!114 &114211852988908172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,10 +94,11 @@ MonoBehaviour:
   - <ManifestPluginStaging>
   Author: Nebby
   Name: VariantPack_NebbysWrath
-  Description: 
-  Version: 0.0.0
+  Description: Variants from MonsterVariantsPlus, Ported to VarianceAPI.
+  Version: 2.0.0
   Dependencies:
-  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
+  - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
+  - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPathAssets>
-  assetBundles: []
+  assetBundles:
+  - assetBundleName: nwassets
+    assets:
+    - {fileID: 102900000, guid: 86ad9be264a69544c9fd5e86e307c3ca, type: 3}
 --- !u!114 &114987763159783732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,4 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPath>
-  url: 
+  url: https://github.com/Nebby1999/VariantPacks/tree/Main/VariantPack-Project/Assets/NebbysWrath
