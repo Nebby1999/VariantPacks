@@ -27,7 +27,7 @@ The Original 30 (Abreviated as "TO30") is a port of Rob's origiginal Variants fr
 | Jellyfish | Nuclear Jellyfish | Reduced movement speed, bigger nova radius and inflicts Weakness |
 | Jellyfish | Spectral Jellyfish | Spawns a random lesser variant on death |
 | Lemurian | Badass Lemurian | Has a Rocket Launcher |
-| Lemurian | Flamethrower Lemurian | Greatly increased attack speed, Cannot bite |
+| Lemurian | Flamethrower Lemurian | Fireballs replaced by a constant, long range Flamethrower, Cannot bite |
 | Lesser Wisp | Almost Greater Wisp | Increased health, fires Greater Wisp Fireballs |
 | Lesser Wisp | Infernal Wisp | Reduced Attack and Movement speed,  guaranteed crit alongside explosive attacks|
 | Scavenger | Dream Scavenger | Always pulls out red items |

@@ -29,7 +29,7 @@ namespace TO30
     {
         public const string GUID = "com.Nebby.TO30";
         public const string MODNAME = "The Original 30";
-        public const string VERSION = "2.0.0";
+        public const string VERSION = "2.0.1";
 
         public static TO30Main Instance { get; private set; }
         private void Awake()

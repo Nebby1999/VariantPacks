@@ -15,6 +15,7 @@ namespace TO30
         public override AssetBundle MainAssetBundle => _assetBundle;
         private AssetBundle _assetBundle;
 
+        private static List<Material> modifiedAddressableMaterials = new List<Material>();
         internal void Init()
         {
             var bundlePath = Path.Combine(AssemblyDir, "assetbundles", "to30assets");

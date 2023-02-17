@@ -26,15 +26,27 @@ namespace TO30
         }
         internal static void Info(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
-                logger.LogInfo(data);
+#if DEBUG
+            logger.LogInfo(logString(data, i, member));
+#else
+            logger.LogInfo(data);
+#endif
         }
         internal static void Message(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
-                logger.LogMessage(data);
+#if DEBUG
+            logger.LogMessage(logString(data, i, member));
+#else
+            logger.LogMessage(data);
+#endif
         }
         internal static void Warning(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
-                logger.LogWarning(data);
+#if DEBUG
+            logger.LogMessage(logString(data, i, member));
+#else
+            logger.LogWarning(data);
+#endif
         }
 
         private static string logString(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")

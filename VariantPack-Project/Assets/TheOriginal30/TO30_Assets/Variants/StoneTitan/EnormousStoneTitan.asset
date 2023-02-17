@@ -39,8 +39,4 @@ MonoBehaviour:
   nameOverrides:
   - token: TO30_ENORMOUS_SUFFIX
     overrideType: 0
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: TO30.Components.ModifyPrintController, TheOriginal30,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    attachmentType: 2
+  componentProviders: []

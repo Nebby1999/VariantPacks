@@ -1,4 +1,14 @@
 # Changelog
+
+## '2.0.1'
+* Now dependant on PrefabAPI
+* Fixed naming issues on Enormous stone titan
+* Fixed incompatibility with MinCooldownAdjuster
+* Flamethrower Lemurian now properly shows its custom material
+* Flamethrower Lemurian now fires an actual Flamethrower instead of a barrage of fireballs
+* Fixed issue where Titanish Golems wouldn't display properly
+* Fixed issue where Titanish Golems wouldn't display their proper naming prefix
+
 ## '2.0.0'
 * Updated to Survivors of the Void
 * Updated to use VAPI 2.0.0

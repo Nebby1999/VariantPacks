@@ -39,4 +39,8 @@ MonoBehaviour:
   nameOverrides:
   - token: TO30_TITANISH_PREFIX
     overrideType: 0
-  componentProviders: []
+  componentProviders:
+  - componentToAdd:
+      assemblyQualifiedName: TO30.Components.ModifyPrintController, TheOriginal30,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 2
