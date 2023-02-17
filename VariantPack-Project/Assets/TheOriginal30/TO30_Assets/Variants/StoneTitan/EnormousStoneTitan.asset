@@ -37,6 +37,10 @@ MonoBehaviour:
   sizeModifier: {fileID: 11400000, guid: 4539723a9885fba458d4936afce3efba, type: 2}
   aiModifier: 0
   nameOverrides:
-  - token: TO30_COLOSSAL_SUFFIX
-    overrideType: 1
-  componentProviders: []
+  - token: TO30_ENORMOUS_SUFFIX
+    overrideType: 0
+  componentProviders:
+  - componentToAdd:
+      assemblyQualifiedName: TO30.Components.ModifyPrintController, TheOriginal30,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 2

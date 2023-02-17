@@ -23,6 +23,8 @@ MonoBehaviour:
   deathStateOverride:
     _typeName: 
   skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 42d1e535e26ec9447b255d3e6a649f46, type: 2}
+    skillSlot: 0
   - skillDef: {fileID: 0}
     skillSlot: 1
   healthMultiplier: 1

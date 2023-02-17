@@ -37,6 +37,6 @@ MonoBehaviour:
   sizeModifier: {fileID: 11400000, guid: 033e1d091785f7c498538e4c1bc2145a, type: 2}
   aiModifier: 0
   nameOverrides:
-  - token: TO30_TITANISH_PEFIX
+  - token: TO30_TITANISH_PREFIX
     overrideType: 0
   componentProviders: []

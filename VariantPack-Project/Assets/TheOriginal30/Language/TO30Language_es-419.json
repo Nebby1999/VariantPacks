@@ -1,7 +1,7 @@
 {
   "strings": {
     "TO30_VARIANTPACK_NAME": "Los Treinta Originales",
-    "TO30_VARIANTPACK_DESC":  "Los Treinta variantes originales creados por Rob. Experimenta las primeras criaturas que hicieron tus partidas un infierno.",
+    "TO30_VARIANTPACK_DESC": "Los Treinta variantes originales creados por Rob. Experimenta las primeras criaturas que hicieron tus partidas un infierno.",
     "TO30_ARMORED_PREFIX": "(Blindado)",
     "TO30_BATTLE_PREFIX": "(Batallante)",
     "TO30_SPEEDY_PREFIX": "(Veloz)",
@@ -22,7 +22,7 @@
     "TO30_OVERCHARGED_PREFIX": "(Sobrecargado)",
     "TO30_RUSH_PREFIX": "(Prisa)",
     "TO30_RUSHGOLEM_ARRIVAL": "Trozos de oro se ensamblan cerca...",
-    "TO30_TITANISH_PREFIX": "(Algo Titanico)",
+    "TO30_TITANISH_PREFIX": "(Algo-Titanico)",
 
     "TO30_GREATEST_PREFIX": "(Grandioso)",
     "TO30_GREATESTWISP_ARRIVAL": "El aire empieza a quemar...",
@@ -47,7 +47,7 @@
 
     "TO30_DREAM_PREFIX": "(Dream)",
 
-    "TO30_COLOSSAL_SUFFIX": "Colosal",
+    "TO30_ENORMOUS_SUFFIX": "(Enorme)",
     "TO30_PYGMY_PREFIX": "Pigmeo",
 
     "TO30_DEAGLE_SUFFIX": "Con una puta pistola!",
