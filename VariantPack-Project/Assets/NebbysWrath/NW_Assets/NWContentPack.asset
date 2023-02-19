@@ -19,7 +19,8 @@ MonoBehaviour:
   effectPrefabs: []
   networkedObjectPrefabs: []
   skillDefs: []
-  skillFamilies: []
+  skillFamilies:
+  - {fileID: 11400000, guid: abc8794a50556c340af1834a66654e3d, type: 2}
   sceneDefs: []
   itemDefs: []
   itemTierDefs: []

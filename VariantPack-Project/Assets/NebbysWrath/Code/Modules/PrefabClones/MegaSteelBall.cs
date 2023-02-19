@@ -23,7 +23,7 @@ namespace NW.Modules.PrefabClones
 
             ProjectilePrefab.transform.localScale *= 4;
             ProjectileController controller = ProjectilePrefab.GetComponent<ProjectileController>();
-            var ghostPrefab = R2API.PrefabAPI.InstantiateClone(controller.ghostPrefab, "SteelBallGhost");
+            var ghostPrefab = R2API.PrefabAPI.InstantiateClone(controller.ghostPrefab, "SteelBallGhost", false);
             ghostPrefab.transform.localScale *= 4;
             ghostPrefab.GetComponentInChildren<MeshRenderer>().material = steelContraptionMat;
             controller.ghostPrefab = ghostPrefab;

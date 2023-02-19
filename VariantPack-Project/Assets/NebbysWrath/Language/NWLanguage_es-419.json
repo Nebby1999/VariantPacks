@@ -20,6 +20,27 @@
 
     "NW_ALPHA_PREFIX": "(Alfa)",
 
+    "NW_ALUMINUM_PREFIX": "(Aluminio)",
+    "NW_STEEL_PREFIX": "(Acero)",
+
+    "NW_DEVOURER_PREFIX": "(Devorador)",
+    "NW_STARVING_PREFIX": "(Hambriento)",
+
+    "NW_ASSASSIN_PREFIX": "(Asesino)",
+    "NW_SOLDIER_SUFFIX": "Soldado",
+
+    "NW_VAMPIRIC_PREFIX": "(Vampirico)",
+
+    "NW_KJARO_ARRIVAL": "El fantasma de Kjaro aparece con sed de venganza!",
+    "NW_KJARO_OVERRIDE": "Fantasma de Kjaro",
+    "NW_RUNALD_ARRIVAL": "El fantasma de Runald aparece con sed de venganza!",
+    "NW_RUNALD_OVERRIDE": "Fantasma de Runald",
+    "NW_INCINERATING_ARRIVAL": "El suelo se calienta tras la llegada de un Elder Lemurian...",
+    "NW_INCINERATING_PREFIX": "(Incinerador)",
+
+    "NW_GREATER_PREFIX": "(Gigante Rojo)",
+    "NW_SUNWORSHIPPING_PREFIX": "Heliolatrico",
+
     "NW_SWARMER_PREFIX": "(Enjambroso)"
   }
 }

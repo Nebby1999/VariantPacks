@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: IncineratingElderLemurian
+  m_EditorClassIdentifier: 
+  bodyName: LemurianBruiserBody
+  variantTier: 2
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 3
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: NW_INCINERATING_ARRIVAL
+  variantInventory: {fileID: 11400000, guid: 989cc4f3783b777409adea2e3ff46f0a, type: 2}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: cc91606bd5c49e243b5121201a02e7db, type: 2}
+    skillSlot: 0
+  - skillDef: {fileID: 11400000, guid: 6fbfa3b5ece32b44e90913a7b068458c, type: 2}
+    skillSlot: 1
+  healthMultiplier: 1
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 30
+  damageMultiplier: 1
+  armorBonus: 0
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: c940436d11eef124387cd01e3347e178, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 9e709552d6239dc4b8170bc0007fd02f, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_INCINERATING_PREFIX
+    overrideType: 0
+  componentProviders:
+  - componentToAdd:
+      assemblyQualifiedName: NW.Components.AddFlames, NebbysWrath, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attachmentType: 2

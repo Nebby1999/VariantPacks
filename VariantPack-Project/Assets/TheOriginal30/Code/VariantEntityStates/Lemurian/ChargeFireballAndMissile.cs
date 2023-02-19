@@ -21,7 +21,9 @@ namespace EntityStates.LemurianMonster.Badass
 
         public override void OnEnter()
         {
+            baseDuration = ChargeFireball.baseDuration;
             chargeVfxPrefab = ChargeFireball.chargeVfxPrefab;
+            attackString = ChargeFireball.attackString;
             base.OnEnter();
             duration = baseDuration / attackSpeedStat;
             GetModelAnimator();

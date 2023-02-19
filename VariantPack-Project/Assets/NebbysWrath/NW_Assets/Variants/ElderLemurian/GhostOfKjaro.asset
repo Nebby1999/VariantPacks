@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: GhostOfKjaro
+  m_EditorClassIdentifier: 
+  bodyName: LemurianBruiserBody
+  variantTier: 3
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 1
+  variantSpawnCondition: {fileID: 11400000, guid: 0e923aecbc4b31e448989af09ca2a5f3,
+    type: 2}
+  arrivalToken: NW_KJARO_ARRIVAL
+  variantInventory: {fileID: 11400000, guid: 9792d81803729db418f67a8bd16d9f0a, type: 2}
+  deathStateOverride:
+    _typeName: EntityStates.LemurianBruiserMonster.GhostBrother.BrotherDeath, NebbysWrath,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  skillReplacements: []
+  healthMultiplier: 6
+  regenBonus: 1
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 1.25
+  damageMultiplier: 3
+  armorBonus: 50
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: 22bb6dd4706610448865bdcc846a53ab, type: 2}
+  sizeModifier: {fileID: 11400000, guid: e168b346aebb0dd4a82721197f81ed5a, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_KJARO_OVERRIDE
+    overrideType: 2
+  componentProviders:
+  - componentToAdd:
+      assemblyQualifiedName: NW.Components.SetupBrotherGenericSkill, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 0
+  - componentToAdd:
+      assemblyQualifiedName: NW.Components.SetupBrotherAISkillDriver, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 1

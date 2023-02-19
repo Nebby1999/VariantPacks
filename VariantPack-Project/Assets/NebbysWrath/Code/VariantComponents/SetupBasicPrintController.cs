@@ -19,6 +19,7 @@ namespace NW.Components
             printController.printTime = 1;
             printController.startingPrintHeight = -2f;
             printController.printCurve = basicCurve.value;
+            Destroy(this);
         }
     }
 }

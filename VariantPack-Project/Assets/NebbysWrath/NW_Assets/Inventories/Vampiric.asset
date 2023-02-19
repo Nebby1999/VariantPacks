@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc4ed0f2a5be0242b676b826bc2c11f, type: 3}
+  m_Name: Vampiric
+  m_EditorClassIdentifier: 
+  itemInventory:
+  - itemDef:
+      address: BarrierOnOverHeal
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 3
+  - itemDef:
+      address: HealOnCrit
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 20
+  - itemDef:
+      address: Plus1Crit
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 100
+  - itemDef:
+      address: IncreaseHealing
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 3
+  buffInfos: []
+  equipmentInfo:
+    equipmentDef:
+      address: LifestealOnHit
+      useDirectReference: 0
+      asset: {fileID: 0}
+    usable: 1
+    aiMaxUseHealthFraction: 30
+    aiMaxUseDistance: 10
+    aiUseDelayMax: 0
