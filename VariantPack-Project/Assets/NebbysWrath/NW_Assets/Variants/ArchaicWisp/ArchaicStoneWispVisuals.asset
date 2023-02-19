@@ -16,7 +16,7 @@ MonoBehaviour:
   - rendererIndex: 0
     material: {fileID: 2100000, guid: 857af1c92e5eb91498da7b3e2d388f70, type: 2}
   - rendererIndex: 1
-    material: {fileID: 2100000, guid: 46d1559145fbed343bfa82a8f1bfabda, type: 2}
+    material: {fileID: 2100000, guid: c7414a4c606b3fe47b9f11cb4f235609, type: 2}
   lightReplacements:
   - rendererIndex: 0
     color:

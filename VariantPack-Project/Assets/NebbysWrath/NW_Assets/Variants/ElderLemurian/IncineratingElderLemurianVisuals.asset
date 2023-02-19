@@ -18,5 +18,5 @@ MonoBehaviour:
   lightReplacements: []
   meshReplacements:
   - rendererIndex: 0
-    mesh: {fileID: 4300000, guid: cd416dd10b1ebcf4794f7f6c004f3e17, type: 2}
+    mesh: {fileID: 4300000, guid: d5490d68f8640144bb949c11ddf9291c, type: 2}
     meshType: 0
