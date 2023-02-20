@@ -33,7 +33,7 @@ MonoBehaviour:
   damageMultiplier: 0.9
   armorBonus: 0
   armorMultiplier: 1
-  visualModifier: {fileID: 0}
+  visualModifier: {fileID: 11400000, guid: 4d1e7b1a9663d704a9aa542719397468, type: 2}
   sizeModifier: {fileID: 11400000, guid: b06d4f8f76344824e889d18dae72c4b3, type: 2}
   aiModifier: 0
   nameOverrides:

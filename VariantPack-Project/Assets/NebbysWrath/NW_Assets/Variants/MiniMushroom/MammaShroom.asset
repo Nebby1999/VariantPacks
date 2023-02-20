@@ -27,7 +27,7 @@ MonoBehaviour:
   regenBonus: 0
   regenMultiplier: 0
   shieldBonus: 0
-  shieldMultiplier: 1
+  shieldMultiplier: 0
   moveSpeedMultiplier: 1
   attackSpeedMultiplier: 1
   damageMultiplier: 2
