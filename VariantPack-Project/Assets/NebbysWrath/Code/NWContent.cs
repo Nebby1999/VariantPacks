@@ -48,6 +48,11 @@ namespace NW
                 {
                     Log.Info("Cloning Prefabs");
                     new PrefabCloneModule().Initialize();
+                },
+                () =>
+                {
+                    Log.Info("Adding DamageTypes");
+                    new DamageTypeModule().Initialize();
                 }
             };
         }

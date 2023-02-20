@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: SwarmingSCU
+  m_EditorClassIdentifier: 
+  bodyName: RoboBallBossBody
+  variantTier: 1
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 2
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 11400000, guid: 8cc74e61076234b42a076a9b455d9b12, type: 2}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 30778a98ed696a249a52c748221ed87d, type: 2}
+    skillSlot: 2
+  healthMultiplier: 0.5
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 3
+  attackSpeedMultiplier: 3
+  damageMultiplier: 0.5
+  armorBonus: 0
+  armorMultiplier: 1
+  visualModifier: {fileID: 0}
+  sizeModifier: {fileID: 11400000, guid: b06d4f8f76344824e889d18dae72c4b3, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_SWARMING_PREFIX
+    overrideType: 0
+  componentProviders: []

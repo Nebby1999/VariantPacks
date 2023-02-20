@@ -12,10 +12,10 @@ namespace EntityStates.Bell.BellWeapon.Steel
     {
         public static float basePrepDuration = ChargeTrioBomb.basePrepDuration;
         public static float baseTimeBetweenPreps = ChargeTrioBomb.baseTimeBetweenPreps;
-        public static GameObject preppedBombPrefab = NW.Modules.PrefabClones.MegaSteelBall.PreppedPrefab;
+        public static GameObject preppedBombPrefab = NW.PrefabClones.MegaSteelBall.PreppedPrefab;
         public static float baseBarrageDuration = ChargeTrioBomb.baseBarrageDuration;
         public static float baseTimeBetweenBarrages = ChargeTrioBomb.baseTimeBetweenBarrages;
-        public static GameObject bombProjectilePrefab = NW.Modules.PrefabClones.MegaSteelBall.ProjectilePrefab;
+        public static GameObject bombProjectilePrefab = NW.PrefabClones.MegaSteelBall.ProjectilePrefab;
         public static GameObject muzzleflashPrefab = ChargeTrioBomb.muzzleflashPrefab;
         public static float damageCoefficient = 1;
         public static float force = ChargeTrioBomb.force * 3;

@@ -10,33 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
-  m_Name: SomewhatArchaicStoneWisp
+  m_Name: Child
   m_EditorClassIdentifier: 
-  bodyName: MoffeinArchWisp
+  bodyName: ParentBody
   variantTier: 1
   variantTierDef: {fileID: 0}
   isUnique: 0
-  spawnRate: 7
+  spawnRate: 6
   variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: a46bf6d337dd7fe4a89876399c4ab993, type: 2}
+  variantInventory: {fileID: 11400000, guid: 24146d42a2145634cbdcc0a8440efa6e, type: 2}
   deathStateOverride:
-    _typeName: 
-  skillReplacements: []
+    _typeName: EntityStates.ParentMonster.Child.ChildDeath, NebbysWrath, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: fb6d22489cfd8b44f9c3a69d424fec9d, type: 2}
+    skillSlot: 0
   healthMultiplier: 0.5
   regenBonus: 0
   regenMultiplier: 0
   shieldBonus: 0
   shieldMultiplier: 1
-  moveSpeedMultiplier: 5
-  attackSpeedMultiplier: 2.5
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 6
   damageMultiplier: 1
   armorBonus: 0
   armorMultiplier: 1
-  visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: b06d4f8f76344824e889d18dae72c4b3, type: 2}
+  visualModifier: {fileID: 11400000, guid: 07a813e8db3c8c141bd21e4f0ef19b1c, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 7443f001dd424064498b70dab4aebf0d, type: 2}
   aiModifier: 0
   nameOverrides:
-  - token: NW_SOMEWHATARCHAIC_PREFIX
+  - token: NW_CHILDISH_PREFIX
     overrideType: 0
   componentProviders: []

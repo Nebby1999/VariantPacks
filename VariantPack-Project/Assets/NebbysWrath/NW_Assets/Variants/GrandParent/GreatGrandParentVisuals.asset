@@ -22,7 +22,7 @@ MonoBehaviour:
   - rendererIndex: 3
     material: {fileID: 2100000, guid: 42a77e9225103e74f88a3cd68741c64d, type: 2}
   - rendererIndex: 4
-    material: {fileID: 2100000, guid: 2891c509e1fa96b40b8e4ecabd583526, type: 2}
+    material: {fileID: 2100000, guid: 0b92bfb64d7dd9742a8fcb0a064f9065, type: 2}
   - rendererIndex: 5
     material: {fileID: 2100000, guid: b8fb0f6ac591ea0468fd8f2f943fecce, type: 2}
   lightReplacements:

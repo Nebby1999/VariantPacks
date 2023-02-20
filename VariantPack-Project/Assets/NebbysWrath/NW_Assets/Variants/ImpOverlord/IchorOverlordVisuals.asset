@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Name: IchorOverlordVisuals
+  m_EditorClassIdentifier: 
+  materialReplacements:
+  - rendererIndex: 0
+    material: {fileID: 2100000, guid: 48c265a4a9fd7dd49911ca8278911bdc, type: 2}
+  - rendererIndex: 1
+    material: {fileID: 2100000, guid: 9e6a9a3b188c90e48ae5e75eff51514b, type: 2}
+  - rendererIndex: 2
+    material: {fileID: 2100000, guid: 0929220f4b33c77498f461d90f160e22, type: 2}
+  lightReplacements:
+  - rendererIndex: 1
+    color:
+      serializedVersion: 2
+      rgba: 4278236666
+    lightType: 0
+  - rendererIndex: 0
+    color:
+      serializedVersion: 2
+      rgba: 2314625
+    lightType: 0
+  meshReplacements: []

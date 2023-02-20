@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: AlmostArchaicWisp
+  m_EditorClassIdentifier: 
+  bodyName: WispBody
+  variantTier: 1
+  variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 4
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: 
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 0563d77faf87a424ba8a5043c6c38e26, type: 2}
+    skillSlot: 0
+  healthMultiplier: 5
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 1
+  damageMultiplier: 1
+  armorBonus: 0
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: cfa8ba77108859b4bbbeb77e1db61c41, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 173918fca89f5f14884674ab37f51ceb, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_ALMOSTARCHAIC_PREFIX
+    overrideType: 0
+  componentProviders: []

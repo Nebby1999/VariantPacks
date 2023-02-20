@@ -39,8 +39,37 @@
     "NW_INCINERATING_PREFIX": "(Incinerador)",
 
     "NW_GREATER_PREFIX": "(Gigante Rojo)",
-    "NW_SUNWORSHIPPING_PREFIX": "Heliolatrico",
+    "NW_SUNWORSHIPPING_PREFIX": "(Heliolatrico)",
 
-    "NW_SWARMER_PREFIX": "(Enjambroso)"
+    "NW_AMALGAMATED_PREFIX": "(Amalgama)",
+    "NW_GREATERSTONEWISP_ARRIVAL": "Las energias grandiosas de la tierra se acumulan...",
+    "NW_SOMEWHATGREAT_PREFIX": "(Algo Grandioso)",
+
+    "NW_MORTAR_PREFIX": "(Mortero)",
+
+    "NW_BRUISER_PREFIX": "(Matón)",
+    "NW_ICHOR_PREFIX": "(Ichor)",
+
+    "NW_BERSERKER_PREFIX": "(Frenetico)",
+
+    "NW_ALMOSTARCHAIC_PREFIX": "(Casi Arcaico)",
+    "NW_LEASTEST_PREFIX": "(Mas Menor)",
+
+    "NW_AD_PREFIX": "(AD)",
+    "NW_HEALER_PREFIX": "(Curador)",
+    "NW_MAMMASHROOM_ARRIVAL": "Un hongo enorme aparece...",
+    "NW_MAMMA_PREFIX": "Mamma",
+
+    "NW_ADOLESCERE_PREFIX": "(Adolecente)",
+    "NW_CHILDISH_PREFIX": "(Pequeñin)",
+
+    "NW_SWARMER_PREFIX": "(Enjambroso)",
+    "NW_MK2_SUFFIX": "MK2",
+    "NW_GAUSSIAN_PREFIX": "(Gaussiano)",
+
+    "NW_COLOSSALGOLEM_ARRIVAL": "Un golem colosal se materializa...",
+    "NW_COLOSSAL_PREFIX": "(Colosal)",
+
+    "NW_MOTHERSHIP_PREFIX": "(Nodriza)"
   }
 }

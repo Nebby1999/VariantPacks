@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moonstorm;
-using NW.Modules.PrefabClones;
+using NW.PrefabClones;
 
 namespace NW.Modules
 {

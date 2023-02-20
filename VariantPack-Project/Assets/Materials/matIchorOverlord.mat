@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matIchorOverlord
   m_Shader: {fileID: 4800000, guid: c6e3cc6d1ef256644b62462606b5ab4b, type: 3}
-  m_ShaderKeywords: DITHER FLOWMAP FORCE_SPEC FRESNEL_EMISSION
+  m_ShaderKeywords: DITHER FORCE_SPEC FRESNEL_EMISSION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -56,11 +56,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowHeightmap:
-        m_Texture: {fileID: 2800000, guid: 80edf19645c8c7c47a13868dc528a3fb, type: 2}
+        m_Texture: {fileID: 2800000, guid: f7a8d6d939e74b93bd322006a4d919c0, type: 2}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _FlowTex:
-        m_Texture: {fileID: 2800000, guid: 80edf19645c8c7c47a13868dc528a3fb, type: 2}
+        m_Texture: {fileID: 2800000, guid: f7a8d6d939e74b93bd322006a4d919c0, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelMask:
@@ -132,13 +132,13 @@ Material:
     - _Fade: 1
     - _FadeBias: 0
     - _FlowEmissionStrength: 1.28
-    - _FlowHeightBias: -0.693
+    - _FlowHeightBias: 0.6
     - _FlowHeightPower: 1
     - _FlowMaskStrength: 0
     - _FlowNormalStrength: 0.1
     - _FlowSpeed: 4.04
     - _FlowTextureScaleFactor: 2.02
-    - _FlowmapOn: 1
+    - _FlowmapOn: 0
     - _ForceSpecOn: 1
     - _FresnelBoost: 4.64
     - _FresnelPower: 1.53

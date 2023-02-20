@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc4ed0f2a5be0242b676b826bc2c11f, type: 3}
+  m_Name: Berserker
+  m_EditorClassIdentifier: 
+  itemInventory:
+  - itemDef:
+      address: GlobalCDR
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 30
+  - itemDef:
+      address: ExtraSecondary
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 2
+  - itemDef:
+      address: Hoof
+      useDirectReference: 0
+      asset: {fileID: 0}
+    amount: 10
+  buffInfos: []
+  equipmentInfo:
+    equipmentDef:
+      address: 
+      useDirectReference: 1
+      asset: {fileID: 0}
+    usable: 0
+    aiMaxUseHealthFraction: 0
+    aiMaxUseDistance: 0
+    aiUseDelayMax: 0

@@ -41,6 +41,35 @@
     "NW_GREATER_PREFIX": "Greater",
     "NW_SUNWORSHIPPING_PREFIX": "Heliolatric",
 
-    "NW_SWARMER_PREFIX": "Swarmer"
+    "NW_AMALGAMATED_PREFIX": "Amalgamated",
+    "NW_GREATERSTONEWISP_ARRIVAL": "The greater energies from the earth accumulate...",
+    "NW_SOMEWHATGREAT_PREFIX": "Somewhat-Great",
+
+    "NW_MORTAR_PREFIX": "Mortar",
+
+    "NW_BRUISER_PREFIX": "Bruiser",
+    "NW_ICHOR_PREFIX": "Ichor",
+
+    "NW_BERSERKER_PREFIX": "Berserker",
+
+    "NW_ALMOSTARCHAIC_PREFIX": "Almost-Archaic",
+    "NW_LEASTEST_PREFIX": "Leastest",
+
+    "NW_AD_PREFIX": "AD",
+    "NW_HEALER_PREFIX": "Healer",
+    "NW_MAMMASHROOM_ARRIVAL": "A matriarchal fungus appears.",
+    "NW_MAMMA_PREFIX": "Mamma",
+
+    "NW_ADOLESCERE_PREFIX": "Adolescere",
+    "NW_CHILDISH_PREFIX": "Childish",
+
+    "NW_SWARMER_PREFIX": "Swarmer",
+    "NW_MK2_SUFFIX": "MK2",
+    "NW_GAUSSIAN_PREFIX": "Gaussian",
+
+    "NW_COLOSSALGOLEM_ARRIVAL": "A massive stone golem materializes...",
+    "NW_COLOSSAL_PREFIX": "Colossal",
+
+    "NW_MOTHERSHIP_PREFIX": "Mothership"
   }
 }

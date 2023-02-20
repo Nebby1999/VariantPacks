@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NW.Modules.PrefabClones
+namespace NW.PrefabClones
 {
     public class PrefabCloneBase : ContentBase
     { 

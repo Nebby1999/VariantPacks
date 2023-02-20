@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace NW.Modules.PrefabClones
+namespace NW.PrefabClones
 {
     public class MegaSteelBall : PrefabCloneBase
     {
@@ -16,6 +16,7 @@ namespace NW.Modules.PrefabClones
 
         public override void Initialize()
         {
+            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, ProjectilePrefab);
             base.Initialize();
             var steelContraptionMat = NWAssets.LoadAsset<Material>("matSteelContraption");
             PreppedPrefab.transform.localScale *= 4;
