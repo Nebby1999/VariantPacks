@@ -1,5 +1,11 @@
 # Changelog
 
+## '2.0.2'
+* Updated to use VarianceAPI 2.1.1
+* Certain variants that are spawned from defeated enemies now give money and exp when killed
+* Fixed some miscelaneous bugs
+* VariantComponents now self-destroy once they finish their job
+
 ## '2.0.1'
 * Now dependant on PrefabAPI
 * Fixed naming issues on Enormous stone titan

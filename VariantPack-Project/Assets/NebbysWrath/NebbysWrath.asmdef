@@ -3,7 +3,8 @@
     "references": [
         "com.unity.multiplayer-hlapi.Runtime",
         "VarianceAPI",
-        "MoonstormSharedUtils"
+        "MoonstormSharedUtils",
+        "TheOriginal30"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

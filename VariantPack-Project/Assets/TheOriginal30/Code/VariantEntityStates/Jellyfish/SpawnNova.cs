@@ -22,10 +22,11 @@ namespace EntityStates.JellyfishMonster.MOAJ
         private GameObject chargeEffect;
         private PrintController printController;
         private uint soundID;
-
+        private DeathRewards deathRewards;
         public override void OnEnter()
         {
             base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
             this.stopwatch = 0f;
             this.duration = SpawnNova.baseDuration / this.attackSpeedStat;
             masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(characterBody.bodyIndex));
@@ -130,6 +131,12 @@ namespace EntityStates.JellyfishMonster.MOAJ
                     preSpawnSetupCallback = GiveEquipmentIndex,
                     summonerBodyObject = null
                 };
+
+                if(deathRewards)
+                {
+                    summon.summonerDeathRewards = deathRewards;
+                    summon.deathRewardsCoefficient = 0.2f;
+                }
 
                 summon.Perform();
             }

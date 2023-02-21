@@ -19,10 +19,12 @@ namespace EntityStates.JellyfishMonster.Spectral
 
         private GameObject chosenMonster;
         private BodyVariantDefProvider chosenMonsterVariantDefProvider;
+        private DeathRewards deathRewards;
         public override void OnEnter()
         {
             enterEffectPrefab = DeathState.enterEffectPrefab;
             base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
             DestroyModel();
             if (NetworkServer.active)
             {
@@ -63,6 +65,12 @@ namespace EntityStates.JellyfishMonster.Spectral
                 preSpawnSetupCallback = GiveEquipmentIndex,
                 summonerBodyObject = null
             };
+
+            if (deathRewards)
+            {
+                summon.summonerDeathRewards = deathRewards;
+                summon.deathRewardsCoefficient = 1f;
+            }
 
             HG.ArrayUtils.ArrayAppend(ref summon.variantDefs, chosenMonsterVariantDefProvider.GetVariantDef(UnityEngine.Random.Range(0, chosenMonsterVariantDefProvider.TotalVariantCount)));
 

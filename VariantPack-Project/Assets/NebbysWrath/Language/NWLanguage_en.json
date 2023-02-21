@@ -1,5 +1,8 @@
 {
   "strings": {
+    "NW_VARIANTPACK_NAME": "Nebby's Wrath",
+    "NW_VARIANTPACK_DESC": "The variants originally developed for MonsterVariants+, Experience the new friends that made your runs more chaotic and dangerous.",
+
     "NW_ENRAGED_PREFIX": "Enraged",
     "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
 
@@ -38,7 +41,7 @@
     "NW_INCINERATING_ARRIVAL": "The ground heats up from the arrival of an Elder Lemurian...",
     "NW_INCINERATING_PREFIX": "Incinerating",
 
-    "NW_GREATER_PREFIX": "Greater",
+    "NW_GREAT_PREFIX": "Greater",
     "NW_SUNWORSHIPPING_PREFIX": "Heliolatric",
 
     "NW_AMALGAMATED_PREFIX": "Amalgamated",

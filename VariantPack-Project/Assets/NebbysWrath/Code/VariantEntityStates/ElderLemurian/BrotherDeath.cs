@@ -14,9 +14,11 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
         public static GameObject lemurianMaster = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/LemurianMaster.prefab").WaitForCompletion();
         public static Material ghostMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGhostEffect.mat").WaitForCompletion();
 
+        private DeathRewards deathRewards;
         public override void OnEnter()
         {
             base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
             if (NetworkServer.active)
             {
                 for (int i = 0; i < 3; i++)
@@ -30,7 +32,12 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
                     variantSummon.rotation = transform.rotation;
                     variantSummon.summonerBodyObject = null;
                     variantSummon.teamIndexOverride = teamComponent.teamIndex;
-                    variantSummon.supressRewards = true;
+
+                    if(deathRewards)
+                    {
+                        variantSummon.summonerDeathRewards = deathRewards;
+                        variantSummon.deathRewardsCoefficient = 1f;
+                    }
 
                     var lemmyMaster = variantSummon.Perform();
                     if(lemmyMaster)

@@ -21,6 +21,7 @@ namespace EntityStates.ParentMonster.Child
         public static CharacterSpawnCard parentSpawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/Parent/cscParent.asset").WaitForCompletion();
         public static EntityStates.ParentMonster.DeathState og = new DeathState();
         private bool destealth;
+        private DeathRewards deathRewards;
 
         public override bool shouldAutoDestroy
         {
@@ -36,10 +37,11 @@ namespace EntityStates.ParentMonster.Child
 
         public override void OnEnter()
         {
+            base.OnEnter();
             SpawnPosition = characterBody.corePosition;
             effectPrefab = og.effectPrefab;
             destealthMaterial = og.destealthMaterial;
-            base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
         }
 
         public override void OnExit()
@@ -65,7 +67,11 @@ namespace EntityStates.ParentMonster.Child
                     spawnRequest.ignoreTeamMemberLimit = true;
                     spawnRequest.teamIndexOverride = teamComponent.teamIndex;
                     spawnRequest.variantDefs = Array.Empty<VAPI.VariantDef>();
-                    spawnRequest.supressRewards = true;
+                    if(deathRewards)
+                    {
+                        spawnRequest.deathRewardsBase = deathRewards;
+                        spawnRequest.deathRewardsCoefficient = 0.5f;
+                    }
                     var parentMaster = DirectorCore.instance.TrySpawnObject(spawnRequest);
                     if (parentMaster)
                     {

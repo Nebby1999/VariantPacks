@@ -15,6 +15,6 @@ MonoBehaviour:
   nameToken: NW_VARIANTPACK_NAME
   tooltipToken: NW_VARIANTPACK_TOOLTIP
   descriptionToken: NW_VARIANTPACK_DESC
-  packEnabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  packEnabledIcon: {fileID: 21300000, guid: 21a5f553e6c73ca42b9850a06ab230d7, type: 3}
   variantTiers: []
   variants: []

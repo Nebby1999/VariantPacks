@@ -20,11 +20,13 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
         public static float fuckYouChance = 1f;
 
         private GameObject initialEffectInstance;
+        private DeathRewards deathRewards;
         private bool funny = false;
         private bool hasSpawnedWisps = false;
         public override void OnEnter()
         {
             base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
             if(NetworkServer.active)
             {
                 funny = Util.CheckRoll(fuckYouChance);
@@ -82,9 +84,13 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
                         position = position
                     }, RoR2Application.rng);
                     directorSpawnRequest.applyOnStart = false;
-                    directorSpawnRequest.supressRewards = true;
                     directorSpawnRequest.teamIndexOverride = teamComponent.teamIndex;
                     directorSpawnRequest.variantDefs = Array.Empty<VariantDef>();
+                    if(deathRewards)
+                    {
+                        directorSpawnRequest.deathRewardsBase = deathRewards;
+                        directorSpawnRequest.deathRewardsCoefficient = 0.2f;
+                    }
 
                     GameObject wisp = DirectorCore.instance.TrySpawnObject(directorSpawnRequest);
                     if (wisp)

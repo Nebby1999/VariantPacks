@@ -1,5 +1,8 @@
 {
   "strings": {
+    "NW_VARIANTPACK_NAME": "La Ira de Nebby",
+    "NW_VARIANTPACK_DESC": "Los variantes originalmente creados para MonsterVariants+, Experimenta los nuevos amigos que hicieron tus partidas mas caoticas y peligrosas.",
+
     "NW_ENRAGED_PREFIX": "(Furioso)",
     "NW_ANCIENTSTONEWISP_ARRIVAL": "Las energias ancestrales de la tierra se acumulan...",
 
@@ -38,7 +41,7 @@
     "NW_INCINERATING_ARRIVAL": "El suelo se calienta tras la llegada de un Elder Lemurian...",
     "NW_INCINERATING_PREFIX": "(Incinerador)",
 
-    "NW_GREATER_PREFIX": "(Gigante Rojo)",
+    "NW_GREAT_PREFIX": "(Gigante Rojo)",
     "NW_SUNWORSHIPPING_PREFIX": "(Heliolatrico)",
 
     "NW_AMALGAMATED_PREFIX": "(Amalgama)",

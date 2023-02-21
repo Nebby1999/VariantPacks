@@ -13,11 +13,13 @@ namespace EntityStates.JellyfishMonster.MOAJ
         public static GameObject masterPrefab;
         public static int jellies = 5;
 
+        private DeathRewards deathRewards;
         public override void OnEnter()
         {
             enterEffectPrefab = DeathState.enterEffectPrefab;
             masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(characterBody.bodyIndex));
             base.OnEnter();
+            deathRewards = GetComponent<DeathRewards>();
             DestroyModel();
             if (NetworkServer.active)
             {
@@ -37,6 +39,11 @@ namespace EntityStates.JellyfishMonster.MOAJ
                         preSpawnSetupCallback = GiveEquipmentIndex,
                         summonerBodyObject = null
                     };
+                    if(deathRewards)
+                    {
+                        summon.deathRewardsCoefficient = 0.2f;
+                        summon.summonerDeathRewards = deathRewards;
+                    }
 
                     summon.Perform();
                 }

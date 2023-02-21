@@ -17,14 +17,15 @@ namespace EntityStates.VagrantMonster.Mothership
         public static VariantDef moajDef;
         public static EquipmentIndex index;
         private Vector3 spawnPossition;
+        private DeathRewards rewards;
 
         private static void LoadDef() => moajDef = VariantCatalog.GetVariantDef(VariantCatalog.FindVariantIndex("MOAJ"));
         public override void OnEnter()
         {
+            base.OnEnter();
             spawnPossition = characterBody.corePosition;
             index = characterBody.equipmentSlot.equipmentIndex;
-
-            base.OnEnter();
+            rewards = GetComponent<DeathRewards>();
 
             if (NetworkServer.active)
             {
@@ -41,15 +42,20 @@ namespace EntityStates.VagrantMonster.Mothership
 
         private void SpawnJellies(int count, VariantDef[] variantDefs)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < count; i++)
             {
                 var summon = new VariantSummon();
                 summon.position = spawnPossition;
                 summon.masterPrefab = masterPrefab;
                 summon.summonerBodyObject = this.gameObject;
+                summon.teamIndexOverride = teamComponent.teamIndex;
                 summon.variantDefs = variantDefs;
-                summon.supressRewards = true;
                 summon.applyOnStart = true;
+                if(rewards)
+                {
+                    summon.summonerDeathRewards = rewards;
+                    summon.deathRewardsCoefficient = count / 10;
+                }
                 var jellyMaster = summon.Perform();
                 if (jellyMaster)
                 {
