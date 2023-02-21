@@ -1,5 +1,8 @@
 # Changelog
 
+## '2.0.3'
+* Updated README
+
 ## '2.0.2'
 * Updated to use VarianceAPI 2.1.1
 * Certain variants that are spawned from defeated enemies now give money and exp when killed

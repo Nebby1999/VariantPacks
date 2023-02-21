@@ -29,7 +29,7 @@ namespace NW
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
-        public const string VERSION = "2.0.0";
+        public const string VERSION = "2.0.1";
 
         public static NWMain Instance { get; private set; }
         private void Awake()

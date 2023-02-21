@@ -15,6 +15,9 @@ Playing with the following mod causes certain cross-over features
 
 ## Variant Tablesheet
 
+<details><summary>(Click me!)</summary>
+<p>
+
 | Character | Variant Name | Details |
 |--|--|--|
 | Beetle Queen | Beetle Imperatrix | Has two royal beetle guards, it only spawns common Beetles, but these beetles will always be variants if Beetle Variants are in the game |
@@ -65,6 +68,20 @@ Playing with the following mod causes certain cross-over features
 | Lesser Wisp | Almost-Archaic Wisp | Fires an Archaic Wisp fireball |
 | Lesser Wisp | Leastest Wisp | Reduced Size, Increased movement and attack speedd |
 | Lesser Wisp | Lessser Stone Wisp | Fires a stone golem laser |
+
+</p>
+</details>
+
+### Donations
+
+If you like what i do, and wish to help me out, consider donating on my Ko-fi
+
+[![ko-fi](https://media.discordapp.net/attachments/850538397647110145/994431434817273936/SupportNebby.png)](https://ko-fi.com/nebby1999)
+
+## Special Thanks
+
+* Thanks to Rob for designing all of these variants.
+* Thanks to prodzpodproductions for designing the VariantPack's icon.
 
 ## Pictures
 

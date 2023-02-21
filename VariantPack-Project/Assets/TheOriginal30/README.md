@@ -4,6 +4,9 @@ The Original 30 (Abreviated as "TO30") is a port of Rob's origiginal Variants fr
 
 ## Variant Tablesheet
 
+<details><summary>(Click me!)</summary>
+<p>
+
 | Character | Variant Name | Details |
 |--|--|--|
 | Beetle | Armored Beetle | A slower beetle with increased Health and Armor |
@@ -36,6 +39,20 @@ The Original 30 (Abreviated as "TO30") is a port of Rob's origiginal Variants fr
 | Alloy Vulture | Alloy Deagle | Fires bullets |
 | Alloy Vulture | Artillery Vulture | Explosive attacks, chance to fire a missile |
 | Wandering Vagrant | Unstable Vagrant | Can use Vagrant Nova at any point in time |
+
+</p>
+</details>
+
+### Donations
+
+If you like what i do, and wish to help me out, consider donating on my Ko-fi
+
+[![ko-fi](https://media.discordapp.net/attachments/850538397647110145/994431434817273936/SupportNebby.png)](https://ko-fi.com/nebby1999)
+
+## Special Thanks
+
+* Thanks to Rob for designing all of these variants.
+* Thanks to PapaZach for designing the VariantPack's icon.
 
 ## Pictures
 

@@ -48,6 +48,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "moffein-fixdamagetrailnullref": {
+      "version": "file:FixDamageTrailNullref",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "nebby-varianceapi": {
       "version": "https://github.com/Nebby1999/VarianceAPI.git#2.1.1",
       "depth": 0,

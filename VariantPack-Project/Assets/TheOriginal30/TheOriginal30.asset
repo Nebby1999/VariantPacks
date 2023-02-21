@@ -95,7 +95,7 @@ MonoBehaviour:
   Author: Nebby
   Name: VariantPack_TheOriginal30
   Description: All of Rob's Variants, ported and modified to VarianceAPI
-  Version: 2.0.2
+  Version: 2.0.3
   Dependencies:
   - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
   - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}

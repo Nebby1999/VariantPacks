@@ -1,5 +1,9 @@
 # Changelogs
 
+## '2.0.1'
+* Updated README
+* Added Missing Dependency
+
 ## '2.0.0'
 * Updated to Survivors of the Void
 * Updated to use VAPI 2.0.0
