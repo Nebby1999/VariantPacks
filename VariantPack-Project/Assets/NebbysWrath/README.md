@@ -80,7 +80,6 @@ If you like what i do, and wish to help me out, consider donating on my Ko-fi
 
 ## Special Thanks
 
-* Thanks to Rob for designing all of these variants.
 * Thanks to prodzpodproductions for designing the VariantPack's icon.
 
 ## Pictures

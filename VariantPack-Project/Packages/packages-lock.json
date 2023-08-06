@@ -13,7 +13,7 @@
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "7ea752a2390306be73860a590d7639b995d9ca28"
+      "hash": "29b405d2536bf249b5b4bd34df97a07c22e64a8f"
     },
     "com.unity.multiplayer-hlapi": {
       "version": "https://github.com/risk-of-thunder/UnityMultiplayerHLAPI.git",
@@ -55,11 +55,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git#2.1.1",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ddac342fc02b94a3c3008cfe7ee4d4b3f2c61b20"
+      "hash": "eb5251bb1a5802ea0a6c2387b416ae397f8c01ed"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -69,6 +69,12 @@
     },
     "riskofthunder-hookgenpatcher": {
       "version": "file:HookGenPatcher",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-r2api_addressables": {
+      "version": "file:R2API_Addressables",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
@@ -140,18 +146,18 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#3.5.2",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#4.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "81702d4139c73a58697849a680eff2e30fa3b056"
+      "hash": "bf6bb94284f4071226a9464146a6c5f77b68251e"
     },
     "riskofthunder-ror2importextensions": {
-      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.3.2",
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.3.7",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2a7f164889f48f65b8bfb7686d88826cde20a42d"
+      "hash": "ebe4d6e4a27e4b766b33e5bdd3ab6c7d17518dfb"
     },
     "rune580-risk_of_options": {
       "version": "file:Risk_Of_Options",
@@ -160,11 +166,11 @@
       "dependencies": {}
     },
     "teammoonstorm-moonstormsharedutils": {
-      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#1.3.0",
+      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#1.6.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "cb012483b6d04f83dfe352b1db4da73d2a3e2c43"
+      "hash": "6298f74227324f3a7e3cffab6402edb69e52f402"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

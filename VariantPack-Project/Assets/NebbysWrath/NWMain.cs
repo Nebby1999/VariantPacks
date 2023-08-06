@@ -29,7 +29,7 @@ namespace NW
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
-        public const string VERSION = "2.0.1";
+        public const string VERSION = "2.0.2";
 
         public static NWMain Instance { get; private set; }
         private void Awake()
@@ -42,13 +42,21 @@ namespace NW
             new NWContent().Init();
 
             ConfigurableFieldManager.AddMod(this);
-            RoR2Application.onLoad += AddSpectralSummons;
+            RoR2Application.onLoad += OnLoad;
         }
 
-        private void AddSpectralSummons()
+        private void OnLoad()
+        {
+            if (MSUtil.IsModInstalled("com.Nebby.TO30"))
+            {
+                AddJellyfishSummons();
+            }
+        }
+
+        private void AddJellyfishSummons()
         {
             var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            if(MSUtil.IsModInstalled("com.Moffein.ClayMen"))
+            if (MSUtil.IsModInstalled("com.Moffein.ClayMen"))
             {
                 validMasters.Add(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
             }

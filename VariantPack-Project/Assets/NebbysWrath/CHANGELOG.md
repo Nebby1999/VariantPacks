@@ -1,5 +1,9 @@
 # Changelogs
 
+## '2.0.2'
+* Removed uncesesary special thanks (rob didn't design any, whoops...)
+* Fixed issue where the mod accidentally had a hard dependency on TheOriginal30
+
 ## '2.0.1'
 * Updated README
 * Added Missing Dependency
