@@ -19,6 +19,6 @@ MonoBehaviour:
   - rendererIndex: 0
     color:
       serializedVersion: 2
-      rgba: 16777215
+      rgba: 4294967295
     lightType: 2
   meshReplacements: []

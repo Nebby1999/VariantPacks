@@ -13,13 +13,21 @@ MonoBehaviour:
   m_Name: 5Bungus
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
-      address: Mushroom
+  - item:
+      _asset: {fileID: 0}
+      _address: Mushroom
+      _useDirectReference: 0
+    itemDef:
+      address: 
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 5
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

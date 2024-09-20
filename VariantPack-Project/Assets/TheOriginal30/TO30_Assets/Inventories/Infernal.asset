@@ -13,18 +13,30 @@ MonoBehaviour:
   m_Name: Infernal
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Plus1Crit
+      _useDirectReference: 0
+    itemDef:
       address: Plus1Crit
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 100
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Behemoth
+      _useDirectReference: 0
+    itemDef:
       address: Behemoth
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 3
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

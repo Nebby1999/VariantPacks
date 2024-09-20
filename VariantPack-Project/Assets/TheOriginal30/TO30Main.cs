@@ -29,7 +29,7 @@ namespace TO30
     {
         public const string GUID = "com.Nebby.TO30";
         public const string MODNAME = "The Original 30";
-        public const string VERSION = "2.0.3";
+        public const string VERSION = "2.1.0";
 
         public static TO30Main Instance { get; private set; }
         private void Awake()
@@ -41,7 +41,7 @@ namespace TO30
             new TO30Lang().Init();
             new TO30Content().Init();
 
-            ConfigurableFieldManager.AddMod(this);
+            ConfigSystem.AddMod(this);
 
             RoR2Application.onLoad += AddSpectralSummons;
         }
@@ -49,10 +49,13 @@ namespace TO30
         private void AddSpectralSummons()
         {
             var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            validMasters.Add(MasterCatalog.FindMasterIndex("BeetleMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("ImpMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("LemurianMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("WispMaster"));
+            validMasters.AddRange(new List<MasterCatalog.MasterIndex>
+            {
+                MasterCatalog.FindMasterIndex("BeetleMaster"),
+                MasterCatalog.FindMasterIndex("ImpMaster"),
+                MasterCatalog.FindMasterIndex("LemurianMaster"),
+                MasterCatalog.FindMasterIndex("WispMaster")
+            });
         }
     }
 }

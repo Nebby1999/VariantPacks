@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: Cursed
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: IceRing
+      _useDirectReference: 0
+    itemDef:
       address: IceRing
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: SprintOutOfCombat
+      _useDirectReference: 0
+    itemDef:
       address: SprintOutOfCombat
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 3
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Crowbar
+      _useDirectReference: 0
+    itemDef:
       address: Crowbar
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

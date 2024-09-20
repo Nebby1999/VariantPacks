@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: Adolescent
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: ParentEgg
+      _useDirectReference: 0
+    itemDef:
       address: ParentEgg
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Medkit
+      _useDirectReference: 0
+    itemDef:
       address: Medkit
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: ExtraUtility
+      _useDirectReference: 0
+    itemDef:
       address: ExtraUtility
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 2
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

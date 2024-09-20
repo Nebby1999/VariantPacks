@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: Bruiser
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: GlobalCDR
+      _useDirectReference: 0
+    itemDef:
       address: GlobalCDR
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 75
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Crowbar
+      _useDirectReference: 0
+    itemDef:
       address: Crowbar
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 3
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Hoof
+      _useDirectReference: 0
+    itemDef:
       address: Hoof
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 20
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

@@ -15,6 +15,10 @@ MonoBehaviour:
   itemInventory: []
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: CritOnUse
+      _useDirectReference: 0
     equipmentDef:
       address: CritOnUse
       useDirectReference: 0

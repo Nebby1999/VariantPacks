@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: ClottedInventory
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: ExtraUtility
+      _useDirectReference: 0
+    itemDef:
       address: ExtraUtility
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 4
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Plus1Crit
+      _useDirectReference: 0
+    itemDef:
       address: Plus1Crit
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 40
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: BleedOnHitAndExplode
+      _useDirectReference: 0
+    itemDef:
       address: BleedOnHitAndExplode
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

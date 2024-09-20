@@ -12,6 +12,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using RoR2;
+using VAPI;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -41,7 +42,7 @@ namespace NW
             new NWLang().Init();
             new NWContent().Init();
 
-            ConfigurableFieldManager.AddMod(this);
+            ConfigSystem.AddMod(this);
             RoR2Application.onLoad += OnLoad;
         }
 
@@ -51,6 +52,11 @@ namespace NW
             {
                 AddJellyfishSummons();
             }
+            EntityStates.Events.VariantEvents.UniqueVariantsEvent.blacklistedVariants.AddRange(new List<VariantDef>
+            {
+                NWAssets.LoadAsset<VariantDef>("GhostOfKjaro"),
+                NWAssets.LoadAsset<VariantDef>("GhostOfRunald"),
+            });
         }
 
         private void AddJellyfishSummons()

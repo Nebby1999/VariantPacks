@@ -13,18 +13,30 @@ MonoBehaviour:
   m_Name: ADShroom
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: ExtraPrimary
+      _useDirectReference: 0
+    itemDef:
       address: ExtraPrimary
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 4
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: PrimaryCDR
+      _useDirectReference: 0
+    itemDef:
       address: PrimaryCDR
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 100
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

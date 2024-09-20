@@ -13,13 +13,21 @@ MonoBehaviour:
   m_Name: NoCooldowns
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: GlobalCDR
+      _useDirectReference: 0
+    itemDef:
       address: GlobalCDR
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 100
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

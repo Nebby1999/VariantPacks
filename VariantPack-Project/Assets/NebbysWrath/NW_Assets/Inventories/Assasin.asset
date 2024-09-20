@@ -14,19 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInventory: []
   buffInfos:
-  - buffDef:
+  - buff:
+      _asset: {fileID: 0}
+      _address: bdCloak
+      _useDirectReference: 0
+    buffDef:
       address: bdCloak
       useDirectReference: 0
       asset: {fileID: 0}
     time: 0
     amount: 0
-  - buffDef:
+  - buff:
+      _asset: {fileID: 0}
+      _address: bdCloakSpeed
+      _useDirectReference: 0
+    buffDef:
       address: bdCloakSpeed
       useDirectReference: 0
       asset: {fileID: 0}
     time: 0
     amount: 0
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

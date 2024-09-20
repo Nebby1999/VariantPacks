@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: Artillery
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Clover
+      _useDirectReference: 0
+    itemDef:
       address: Clover
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 3
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Missile
+      _useDirectReference: 0
+    itemDef:
       address: Missile
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 1
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Behemoth
+      _useDirectReference: 0
+    itemDef:
       address: Behemoth
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 2
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: 
+      _useDirectReference: 0
     equipmentDef:
       address: 
       useDirectReference: 1

@@ -13,23 +13,39 @@ MonoBehaviour:
   m_Name: KjaroInventory
   m_EditorClassIdentifier: 
   itemInventory:
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: FireRing
+      _useDirectReference: 0
+    itemDef:
       address: FireRing
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 3
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: Phasing
+      _useDirectReference: 0
+    itemDef:
       address: Phasing
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 5
-  - itemDef:
+  - item:
+      _asset: {fileID: 0}
+      _address: PrimaryCDR
+      _useDirectReference: 0
+    itemDef:
       address: PrimaryCDR
       useDirectReference: 0
       asset: {fileID: 0}
     amount: 25
   buffInfos: []
   equipmentInfo:
+    equipment:
+      _asset: {fileID: 0}
+      _address: EliteFireEquipment
+      _useDirectReference: 0
     equipmentDef:
       address: EliteFireEquipment
       useDirectReference: 0
