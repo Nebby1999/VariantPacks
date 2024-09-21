@@ -1,10 +1,11 @@
 {
     "name": "NebbysWrath",
+    "rootNamespace": "",
     "references": [
         "com.unity.multiplayer-hlapi.Runtime",
         "VarianceAPI",
-        "MoonstormSharedUtils",
-        "TheOriginal30"
+        "TheOriginal30",
+        "MSU.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -29,7 +30,12 @@
         "R2API.Director.dll",
         "R2API.Elites.dll",
         "R2API.RecalculateStats.dll",
-        "R2API.Prefab.dll"
+        "R2API.Prefab.dll",
+        "Ak.Wwise.Api.WAAPI.dll",
+        "AK.Wwise.Unity.API.dll",
+        "AK.Wwise.Unity.API.WwiseTypes.dll",
+        "AK.Wwise.Unity.MonoBehaviour.dll",
+        "AK.Wwise.Unity.Timeline.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

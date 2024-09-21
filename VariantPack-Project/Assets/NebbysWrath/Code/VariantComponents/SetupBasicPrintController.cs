@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VAPI.Components;
-using Moonstorm;
 using RoR2;
+using MSU;
 
 namespace NW.Components
 {
@@ -14,7 +14,7 @@ namespace NW.Components
         public static AnimationCurveAsset basicCurve = NWAssets.LoadAsset<AnimationCurveAsset>("ArchaicStoneWispPrintCurve");
         public void Start()
         {
-            var printController = CharacterModel.gameObject.EnsureComponent<PrintController>();
+            var printController = characterModel.gameObject.EnsureComponent<PrintController>();
             printController.maxPrintHeight = 10;
             printController.printTime = 1;
             printController.startingPrintHeight = -2f;

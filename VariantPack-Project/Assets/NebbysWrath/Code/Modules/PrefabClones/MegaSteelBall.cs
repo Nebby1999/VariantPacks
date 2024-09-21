@@ -1,5 +1,10 @@
-﻿using RoR2.Projectile;
+﻿using MSU;
+using NW.Modules;
+using R2API;
+using RoR2.ContentManagement;
+using RoR2.Projectile;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,25 +14,52 @@ using UnityEngine.AddressableAssets;
 
 namespace NW.PrefabClones
 {
-    public class MegaSteelBall : PrefabCloneBase
+    public class MegaSteelBall : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public static GameObject PreppedPrefab { get; } = R2API.PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/PreppedBellBall.prefab").WaitForCompletion(), "PreppedSteelBall", false);
-        public static GameObject ProjectilePrefab { get; } = R2API.PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/BellBall.prefab").WaitForCompletion(), "SteelBall", true);
+        public ClonedPrefabBehaviour component => throw new NotImplementedException();
 
-        public override void Initialize()
+        public GameObject asset => projectilePrefab;
+        public static GameObject projectilePrefab;
+        public static GameObject preppedBall;
+
+        public void Initialize()
         {
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, ProjectilePrefab);
-            base.Initialize();
-            var steelContraptionMat = NWAssets.LoadAsset<Material>("matSteelContraption");
-            PreppedPrefab.transform.localScale *= 4;
-            PreppedPrefab.GetComponentInChildren<MeshRenderer>().material = steelContraptionMat;
+        }
 
-            ProjectilePrefab.transform.localScale *= 4;
-            ProjectileController controller = ProjectilePrefab.GetComponent<ProjectileController>();
-            var ghostPrefab = R2API.PrefabAPI.InstantiateClone(controller.ghostPrefab, "SteelBallGhost", false);
-            ghostPrefab.transform.localScale *= 4;
-            ghostPrefab.GetComponentInChildren<MeshRenderer>().material = steelContraptionMat;
-            controller.ghostPrefab = ghostPrefab;
+        public bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public IEnumerator LoadContentAsync()
+        {
+            var preppedRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/PreppedBellBall.prefab");
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/BellBall.prefab");
+            var materialRequest = NWAssets.LoadAssetAsync<Material>("matSteelContraption");
+
+            var routine = new ParallelCoroutine();
+            routine.Add(preppedRequest);
+            routine.Add(projectileRequest);
+            routine.Add(materialRequest);
+
+            while (!routine.IsDone())
+                yield return null;
+
+            projectilePrefab = projectileRequest.Result.InstantiateClone("SteelBall", true);
+            preppedBall = preppedRequest.Result.InstantiateClone("PreppedSteelBall");
+            preppedBall.transform.localScale *= 4;
+            preppedBall.GetComponentInChildren<MeshRenderer>().material = materialRequest.asset;
+
+            projectilePrefab.transform.localScale *= 4;
+            ProjectileController controller = projectilePrefab.GetComponent<ProjectileController>();
+            controller.ghostPrefab = controller.ghostPrefab.InstantiateClone("SteelBallGhost");
+            controller.ghostPrefab.transform.localScale *= 4;
+            controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().material = materialRequest.asset;
+        }
+
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.projectilePrefabs.AddSingle(projectilePrefab);
         }
     }
 }

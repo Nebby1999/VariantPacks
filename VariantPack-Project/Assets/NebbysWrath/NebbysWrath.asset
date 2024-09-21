@@ -28,28 +28,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3230df44b431ebc49a958dde5afa4f88, type: 3}
-  m_Name: LanguageFolderTree
-  m_EditorClassIdentifier: 
-  StagingPaths:
-  - <BuildPathPlugins>
-  rootFolderName: NWLang
-  languageFolders:
-  - languageName: en
-    languageFiles:
-    - {fileID: 4900000, guid: 88d8fdd73324e5047b28d3c9524e8059, type: 3}
-  - languageName: es-459
-    languageFiles:
-    - {fileID: 4900000, guid: 79fd57a8ee445ef41ad507e5ed05d63b, type: 3}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
   m_Name: NebbysWrath
   m_EditorClassIdentifier: 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using R2API.Utils;
 using System;
 using System.Linq;
@@ -32,17 +32,15 @@ namespace NW
         public const string MODNAME = "Nebbys Wrath";
         public const string VERSION = "2.0.2";
 
-        public static NWMain Instance { get; private set; }
+        public static NWMain instance { get; private set; }
         private void Awake()
         {
-            Instance = this;
-            new Log(Logger);
-            new NWConfig().Init();
-            new NWAssets().Init();
-            new NWLang().Init();
-            new NWContent().Init();
+            instance = this;
+            new NWLog(Logger);
+            new NWConfig(this);
 
-            ConfigSystem.AddMod(this);
+            new NWContent();
+
             RoR2Application.onLoad += OnLoad;
         }
 
@@ -52,11 +50,6 @@ namespace NW
             {
                 AddJellyfishSummons();
             }
-            EntityStates.Events.VariantEvents.UniqueVariantsEvent.blacklistedVariants.AddRange(new List<VariantDef>
-            {
-                NWAssets.LoadAsset<VariantDef>("GhostOfKjaro"),
-                NWAssets.LoadAsset<VariantDef>("GhostOfRunald"),
-            });
         }
 
         private void AddJellyfishSummons()

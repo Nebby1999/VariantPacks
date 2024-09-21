@@ -1,5 +1,6 @@
 ﻿using BepInEx;
-using Moonstorm.Loaders;
+using MSU;
+using MSU.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace NW
 {
-    public class NWConfig : ConfigLoader<NWConfig>
+    public class NWConfig
     {
-        public override BaseUnityPlugin MainClass => NWMain.Instance;
-        public override bool CreateSubFolder => true;
+        public const string PREFIX = "NW.";
 
-        internal void Init()
+        internal static ConfigFactory configFactory { get; private set; }
+
+        internal NWConfig(BaseUnityPlugin plugin)
         {
-
+            configFactory = new ConfigFactory(plugin);
         }
     }
 }

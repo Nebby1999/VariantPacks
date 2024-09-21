@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using R2API.Utils;
 using System;
 using System.Linq;
@@ -31,17 +31,15 @@ namespace TO30
         public const string MODNAME = "The Original 30";
         public const string VERSION = "2.1.0";
 
-        public static TO30Main Instance { get; private set; }
+        public static TO30Main instance { get; private set; }
         private void Awake()
         {
-            Instance = this;
-            new Log(Logger);
-            new TO30Config().Init();
-            new TO30Assets().Init();
-            new TO30Lang().Init();
-            new TO30Content().Init();
+            instance = this;
 
-            ConfigSystem.AddMod(this);
+            new TO30Log(Logger);
+            new TO30Config(this);
+
+            new TO30Content();
 
             RoR2Application.onLoad += AddSpectralSummons;
         }
