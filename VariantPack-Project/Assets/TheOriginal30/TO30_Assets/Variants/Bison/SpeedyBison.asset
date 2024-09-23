@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpeedyBison
   m_EditorClassIdentifier: 
   bodyName: BisonBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  _variantTier: 0
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 30
   variantSpawnCondition: {fileID: 0}
@@ -37,6 +37,6 @@ MonoBehaviour:
   sizeModifier: {fileID: 0}
   aiModifier: 0
   nameOverrides:
-  - token: Speedy
+  - token: TO30_SPEEDY_PREFIX
     overrideType: 0
   componentProviders: []

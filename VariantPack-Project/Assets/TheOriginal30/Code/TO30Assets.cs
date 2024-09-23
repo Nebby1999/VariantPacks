@@ -16,7 +16,7 @@ namespace TO30
         private const string ASSET_BUNDLE_NAME = "to30assets";
         private const string ASSET_BUNDLE_FOLDER_NAME = "assetbundles";
 
-        private static string assetBundleFolderPath => Path.Combine(Path.GetDirectoryName(VAPIMain.instance.Info.Location), ASSET_BUNDLE_FOLDER_NAME);
+        private static string assetBundleFolderPath => Path.Combine(Path.GetDirectoryName(TO30Main.instance.Info.Location), ASSET_BUNDLE_FOLDER_NAME);
 
         public static ResourceAvailability assetsAvailability;
 

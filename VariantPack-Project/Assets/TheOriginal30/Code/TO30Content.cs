@@ -27,7 +27,7 @@ namespace TO30
 
         internal static ParallelMultiStartCoroutine _parallelPostLoadDispatchers = new ParallelMultiStartCoroutine();
 
-        private static Action[] _fieldAssignDispatchers;
+        private static Action[] _fieldAssignDispatchers = Array.Empty<Action>();
 
         private bool _initialized;
 

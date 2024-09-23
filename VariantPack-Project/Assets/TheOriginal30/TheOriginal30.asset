@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Name: ThunderstoreData
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPath>
+  - <MSUBuildPath>
   url: https://github.com/Nebby1999/VariantPacks/tree/Main/VariantPack-Project/Assets/TheOriginal30

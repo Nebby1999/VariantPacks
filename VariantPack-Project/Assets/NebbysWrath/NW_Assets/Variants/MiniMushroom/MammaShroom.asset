@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MammaShroom
   m_EditorClassIdentifier: 
   bodyName: MiniMushroomBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  _variantTier: 2
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 2
   variantSpawnCondition: {fileID: 0}
@@ -28,7 +28,7 @@ MonoBehaviour:
   regenMultiplier: 0
   shieldBonus: 0
   shieldMultiplier: 0
-  moveSpeedMultiplier: 1
+  moveSpeedMultiplier: 0
   attackSpeedMultiplier: 1
   damageMultiplier: 2
   armorBonus: -50

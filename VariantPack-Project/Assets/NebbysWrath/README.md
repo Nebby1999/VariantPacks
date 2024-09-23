@@ -81,6 +81,7 @@ If you like what i do, and wish to help me out, consider donating on my Ko-fi
 ## Special Thanks
 
 * Thanks to prodzpodproductions for designing the VariantPack's icon.
+* Thanks to Arlwiss for providing me with the Sprites of the Greater Wisp and Lesser Wisp, which are used for the new loading screen enemy portrait.
 
 ## Pictures
 

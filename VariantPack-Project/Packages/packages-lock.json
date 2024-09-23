@@ -93,7 +93,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "86970e3f8571547b30267795b21389a84c100d3a"
+      "hash": "63dcbd84545ae4557f42df4272d76fec3c3868e6"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -248,7 +248,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "bc46f7adf594e70029445ad6d330c11911c94c52"
+      "hash": "30f77a546e6222d10cc6daf3286ec930106dac64"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
