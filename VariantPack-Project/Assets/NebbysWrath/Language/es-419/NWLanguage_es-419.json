@@ -73,6 +73,10 @@
     "NW_COLOSSALGOLEM_ARRIVAL": "Un golem colosal se materializa...",
     "NW_COLOSSAL_PREFIX": "(Colosal)",
 
-    "NW_MOTHERSHIP_PREFIX": "(Nodriza)"
+    "NW_MOTHERSHIP_PREFIX": "(Nodriza)",
+
+    "NW_GAMMA_PREFIX": "(Gamma)",
+
+    "NW_TRANSPLANAR_PREFIX": "(Trasplanar)"
   }
 }

@@ -21,3 +21,5 @@ MonoBehaviour:
     _hexRepresentation: 38638515cfbeeee4fb23248721f46d49
   - k_templateName: ContextMenuWrapperElement
     _hexRepresentation: 77311b170172e5f459337eef42862d00
+  - k_templateName: ComponentInspectorEnableToggle
+    _hexRepresentation: d8821e738f95f48498530303e90d440d

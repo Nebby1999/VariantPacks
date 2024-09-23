@@ -73,6 +73,8 @@
     "NW_COLOSSALGOLEM_ARRIVAL": "A massive stone golem materializes...",
     "NW_COLOSSAL_PREFIX": "Colossal",
 
-    "NW_MOTHERSHIP_PREFIX": "Mothership"
+    "NW_MOTHERSHIP_PREFIX": "Mothership",
+
+    "NW_GAMMA_PREFIX": "Gamma"
   }
 }
