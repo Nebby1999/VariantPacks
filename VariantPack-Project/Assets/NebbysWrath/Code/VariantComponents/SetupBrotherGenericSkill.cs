@@ -11,6 +11,16 @@ namespace NW.Components
     public class SetupBrotherGenericSkill : VariantComponent
     {
         private static SkillFamily summoningRoarFamily = NWAssets.LoadAsset<SkillFamily>("SummoningRoarFamily");
+        
+        private static IEnumerator LoadAssets()
+        {
+            var request = NWAssets.LoadAssetAsync<SkillFamily>("SummoningRoarFamily");
+            while (!request.isDone)
+                yield return null;
+
+            summoningRoarFamily = request.asset;
+        }
+        
         private void Awake()
         {
             SkillLocator locator = GetComponent<SkillLocator>();

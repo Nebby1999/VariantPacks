@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 using VAPI.Components;
 using RoR2;
 using MSU;
+using System.Collections;
 
 namespace NW.Components
 {
     public class SetupBasicPrintController : VariantComponent
     {
-        public static AnimationCurveAsset basicCurve = NWAssets.LoadAsset<AnimationCurveAsset>("ArchaicStoneWispPrintCurve");
+        public static AnimationCurveAsset basicCurve;
+
+        [AsyncAssetLoad]
+        private static IEnumerator LoadAssets()
+        {
+            var request = NWAssets.LoadAssetAsync<AnimationCurveAsset>("ArchaicStoneWispPrintCurve");
+
+            while (!request.isDone)
+                yield return null;
+
+            basicCurve = request.asset;
+        }
+
         public void Start()
         {
             var printController = characterModel.gameObject.EnsureComponent<PrintController>();

@@ -4,6 +4,7 @@
     "NW_VARIANTPACK_DESC": "The variants originally developed for MonsterVariants+, Experience the new friends that made your runs more chaotic and dangerous.",
 
     "NW_ENRAGED_PREFIX": "Enraged",
+    "NW_SOMEWHATANCIENT_PREFIX": "Somewhat-Ancient",
     "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
 
     "NW_STONE_PREFIX": "Stone",
@@ -75,6 +76,19 @@
 
     "NW_MOTHERSHIP_PREFIX": "Mothership",
 
-    "NW_GAMMA_PREFIX": "Gamma"
+    "NW_GAMMA_PREFIX": "Gamma",
+
+    "NW_TRANSPLANAR_PREFIX": "Transplanar",
+    
+    "NW_TINY_PREFIX": "Tiny",
+    "NW_ARMORMELTER_PREFIX": "Armormelter",
+    "NW_ARMORMELTERPEST_ARRIVAL": "A Corrosive pest shows up...",
+    
+    "NW_ARMORMELTERVERMIN_ARRIVAL": "A Corrosive vermin shows up...",
+
+    "NW_MOLTEN_PREFIX": "Molten",
+
+    "NW_GOOP_OVERRIDE": "Goop",
+    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt..."
   }
 }

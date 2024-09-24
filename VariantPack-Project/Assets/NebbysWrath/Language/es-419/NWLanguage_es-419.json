@@ -1,9 +1,10 @@
 {
   "strings": {
-    "NW_VARIANTPACK_NAME": "La Ira de Nebby",
+    "NW_VARIANTPACK_NAME": "Nebby's Wrath",
     "NW_VARIANTPACK_DESC": "Los variantes originalmente creados para MonsterVariants+, Experimenta los nuevos amigos que hicieron tus partidas mas caoticas y peligrosas.",
 
     "NW_ENRAGED_PREFIX": "(Furioso)",
+    "NW_SOMEWHATANCIENT_PREFIX": "(Algo Ancestral)",
     "NW_ANCIENTSTONEWISP_ARRIVAL": "Las energias ancestrales de la tierra se acumulan...",
 
     "NW_STONE_PREFIX": "(Piedra)",
@@ -77,6 +78,17 @@
 
     "NW_GAMMA_PREFIX": "(Gamma)",
 
-    "NW_TRANSPLANAR_PREFIX": "(Trasplanar)"
+    "NW_TRANSPLANAR_PREFIX": "(Trasplanar)",
+
+    "NW_TINY_PREFIX": "(Enano)",
+    "NW_ARMORMELTER_PREFIX": "(Corrosivo)",
+    "NW_ARMORMELTERPEST_ARRIVAL": "Una peste corrosiva aparece...",
+    
+    "NW_ARMORMELTERVERMIN_ARRIVAL": "Una Alimaña corrosiva aparece...",
+
+    "NW_MOLTEN_PREFIX": "(Derretido)",
+
+    "NW_GOOP_OVERRIDE": "Goop",
+    "NW_GOOP_ARRIVAL": "Un hedor a Frutilla se puede sentir..."
   }
 }

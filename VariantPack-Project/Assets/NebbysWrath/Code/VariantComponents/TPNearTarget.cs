@@ -15,14 +15,7 @@ namespace NW.Components
 {
     public class TPNearTarget : VariantComponent
     {
-        [AutoConfig]
-        public static ConfiguredFloat timeBetweenTeleports = new ConfiguredFloat(20f)
-        {
-            description = "The overall time between teleports for variants with this component",
-            key = "Teleport Near Target Cooldown",
-            section = "Variant Components",
-            sliderType = ConfiguredFloat.SliderTypeEnum.Normal,
-        };
+        public static float timeBetweenTeleports = 20f;
 
         private static float _minDistanceRequired = 20f;
         private BaseAI _baseAI;

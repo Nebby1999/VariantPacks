@@ -23,3 +23,9 @@ MonoBehaviour:
     _hexRepresentation: 77311b170172e5f459337eef42862d00
   - k_templateName: ComponentInspectorEnableToggle
     _hexRepresentation: d8821e738f95f48498530303e90d440d
+  - k_templateName: VariantInventoryInspector
+    _hexRepresentation: 5fa50e4051ff6924ab240881851d1bea
+  - k_templateName: EntityStateConfigurationInspector
+    _hexRepresentation: ac961d30836210440afb45f06c794458
+  - k_templateName: SerializedFieldCollectionElement
+    _hexRepresentation: ca7c7b3395fd2514b9ce70ae31afd247
