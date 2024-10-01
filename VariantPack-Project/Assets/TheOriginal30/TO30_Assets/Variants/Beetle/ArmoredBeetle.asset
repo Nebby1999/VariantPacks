@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ArmoredBeetle
   m_EditorClassIdentifier: 
   bodyName: BeetleBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  _variantTier: 0
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 10
   variantSpawnCondition: {fileID: 0}
@@ -34,7 +34,7 @@ MonoBehaviour:
   armorBonus: 20
   armorMultiplier: 1
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: d472074679b7f0f40931e4207a48de33, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 4fb016798ba1bac4694402043f8ec100, type: 2}
   aiModifier: 0
   nameOverrides:
   - token: TO30_ARMORED_PREFIX

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: BrotherGhostCondition
   m_EditorClassIdentifier: 
   minimumStageCompletions: 5
-  stages: -1
-  customStages:
-  - everything
-  requiredUnlockableDef:
-    address: 
-    useDirectReference: 1
-    asset: {fileID: 0}
-  forbiddenUnlockableDef:
-    address: 
-    useDirectReference: 1
-    asset: {fileID: 0}
-  requiredExpansions: []
+  _stages:
+    Value: -1
+  customStages: []
+  requiredUnlock:
+    _asset: {fileID: 0}
+    _address: 
+    _useDirectReference: 0
+  forbiddenUnlock:
+    _asset: {fileID: 0}
+    _address: 
+    _useDirectReference: 0
+  requiredExpansionDefs: []

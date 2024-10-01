@@ -93,7 +93,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9bc36b79371f5c538820aa473938b1cb63a889c5"
+      "hash": "b6ce4e39808023aa7c425bbdc86b213b0b0a474e"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -216,13 +216,13 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#5.2.1",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#5.2.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "88d3b2ec4317d7fc9c6e2364405197d41b42e505"
+      "hash": "4792d5a354a3a8cd8e70c041f4e240f210d96bd8"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.7.0",
@@ -244,11 +244,11 @@
       "dependencies": {}
     },
     "teammoonstorm-moonstormsharedutils": {
-      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
+      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#Feature-MaterialVariants",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "30f77a546e6222d10cc6daf3286ec930106dac64"
+      "hash": "d06b53a2e37709602ea4eb95889a64a957d68a58"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

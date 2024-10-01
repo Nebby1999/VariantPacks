@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FlamethrowerLemurian
   m_EditorClassIdentifier: 
   bodyName: LemurianBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  _variantTier: 2
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 2
   variantSpawnCondition: {fileID: 0}
@@ -35,11 +35,13 @@ MonoBehaviour:
   moveSpeedMultiplier: 1
   attackSpeedMultiplier: 30
   damageMultiplier: 0.75
-  armorBonus: 0
+  armorBonus: 10
   armorMultiplier: 1
   visualModifier: {fileID: 11400000, guid: 2b17b20e03ffc084b8e59e8dee3e58d2, type: 2}
   sizeModifier: {fileID: 0}
   aiModifier: 0
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 2.5
   nameOverrides:
   - token: TO30_FLAMETHROWER_PREFIX
     overrideType: 0

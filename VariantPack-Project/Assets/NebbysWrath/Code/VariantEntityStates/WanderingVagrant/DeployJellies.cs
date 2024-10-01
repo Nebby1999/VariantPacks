@@ -29,7 +29,7 @@ namespace EntityStates.VagrantMonster.Mothership
 
             if (NetworkServer.active)
             {
-                if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.Nebby.TO30") && moajDef)
+                if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(TO30.TO30Main.GUID) && moajDef)
                 {
                     SpawnJellies(3, new VariantDef[] {moajDef});
                 }

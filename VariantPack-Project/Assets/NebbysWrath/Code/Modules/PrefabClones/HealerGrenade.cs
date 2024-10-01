@@ -46,7 +46,7 @@ namespace NW.PrefabClones
 
             var controller = projectile.GetComponent<ProjectileController>();
             _projectileGhost = controller.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
-            _projectileGhost.GetComponentInChildren<MeshRenderer>().material = selfRequest.asset;
+            _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset;
             controller.ghostPrefab = _projectileGhost;
 
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();

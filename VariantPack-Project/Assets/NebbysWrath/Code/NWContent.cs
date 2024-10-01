@@ -10,7 +10,6 @@ using NW.Modules;
 using RoR2.ContentManagement;
 using MSU;
 using System.Collections;
-using TO30;
 using RoR2;
 using UnityEngine;
 
@@ -109,14 +108,14 @@ namespace NW
 
             _variantPack = variantPackRequest.asset;
             _variantPack.variants = variantDefsRequest.assets;
-            VariantPackCatalog.AddVariantPack(_variantPack, TO30Main.instance.Config);
+            VariantPackCatalog.AddVariantPack(_variantPack, NWMain.instance.Config);
         }
 
         private static IEnumerator AddStates()
         {
             NWLog.Info("Adding EntityStates");
             yield return null;
-            contentPack.entityStateTypes.Add(typeof(TO30Content).Assembly
+            contentPack.entityStateTypes.Add(typeof(NWMain).Assembly
             .GetTypes()
             .Where(t => t.IsSubclassOf(typeof(EntityState)) && !t.IsAbstract)
             .ToArray());

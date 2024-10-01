@@ -59,12 +59,29 @@ namespace NW
 
             coroutine.Add(SwapShaders);
             coroutine.Add(SwapAddressableShaders);
+            coroutine.Add(FinishMaterialVariants);
 
             coroutine.Start();
             while (!coroutine.isDone)
                 yield return null;
 
             assetsAvailability.MakeAvailable();
+        }
+
+        private static IEnumerator FinishMaterialVariants()
+        {
+            var request = LoadAssetsAsync<MaterialVariant>();
+            while (!request.isDone)
+                yield return null;
+
+            ParallelCoroutine routine = new ParallelCoroutine();
+            foreach(var variant in request.assets)
+            {
+                routine.Add(variant.ApplyOverrides());
+            }
+
+            while (!routine.IsDone())
+                yield return null;
         }
 
         private static IEnumerator LoadAssetBundle()

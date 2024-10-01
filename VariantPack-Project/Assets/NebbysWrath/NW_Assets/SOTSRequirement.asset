@@ -15,8 +15,7 @@ MonoBehaviour:
   minimumStageCompletions: 0
   _stages:
     Value: -1
-  customStages:
-  - everything
+  customStages: []
   requiredUnlock:
     _asset: {fileID: 0}
     _address: 

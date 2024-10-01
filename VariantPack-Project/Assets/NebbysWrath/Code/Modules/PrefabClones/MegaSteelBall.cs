@@ -1,6 +1,7 @@
 ﻿using MSU;
 using NW.Modules;
 using R2API;
+using RoR2;
 using RoR2.ContentManagement;
 using RoR2.Projectile;
 using System;
@@ -48,13 +49,14 @@ namespace NW.PrefabClones
             projectilePrefab = projectileRequest.Result.InstantiateClone("SteelBall", true);
             preppedBall = preppedRequest.Result.InstantiateClone("PreppedSteelBall");
             preppedBall.transform.localScale *= 4;
-            preppedBall.GetComponentInChildren<MeshRenderer>().material = materialRequest.asset;
+            preppedBall.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset;
+            MSUtil.DestroyImmediateSafe(preppedBall.GetComponent<PrintController>());
 
             projectilePrefab.transform.localScale *= 4;
             ProjectileController controller = projectilePrefab.GetComponent<ProjectileController>();
             controller.ghostPrefab = controller.ghostPrefab.InstantiateClone("SteelBallGhost");
             controller.ghostPrefab.transform.localScale *= 4;
-            controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().material = materialRequest.asset;
+            controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset;
         }
 
         public void ModifyContentPack(ContentPack contentPack)

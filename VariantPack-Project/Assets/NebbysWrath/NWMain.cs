@@ -46,12 +46,13 @@ namespace NW
 
         private void OnLoad()
         {
-            if (MSUtil.IsModInstalled("com.Nebby.TO30"))
+            if (MSUtil.IsModInstalled(TO30.TO30Main.GUID))
             {
                 AddJellyfishSummons();
             }
         }
 
+        [MethodImpl(MethodImplOptions.NoInlining)]
         private void AddJellyfishSummons()
         {
             var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;

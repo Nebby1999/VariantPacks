@@ -35,7 +35,7 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var selfRequest = NWAssets.LoadAssetAsync<Material>("matIchorClaw");
+            var selfRequest = NWAssets.LoadAssetAsync<Material>("matIchorSwipe");
             var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpVoidspikeProjectile.prefab");
 
             var coroutine = new ParallelCoroutine();
@@ -51,7 +51,7 @@ namespace NW.PrefabClones
             var controller = ichorSpike.GetComponent<ProjectileController>();
             var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "IchorSpikeGhost");
             ghostPrefab.GetComponent<Light>().color = new Color(0.98f, 0.71f, 0, 1);
-            ghostPrefab.GetComponentInChildren<MeshRenderer>().material = selfRequest.asset;
+            ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset;
             controller.ghostPrefab = ghostPrefab;
         }
 

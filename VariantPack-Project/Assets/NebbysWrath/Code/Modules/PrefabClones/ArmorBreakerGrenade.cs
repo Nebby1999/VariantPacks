@@ -31,7 +31,7 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var selfRequest = NWAssets.LoadAssetAsync<Material>("matADShroom");
+            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("ADShroom");
             var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
 
             ParallelCoroutine routine = new ParallelCoroutine();
@@ -46,7 +46,7 @@ namespace NW.PrefabClones
 
             var projectileController = projectile.GetComponent<ProjectileController>();
             _projectileGhost = projectileController.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
-            _projectileGhost.GetComponentInChildren<MeshRenderer>().material = selfRequest.asset;
+            _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
             projectileController.ghostPrefab = _projectileGhost;
 
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();
