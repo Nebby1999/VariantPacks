@@ -4,6 +4,7 @@
 //Dunestrider Muzzle-pos(0, 0, 0) scale = 1.5, 1.5 1.5
 
 using MSU;
+using Newtonsoft.Json;
 using RoR2;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,6 @@ namespace NW.Components
 
         private GameObject _effectInstance;
         private Transform _chosenTransform;
-        private Dictionary<CharacterBody, Vector3> spawnedBodyVelocity = new Dictionary<CharacterBody, Vector3>();
         private BodyIndex _myIndex;
 
         [AsyncAssetLoad]
@@ -77,22 +77,8 @@ namespace NW.Components
             if(_effectInstance)
                 Destroy(_effectInstance);
 
-            if(_myIndex == _moffclaymanBody)
-            {
-                DoSpawn();
-                return;
-            }
 
-            StartCoroutine(SwapLayerAndSpawn());
-        }
-
-        private IEnumerator SwapLayerAndSpawn()
-        {
-            yield return new WaitForEndOfFrame();
-            VariantSummon.OnServerVariantSummonGlobal += Weon;
             DoSpawn();
-            yield return new WaitForEndOfFrame();
-            VariantSummon.OnServerVariantSummonGlobal -= Weon;
         }
 
         private void DoSpawn()
@@ -139,21 +125,25 @@ namespace NW.Components
                 count = 2
             };
 
+            variantSummon.onSummonCompleted += (mstr) =>
+            {
+                var body = mstr.GetBody();
+                body.gameObject.layer = LayerIndex.debris.intVal;
+                body.StartCoroutine(SwapBack(body));
+            };
             splitter.masterSummon = variantSummon;
             splitter.Perform();
+
         }
 
-        private void Weon(VariantSummon.VariantSummonReport obj)
+        private IEnumerator SwapBack(CharacterBody obj)
         {
-            var body = obj.summonMasterInstance.GetBody();
-            body.gameObject.layer = LayerIndex.debris.intVal;
-            body.StartCoroutine(SwitchLayer());
+            while (characterBody)
+                yield return null;
 
-            IEnumerator SwitchLayer()
-            {
-                yield return new WaitForSeconds(1f);
-                body.gameObject.layer = LayerIndex.defaultLayer.intVal;
-            }
+            if (!obj)
+                yield break;
+            obj.gameObject.layer = LayerIndex.defaultLayer.intVal;
         }
 
         private void Start()

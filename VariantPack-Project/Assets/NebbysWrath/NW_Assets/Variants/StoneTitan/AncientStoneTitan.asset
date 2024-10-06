@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AncientStoneTitan
   m_EditorClassIdentifier: 
   bodyName: TitanBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  _variantTier: 0
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 4
   variantSpawnCondition: {fileID: 0}
@@ -31,11 +31,13 @@ MonoBehaviour:
   moveSpeedMultiplier: 1
   attackSpeedMultiplier: 1
   damageMultiplier: 1
-  armorBonus: -50
+  armorBonus: -30
   armorMultiplier: 1
   visualModifier: {fileID: 0}
   sizeModifier: {fileID: 0}
   aiModifier: 1
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 1
   nameOverrides:
   - token: NW_ANCIENT_PREFIX
     overrideType: 0

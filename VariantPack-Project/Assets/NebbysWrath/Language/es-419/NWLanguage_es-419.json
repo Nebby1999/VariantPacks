@@ -89,6 +89,18 @@
     "NW_MOLTEN_PREFIX": "(Derretido)",
 
     "NW_GOOP_OVERRIDE": "Goop",
-    "NW_GOOP_ARRIVAL": "Un hedor a Frutilla se puede sentir..."
+    "NW_GOOP_ARRIVAL": "Un hedor a Frutilla se puede sentir...",
+    "NW_TARRED_PREFIX": "Alquitranado",
+
+    "NW_OVERFLOWING_PREFIX": "(Desbordante))",
+
+    "NW_COLLAPSED_ARRIVAL": "Un Niño del Vacio aparece",
+    "NW_COLLAPSED_PREFIX": "(Colapsado)",
+    "NW_DENSE_PREFIX": "(Denso)",
+
+    "NW_ELECTRIC_PREFIX": "(Electrico)",
+
+    "NW_PROTO_PREFIX": "(Prototipo)",
+    "NW_OMICRON_PREFIX": "(Omicron)"
   }
 }

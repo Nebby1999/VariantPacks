@@ -89,6 +89,18 @@
     "NW_MOLTEN_PREFIX": "Molten",
 
     "NW_GOOP_OVERRIDE": "Goop",
-    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt..."
+    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt...",
+    "NW_TARRED_PREFIX": "Tarred",
+
+    "NW_OVERFLOWING_PREFIX": "Overflowing",
+
+    "NW_COLLAPSED_ARRIVAL": "A child of the Void appears...",
+    "NW_COLLAPSED_PREFIX": "Collapsed",
+    "NW_DENSE_PREFIX": "Dense",
+
+    "NW_ELECTRIC_PREFIX": "Electric",
+
+    "NW_PROTO_PREFIX": "Prototype",
+    "NW_OMICRON_PREFIX": "Omicron"
   }
 }

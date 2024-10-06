@@ -31,12 +31,14 @@ MonoBehaviour:
   shieldMultiplier: 1
   moveSpeedMultiplier: 1
   attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: -50
+  damageMultiplier: 0.5
+  armorBonus: 0
   armorMultiplier: 1
   visualModifier: {fileID: 0}
   sizeModifier: {fileID: 0}
   aiModifier: 0
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 1
   nameOverrides:
   - token: NW_MOLTEN_PREFIX
     overrideType: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Child
   m_EditorClassIdentifier: 
   bodyName: ParentBody
-  variantTier: 1
-  variantTierDef: {fileID: 0}
+  _variantTier: 1
+  _variantTierDef: {fileID: 0}
   isUnique: 0
   spawnRate: 6
   variantSpawnCondition: {fileID: 0}
@@ -26,6 +26,8 @@ MonoBehaviour:
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: fb6d22489cfd8b44f9c3a69d424fec9d, type: 2}
     skillSlot: 0
+  - skillDef: {fileID: 0}
+    skillSlot: 1
   healthMultiplier: 0.5
   regenBonus: 0
   regenMultiplier: 0
@@ -39,6 +41,8 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 07a813e8db3c8c141bd21e4f0ef19b1c, type: 2}
   sizeModifier: {fileID: 11400000, guid: 7443f001dd424064498b70dab4aebf0d, type: 2}
   aiModifier: 0
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 1
   nameOverrides:
   - token: NW_CHILDISH_PREFIX
     overrideType: 0

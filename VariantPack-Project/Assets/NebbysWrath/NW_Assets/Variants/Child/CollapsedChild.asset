@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: CollapsedChild
+  m_EditorClassIdentifier: 
+  bodyName: ChildBody
+  _variantTier: 2
+  _variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 5
+  variantSpawnCondition: {fileID: 11400000, guid: a02e5b63c6a27564db7a12d68c41f044,
+    type: 2}
+  arrivalToken: NW_COLLAPSEDCHILD_ARRIVAL
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: ef4232ee2224768489718d91e21f5ce6, type: 2}
+    skillSlot: 0
+  healthMultiplier: 2
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 1
+  attackSpeedMultiplier: 0.75
+  damageMultiplier: 1
+  armorBonus: 10
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: cefd15370a8a37149bb41f4a175215d2, type: 2}
+  sizeModifier: {fileID: 11400000, guid: bae133fb093c54e43a53aadfaaed05ad, type: 2}
+  aiModifier: 0
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 1
+  nameOverrides:
+  - token: NW_COLLAPSED_PREFIX
+    overrideType: 0
+  componentProviders: []
