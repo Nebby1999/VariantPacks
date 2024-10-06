@@ -56,7 +56,7 @@ namespace EntityStates.VagrantMonster.Mothership
                     summon.summonerDeathRewards = rewards;
                     summon.deathRewardsCoefficient = count / 10;
                 }
-                var jellyMaster = summon.Perform();
+                var jellyMaster = summon.PerformSummon();
                 if (jellyMaster)
                 {
                     var jelly = jellyMaster.GetBody();

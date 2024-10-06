@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialReplacements:
   - rendererIndex: 0
-    material: {fileID: 2100000, guid: 48c265a4a9fd7dd49911ca8278911bdc, type: 2}
+    material: {fileID: -6826986014985053350, guid: 1503288c7c2c7984dad5e937f954874b,
+      type: 2}
   - rendererIndex: 1
-    material: {fileID: 2100000, guid: 9e6a9a3b188c90e48ae5e75eff51514b, type: 2}
+    material: {fileID: -6209886855553799015, guid: 36a103e152850e54cb63248074b56a8a,
+      type: 2}
   - rendererIndex: 2
-    material: {fileID: 2100000, guid: 0929220f4b33c77498f461d90f160e22, type: 2}
+    material: {fileID: -7559930435209392719, guid: 275ab94bc4e01db41af9721c33a83ca3,
+      type: 2}
   lightReplacements:
   - rendererIndex: 1
     color:

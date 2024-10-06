@@ -31,7 +31,7 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("ADShroom");
+            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matADShroom");
             var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
 
             ParallelCoroutine routine = new ParallelCoroutine();

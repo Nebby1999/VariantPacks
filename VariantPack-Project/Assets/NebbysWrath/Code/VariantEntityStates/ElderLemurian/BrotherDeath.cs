@@ -39,7 +39,7 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
                         variantSummon.deathRewardsCoefficient = 1f;
                     }
 
-                    var lemmyMaster = variantSummon.Perform();
+                    var lemmyMaster = variantSummon.PerformSummon();
                     if(lemmyMaster)
                     {
                         var lemmyBodyObjectt = lemmyMaster.bodyInstanceObject;

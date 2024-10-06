@@ -29,7 +29,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
             deathRewards = GetComponent<DeathRewards>();
             if(NetworkServer.active)
             {
-                funny = Util.CheckRoll(fuckYouChance);
+                funny = Util.CheckRoll(100);
             }
             if (!base.modelLocator)
             {

@@ -15,7 +15,7 @@ MonoBehaviour:
   bodyName: GupBody
   _variantTier: 2
   _variantTierDef: {fileID: 0}
-  isUnique: 1
+  isUnique: 0
   spawnRate: 7
   variantSpawnCondition: {fileID: 11400000, guid: 3d0c1b23b17a75746957d4da78ba4971,
     type: 2}
@@ -38,6 +38,8 @@ MonoBehaviour:
   visualModifier: {fileID: 0}
   sizeModifier: {fileID: 11400000, guid: 4539723a9885fba458d4936afce3efba, type: 2}
   aiModifier: 0
+  baseAIDampBonus: 0
+  baseAIDampMultiplier: 1
   nameOverrides:
   - token: NW_GOOP_OVERRIDE
     overrideType: 2

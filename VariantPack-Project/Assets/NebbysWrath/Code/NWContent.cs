@@ -111,6 +111,31 @@ namespace NW
             VariantPackCatalog.AddVariantPack(_variantPack, NWMain.instance.Config);
         }
 
+        private static IEnumerator AddGupDefsToGupVariantHandler()
+        {
+            var goopDef = NWAssets.LoadAssetAsync<VariantDef>("Goop");
+            var tarredGupDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGup");
+            var tarredGeepDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGeep");
+            var tarredGipDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGip");
+
+            ParallelCoroutine coroutine = new ParallelCoroutine();
+            coroutine.Add(goopDef);
+            coroutine.Add(tarredGupDef);
+            coroutine.Add(tarredGeepDef);
+            coroutine.Add(tarredGipDef);
+
+            while (!coroutine.IsDone())
+                yield return null;
+
+            var goop = goopDef.asset;
+            var tarredGup = tarredGupDef.asset;
+            var tarredGeep = tarredGeepDef.asset;
+            var tarredGip = tarredGipDef.asset;
+
+            GupVariantHelper.AddToBlacklist(goop);
+            GupVariantHelper.AddGupProgression(tarredGup, tarredGeep, tarredGip);
+        }
+
         private static IEnumerator AddStates()
         {
             NWLog.Info("Adding EntityStates");
@@ -139,6 +164,7 @@ namespace NW
         {
             ContentManager.collectContentPackProviders += AddSelf;
             NWAssets.assetsAvailability.CallWhenAvailable(() => _parallelPostLoadDispatchers.Add(CallAsyncLoadAttributes));
+            _parallelPostLoadDispatchers.Add(AddGupDefsToGupVariantHandler);
         }
 
         static NWContent()
@@ -162,6 +188,14 @@ namespace NW
                     IContentPieceProvider<GameObject> provider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(main, contentPack);
 
                     return PrefabCloneModule.Initialize(provider);
+                },
+                () =>
+                {
+                    NWLog.Info($"Initializing Variant Items");
+
+                    IContentPieceProvider<ItemDef> provider = ContentUtil.CreateGenericContentPieceProvider<ItemDef>(main, contentPack);
+                    ItemModule.AddProvider(main, provider);
+                    return ItemModule.InitializeItems(main);
                 },
                 AddVariantPack,
             };

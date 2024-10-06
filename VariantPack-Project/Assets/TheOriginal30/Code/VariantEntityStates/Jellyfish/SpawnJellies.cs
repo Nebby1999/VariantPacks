@@ -45,7 +45,7 @@ namespace EntityStates.JellyfishMonster.MOAJ
                         summon.summonerDeathRewards = deathRewards;
                     }
 
-                    summon.Perform();
+                    summon.PerformSummon();
                 }
                 DestroyBodyAsapServer();
             }

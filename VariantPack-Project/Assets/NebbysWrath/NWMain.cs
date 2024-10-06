@@ -63,5 +63,13 @@ namespace NW
             validMasters.Add(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
             validMasters.Add(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
         }
+
+        [ConCommand(commandName = "Belch", flags = ConVarFlags.None)]
+        private static void Belch(ConCommandArgs args)
+        {
+            var sender = args.senderBody;
+
+            Instantiate(NWAssets.LoadAsset<GameObject>("ClayOverflow"), sender.transform.position, sender.transform.rotation);
+        }
     }
 }

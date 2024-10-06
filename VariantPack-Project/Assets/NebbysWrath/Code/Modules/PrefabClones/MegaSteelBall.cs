@@ -36,7 +36,7 @@ namespace NW.PrefabClones
         {
             var preppedRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/PreppedBellBall.prefab");
             var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/BellBall.prefab");
-            var materialRequest = NWAssets.LoadAssetAsync<Material>("matSteelContraption");
+            var materialRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matSteelContraptionBall");
 
             var routine = new ParallelCoroutine();
             routine.Add(preppedRequest);
@@ -49,14 +49,13 @@ namespace NW.PrefabClones
             projectilePrefab = projectileRequest.Result.InstantiateClone("SteelBall", true);
             preppedBall = preppedRequest.Result.InstantiateClone("PreppedSteelBall");
             preppedBall.transform.localScale *= 4;
-            preppedBall.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset;
-            MSUtil.DestroyImmediateSafe(preppedBall.GetComponent<PrintController>());
+            preppedBall.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset.material;
 
             projectilePrefab.transform.localScale *= 4;
             ProjectileController controller = projectilePrefab.GetComponent<ProjectileController>();
             controller.ghostPrefab = controller.ghostPrefab.InstantiateClone("SteelBallGhost");
             controller.ghostPrefab.transform.localScale *= 4;
-            controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset;
+            controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset.material;
         }
 
         public void ModifyContentPack(ContentPack contentPack)

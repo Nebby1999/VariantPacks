@@ -59,6 +59,7 @@ namespace TO30
 
             coroutine.Add(SwapShaders);
             coroutine.Add(SwapAddressableShaders);
+            coroutine.Add(FinishMaterialVariants);
 
             coroutine.Start();
             while (!coroutine.isDone)
@@ -75,6 +76,22 @@ namespace TO30
                 yield return null;
 
             _assetBundle = request.assetBundle;
+        }
+
+        private static IEnumerator FinishMaterialVariants()
+        {
+            var request = LoadAssetsAsync<MaterialVariant>();
+            while (!request.isDone)
+                yield return null;
+
+            ParallelCoroutine routine = new ParallelCoroutine();
+            foreach (var variant in request.assets)
+            {
+                routine.Add(variant.ApplyOverrides());
+            }
+
+            while (!routine.IsDone())
+                yield return null;
         }
 
         private static IEnumerator SwapShaders()

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialReplacements:
   - rendererIndex: 0
-    material: {fileID: 2100000, guid: 5d4215f3e66205548bbd788afd28db83, type: 2}
+    material: {fileID: 1690128031867762302, guid: 5cf859f0e61783846ace1e4a44920126,
+      type: 2}
   lightReplacements: []
   meshReplacements: []

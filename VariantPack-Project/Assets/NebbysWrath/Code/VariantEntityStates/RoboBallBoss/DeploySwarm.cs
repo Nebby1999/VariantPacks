@@ -94,7 +94,7 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
                 applyOnStart = true,
                 supressRewards = true,
                 variantDefs = new VariantDef[] { swarmingDef }
-            }.Perform();
+            }.PerformSummon();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

@@ -74,7 +74,7 @@ namespace EntityStates.JellyfishMonster.Spectral
 
             HG.ArrayUtils.ArrayAppend(ref summon.variantDefs, chosenMonsterVariantDefProvider.GetVariantDef(UnityEngine.Random.Range(0, chosenMonsterVariantDefProvider.totalVariantCount)));
 
-            summon.Perform();
+            summon.PerformSummon();
         }
         public override void CreateDeathEffects()
         {

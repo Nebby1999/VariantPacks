@@ -40,7 +40,7 @@ namespace EntityStates.ClaymanMonster.Assasin
             attack.teamIndex = TeamComponent.GetObjectTeam(attack.attacker);
             attack.isCrit = Util.CheckRoll(critStat, base.characterBody.master);
             attack.damage = (attack.isCrit ? damageCoefficient/ 10 : damageCoefficient) * damageStat;
-            attack.damageType = attack.isCrit ? DamageType.BleedOnHit : DamageType.SuperBleedOnCrit;
+            attack.damageType = attack.isCrit ? DamageType.SuperBleedOnCrit : DamageType.BleedOnHit;
             attack.hitEffectPrefab = hitEffectPrefab;
             Util.PlaySound(attackString, base.gameObject);
             if ((bool)modelTransform)
