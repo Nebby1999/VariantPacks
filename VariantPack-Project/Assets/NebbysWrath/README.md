@@ -8,8 +8,8 @@ Playing with the following mod causes certain cross-over features
 
 | Mod | Crossover Feature |
 |--|--|
-| [ClayMen](https://thunderstore.io/package/Moffein/Clay_Men/) | Allows the Assasin Claymen and Clay Soldier to spawn |
-| [Ancient Wisp](https://thunderstore.io/package/Moffein/Ancient_Wisp/) | Allows the Enraged Wisp to spawn |
+| [ClayMen](https://thunderstore.io/package/Moffein/Clay_Men/) | Allows the Assasin Claymen, Clay Soldier and the Overflowing Claymen to spawn |
+| [Ancient Wisp](https://thunderstore.io/package/Moffein/Ancient_Wisp/) | Allows the Enraged Wisp, the Ancient Stone Wisp and the Somewhat-Ancient Wisp to spawn |
 | [Archaic Wisp](https://thunderstore.io/package/Moffein/Archaic_Wisp/) | Allows the Somewhat-Archaic Wisp, Archaic Stone Wisp and Aeonic Wisp to spawn |
 | [The Original 30](https://thunderstore.io/package/Nebby/VariantPack_TheOriginal30/) | Adds ClayMen, Imps, HermitCrabs and Solus Probes to the Spectral Jellyfish spawn list |
 
@@ -27,7 +27,9 @@ Playing with the following mod causes certain cross-over features
 | Bighorn Bison | Alpha Bison | Quicker than a regular bison with an explosing charge attack |
 | Clay Dunestrider | Devourer Dunestrider | Can only use it's desesperation attack once, the attack is powered up |
 | Clay Dunestrider | Starving Dunesstrider | Uses it's desesperation Attack as soon as possible |
+| Clay Dunestrider | Overflowing Dunestrider | All attacks inflict tar, spawns 2 Tarred Goop when killed
 | Clay Templar | Vampiric Templar | Steals life on hit, healing itself |
+| Clay Templar | Overflowing Templar | All attacks inflict tar, spawns 2 Tarred Geep when killed
 | Stone Golem | Colossal Golem | It's golem laser is replaced by a Titan Laser |
 | Grandparent | Great Grandparent | Increased health and attack, self detonates in a super nova on death |
 | Grandparent | Heliocratic Grandparent | Uses it's desesperation Attack as soon as posssible |
@@ -46,11 +48,14 @@ Playing with the following mod causes certain cross-over features
 | Mini Mushrum | Healer Shroom | reduced attack speed, fires grenades which heal enemies and harms the player |
 | Mini Mushrum | Mamma Shroom | Cannot move, has 5 Bustling Fungus |
 | Ancient Wisp | Enraged Wisp | Enrages as Soon as possible, Requires moffein's AncientWisp mod |
+| Ancient Wisp | Ancient Stone Wisp | Increased health armor and lowered speed, has Stone Titan-like attacks. Requires moffein's Ancient Wisp mod |
+| Ancient Wisp | Somewhat-Ancient Wisp | Decreased Health and Size, increased attack speed and movement speed. Requires moffein's Ancient Wisp mod |
 | Archaic wisp | Aeonic Wisp | Increased Damage and defense, Requires moffein's Archaic Wisp mod |
 | Archaic Wisp | Archaic Stone Wisp | Fires two stone titan lasers, Requires moffein's Archaic Wisp mod |
 | Archaic Wisp | Somewhat-Archaic Wisp | Decreased Health and Size, increased attack speed and movement speed, Requires moffein's Archaic Wisp mod |
 | Clay Man | Assassin Clay Man | Increased movement speed and reduced health, chance to inflict bleeding, invisible but shows itself when attacking. attacking lasts twice as long |
 | Clay Man | Clay Soldier | Slower with higher health, increased attack speed |
+| Clay Man | Overflowing Clay Man | All attacks inflict tar, spawns 2 Tarred Gip when killed |
 | Parent | Adolescere | Teleports around more often, usually out of reach, has a planula and heals itself quickly |
 | Parent | Child | increased movement and attack speed, on death, spawns two enraged parents |
 | Solus Control Unit | Malfunctioning Solus Control Unit | Uses it's desesperation attack as soon as possible |
@@ -68,6 +73,22 @@ Playing with the following mod causes certain cross-over features
 | Lesser Wisp | Almost-Archaic Wisp | Fires an Archaic Wisp fireball |
 | Lesser Wisp | Leastest Wisp | Reduced Size, Increased movement and attack speedd |
 | Lesser Wisp | Lessser Stone Wisp | Fires a stone golem laser |
+| Alpha Construct | Gamma Construct | Increased attack speed, teleports to nearby players every now and then |
+| Void Barnacle | Transplanar Barnacle | Increased attack speed, teleports to nearby players every now and then |
+| Blind Pest | Armormelter Pest | Attacks reduces armor permanently |
+| Blind Pest | Tiny Pest | Reduced size, Increased movement and attack speed |
+| Blind Vermin | Armormelter Vermin | Attacks reduces armor permanently |
+| Blind Vermin | Tiny Vermin | Reduced size, Increased movement and attack speed |
+| Gup | Goop | Increased health, size and damage, reduced speed, splits into two Gups when killed. |
+| Gup | Tarred Gup | Inflicts tar on hit |
+| Geep | Tarred Geep | Inflicts tar on hit |
+| Gip | Tarred Gip | Inflicts tar on hit | 
+| Magma Worm | Molten Worm | Reduced length, has a single ignition tank |
+| Child | Collapsed Child | Attack spawns a void reaver implosion |
+| Child | Dense Child | Attack has insane knockback |
+| Scorch Wurm | Electric Wurm | Fires overloading worm orbs that strike down lightning |
+| Xi Construct | Proto Construct | Uses it's shield always |
+| Xi construct | Omicron Construct | Highly aggressive, doesnt spawn alpha construct, shield is replaced by a homing laser barrage |
 
 </p>
 </details>
