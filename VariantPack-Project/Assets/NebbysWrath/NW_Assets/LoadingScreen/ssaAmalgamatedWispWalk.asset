@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 2054123791, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: ssaAmalgamatedWispWalk
   m_EditorClassIdentifier: 
-  frameRate: 10
+  frameRate: 15
   frames:
   - sprite: {fileID: -2075975936, guid: 7571d6bb168c75d4894cb4b0123fe396, type: 3}
     duration: 1
