@@ -1,0 +1,106 @@
+{
+  "strings": {
+    "NW_VARIANTPACK_NAME": "Nebby's Wrath",
+    "NW_VARIANTPACK_DESC": "The variants originally developed for MonsterVariants+, Experience the new friends that made your runs more chaotic and dangerous.",
+
+    "NW_ENRAGED_PREFIX": "Enraged",
+    "NW_SOMEWHATANCIENT_PREFIX": "Somewhat-Ancient",
+    "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
+
+    "NW_STONE_PREFIX": "Stone",
+    "NW_ARCHAICSTONEWISP_ARRIVAL": "The archaic energies from the earth accumulate...",
+    "NW_AEONIC_PREFIX": "Aeonic",
+    "NW_SOMEWHATARCHAIC_PREFIX": "Somewhat-Archaic",
+
+    "NW_ANCIENT_PREFIX": "Ancient",
+    "NW_ENORMOUS_PREFIX": "Enormous",
+    "NW_PYGMY_PREFIX": "Pygmy",
+
+    "NW_MALFUNCTIONING_PREFIX": "Malfunctioning",
+    "NW_SWARMING_PREFIX": "Swarming",
+
+    "NW_EMPRESS_SUFFIX": "Imperatrix",
+    "NW_MATRIARCH_PREFIX": "Matriarchal",
+
+    "NW_ALPHA_PREFIX": "Alpha",
+
+    "NW_ALUMINUM_PREFIX": "Aluminum-Plated",
+    "NW_STEEL_PREFIX": "Steel-Plated",
+
+    "NW_DEVOURER_PREFIX": "Devourer",
+    "NW_STARVING_PREFIX": "Starving",
+
+    "NW_ASSASSIN_PREFIX": "Assassin",
+    "NW_SOLDIER_SUFFIX": "Soldier",
+
+    "NW_VAMPIRIC_PREFIX": "Vampiric",
+
+    "NW_KJARO_ARRIVAL": "The Ghost of Kjaro appears with a thirst for vengance!",
+    "NW_KJARO_OVERRIDE": "Ghost of Kjaro",
+    "NW_RUNALD_ARRIVAL": "The Ghost of Runald appears with a thirst for vengance!",
+    "NW_RUNALD_OVERRIDE": "Ghost of Runald",
+    "NW_INCINERATING_ARRIVAL": "The ground heats up from the arrival of an Elder Lemurian...",
+    "NW_INCINERATING_PREFIX": "Incinerating",
+
+    "NW_GREAT_PREFIX": "Greater",
+    "NW_SUNWORSHIPPING_PREFIX": "Heliolatric",
+
+    "NW_AMALGAMATED_PREFIX": "Amalgamated",
+    "NW_GREATERSTONEWISP_ARRIVAL": "The greater energies from the earth accumulate...",
+    "NW_SOMEWHATGREAT_PREFIX": "Somewhat-Great",
+
+    "NW_MORTAR_PREFIX": "Mortar",
+
+    "NW_BRUISER_PREFIX": "Bruiser",
+    "NW_ICHOR_PREFIX": "Ichor",
+
+    "NW_BERSERKER_PREFIX": "Berserker",
+
+    "NW_ALMOSTARCHAIC_PREFIX": "Almost-Archaic",
+    "NW_LEASTEST_PREFIX": "Leastest",
+
+    "NW_AD_PREFIX": "AD",
+    "NW_HEALER_PREFIX": "Healer",
+    "NW_MAMMASHROOM_ARRIVAL": "A matriarchal fungus appears.",
+    "NW_MAMMA_PREFIX": "Mamma",
+
+    "NW_ADOLESCERE_PREFIX": "Adolescere",
+    "NW_CHILDISH_PREFIX": "Childish",
+
+    "NW_SWARMER_PREFIX": "Swarmer",
+    "NW_MK2_SUFFIX": "MK2",
+    "NW_GAUSSIAN_PREFIX": "Gaussian",
+
+    "NW_COLOSSALGOLEM_ARRIVAL": "A massive stone golem materializes...",
+    "NW_COLOSSAL_PREFIX": "Colossal",
+
+    "NW_MOTHERSHIP_PREFIX": "Mothership",
+
+    "NW_GAMMA_PREFIX": "Gamma",
+
+    "NW_TRANSPLANAR_PREFIX": "Transplanar",
+    
+    "NW_TINY_PREFIX": "Tiny",
+    "NW_ARMORMELTER_PREFIX": "Armormelter",
+    "NW_ARMORMELTERPEST_ARRIVAL": "A Corrosive pest shows up...",
+    
+    "NW_ARMORMELTERVERMIN_ARRIVAL": "A Corrosive vermin shows up...",
+
+    "NW_MOLTEN_PREFIX": "Molten",
+
+    "NW_GOOP_OVERRIDE": "Goop",
+    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt...",
+    "NW_TARRED_PREFIX": "Tarred",
+
+    "NW_OVERFLOWING_PREFIX": "Overflowing",
+
+    "NW_COLLAPSED_ARRIVAL": "A child of the Void appears...",
+    "NW_COLLAPSED_PREFIX": "Collapsed",
+    "NW_DENSE_PREFIX": "Dense",
+
+    "NW_ELECTRIC_PREFIX": "Electric",
+
+    "NW_PROTO_PREFIX": "Prototype",
+    "NW_OMICRON_PREFIX": "Omicron"
+  }
+}

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Name: AncientStoneWisp
+  m_EditorClassIdentifier: 
+  bodyName: MoffeinAncientWispBody
+  _variantTier: 2
+  _variantTierDef: {fileID: 0}
+  isUnique: 0
+  spawnRate: 1
+  variantSpawnCondition: {fileID: 0}
+  arrivalToken: NW_ANCIENTSTONEWISP_ARRIVAL
+  variantInventory: {fileID: 0}
+  deathStateOverride:
+    _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: fdd964cec9b30064fb5b81d46d4c9001, type: 2}
+    skillSlot: 0
+  - skillDef: {fileID: 11400000, guid: 585aa05008c19c9428a2bee9bade6028, type: 2}
+    skillSlot: 1
+  - skillDef: {fileID: 11400000, guid: 14c75575bfd0a2143b8a74241ccb6d3e, type: 2}
+    skillSlot: 2
+  healthMultiplier: 2
+  regenBonus: 0
+  regenMultiplier: 0
+  shieldBonus: 0
+  shieldMultiplier: 1
+  moveSpeedMultiplier: 0.5
+  attackSpeedMultiplier: 1
+  damageMultiplier: 1
+  armorBonus: 10
+  armorMultiplier: 1
+  visualModifier: {fileID: 11400000, guid: 59c3d71ab30903b4e9ec497711a2f317, type: 2}
+  sizeModifier: {fileID: 11400000, guid: 1215b9f01b09ac641bb64f1c3b17645d, type: 2}
+  aiModifier: 0
+  nameOverrides:
+  - token: NW_STONE_PREFIX
+    overrideType: 0
+  componentProviders:
+  - componentToAdd:
+      assemblyQualifiedName: NW.Components.SetupBasicPrintController, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 2
+  - componentToAdd:
+      assemblyQualifiedName: NW.Components.AncientStoneWispMaterialSetter, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    attachmentType: 2

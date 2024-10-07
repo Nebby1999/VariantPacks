@@ -1,5 +1,6 @@
 ﻿using BepInEx;
-using Moonstorm.Loaders;
+using MSU;
+using MSU.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace TO30
 {
-    public class TO30Config : ConfigLoader<TO30Config>
+    public class TO30Config
     {
-        public override BaseUnityPlugin MainClass => TO30Main.Instance;
-        public override bool CreateSubFolder => true;
+        public const string PREFIX = "TO30.";
 
-        internal void Init()
+        internal static ConfigFactory configFactory { get; private set; }
+
+        internal TO30Config(BaseUnityPlugin plugin)
         {
-
+            configFactory = new ConfigFactory(plugin);
         }
     }
 }

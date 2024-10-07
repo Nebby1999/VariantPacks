@@ -12,7 +12,7 @@ namespace TO30.Components
     {
         private void Start()
         {
-            var printController = CharacterModel.GetComponent<PrintController>();
+            var printController = characterModel.GetComponent<PrintController>();
             if(printController)
             {
                 printController.printTime = 25f;

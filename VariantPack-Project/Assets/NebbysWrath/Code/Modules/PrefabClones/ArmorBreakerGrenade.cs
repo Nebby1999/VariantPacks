@@ -1,6 +1,10 @@
-﻿using R2API;
+﻿using MSU;
+using NW.Modules;
+using R2API;
+using RoR2.ContentManagement;
 using RoR2.Projectile;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,26 +15,55 @@ using static R2API.DamageAPI;
 
 namespace NW.PrefabClones
 {
-    public class ArmorBreakerGrenade : PrefabCloneBase
+    public class ArmorBreakerGrenade : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public static GameObject projectile = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab").WaitForCompletion(), "ArmorBreakerGrenadeProjectile", true);
+        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
 
-        public override void Initialize()
+        public GameObject asset => projectile;
+        public static GameObject projectile;
+        private GameObject _childProjectile;
+        private GameObject _projectileGhost;
+
+        public bool IsAvailable(ContentPack contentPack)
         {
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, projectile);
+            return true;
+        }
+
+        public IEnumerator LoadContentAsync()
+        {
+            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matADShroom");
+            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
+
+            ParallelCoroutine routine = new ParallelCoroutine();
+            routine.Add(selfRequest);
+            routine.Add(request);
+
+            while (!routine.IsDone())
+                yield return null;
+
+            projectile = PrefabAPI.InstantiateClone(request.Result, "ArmorBreakerGrenade", true);
+            projectile.AddComponent<ClonedPrefabBehaviour>();
+
+            var projectileController = projectile.GetComponent<ProjectileController>();
+            _projectileGhost = projectileController.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
+            _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
+            projectileController.ghostPrefab = _projectileGhost;
+
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();
-            var armorBreakerChild = impactExplosion.childrenProjectilePrefab.InstantiateClone("BreakerWard");
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, armorBreakerChild);
-            var moddedDamageType = armorBreakerChild.AddComponent<ModdedDamageTypeHolderComponent>();
-            moddedDamageType.Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            _childProjectile = impactExplosion.childrenProjectilePrefab.InstantiateClone("BreakerWard", true);
+            impactExplosion.childrenProjectilePrefab = _childProjectile;
 
-            impactExplosion.childrenProjectilePrefab = armorBreakerChild;
+        }
 
-            ProjectileController controller = projectile.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "HealingGrenadeGhost", false);
-            ghostPrefab.GetComponentInChildren<MeshRenderer>().material = NWAssets.LoadAsset<Material>("matADShroom");
+        public void Initialize()
+        {
+            projectile.AddComponent<ModdedDamageTypeHolderComponent>().Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            _childProjectile.AddComponent<ModdedDamageTypeHolderComponent>().Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+        }
 
-            controller.ghostPrefab = ghostPrefab;
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.projectilePrefabs.Add(new GameObject[] { projectile, _childProjectile });
         }
     }
 }

@@ -13,34 +13,13 @@ MonoBehaviour:
   m_Name: Files
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPath>
+  - <MSUBuildPath>
+  includeMetaFiles: 0
   files:
   - {fileID: 2800000, guid: b4919964453b49545945ab1a0e34d0d2, type: 3}
   - {fileID: 4900000, guid: 33b8d66db1da0274fb404291640ddf2e, type: 3}
   - {fileID: 4900000, guid: 473978a723ce7c54ba8a6034296fb2b3, type: 3}
 --- !u!114 &-3892906877110538616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3230df44b431ebc49a958dde5afa4f88, type: 3}
-  m_Name: LanguageFolderTree
-  m_EditorClassIdentifier: 
-  StagingPaths:
-  - <BuildPathPlugins>
-  rootFolderName: NWLang
-  languageFolders:
-  - languageName: en
-    languageFiles:
-    - {fileID: 4900000, guid: 88d8fdd73324e5047b28d3c9524e8059, type: 3}
-  - languageName: es-459
-    languageFiles:
-    - {fileID: 4900000, guid: 79fd57a8ee445ef41ad507e5ed05d63b, type: 3}
---- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +36,6 @@ MonoBehaviour:
   - {fileID: 114107831304456238}
   - {fileID: 114431642618062350}
   - {fileID: 114987763159783732}
-  - {fileID: -3892906877110538616}
   - {fileID: 8324102109481770816}
   - {fileID: -4467616490986340797}
   identity: {fileID: 114211852988908172}
@@ -75,7 +53,7 @@ MonoBehaviour:
   m_Name: AssemblyDefinitions
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPathPlugins>
+  - <MSUBuildPathPlugins>
   definitions:
   - {fileID: 5897886265953266890, guid: 6f53debbbfad69a4eae8377808fbc919, type: 3}
 --- !u!114 &114211852988908172
@@ -95,9 +73,9 @@ MonoBehaviour:
   Author: Nebby
   Name: VariantPack_NebbysWrath
   Description: Variants from MonsterVariantsPlus, Ported to VarianceAPI.
-  Version: 2.0.1
+  Version: 2.0.2
   Dependencies:
-  - {fileID: 11400000, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
+  - {fileID: -3892906877110538616, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
   - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}
   - {fileID: 11400000, guid: 4823e4bacf53fcc1b1e6c6e83ea626fc, type: 2}
 --- !u!114 &114431642618062350
@@ -113,11 +91,14 @@ MonoBehaviour:
   m_Name: AssetBundleDefinitions
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPathAssets>
+  - <MSUBuildPathAssets>
   assetBundles:
   - assetBundleName: nwassets
     assets:
-    - {fileID: 102900000, guid: 86ad9be264a69544c9fd5e86e307c3ca, type: 3}
+    - {fileID: 102900000, guid: a31942a07841348409df1980e5e43e58, type: 3}
+  - assetBundleName: nwloadingscreen
+    assets:
+    - {fileID: 102900000, guid: 0b11b8062f8f1b940bae789383542332, type: 3}
 --- !u!114 &114987763159783732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +112,11 @@ MonoBehaviour:
   m_Name: Files
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPathSoundbanks>
-  files: []
+  - <MSUBuildPathStreamingLanguage>
+  includeMetaFiles: 0
+  files:
+  - {fileID: 102900000, guid: 7dc0a75988ca9264daf7839669817a36, type: 3}
+  - {fileID: 102900000, guid: c9d4c06a87947c14ba80be08a5fb76d4, type: 3}
 --- !u!114 &8324102109481770816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,5 +130,5 @@ MonoBehaviour:
   m_Name: ThunderstoreData
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPath>
+  - <MSUBuildPath>
   url: https://github.com/Nebby1999/VariantPacks/tree/Main/VariantPack-Project/Assets/NebbysWrath

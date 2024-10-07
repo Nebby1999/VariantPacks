@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using R2API.Utils;
 using System;
 using System.Linq;
@@ -29,30 +29,32 @@ namespace TO30
     {
         public const string GUID = "com.Nebby.TO30";
         public const string MODNAME = "The Original 30";
-        public const string VERSION = "2.0.3";
+        public const string VERSION = "2.1.0";
 
-        public static TO30Main Instance { get; private set; }
+        public static TO30Main instance { get; private set; }
         private void Awake()
         {
-            Instance = this;
-            new Log(Logger);
-            new TO30Config().Init();
-            new TO30Assets().Init();
-            new TO30Lang().Init();
-            new TO30Content().Init();
+            instance = this;
 
-            ConfigurableFieldManager.AddMod(this);
+            new TO30Log(Logger);
+            new TO30Config(this);
 
+            new TO30Content();
+
+            LoadingScreenSpriteUtility.AddSpriteAnimations(TO30Assets.GetLoadingScreenBundle());
             RoR2Application.onLoad += AddSpectralSummons;
         }
 
         private void AddSpectralSummons()
         {
             var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            validMasters.Add(MasterCatalog.FindMasterIndex("BeetleMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("ImpMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("LemurianMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("WispMaster"));
+            validMasters.AddRange(new List<MasterCatalog.MasterIndex>
+            {
+                MasterCatalog.FindMasterIndex("BeetleMaster"),
+                MasterCatalog.FindMasterIndex("ImpMaster"),
+                MasterCatalog.FindMasterIndex("LemurianMaster"),
+                MasterCatalog.FindMasterIndex("WispMaster")
+            });
         }
     }
 }

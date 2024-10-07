@@ -1,5 +1,52 @@
 # Changelogs
 
+## '2.1.0'
+* Updated to Seekers of the Storm
+* Fixed a couple of bugs
+* Added the following variants:
+    * Alpha Construct
+        * Gamma Construct
+    * Void Barnacle
+        * Transplanar Barnacle
+    * Moffein Ancient Wisp
+        * Ancient Stone Wisp
+        * Somewhat Ancient Wisp
+    * Blind Pest
+        * Armormelter Pest
+        * Tiny Pest
+    * Blind Vermin
+        * Armormelter Vermin
+        * Tiny Vermin
+    * Gup
+        * Tarred Gup
+        * Goop
+    * Geep
+        * Tarred Geep
+    * Gip
+        * Tarred Gip
+    * Magma Worm
+        * Molten Worm
+    * Clay Apothecary
+        * Overflowing Apothecary
+    * Clay Dunestrider
+        * Overflowing Dunestrider
+    * Moffein Clayman
+        * Overflowing Clayman
+    * Clay Templar
+        * Overflowing Clay Templar
+    * Child
+        * Collapsed Child
+        * Dense Child
+    * Scorch Wurm
+        * Electric Wurm
+    * Xi Construct
+        * Proto Construct
+        * Omicron Construct
+        
+## '2.0.2'
+* Removed uncesesary special thanks (rob didn't design any, whoops...)
+* Fixed issue where the mod accidentally had a hard dependency on TheOriginal30
+
 ## '2.0.1'
 * Updated README
 * Added Missing Dependency

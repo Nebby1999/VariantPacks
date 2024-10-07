@@ -1,5 +1,10 @@
 # Changelog
 
+## '2.1.0'
+* Updated to use VarianceAPI 2.2.0
+* Changed the Infernal Wisp's fire material
+* Added mild aim damping to the flamethrower lemurian
+
 ## '2.0.3'
 * Updated README
 

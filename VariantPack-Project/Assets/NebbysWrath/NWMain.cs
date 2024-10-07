@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using R2API.Utils;
 using System;
 using System.Linq;
@@ -12,6 +12,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using RoR2;
+using VAPI;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -29,26 +30,34 @@ namespace NW
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
-        public const string VERSION = "2.0.1";
+        public const string VERSION = "2.1.0";
 
-        public static NWMain Instance { get; private set; }
+        public static NWMain instance { get; private set; }
         private void Awake()
         {
-            Instance = this;
-            new Log(Logger);
-            new NWConfig().Init();
-            new NWAssets().Init();
-            new NWLang().Init();
-            new NWContent().Init();
+            instance = this;
+            new NWLog(Logger);
+            new NWConfig(this);
 
-            ConfigurableFieldManager.AddMod(this);
-            RoR2Application.onLoad += AddSpectralSummons;
+            new NWContent();
+ 
+            LoadingScreenSpriteUtility.AddSpriteAnimations(NWAssets.GetLoadingScreenBundle());
+            RoR2Application.onLoad += OnLoad;
         }
 
-        private void AddSpectralSummons()
+        private void OnLoad()
+        {
+            if (MSUtil.IsModInstalled(TO30.TO30Main.GUID))
+            {
+                AddJellyfishSummons();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private void AddJellyfishSummons()
         {
             var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            if(MSUtil.IsModInstalled("com.Moffein.ClayMen"))
+            if (MSUtil.IsModInstalled("com.Moffein.ClayMen"))
             {
                 validMasters.Add(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
             }

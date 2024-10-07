@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using MSU;
+using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections;
@@ -11,6 +12,17 @@ namespace NW.Components
     public class SetupBrotherGenericSkill : VariantComponent
     {
         private static SkillFamily summoningRoarFamily = NWAssets.LoadAsset<SkillFamily>("SummoningRoarFamily");
+
+        [AsyncAssetLoad]
+        private static IEnumerator LoadAssets()
+        {
+            var request = NWAssets.LoadAssetAsync<SkillFamily>("SummoningRoarFamily");
+            while (!request.isDone)
+                yield return null;
+
+            summoningRoarFamily = request.asset;
+        }
+        
         private void Awake()
         {
             SkillLocator locator = GetComponent<SkillLocator>();

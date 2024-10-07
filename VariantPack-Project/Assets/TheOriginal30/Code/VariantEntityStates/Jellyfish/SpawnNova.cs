@@ -138,7 +138,7 @@ namespace EntityStates.JellyfishMonster.MOAJ
                     summon.deathRewardsCoefficient = 0.2f;
                 }
 
-                summon.Perform();
+                summon.PerformSummon();
             }
         }
         

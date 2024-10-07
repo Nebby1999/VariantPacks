@@ -1,6 +1,10 @@
-﻿using R2API;
+﻿using MSU;
+using NW.Modules;
+using R2API;
+using RoR2.ContentManagement;
 using RoR2.Projectile;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,30 +15,49 @@ using static R2API.DamageAPI;
 
 namespace NW.PrefabClones
 {
-    public class IchorSpike : PrefabCloneBase
+    public class IchorSpike : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public static GameObject ichorSpike = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpVoidspikeProjectile.prefab").WaitForCompletion(), "IchorSpikeProjectile");
+        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
 
-        public override void Initialize()
+        public GameObject asset => ichorSpike;
+        public static GameObject ichorSpike;
+
+        public void Initialize()
         {
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, ichorSpike);
-            var damageComponent = ichorSpike.GetComponent<ProjectileDamage>();
-            damageComponent.damageType = RoR2.DamageType.Generic;
-
             var damageTypeComponent = ichorSpike.AddComponent<ModdedDamageTypeHolderComponent>();
             damageTypeComponent.Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+        }
+
+        public bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public IEnumerator LoadContentAsync()
+        {
+            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matIchorSwipe");
+            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpVoidspikeProjectile.prefab");
+
+            var coroutine = new ParallelCoroutine();
+            coroutine.Add(selfRequest);
+            coroutine.Add(request);
+
+            while (!coroutine.IsDone())
+                yield return null;
+
+            ichorSpike = PrefabAPI.InstantiateClone(request.Result, "IchorSpikeProjectile", true);
+            ichorSpike.AddComponent<ClonedPrefabBehaviour>();
 
             var controller = ichorSpike.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "IchorSpikeGhost", false);
+            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "IchorSpikeGhost");
             ghostPrefab.GetComponent<Light>().color = new Color(0.98f, 0.71f, 0, 1);
-
-            var material = NWAssets.LoadAsset<Material>("matIchorClaw");
-            var meshRenderer = ghostPrefab.GetComponentInChildren<MeshRenderer>();
-
-            meshRenderer.material = material;
-            meshRenderer.sharedMaterial = material;
-
+            ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
             controller.ghostPrefab = ghostPrefab;
+        }
+
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.projectilePrefabs.AddSingle(ichorSpike);
         }
     }
 }

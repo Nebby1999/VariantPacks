@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3576180096776599551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
+  m_Name: ExecutePipeline
+  m_EditorClassIdentifier: 
+  Active: 1
+  OverrideManifest: 1
+  targetpipeline: {fileID: 11400000, guid: aef4103e08541c748aa705db54e8b3f9, type: 2}
+--- !u!114 &-216652644370084839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03063c7a6ec04cc4c82c75cf9bcc8db8, type: 3}
+  m_Name: Copy
+  m_EditorClassIdentifier: 
+  Active: 1
+  PerManifest: 1
+  ListType: 1
+  Manifests:
+  - {fileID: -3892906877110538616, guid: 36f8f2fd117d48d4fb7de4e79d74e18c, type: 2}
+  - {fileID: -3892906877110538616, guid: b7d8ea5cac64bce43ae579f151f88976, type: 2}
+  - {fileID: -3892906877110538616, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
+  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
+  ReplaceDirectory: 1
+  Recursive: 1
+  SourceRequired: 0
+  EstablishDestination: 1
+  Source: <MSUBuildPath>
+  Destination: <LaWea>
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3695521163bdd74fa2845bbd3438240, type: 3}
+  m_Name: AssemblyBuild
+  m_EditorClassIdentifier: 
+  Data:
+  - {fileID: 5687208594599059348}
+  - {fileID: -3576180096776599551}
+  - {fileID: -216652644370084839}
+  QuickAccess: 1
+  manifest: {fileID: -3892906877110538616, guid: b7d8ea5cac64bce43ae579f151f88976,
+    type: 2}
+--- !u!114 &5687208594599059348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba11a23eb01c7a4aa61a8ab800c27dd, type: 3}
+  m_Name: ChangeAssemblyBuildMode
+  m_EditorClassIdentifier: 
+  Active: 1
+  buildMode: 0

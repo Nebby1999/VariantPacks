@@ -1,7 +1,11 @@
-﻿using R2API;
+﻿using MSU;
+using NW.Modules;
+using R2API;
 using RoR2;
+using RoR2.ContentManagement;
 using RoR2.Projectile;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,29 +15,57 @@ using UnityEngine.AddressableAssets;
 
 namespace NW.PrefabClones
 {
-    public class HealerGrenade : PrefabCloneBase
+    public class HealerGrenade : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public static GameObject projectile = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab").WaitForCompletion(), "HealerGrenadeProjectile", true);
+        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
 
-        public override void Initialize()
+        public GameObject asset => projectile;
+        public static GameObject projectile;
+        private GameObject _childProjectile;
+        private GameObject _projectileGhost;
+
+        public bool IsAvailable(ContentPack contentPack)
         {
-            base.Initialize();
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, projectile);
+            return true;
+        }
+
+        public IEnumerator LoadContentAsync()
+        {
+            var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matHealerShroom");
+            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
+
+            var coroutine = new ParallelCoroutine();
+            coroutine.Add(selfRequest);
+            coroutine.Add(request);
+
+            while (!coroutine.IsDone())
+                yield return null;
+
+            projectile = PrefabAPI.InstantiateClone(request.Result, "HealerGrenadeProjectile", true);
+            projectile.AddComponent<ClonedPrefabBehaviour>();
+
+            var controller = projectile.GetComponent<ProjectileController>();
+            _projectileGhost = controller.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
+            _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
+            controller.ghostPrefab = _projectileGhost;
+
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();
-            var healingChild = impactExplosion.childrenProjectilePrefab.InstantiateClone("HealingWard", false);
-            HG.ArrayUtils.ArrayAppend(ref NWContent.Instance.SerializableContentPack.projectilePrefabs, healingChild);
-            var healingWard = healingChild.AddComponent<HealingWard>();
+            _childProjectile = impactExplosion.childrenProjectilePrefab.InstantiateClone("HealingWard", true);
+            impactExplosion.childrenProjectilePrefab = _childProjectile;
+        }
+
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.projectilePrefabs.Add(new GameObject[] { projectile, _childProjectile });
+        }
+
+        public void Initialize()
+        {
+            var healingWard = _childProjectile.AddComponent<HealingWard>();
             healingWard.radius = 15;
             healingWard.interval = 0.5f;
             healingWard.rangeIndicator = projectile.transform;
             healingWard.floorWard = true;
-            impactExplosion.childrenProjectilePrefab = healingChild;
-
-            ProjectileController controller = projectile.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "HealingGrenadeGhost", false);
-            ghostPrefab.GetComponentInChildren<MeshRenderer>().material = NWAssets.LoadAsset<Material>("matHealerShroom");
-
-            controller.ghostPrefab = ghostPrefab;
         }
     }
 }

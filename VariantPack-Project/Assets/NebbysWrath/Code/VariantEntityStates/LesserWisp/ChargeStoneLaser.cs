@@ -76,6 +76,7 @@ namespace EntityStates.Wisp1Monster.Stone
         public override void OnExit()
         {
             base.OnExit();
+            AkSoundEngine.StopPlayingID(chargePlayID);
             if ((bool)chargeEffectInstance)
             {
                 EntityState.Destroy(chargeEffectInstance);
@@ -139,5 +140,7 @@ namespace EntityStates.Wisp1Monster.Stone
         {
             return InterruptPriority.Skill;
         }
+
+
     }
 }
