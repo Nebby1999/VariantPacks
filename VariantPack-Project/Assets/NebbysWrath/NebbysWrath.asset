@@ -95,7 +95,10 @@ MonoBehaviour:
   assetBundles:
   - assetBundleName: nwassets
     assets:
-    - {fileID: 102900000, guid: 86ad9be264a69544c9fd5e86e307c3ca, type: 3}
+    - {fileID: 102900000, guid: a31942a07841348409df1980e5e43e58, type: 3}
+  - assetBundleName: nwloadingscreen
+    assets:
+    - {fileID: 102900000, guid: 0b11b8062f8f1b940bae789383542332, type: 3}
 --- !u!114 &114987763159783732
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ namespace TO30
 
             new TO30Content();
 
+            LoadingScreenSpriteUtility.AddSpriteAnimations(TO30Assets.GetLoadingScreenBundle());
             RoR2Application.onLoad += AddSpectralSummons;
         }
 

@@ -23,11 +23,11 @@ namespace NW
 
         internal static ContentPack contentPack { get; } = new ContentPack();
 
-        internal static ParallelMultiStartCoroutine _parallelPreLoadDispatchers = new ParallelMultiStartCoroutine();
+        internal static ParallelCoroutine _parallelPreLoadDispatchers = new ParallelCoroutine();
 
         private static Func<IEnumerator>[] _loadDispatchers;
 
-        internal static ParallelMultiStartCoroutine _parallelPostLoadDispatchers = new ParallelMultiStartCoroutine();
+        internal static ParallelCoroutine _parallelPostLoadDispatchers = new ParallelCoroutine();
 
         private static Action[] _fieldAssignDispatchers = Array.Empty<Action>();
 
@@ -46,7 +46,6 @@ namespace NW
                 yield return null;
             }
 
-            _parallelPreLoadDispatchers.Start();
             while (!_parallelPreLoadDispatchers.isDone)
                 yield return null;
 
@@ -58,7 +57,6 @@ namespace NW
                 while (enumerator?.MoveNext() ?? false) yield return null; //await
             }
 
-            _parallelPostLoadDispatchers.Start();
             while (!_parallelPostLoadDispatchers.isDone)
                 yield return null;
 
@@ -163,8 +161,11 @@ namespace NW
         public NWContent()
         {
             ContentManager.collectContentPackProviders += AddSelf;
-            NWAssets.assetsAvailability.CallWhenAvailable(() => _parallelPostLoadDispatchers.Add(CallAsyncLoadAttributes));
-            _parallelPostLoadDispatchers.Add(AddGupDefsToGupVariantHandler);
+            NWAssets.assetsAvailability.CallWhenAvailable(() =>
+            {
+                _parallelPostLoadDispatchers.Add(AsyncAssetLoadAttribute.CreateParallelCoroutineForMod(NWMain.instance));
+                _parallelPostLoadDispatchers.Add(AddGupDefsToGupVariantHandler());
+            });
         }
 
         static NWContent()

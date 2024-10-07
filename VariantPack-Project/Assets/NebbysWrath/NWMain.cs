@@ -30,7 +30,7 @@ namespace NW
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
-        public const string VERSION = "2.0.2";
+        public const string VERSION = "2.1.0";
 
         public static NWMain instance { get; private set; }
         private void Awake()
@@ -40,7 +40,8 @@ namespace NW
             new NWConfig(this);
 
             new NWContent();
-
+ 
+            LoadingScreenSpriteUtility.AddSpriteAnimations(NWAssets.GetLoadingScreenBundle());
             RoR2Application.onLoad += OnLoad;
         }
 
@@ -62,14 +63,6 @@ namespace NW
             }
             validMasters.Add(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
             validMasters.Add(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
-        }
-
-        [ConCommand(commandName = "Belch", flags = ConVarFlags.None)]
-        private static void Belch(ConCommandArgs args)
-        {
-            var sender = args.senderBody;
-
-            Instantiate(NWAssets.LoadAsset<GameObject>("ClayOverflow"), sender.transform.position, sender.transform.rotation);
         }
     }
 }

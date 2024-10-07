@@ -93,7 +93,10 @@ MonoBehaviour:
   assetBundles:
   - assetBundleName: to30assets
     assets:
-    - {fileID: 102900000, guid: b7efa05a79cd9d44199a42c738ca17ec, type: 3}
+    - {fileID: 102900000, guid: 2be4fcaee596341418f36e2c73b19844, type: 3}
+  - assetBundleName: to30loadingscreen
+    assets:
+    - {fileID: 102900000, guid: 0ec5592285d927542806ad011e9a8fa8, type: 3}
 --- !u!114 &114987763159783732
 MonoBehaviour:
   m_ObjectHideFlags: 0

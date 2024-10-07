@@ -21,11 +21,11 @@ namespace TO30
 
         internal static ContentPack contentPack { get; } = new ContentPack();
 
-        internal static ParallelMultiStartCoroutine _parallelPreLoadDispatchers = new ParallelMultiStartCoroutine();
+        internal static ParallelCoroutine _parallelPreLoadDispatchers = new ParallelCoroutine();
 
         private static Func<IEnumerator>[] _loadDispatchers;
 
-        internal static ParallelMultiStartCoroutine _parallelPostLoadDispatchers = new ParallelMultiStartCoroutine();
+        internal static ParallelCoroutine _parallelPostLoadDispatchers = new ParallelCoroutine();
 
         private static Action[] _fieldAssignDispatchers = Array.Empty<Action>();
 
@@ -44,7 +44,6 @@ namespace TO30
                 yield return null;
             }
 
-            _parallelPreLoadDispatchers.Start();
             while (!_parallelPreLoadDispatchers.isDone)
                 yield return null;
 
@@ -56,7 +55,6 @@ namespace TO30
                 while (enumerator?.MoveNext() ?? false) yield return null; //await
             }
 
-            _parallelPostLoadDispatchers.Start();
             while (!_parallelPostLoadDispatchers.isDone)
                 yield return null;
 
@@ -124,19 +122,10 @@ namespace TO30
             addContentPackProviderDelegate(this);
         }
 
-        private IEnumerator CallAsyncLoadAttributes()
-        {
-            var routine = AsyncAssetLoadAttribute.CreateCoroutineForMod(TO30Main.instance);
-
-            routine.Start();
-            while (!routine.isDone)
-                yield return null;
-        }
-
         internal TO30Content()
         {
             ContentManager.collectContentPackProviders += AddSelf;
-            TO30Assets.assetsAvailability.CallWhenAvailable(() => _parallelPostLoadDispatchers.Add(CallAsyncLoadAttributes));
+            TO30Assets.assetsAvailability.CallWhenAvailable(() => _parallelPostLoadDispatchers.Add(AsyncAssetLoadAttribute.CreateParallelCoroutineForMod(TO30Main.instance)));
         }
 
         static TO30Content()

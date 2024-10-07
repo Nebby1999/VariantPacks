@@ -28,7 +28,7 @@ namespace NW.Modules
             var contents = contentPieceProvider.GetContents().OfType<IClonedPrefabContentPiece>();
 
             List<IClonedPrefabContentPiece> initialized = new List<IClonedPrefabContentPiece>();
-            ParallelMultiStartCoroutine routine = new ParallelMultiStartCoroutine();
+            ParallelCoroutine routine = new ParallelCoroutine();
 
             foreach(var content in contents)
             {
@@ -36,10 +36,9 @@ namespace NW.Modules
                     continue;
 
                 initialized.Add(content);
-                routine.Add(content.LoadContentAsync);
+                routine.Add(content.LoadContentAsync());
             }
 
-            routine.Start();
             while (!routine.isDone)
                 yield return null;
 

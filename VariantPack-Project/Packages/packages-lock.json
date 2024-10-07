@@ -15,6 +15,12 @@
       },
       "hash": "2f048021a13d98a8600898a6f4203cfe18554f36"
     },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",
       "depth": 1,
@@ -89,11 +95,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git#2021.3.33Upgrade",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git#2.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8975545d8406165ab5f9091ca83beb07ee8071dc"
+      "hash": "a0b18c4a3e7d9479cc74afc4ad38e81941797177"
     },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
@@ -244,11 +250,11 @@
       "dependencies": {}
     },
     "teammoonstorm-moonstormsharedutils": {
-      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#Feature-MaterialVariants",
+      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d06b53a2e37709602ea4eb95889a64a957d68a58"
+      "hash": "8620d75427f7e5838686036dbd0853beef7ac758"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

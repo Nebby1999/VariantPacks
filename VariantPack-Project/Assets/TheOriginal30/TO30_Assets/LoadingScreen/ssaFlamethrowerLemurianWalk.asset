@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2054123791, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: ssaFlamethrowerLemurianWalk
+  m_EditorClassIdentifier: 
+  frameRate: 15
+  frames:
+  - sprite: {fileID: 1792451920, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -1995611736, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -1748360440, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -1606013783, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -1022017117, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -1838482765, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: 611063486, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1
+  - sprite: {fileID: -843557534, guid: 9e6510827b0e1f14b86870e335dddd59, type: 3}
+    duration: 1

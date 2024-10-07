@@ -14,6 +14,7 @@ namespace TO30
     public static class TO30Assets
     {
         private const string ASSET_BUNDLE_NAME = "to30assets";
+        private const string LOADING_SCREEN_SPRITES = "to30loadingscreen";
         private const string ASSET_BUNDLE_FOLDER_NAME = "assetbundles";
 
         private static string assetBundleFolderPath => Path.Combine(Path.GetDirectoryName(TO30Main.instance.Info.Location), ASSET_BUNDLE_FOLDER_NAME);
@@ -42,6 +43,11 @@ namespace TO30
             return new TO30AssetRequest<TAsset>(_assetBundle.LoadAllAssetsAsync<TAsset>());
         }
 
+        internal static AssetBundle GetLoadingScreenBundle()
+        {
+            return AssetBundle.LoadFromFile(Path.Combine(assetBundleFolderPath, LOADING_SCREEN_SPRITES));
+        }
+
         internal static IEnumerator Initialize()
         {
             if (assetsAvailability.available)
@@ -55,13 +61,12 @@ namespace TO30
                 yield return null;
             }
 
-            ParallelMultiStartCoroutine coroutine = new ParallelMultiStartCoroutine();
+            ParallelCoroutine coroutine = new ParallelCoroutine();
 
-            coroutine.Add(SwapShaders);
-            coroutine.Add(SwapAddressableShaders);
-            coroutine.Add(FinishMaterialVariants);
+            coroutine.Add(SwapShaders());
+            coroutine.Add(SwapAddressableShaders());
+            coroutine.Add(FinishMaterialVariants());
 
-            coroutine.Start();
             while (!coroutine.isDone)
                 yield return null;
 
