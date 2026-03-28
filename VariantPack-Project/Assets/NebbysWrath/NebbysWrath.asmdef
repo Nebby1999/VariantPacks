@@ -38,7 +38,15 @@
         "AK.Wwise.Unity.Timeline.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
+    "defineConstraints": [
+        "NW_ROR2_IMPORTED"
+    ],
+    "versionDefines": [
+        {
+            "name": "riskofrain2",
+            "expression": "0.0.1",
+            "define": "NW_ROR2_IMPORTED"
+        }
+    ],
     "noEngineReferences": false
 }

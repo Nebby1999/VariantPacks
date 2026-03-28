@@ -47,7 +47,7 @@ namespace EntityStates.JellyfishMonster.Spectral
         private void GiveEquipmentIndex(CharacterMaster master)
         {
             if (characterBody.inventory)
-                master.inventory.SetEquipmentIndex(characterBody.inventory.currentEquipmentIndex);
+                master.inventory.SetEquipmentIndex(characterBody.inventory.currentEquipmentIndex, false);
         }
 
         private void SpawnEnemyServer()

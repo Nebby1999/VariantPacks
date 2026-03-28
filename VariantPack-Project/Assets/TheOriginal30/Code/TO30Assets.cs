@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using VAPI;
+using ParallelCoroutine = HG.Coroutines.ParallelCoroutine;
 
 namespace TO30
 {
@@ -67,7 +68,7 @@ namespace TO30
             coroutine.Add(SwapAddressableShaders());
             coroutine.Add(FinishMaterialVariants());
 
-            while (!coroutine.isDone)
+            while (!coroutine.IsDone())
                 yield return null;
 
             assetsAvailability.MakeAvailable();

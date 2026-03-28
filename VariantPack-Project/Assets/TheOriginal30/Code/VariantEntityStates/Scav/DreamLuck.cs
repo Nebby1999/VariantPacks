@@ -60,12 +60,12 @@ namespace EntityStates.ScavMonster.Dream
 
             Transform transform = base.FindModelChild("PickupDisplay");
             this.pickupDisplay = transform.GetComponent<PickupDisplay>();
-            this.pickupDisplay.SetPickupIndex(this.dropPickup, false);
+            pickupDisplay.SetPickup(new UniquePickup(dropPickup), false);
         }
 
         public override void OnExit()
         {
-            this.pickupDisplay.SetPickupIndex(PickupIndex.none, false);
+            pickupDisplay.SetPickup(new UniquePickup(PickupIndex.none), false);
             base.OnExit();
         }
 

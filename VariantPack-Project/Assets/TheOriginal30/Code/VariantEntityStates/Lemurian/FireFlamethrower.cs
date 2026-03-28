@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using static EntityStates.LemurianMonster.FireFireball;
-using static EntityStates.Mage.Weapon.Flamethrower;
 
 namespace EntityStates.LemurianMonster.Flamethrower
 {
     public class FireFlamethrower : BaseState
     {
+		private static bool _initializedFromMageFlamethrower;
+		private static float baseFlamethrowerDuration;
+		private static float tickFrequency;
+
 		public static GameObject flameThrowerEffectPrefab;
-        public float maxDistance = 40f;
+        public static float maxDistance = 40f;
 
 		private float tickDamageCoefficient;
 		private float flamethrowerStopwatch;
@@ -38,10 +40,22 @@ namespace EntityStates.LemurianMonster.Flamethrower
 			var emission = fireForwardParticleSystem.emission;
 			emission.rateOverTime = 80;
         }
+		private void InitFromMage()
+		{
+			if (_initializedFromMageFlamethrower)
+				return;
+
+			_initializedFromMageFlamethrower = true;
+			var mageFlamethrower = new Mage.Weapon.Flamethrower();
+
+			baseFlamethrowerDuration = mageFlamethrower.baseFlamethrowerDuration;
+			tickFrequency = mageFlamethrower.tickFrequency;
+		}
         public override void OnEnter()
         {
+			InitFromMage();
             base.OnEnter();
-			entryDuration = baseEntryDuration / attackSpeedStat;
+			entryDuration = Mage.Weapon.Flamethrower.baseEntryDuration / attackSpeedStat;
 			flamethrowerDuration = baseFlamethrowerDuration;
 			Transform modelTransform = GetModelTransform();
 			if(characterBody)
@@ -64,7 +78,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
 
         public override void OnExit()
         {
-			Util.PlaySound(endAttackSoundString, gameObject);
+			Util.PlaySound(Mage.Weapon.Flamethrower.endAttackSoundString, gameObject);
 			if(flamethrowerTransform)
             {
 				Destroy(flamethrowerTransform.gameObject);
@@ -86,19 +100,19 @@ namespace EntityStates.LemurianMonster.Flamethrower
 				bulletAttack.damage = tickDamageCoefficient * damageStat;
 				bulletAttack.force = Mage.Weapon.Flamethrower.force;
 				bulletAttack.muzzleName = muzzleString;
-				bulletAttack.hitEffectPrefab = impactEffectPrefab;
+				bulletAttack.hitEffectPrefab = Mage.Weapon.Flamethrower.impactEffectPrefab;
 				bulletAttack.isCrit = isCrit;
-				bulletAttack.radius = radius;
+				bulletAttack.radius = Mage.Weapon.Flamethrower.radius;
 				bulletAttack.falloffModel = BulletAttack.FalloffModel.None;
 				bulletAttack.stopperMask = LayerIndex.world.mask;
-				bulletAttack.procCoefficient = procCoefficientPerTick;
+				bulletAttack.procCoefficient = Mage.Weapon.Flamethrower.procCoefficientPerTick;
 				bulletAttack.maxDistance = maxDistance;
 				bulletAttack.smartCollision = true;
-				bulletAttack.damageType = (Util.CheckRoll(ignitePercentChance, base.characterBody.master) ? DamageType.IgniteOnHit : DamageType.Generic);
+				bulletAttack.damageType = (Util.CheckRoll(Mage.Weapon.Flamethrower.ignitePercentChance, base.characterBody.master) ? DamageType.IgniteOnHit : DamageType.Generic);
 				bulletAttack.Fire();
 				if ((bool)base.characterMotor)
 				{
-					base.characterMotor.ApplyForce(aimRay.direction * (0f - recoilForce));
+					base.characterMotor.ApplyForce(aimRay.direction * (0f - Mage.Weapon.Flamethrower.recoilForce));
 				}
 			}
 		}
@@ -110,7 +124,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
 			if(stopwatch >= entryDuration && !hasBegunFlamethrower)
             {
 				hasBegunFlamethrower = true;
-				Util.PlaySound(startAttackSoundString, base.gameObject);
+				Util.PlaySound(Mage.Weapon.Flamethrower.startAttackSoundString, base.gameObject);
 				if ((bool)childLocator)
 				{
 					if(mouthMuzzle)

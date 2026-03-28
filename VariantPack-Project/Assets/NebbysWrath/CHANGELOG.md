@@ -1,5 +1,8 @@
 # Changelogs
 
+## '2.1.2'
+* Recompiled for Alloyed Collective
+
 ## '2.1.0'
 * Updated to Seekers of the Storm
 * Fixed a couple of bugs

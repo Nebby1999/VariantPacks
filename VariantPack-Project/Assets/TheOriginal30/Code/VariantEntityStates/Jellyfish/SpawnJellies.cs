@@ -54,7 +54,7 @@ namespace EntityStates.JellyfishMonster.MOAJ
         private void GiveEquipmentIndex(CharacterMaster master)
         {
             if (characterBody.inventory)
-                master.inventory.SetEquipmentIndex(characterBody.inventory.currentEquipmentIndex);
+                master.inventory.SetEquipmentIndex(characterBody.inventory.currentEquipmentIndex, false);
         }
 
         public override void CreateDeathEffects()

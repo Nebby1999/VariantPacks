@@ -10,6 +10,7 @@ using RoR2.ContentManagement;
 using System.Collections;
 using MSU;
 using RoR2;
+using ParallelCoroutine = HG.Coroutines.ParallelCoroutine;
 
 namespace TO30
 {
@@ -44,7 +45,7 @@ namespace TO30
                 yield return null;
             }
 
-            while (!_parallelPreLoadDispatchers.isDone)
+            while (!_parallelPreLoadDispatchers.IsDone())
                 yield return null;
 
             for (int i = 0; i < _loadDispatchers.Length; i++)
@@ -55,7 +56,7 @@ namespace TO30
                 while (enumerator?.MoveNext() ?? false) yield return null; //await
             }
 
-            while (!_parallelPostLoadDispatchers.isDone)
+            while (!_parallelPostLoadDispatchers.IsDone())
                 yield return null;
 
             for (int i = 0; i < _fieldAssignDispatchers.Length; i++)

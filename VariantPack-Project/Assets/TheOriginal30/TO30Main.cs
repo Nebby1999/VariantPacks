@@ -29,7 +29,7 @@ namespace TO30
     {
         public const string GUID = "com.Nebby.TO30";
         public const string MODNAME = "The Original 30";
-        public const string VERSION = "2.1.0";
+        public const string VERSION = "2.2.1";
 
         public static TO30Main instance { get; private set; }
         private void Awake()
@@ -41,7 +41,7 @@ namespace TO30
 
             new TO30Content();
 
-            LoadingScreenSpriteUtility.AddSpriteAnimations(TO30Assets.GetLoadingScreenBundle());
+            LoadingScreenFix.LoadingScreenFix.AddSpriteAnimations(TO30Assets.GetLoadingScreenBundle());
             RoR2Application.onLoad += AddSpectralSummons;
         }
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## '2.2.1'
+* Updated to Alloyed Collective
+* Fixed issue where the Flamethrower Lemurian would deal Infinity Damage
+
+## '2.2.0'
+* Updated to Memory Management
+* Updated to use VarianceAPI 2.3.0
+* Fixed issue where the cursed jellyfish would throw an IndexOutOfBounds exception.
+
 ## '2.1.0'
 * Updated to use VarianceAPI 2.2.0
 * Changed the Infernal Wisp's fire material

@@ -1,5 +1,6 @@
 {
     "name": "AssetUsageDetector.Editor",
+    "rootNamespace": "",
     "references": [
         "Unity.Addressables"
     ],
@@ -13,7 +14,9 @@
         "UnityEngine.UI.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "ASSET_USAGE_ROR2"
+    ],
     "versionDefines": [
         {
             "name": "com.unity.addressables",
@@ -24,6 +27,11 @@
             "name": "com.unity.visualeffectgraph",
             "expression": "0.0.0",
             "define": "ASSET_USAGE_VFX_GRAPH"
+        },
+        {
+            "name": "riskofrain2",
+            "expression": "0.0.1",
+            "define": "ASSET_USAGE_ROR2"
         }
     ],
     "noEngineReferences": false

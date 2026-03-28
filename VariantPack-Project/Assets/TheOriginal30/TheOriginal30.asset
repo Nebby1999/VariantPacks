@@ -73,7 +73,7 @@ MonoBehaviour:
   Author: Nebby
   Name: VariantPack_TheOriginal30
   Description: All of Rob's Variants, ported and modified to VarianceAPI
-  Version: 2.1.0
+  Version: 2.2.1
   Dependencies:
   - {fileID: -3892906877110538616, guid: 5933e8cbc020ab747b89c1c8c28ccfe0, type: 2}
 --- !u!114 &114431642618062350
