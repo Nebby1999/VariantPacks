@@ -7,8 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using VAPI;
-using VAPI.Components;
+using VAPI.Legacy;
+using VAPI.Legacy.Components;
 using static MSU.Config.ConfiguredVariable;
 
 namespace NW.Components

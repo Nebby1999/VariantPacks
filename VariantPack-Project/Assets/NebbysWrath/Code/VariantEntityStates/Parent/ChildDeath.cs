@@ -56,7 +56,7 @@ namespace EntityStates.ParentMonster.Child
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    var spawnRequest = new VAPI.VariantDirectorSpawnRequest(parentSpawnCard, new DirectorPlacementRule
+                    var spawnRequest = new VAPI.Legacy.VariantDirectorSpawnRequest(parentSpawnCard, new DirectorPlacementRule
                     {
                         maxDistance = 20,
                         minDistance = 3,
@@ -66,7 +66,7 @@ namespace EntityStates.ParentMonster.Child
                     spawnRequest.applyOnStart = false;
                     spawnRequest.ignoreTeamMemberLimit = true;
                     spawnRequest.teamIndexOverride = teamComponent.teamIndex;
-                    spawnRequest.variantDefs = Array.Empty<VAPI.VariantDef>();
+                    spawnRequest.variantDefs = Array.Empty<VAPI.Legacy.VariantDef>();
                     if(deathRewards)
                     {
                         spawnRequest.deathRewardsBase = deathRewards;

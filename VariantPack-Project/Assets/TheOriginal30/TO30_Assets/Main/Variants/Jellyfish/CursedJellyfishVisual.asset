@@ -16,7 +16,7 @@ MonoBehaviour:
   - rendererIndex: 0
     material: {fileID: 2100000, guid: 42a77e9225103e74f88a3cd68741c64d, type: 2}
   lightReplacements:
-  - rendererIndex: 1
+  - rendererIndex: 0
     color:
       serializedVersion: 2
       rgba: 4278220287

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.LemurianBruiserMonster.GhostBrother
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 using RoR2;
 using MSU;
 using System.Collections;

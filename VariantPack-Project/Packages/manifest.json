@@ -1,12 +1,13 @@
 {
   "dependencies": {
+    "com.mackysoft.serializereference-extensions": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions#1.7.0",
     "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#9.2.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.multiplayer-hlapi": "https://github.com/risk-of-thunder/UnityMultiplayerHLAPI.git#1.1.2",
     "com.unity.postprocessing": "2.3.0",
-    "nebby-varianceapi": "https://github.com/Nebby1999/VarianceAPI.git#2.3.1",
-    "riskofthunder-ror2editorkit": "https://github.com/risk-of-thunder/RoR2EditorKit.git#5.6.5",
+    "nebby-varianceapi": "https://github.com/Nebby1999/VarianceAPI.git#feat/3.0.0",
+    "riskofthunder-ror2editorkit": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
     "riskofthunder-ror2importextensions": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.7.1",
     "teammoonstorm-moonstormsharedutils": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#2.5.1",
     "com.unity.modules.ai": "1.0.0",

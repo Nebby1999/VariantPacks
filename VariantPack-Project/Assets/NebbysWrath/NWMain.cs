@@ -12,7 +12,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using RoR2;
-using VAPI;
+using VAPI.Legacy;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -24,7 +24,7 @@ using VAPI;
 namespace NW
 {
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInDependency(VAPI.VAPIMain.GUID)]
+    [BepInDependency(VAPI.Legacy.VAPIMain.GUID)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class NWMain : BaseUnityPlugin
     {

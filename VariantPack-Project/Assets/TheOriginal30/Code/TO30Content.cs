@@ -1,6 +1,6 @@
 ﻿using R2API.ScriptableObjects;
 using System;
-using VAPI;
+using VAPI.Legacy;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

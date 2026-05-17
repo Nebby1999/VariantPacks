@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dfaad4b0991214da3e623825c8357c, type: 3}
   m_Name: MMHook Generator
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   assemblyNames:
   - RoR2.dll
   - KinematicCharacterController.dll
@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2636f9900aca35942b349a07d34faaf4, type: 3}
   m_Name: Assembly Publicizer
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   assemblyNames:
   - RoR2.dll
   - KinematicCharacterController.dll
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e66fd1b2f0a6b4e951af502eba5a2b, type: 3}
   m_Name: Create Game Package
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-8001074411414637901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcb1359c6da7c049b1063e3561a1ecf, type: 3}
   m_Name: Check Unity Version
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-7037560911023662698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52610fcf3c7c01e43ad95185897e1eb5, type: 3}
   m_Name: Prompt Restart
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-6503067000827161952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97bb77dba34b1c479007d1b6759ff6e, type: 3}
   m_Name: Install Risk Of Options
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-6271319068952382808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87a9f1780c348d4080afaf9971d3a7e, type: 3}
   m_Name: Import Assemblies
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-4891863634416989666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8840720793112784295b7c9b06af7493, type: 3}
   m_Name: Get Bitness
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-3604116884540487088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b40885578be10f4785f1fa347e9fefa, type: 3}
   m_Name: Import Project Settings
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   IncludedSettings: -1
 --- !u!114 &-2769604294813021930
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208b77589c09e314aa3dbfae9117393a, type: 3}
   m_Name: Disable Assembly Updater
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-2129214415896694692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f74610dc9ac9d4dac443c315f5685d, type: 3}
   m_Name: Ensure RoR2 Thunderstore Source
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512775de21a2e0e41ba77b90aced0c69, type: 3}
   m_Name: PostProcessing Unity Package Installer
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &1588019678702642792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &2515093011147095769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45eba61f98ef2ad4e96ba8aab7ca6c23, type: 3}
   m_Name: Install Debug Toolkit
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &5866031928364476764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0e45bf5627b554081a563dac04ff6a, type: 3}
   m_Name: Set Deferred Shading
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &7797293625174053299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b0facc354ed134db02010df191c2d0, type: 3}
   m_Name: R2API Submodule Installer
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   serializeSelectionIntoJson: 1
   r2apiSubmodules:
   - submoduleName: R2API_Core
@@ -349,8 +349,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Addressables
     description: R2API_Addressables
     dependedncyID: RiskofThunder-R2API_Addressables
@@ -358,7 +358,15 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
+    - R2API_Core
     - HookGenPatcher
+  - submoduleName: R2API_Animations
+    description: R2API_Animations
+    dependedncyID: RiskofThunder-R2API_Animations
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
     - R2API_Core
   - submoduleName: R2API_ArtifactCode
     description: R2API_ArtifactCode
@@ -367,8 +375,25 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
+  - submoduleName: R2API_Buffs
+    description: R2API_Buffs
+    dependedncyID: RiskofThunder-R2API_Buffs
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - R2API_Core
+    - HookGenPatcher
+  - submoduleName: R2API_CharacterBody
+    description: R2API_CharacterBody
+    dependedncyID: RiskofThunder-R2API_CharacterBody
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Colors
     description: R2API_Colors
     dependedncyID: RiskofThunder-R2API_Colors
@@ -376,8 +401,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_CommandHelper
     description: R2API_CommandHelper
     dependedncyID: RiskofThunder-R2API_CommandHelper
@@ -385,8 +410,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_DamageType
     description: R2API_DamageType
     dependedncyID: RiskofThunder-R2API_DamageType
@@ -394,8 +419,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Deployable
     description: R2API_Deployable
     dependedncyID: RiskofThunder-R2API_Deployable
@@ -403,8 +428,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Difficulty
     description: R2API_Difficulty
     dependedncyID: RiskofThunder-R2API_Difficulty
@@ -412,8 +437,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Director
     description: R2API_Director
     dependedncyID: RiskofThunder-R2API_Director
@@ -421,9 +446,9 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
-    - R2API_Core
     - R2API_Addressables
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Dot
     description: R2API_Dot
     dependedncyID: RiskofThunder-R2API_Dot
@@ -431,8 +456,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Elites
     description: R2API_Elites
     dependedncyID: RiskofThunder-R2API_Elites
@@ -440,9 +465,18 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement
+  - submoduleName: R2API_Execute
+    description: R2API_Execute
+    dependedncyID: RiskofThunder-R2API_Execute
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Items
     description: R2API_Items
     dependedncyID: RiskofThunder-R2API_Items
@@ -450,8 +484,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement
   - submoduleName: R2API_Language
     description: R2API_Language
@@ -460,8 +494,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Loadout
     description: R2API_Loadout
     dependedncyID: RiskofThunder-R2API_Loadout
@@ -469,9 +503,9 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
     - R2API_Skins
+    - HookGenPatcher
     - R2API_ContentManagement
   - submoduleName: R2API_LobbyConfig
     description: R2API_LobbyConfig
@@ -480,8 +514,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Networking
     description: R2API_Networking
     dependedncyID: RiskofThunder-R2API_Networking
@@ -489,8 +523,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Orb
     description: R2API_Orb
     dependedncyID: RiskofThunder-R2API_Orb
@@ -498,8 +532,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Prefab
     description: R2API_Prefab
     dependedncyID: RiskofThunder-R2API_Prefab
@@ -507,9 +541,18 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement
+  - submoduleName: R2API_ProcType
+    description: R2API_ProcType
+    dependedncyID: RiskofThunder-R2API_ProcType
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_RecalculateStats
     description: R2API_RecalculateStats
     dependedncyID: RiskofThunder-R2API_RecalculateStats
@@ -517,8 +560,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Rulebook
     description: R2API_Rulebook
     dependedncyID: RiskofThunder-R2API_Rulebook
@@ -526,8 +569,8 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_SceneAsset
     description: R2API_SceneAsset
     dependedncyID: RiskofThunder-R2API_SceneAsset
@@ -535,17 +578,26 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
-  - submoduleName: R2API_Skins
-    description: R2API_Skins
-    dependedncyID: RiskofThunder-R2API_Skins
+    - HookGenPatcher
+  - submoduleName: R2API_Skills
+    description: R2API_Skills
+    dependedncyID: RiskofThunder-R2API_Skills
     shouldInstall: 0
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
+  - submoduleName: R2API_Skins
+    description: R2API_Skins
+    dependedncyID: RiskofThunder-R2API_Skins
+    shouldInstall: 1
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_Sound
     description: R2API_Sound
     dependedncyID: RiskofThunder-R2API_Sound
@@ -553,8 +605,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement
   - submoduleName: R2API_Stages
     description: R2API_Stages
@@ -563,8 +615,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_StringSerializerExtensions
     description: R2API_StringSerializerExtensions
     dependedncyID: RiskofThunder-R2API_StringSerializerExtensions
@@ -572,8 +624,17 @@ MonoBehaviour:
     isHardDependency: 1
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
+  - submoduleName: R2API_Teams
+    description: R2API_Teams
+    dependedncyID: RiskofThunder-R2API_Teams
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - BepInExPack
+    - R2API_Core
+    - HookGenPatcher
   - submoduleName: R2API_TempVisualEffect
     description: R2API_TempVisualEffect
     dependedncyID: RiskofThunder-R2API_TempVisualEffect
@@ -581,8 +642,8 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement
   - submoduleName: R2API_Unlockable
     description: R2API_Unlockable
@@ -591,6 +652,6 @@ MonoBehaviour:
     isHardDependency: 0
     dependencies:
     - BepInExPack
-    - HookGenPatcher
     - R2API_Core
+    - HookGenPatcher
     - R2API_ContentManagement

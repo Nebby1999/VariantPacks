@@ -1,7 +1,7 @@
 ﻿using RoR2;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 
 namespace TO30.Components
 {

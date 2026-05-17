@@ -6,6 +6,13 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.mackysoft.serializereference-extensions": {
+      "version": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions#1.7.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d388a4bba9235dfca394830ca186bb477e90901"
+    },
     "com.passivepicasso.thunderkit": {
       "version": "https://github.com/PassivePicasso/ThunderKit.git#9.2.0",
       "depth": 0,
@@ -95,11 +102,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git#2.3.1",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git#feat/3.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "f37c0a03f63d52bf3260f72defa480b1254b0220"
+      "hash": "eaac2662e882fc80b3c12c65e3e099d2071b244a"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",
@@ -234,13 +241,13 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#5.6.5",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "1397dc3a33bc0cbde5bcc443ab614e7f91abae51"
+      "hash": "4128710f74ffbd90bfebc523812e7155fa7bdee3"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.7.1",

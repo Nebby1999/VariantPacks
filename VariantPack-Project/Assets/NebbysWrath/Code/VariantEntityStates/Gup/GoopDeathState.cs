@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.Gup.Goop
 {

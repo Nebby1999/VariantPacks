@@ -10,7 +10,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.RoboBallBoss.Weapon.Swarming
 {

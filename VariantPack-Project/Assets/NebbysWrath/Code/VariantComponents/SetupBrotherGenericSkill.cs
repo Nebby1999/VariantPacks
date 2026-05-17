@@ -5,7 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 
 namespace NW.Components
 {

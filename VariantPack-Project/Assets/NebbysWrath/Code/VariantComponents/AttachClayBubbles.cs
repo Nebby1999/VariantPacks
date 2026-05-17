@@ -10,8 +10,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
-using VAPI;
-using VAPI.Components;
+using VAPI.Legacy;
+using VAPI.Legacy.Components;
 
 namespace NW.Components
 {

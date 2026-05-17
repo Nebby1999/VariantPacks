@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using EntityStates.BeetleQueenMonster;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.BeetleQueenMonster.Empress
 {

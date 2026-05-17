@@ -2,7 +2,7 @@ using MSU;
 using RoR2.CharacterAI;
 using RoR2.Skills;
 using System.Collections;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 
 namespace NW.Components
 {

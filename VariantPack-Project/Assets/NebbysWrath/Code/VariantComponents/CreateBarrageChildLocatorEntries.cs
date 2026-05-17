@@ -1,5 +1,5 @@
 using UnityEngine;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 
 namespace NW.Components
 {

@@ -23,7 +23,7 @@ using RoR2;
 namespace TO30
 {
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInDependency(VAPI.VAPIMain.GUID)]
+    [BepInDependency(VAPI.Legacy.VAPIMain.GUID)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class TO30Main : BaseUnityPlugin
     {

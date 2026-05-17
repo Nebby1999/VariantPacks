@@ -2,7 +2,7 @@ using MSU;
 using RoR2;
 using System.Collections;
 using UnityEngine;
-using VAPI.Components;
+using VAPI.Legacy.Components;
 
 namespace NW.Components
 {

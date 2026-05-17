@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections;
 using MSU;
 using UnityEngine.AddressableAssets;
-using VAPI;
+using VAPI.Legacy;
 using NW;
 
 namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp

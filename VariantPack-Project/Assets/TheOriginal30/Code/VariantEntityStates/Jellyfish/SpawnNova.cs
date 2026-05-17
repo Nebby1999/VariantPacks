@@ -4,7 +4,7 @@ using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.JellyfishMonster.MOAJ
 {

@@ -6,7 +6,7 @@ using RoR2;
 using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
 using System.Linq;
-using VAPI;
+using VAPI.Legacy;
 
 namespace EntityStates.BeetleQueenMonster.Matriarchal
 {
