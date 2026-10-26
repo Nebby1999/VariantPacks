@@ -1,10 +1,6 @@
 ﻿using EntityStates.JellyfishMonster.MOAJ;
 using RoR2;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using VAPI;
@@ -18,7 +14,7 @@ namespace EntityStates.JellyfishMonster.Spectral
         public static int monsterCount = 1;
 
         private GameObject chosenMonster;
-        private BodyVariantDefProvider chosenMonsterVariantDefProvider;
+        private CharacterVariantProvider chosenMonsterVariantDefProvider;
         private DeathRewards deathRewards;
         public override void OnEnter()
         {
@@ -28,14 +24,14 @@ namespace EntityStates.JellyfishMonster.Spectral
             DestroyModel();
             if (NetworkServer.active)
             {
-                chosenMonster = MasterCatalog.GetMasterPrefab(validMasters[UnityEngine.Random.Range(0, validMasters.Count)]);
+                chosenMonster = MasterCatalog.GetMasterPrefab(validMasters[Random.Range(0, validMasters.Count)]);
                 var monsterMaster = chosenMonster.GetComponent<CharacterMaster>();
-                if(!monsterMaster.bodyPrefab)
+                if (!monsterMaster.bodyPrefab)
                 {
                     DestroyBodyAsapServer();
                     return;
                 }
-                chosenMonsterVariantDefProvider = BodyVariantDefProvider.FindProvider(monsterMaster.bodyPrefab.GetComponent<CharacterBody>().bodyIndex);
+                chosenMonsterVariantDefProvider = CharacterVariantCatalog.GetCharacterVariantProvider(monsterMaster.bodyPrefab.GetComponent<CharacterBody>().bodyIndex);
                 for (int i = 0; i < monsterCount; i++)
                 {
                     SpawnEnemyServer();
@@ -52,36 +48,35 @@ namespace EntityStates.JellyfishMonster.Spectral
 
         private void SpawnEnemyServer()
         {
-            Vector3 position = base.characterBody.corePosition + (SpawnNova.jellyDropRadius * UnityEngine.Random.insideUnitSphere);
-            VariantSummon summon = new VariantSummon
+            Vector3 position = characterBody.corePosition + (SpawnNova.jellyDropRadius * Random.insideUnitSphere);
+
+            MasterSummon masterSummon = new MasterSummon
             {
-                applyOnStart = true,
                 useAmbientLevel = false,
                 ignoreTeamMemberLimit = true,
                 teamIndexOverride = characterBody.teamComponent.teamIndex,
                 position = position,
-                variantDefs = Array.Empty<VariantDef>(),
                 masterPrefab = chosenMonster,
                 preSpawnSetupCallback = GiveEquipmentIndex,
                 summonerBodyObject = null
             };
 
-            if (deathRewards)
+            var variant = chosenMonsterVariantDefProvider.allVariants[Random.Range(0, chosenMonsterVariantDefProvider.totalVariantCount)];
+            VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
             {
-                summon.summonerDeathRewards = deathRewards;
-                summon.deathRewardsCoefficient = 1f;
-            }
+                deathRewardsCoefficient = 1f,
+                summonerDeathRewards = deathRewards,
+                variantDefs = new CharacterVariantDef[] { variant }
+            };
 
-            HG.ArrayUtils.ArrayAppend(ref summon.variantDefs, chosenMonsterVariantDefProvider.GetVariantDef(UnityEngine.Random.Range(0, chosenMonsterVariantDefProvider.totalVariantCount)));
-
-            summon.PerformSummon();
+            variantSummon.Perform();
         }
         public override void CreateDeathEffects()
         {
             base.CreateDeathEffects();
             if ((bool)enterEffectPrefab)
             {
-                EffectManager.SimpleEffect(enterEffectPrefab, base.transform.position, base.transform.rotation, transmit: false);
+                EffectManager.SimpleEffect(enterEffectPrefab, transform.position, transform.rotation, transmit: false);
             }
         }
 

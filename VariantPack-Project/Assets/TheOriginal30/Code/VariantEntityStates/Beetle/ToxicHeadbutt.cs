@@ -1,6 +1,4 @@
-﻿using EntityStates;
-using EntityStates.BeetleMonster;
-using RoR2;
+﻿using RoR2;
 using RoR2.Projectile;
 using System;
 using UnityEngine;
@@ -23,52 +21,52 @@ namespace EntityStates.BeetleMonster.Toxic
         public override void OnEnter()
         {
             base.OnEnter();
-            this.rootMotionAccumulator = base.GetModelRootMotionAccumulator();
-            this.modelAnimator = base.GetModelAnimator();
-            this.duration = HeadbuttState.baseDuration / this.attackSpeedStat;
+            rootMotionAccumulator = GetModelRootMotionAccumulator();
+            modelAnimator = GetModelAnimator();
+            duration = HeadbuttState.baseDuration / attackSpeedStat;
 
-            this.attack = new OverlapAttack();
-            this.attack.attacker = base.gameObject;
-            this.attack.inflictor = base.gameObject;
-            this.attack.teamIndex = TeamComponent.GetObjectTeam(this.attack.attacker);
-            this.attack.damage = HeadbuttState.damageCoefficient * this.damageStat;
-            this.attack.hitEffectPrefab = HeadbuttState.hitEffectPrefab;
+            attack = new OverlapAttack();
+            attack.attacker = gameObject;
+            attack.inflictor = gameObject;
+            attack.teamIndex = TeamComponent.GetObjectTeam(attack.attacker);
+            attack.damage = HeadbuttState.damageCoefficient * damageStat;
+            attack.hitEffectPrefab = HeadbuttState.hitEffectPrefab;
 
-            Transform modelTransform = base.GetModelTransform();
+            Transform modelTransform = GetModelTransform();
             if (modelTransform)
             {
-                this.attack.hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Headbutt");
+                attack.hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Headbutt");
             }
 
-            Util.PlaySound(HeadbuttState.attackSoundString, base.gameObject);
-            base.PlayCrossfade("Body", "Headbutt", "Headbutt.playbackRate", this.duration, 0.1f);
+            Util.PlaySound(HeadbuttState.attackSoundString, gameObject);
+            PlayCrossfade("Body", "Headbutt", "Headbutt.playbackRate", duration, 0.1f);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (this.rootMotionAccumulator)
+            if (rootMotionAccumulator)
             {
-                Vector3 vector = this.rootMotionAccumulator.ExtractRootMotion();
-                if (vector != Vector3.zero && base.isAuthority && base.characterMotor)
+                Vector3 vector = rootMotionAccumulator.ExtractRootMotion();
+                if (vector != Vector3.zero && isAuthority && characterMotor)
                 {
-                    base.characterMotor.rootMotion += vector;
+                    characterMotor.rootMotion += vector;
                 }
             }
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
-                this.attack.forceVector = (base.characterDirection ? (base.characterDirection.forward * HeadbuttState.forceMagnitude) : Vector3.zero);
+                attack.forceVector = (characterDirection ? (characterDirection.forward * HeadbuttState.forceMagnitude) : Vector3.zero);
 
-                if (base.characterDirection && base.inputBank)
+                if (characterDirection && inputBank)
                 {
-                    base.characterDirection.moveVector = base.inputBank.aimDirection;
+                    characterDirection.moveVector = inputBank.aimDirection;
                 }
 
-                if (this.modelAnimator && this.modelAnimator.GetFloat("Headbutt.hitBoxActive") > 0.5f)
+                if (modelAnimator && modelAnimator.GetFloat("Headbutt.hitBoxActive") > 0.5f)
                 {
-                    this.Detonate();
+                    Detonate();
                     return;
                 }
             }
@@ -76,43 +74,43 @@ namespace EntityStates.BeetleMonster.Toxic
 
         private void Detonate()
         {
-            if (this.hasExploded) return;
-            this.hasExploded = true;
+            if (hasExploded) return;
+            hasExploded = true;
 
-            if (base.modelLocator)
+            if (modelLocator)
             {
-                if (base.modelLocator.modelBaseTransform)
+                if (modelLocator.modelBaseTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelBaseTransform.gameObject);
+                    Destroy(modelLocator.modelBaseTransform.gameObject);
                 }
-                if (base.modelLocator.modelTransform)
+                if (modelLocator.modelTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelTransform.gameObject);
+                    Destroy(modelLocator.modelTransform.gameObject);
                 }
             }
 
             new BlastAttack
             {
-                attacker = base.gameObject,
-                inflictor = base.gameObject,
-                teamIndex = TeamComponent.GetObjectTeam(base.gameObject),
-                baseDamage = this.damageStat * ToxicHeadbutt.damageCoefficent,
+                attacker = gameObject,
+                inflictor = gameObject,
+                teamIndex = TeamComponent.GetObjectTeam(gameObject),
+                baseDamage = damageStat * damageCoefficent,
                 baseForce = 0f,
-                position = base.transform.position,
-                radius = ToxicHeadbutt.explosionRadius,
+                position = transform.position,
+                radius = explosionRadius,
                 procCoefficient = 2f,
                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                 damageType = DamageType.PoisonOnHit
             }.Fire();
 
-            Vector3 footPosition = base.characterBody.footPosition;
+            Vector3 footPosition = characterBody.footPosition;
             FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
             {
-                projectilePrefab = EntityStates.Croco.BaseLeap.projectilePrefab,
-                crit = base.RollCrit(),
+                projectilePrefab = Croco.BaseLeap.projectilePrefab,
+                crit = RollCrit(),
                 force = 0f,
-                damage = this.damageStat,
-                owner = base.gameObject,
+                damage = damageStat,
+                owner = gameObject,
                 rotation = Quaternion.identity,
                 position = footPosition
             };
@@ -121,10 +119,10 @@ namespace EntityStates.BeetleMonster.Toxic
             EffectManager.SpawnEffect(crocoEffect, new EffectData
             {
                 origin = footPosition,
-                scale = ToxicHeadbutt.explosionRadius
+                scale = explosionRadius
             }, true);
 
-            if (base.healthComponent) base.healthComponent.Suicide(null, null, DamageType.Generic);
+            if (healthComponent) healthComponent.Suicide(null, null, DamageType.Generic);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

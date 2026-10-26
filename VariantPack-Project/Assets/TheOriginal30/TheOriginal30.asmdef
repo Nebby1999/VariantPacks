@@ -3,8 +3,9 @@
     "rootNamespace": "",
     "references": [
         "com.unity.multiplayer-hlapi.Runtime",
-        "VarianceAPI",
-        "MSU.Runtime"
+        "MSU.Runtime",
+        "VarianceAPI.Runtime",
+        "MackySoft.SerializeReferenceExtensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -34,8 +35,7 @@
     ],
     "autoReferenced": true,
     "defineConstraints": [
-        "TO30_ROR2_IMPORTED",
-        "ASS"
+        "TO30_ROR2_IMPORTED"
     ],
     "versionDefines": [
         {

@@ -1,16 +1,12 @@
-﻿using R2API.ScriptableObjects;
-using System;
-using VAPI;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EntityStates;
-using RoR2.ContentManagement;
-using System.Collections;
+﻿using EntityStates;
 using MSU;
 using RoR2;
-using ParallelCoroutine = HG.Coroutines.ParallelCoroutine;
+using RoR2.ContentManagement;
+using System;
+using System.Collections;
+using System.Linq;
+using UnityEngine;
+using VAPI;
 
 namespace TO30
 {
@@ -18,21 +14,22 @@ namespace TO30
     {
         public string identifier => TO30Main.GUID;
 
-        public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(contentPack);
+        public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(_contentPack);
+        private static ContentPack _contentPack { get; } = new ContentPack();
 
-        internal static ContentPack contentPack { get; } = new ContentPack();
+        public static ReadOnlyVariantPack readOnlyVariantPack => new ReadOnlyVariantPack(_variantPack);
+        private static VariantPack _variantPack;
 
-        internal static ParallelCoroutine _parallelPreLoadDispatchers = new ParallelCoroutine();
+        internal static ParallelCoroutine _parallelPreLoadDispatchers = ParallelCoroutine.RequestFromPool();
 
         private static Func<IEnumerator>[] _loadDispatchers;
 
-        internal static ParallelCoroutine _parallelPostLoadDispatchers = new ParallelCoroutine();
+        internal static ParallelCoroutine _parallelPostLoadDispatchers = ParallelCoroutine.RequestFromPool();
 
         private static Action[] _fieldAssignDispatchers = Array.Empty<Action>();
 
         private bool _initialized;
 
-        private static VariantPackDef _variantPack;
 
         public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
@@ -68,7 +65,7 @@ namespace TO30
 
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
         {
-            ContentPack.Copy(contentPack, args.output);
+            ContentPack.Copy(_contentPack, args.output);
             args.ReportProgress(1f);
             yield return null;
         }
@@ -86,33 +83,35 @@ namespace TO30
             while (!request.isDone)
                 yield return null;
 
-            contentPack.AddContentFromAssetCollection(request.asset);
+            _contentPack.AddContentFromAssetCollection(request.asset);
         }
 
         private static IEnumerator AddVariantPack()
         {
-            TO30Log.Info("Adding Variants");
+            TO30Log.Info($"Adding Variants");
 
-            var variantPackRequest = TO30Assets.LoadAssetAsync<VariantPackDef>("TO30VariantPack");
-            var variantDefsRequest = TO30Assets.LoadAssetsAsync<VariantDef>();
+            var variantDefsRequest = TO30Assets.LoadAssetsAsync<CharacterVariantDef>();
+            var spriteRequest = TO30Assets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
 
-            var coroutine = new ParallelCoroutine();
-            coroutine.Add(variantPackRequest);
-            coroutine.Add(variantDefsRequest);
+            var parallelCoroutine = ParallelCoroutine.RequestFromPool();
 
-            while (!coroutine.IsDone())
+            parallelCoroutine.Add(variantDefsRequest);
+            parallelCoroutine.Add(spriteRequest);
+
+            while (!parallelCoroutine.isDone)
+            {
                 yield return null;
+            }
 
-            _variantPack = variantPackRequest.asset;
-            _variantPack.variants = variantDefsRequest.assets;
-            VariantPackCatalog.AddVariantPack(_variantPack, TO30Main.instance.Config);
+            _variantPack = new VariantPack(TO30Main.GUID, "TO30_VARIANTPACK_NAME", "TO30_VARIANPACK_TOOLTIP", "TO30_VARIANTPACK_DESC", spriteRequest.asset, TO30Main.instance, TO30Main.instance.Config, TO30Main.instance.Config);
+            _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
         }
 
         private static IEnumerator AddStates()
         {
             TO30Log.Info("Adding EntityStates");
             yield return null;
-            contentPack.entityStateTypes.Add(typeof(TO30Content).Assembly
+            _contentPack.entityStateTypes.Add(typeof(TO30Content).Assembly
             .GetTypes()
             .Where(t => t.IsSubclassOf(typeof(EntityState)) && !t.IsAbstract)
             .ToArray());

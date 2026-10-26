@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using EntityStates.JellyfishMonster.Nuclear;
+﻿using EntityStates.JellyfishMonster.Nuclear;
 using RoR2;
 using System;
 using UnityEngine;
@@ -27,29 +26,29 @@ namespace EntityStates.JellyfishMonster.MOAJ
         {
             base.OnEnter();
             deathRewards = GetComponent<DeathRewards>();
-            this.stopwatch = 0f;
-            this.duration = SpawnNova.baseDuration / this.attackSpeedStat;
+            stopwatch = 0f;
+            duration = baseDuration / attackSpeedStat;
             masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(characterBody.bodyIndex));
-            Transform modelTransform = base.GetModelTransform();
+            Transform modelTransform = GetModelTransform();
 
-            base.PlayCrossfade("Body", "Nova", "Nova.playbackRate", this.duration, 0.1f);
-            this.soundID = Util.PlaySound(EntityStates.JellyfishMonster.JellyNova.chargingSoundString, base.gameObject);
+            PlayCrossfade("Body", "Nova", "Nova.playbackRate", duration, 0.1f);
+            soundID = Util.PlaySound(JellyNova.chargingSoundString, gameObject);
 
-            if (EntityStates.JellyfishMonster.JellyNova.chargingEffectPrefab)
+            if (JellyNova.chargingEffectPrefab)
             {
-                this.chargeEffect = UnityEngine.Object.Instantiate<GameObject>(EntityStates.JellyfishMonster.JellyNova.chargingEffectPrefab, base.transform.position, base.transform.rotation);
-                this.chargeEffect.transform.parent = base.transform;
-                this.chargeEffect.transform.localScale = Vector3.one * NuclearNova.novaRadius;
-                this.chargeEffect.GetComponent<ScaleParticleSystemDuration>().newDuration = this.duration;
+                chargeEffect = UnityEngine.Object.Instantiate<GameObject>(JellyNova.chargingEffectPrefab, transform.position, transform.rotation);
+                chargeEffect.transform.parent = transform;
+                chargeEffect.transform.localScale = Vector3.one * NuclearNova.novaRadius;
+                chargeEffect.GetComponent<ScaleParticleSystemDuration>().newDuration = duration;
             }
 
             if (modelTransform)
             {
-                this.printController = modelTransform.GetComponent<PrintController>();
-                if (this.printController)
+                printController = modelTransform.GetComponent<PrintController>();
+                if (printController)
                 {
-                    this.printController.enabled = true;
-                    this.printController.printTime = this.duration;
+                    printController.enabled = true;
+                    printController.printTime = duration;
                 }
             }
         }
@@ -58,49 +57,49 @@ namespace EntityStates.JellyfishMonster.MOAJ
         {
             base.OnExit();
 
-            if (this.chargeEffect) EntityState.Destroy(this.chargeEffect);
-            if (this.printController) this.printController.enabled = false;
+            if (chargeEffect) Destroy(chargeEffect);
+            if (printController) printController.enabled = false;
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            this.stopwatch += Time.fixedDeltaTime;
+            stopwatch += Time.fixedDeltaTime;
 
-            if (this.stopwatch >= this.duration && base.isAuthority && !this.hasExploded)
+            if (stopwatch >= duration && isAuthority && !hasExploded)
             {
-                this.Detonate();
+                Detonate();
                 return;
             }
         }
 
         private void Detonate()
         {
-            this.hasExploded = true;
-            Util.PlaySound(EntityStates.JellyfishMonster.JellyNova.novaSoundString, base.gameObject);
+            hasExploded = true;
+            Util.PlaySound(JellyNova.novaSoundString, gameObject);
 
-            if (base.modelLocator)
+            if (modelLocator)
             {
-                if (base.modelLocator.modelBaseTransform)
+                if (modelLocator.modelBaseTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelBaseTransform.gameObject);
+                    Destroy(modelLocator.modelBaseTransform.gameObject);
                 }
-                if (base.modelLocator.modelTransform)
+                if (modelLocator.modelTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelTransform.gameObject);
+                    Destroy(modelLocator.modelTransform.gameObject);
                 }
             }
 
-            if (this.chargeEffect)
+            if (chargeEffect)
             {
-                EntityState.Destroy(this.chargeEffect);
+                Destroy(chargeEffect);
             }
 
-            if (EntityStates.JellyfishMonster.JellyNova.novaEffectPrefab)
+            if (JellyNova.novaEffectPrefab)
             {
-                EffectManager.SpawnEffect(EntityStates.JellyfishMonster.JellyNova.novaEffectPrefab, new EffectData
+                EffectManager.SpawnEffect(JellyNova.novaEffectPrefab, new EffectData
                 {
-                    origin = base.transform.position,
+                    origin = transform.position,
                     scale = NuclearNova.novaRadius
                 }, true);
             }
@@ -110,41 +109,40 @@ namespace EntityStates.JellyfishMonster.MOAJ
                 SpawnJellies();
             }
 
-            if (base.healthComponent) base.healthComponent.Suicide(null, null, DamageType.Generic);
+            if (healthComponent) healthComponent.Suicide(null, null, DamageType.Generic);
         }
 
         private void SpawnJellies()
         {
-            for (int i = 0; i < SpawnNova.jellyCount; i++)
+            for (int i = 0; i < jellyCount; i++)
             {
-                Vector3 position = base.characterBody.corePosition + (SpawnNova.jellyDropRadius * UnityEngine.Random.insideUnitSphere);
+                Vector3 position = characterBody.corePosition + (jellyDropRadius * UnityEngine.Random.insideUnitSphere);
 
-                VariantSummon summon = new VariantSummon
+                MasterSummon masterSummon = new MasterSummon
                 {
-                    applyOnStart = false,
-                    variantDefs = Array.Empty<VariantDef>(),
                     useAmbientLevel = false,
                     teamIndexOverride = characterBody.teamComponent.teamIndex,
                     ignoreTeamMemberLimit = true,
                     position = position,
                     masterPrefab = masterPrefab,
                     preSpawnSetupCallback = GiveEquipmentIndex,
-                    summonerBodyObject = null
+                    summonerBodyObject = null,
                 };
 
-                if(deathRewards)
+                VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
                 {
-                    summon.summonerDeathRewards = deathRewards;
-                    summon.deathRewardsCoefficient = 0.2f;
-                }
+                    deathRewardsCoefficient = deathRewards ? 0.2f : 1,
+                    summonerDeathRewards = deathRewards,
+                    variantDefs = Array.Empty<CharacterVariantDef>()
+                };
 
-                summon.PerformSummon();
+                variantSummon.Perform();
             }
         }
-        
+
         private void GiveEquipmentIndex(CharacterMaster master)
         {
-            if(characterBody.inventory)
+            if (characterBody.inventory)
                 master.inventory.SetEquipmentIndex(characterBody.inventory.currentEquipmentIndex, false);
         }
 

@@ -1,17 +1,9 @@
 ﻿using BepInEx;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using MSU;
 using R2API.Utils;
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
+using RoR2;
+using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using RoR2;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 

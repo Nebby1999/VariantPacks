@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using EntityStates.GreaterWispMonster;
+﻿using EntityStates.GreaterWispMonster;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
@@ -17,26 +16,26 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
 
         public override void OnEnter()
         {
-            if (this.goodState == null) this.goodState = new FireCannons();
-            this.effectPrefab = this.goodState.effectPrefab;
+            if (goodState == null) goodState = new FireCannons();
+            effectPrefab = goodState.effectPrefab;
 
             base.OnEnter();
-            Ray aimRay = base.GetAimRay();
-            this.duration = FireGreaterCannon.baseDuration / this.attackSpeedStat;
+            Ray aimRay = GetAimRay();
+            duration = baseDuration / attackSpeedStat;
 
-            base.PlayAnimation("Body", "FireAttack1", "FireAttack1.playbackRate", this.duration);
+            PlayAnimation("Body", "FireAttack1", "FireAttack1.playbackRate", duration);
 
             //EffectManager.SimpleMuzzleFlash(this.effectPrefab, base.gameObject, "Muzzle", false);
 
-            if (base.isAuthority && base.modelLocator && base.modelLocator.modelTransform)
+            if (isAuthority && modelLocator && modelLocator.modelTransform)
             {
-                ChildLocator childLocator = base.modelLocator.modelTransform.GetComponent<ChildLocator>();
+                ChildLocator childLocator = modelLocator.modelTransform.GetComponent<ChildLocator>();
                 if (childLocator)
                 {
                     Transform muzzleTransform = childLocator.FindChild("Muzzle");
                     if (muzzleTransform)
                     {
-                        ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/WispCannon"), transform.position, Util.QuaternionSafeLookRotation(aimRay.direction), base.gameObject, this.damageStat * FireGreaterCannon.damageCoefficient, 80f, Util.CheckRoll(this.critStat, base.characterBody.master), DamageColorIndex.Default, null, -1f);
+                        ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/WispCannon"), transform.position, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, 80f, Util.CheckRoll(critStat, characterBody.master), DamageColorIndex.Default, null, -1f);
                     }
                 }
             }
@@ -51,9 +50,9 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
-                this.outer.SetNextStateToMain();
+                outer.SetNextStateToMain();
                 return;
             }
         }

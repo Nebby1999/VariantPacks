@@ -1,11 +1,6 @@
 ﻿using EntityStates.LemurianBruiserMonster;
 using RoR2;
 using RoR2.Projectile;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace EntityStates.LemurianMonster.Badass
@@ -27,7 +22,7 @@ namespace EntityStates.LemurianMonster.Badass
         public static GameObject missleProjectilePrefab = Resources.Load<GameObject>("Prefabs/Projectiles/MissileProjectile");
 
         public static float missileDamageCoef = 1.2f;
-        
+
         private float duration;
 
         public override void OnEnter()
@@ -35,19 +30,19 @@ namespace EntityStates.LemurianMonster.Badass
             base.OnEnter();
             duration = baseDuration / attackSpeedStat;
             PlayAnimation("Gesture", "FireFireball", "FireFireball.playbackRate", duration);
-            Util.PlaySound(attackString, base.gameObject);
+            Util.PlaySound(attackString, gameObject);
             Ray aimRay = GetAimRay();
             string muzzleName = "MuzzleMouth";
             string missileMuzzleString = "Chest";
             if ((bool)effectPrefab)
             {
-                EffectManager.SimpleMuzzleFlash(effectPrefab, base.gameObject, muzzleName, transmit: false);
-                EffectManager.SimpleMuzzleFlash(FireMegaFireball.muzzleflashEffectPrefab, base.gameObject, missileMuzzleString, false);
+                EffectManager.SimpleMuzzleFlash(effectPrefab, gameObject, muzzleName, transmit: false);
+                EffectManager.SimpleMuzzleFlash(FireMegaFireball.muzzleflashEffectPrefab, gameObject, missileMuzzleString, false);
             }
-            if (base.isAuthority)
+            if (isAuthority)
             {
-                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), base.gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, base.characterBody.master));
-                ProjectileManager.instance.FireProjectile(missleProjectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(Vector3.up), base.gameObject, missileDamageCoef * this.damageStat, 0f, base.RollCrit(), DamageColorIndex.Default, null, -1f);
+                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, characterBody.master));
+                ProjectileManager.instance.FireProjectile(missleProjectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(Vector3.up), gameObject, missileDamageCoef * damageStat, 0f, RollCrit(), DamageColorIndex.Default, null, -1f);
             }
         }
 
@@ -59,7 +54,7 @@ namespace EntityStates.LemurianMonster.Badass
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.fixedAge >= duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
                 outer.SetNextStateToMain();
             }

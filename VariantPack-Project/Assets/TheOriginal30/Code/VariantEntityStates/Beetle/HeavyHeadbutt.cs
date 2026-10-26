@@ -1,9 +1,5 @@
 ﻿using RoR2;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace EntityStates.BeetleMonster.Battle
@@ -20,58 +16,58 @@ namespace EntityStates.BeetleMonster.Battle
         public override void OnEnter()
         {
             base.OnEnter();
-            this.rootMotionAccumulator = base.GetModelRootMotionAccumulator();
-            this.modelAnimator = base.GetModelAnimator();
-            this.duration = HeadbuttState.baseDuration / this.attackSpeedStat;
+            rootMotionAccumulator = GetModelRootMotionAccumulator();
+            modelAnimator = GetModelAnimator();
+            duration = HeadbuttState.baseDuration / attackSpeedStat;
 
-            this.attack = new OverlapAttack();
-            this.attack.attacker = base.gameObject;
-            this.attack.inflictor = base.gameObject;
-            this.attack.teamIndex = TeamComponent.GetObjectTeam(this.attack.attacker);
-            this.attack.damage = HeadbuttState.damageCoefficient * this.damageStat;
-            this.attack.hitEffectPrefab = HeadbuttState.hitEffectPrefab;
+            attack = new OverlapAttack();
+            attack.attacker = gameObject;
+            attack.inflictor = gameObject;
+            attack.teamIndex = TeamComponent.GetObjectTeam(attack.attacker);
+            attack.damage = HeadbuttState.damageCoefficient * damageStat;
+            attack.hitEffectPrefab = HeadbuttState.hitEffectPrefab;
 
-            Transform modelTransform = base.GetModelTransform();
+            Transform modelTransform = GetModelTransform();
             if (modelTransform)
             {
-                this.attack.hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Headbutt");
+                attack.hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Headbutt");
             }
 
-            Util.PlaySound(HeadbuttState.attackSoundString, base.gameObject);
-            base.PlayCrossfade("Body", "Headbutt", "Headbutt.playbackRate", this.duration, 0.1f);
+            Util.PlaySound(HeadbuttState.attackSoundString, gameObject);
+            PlayCrossfade("Body", "Headbutt", "Headbutt.playbackRate", duration, 0.1f);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (this.rootMotionAccumulator)
+            if (rootMotionAccumulator)
             {
-                Vector3 vector = this.rootMotionAccumulator.ExtractRootMotion();
-                if (vector != Vector3.zero && base.isAuthority && base.characterMotor)
+                Vector3 vector = rootMotionAccumulator.ExtractRootMotion();
+                if (vector != Vector3.zero && isAuthority && characterMotor)
                 {
-                    base.characterMotor.rootMotion += vector;
+                    characterMotor.rootMotion += vector;
                 }
             }
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
-                this.attack.forceVector = (base.characterDirection ? (base.characterDirection.forward * HeavyHeadbutt.pushForce) : Vector3.zero);
+                attack.forceVector = (characterDirection ? (characterDirection.forward * pushForce) : Vector3.zero);
 
-                if (base.characterDirection && base.inputBank)
+                if (characterDirection && inputBank)
                 {
-                    base.characterDirection.moveVector = base.inputBank.aimDirection;
+                    characterDirection.moveVector = inputBank.aimDirection;
                 }
 
-                if (this.modelAnimator && this.modelAnimator.GetFloat("Headbutt.hitBoxActive") > 0.5f)
+                if (modelAnimator && modelAnimator.GetFloat("Headbutt.hitBoxActive") > 0.5f)
                 {
-                    this.attack.Fire(null);
+                    attack.Fire(null);
                 }
             }
 
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
-                this.outer.SetNextStateToMain();
+                outer.SetNextStateToMain();
                 return;
             }
         }

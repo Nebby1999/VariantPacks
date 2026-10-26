@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using RoR2;
+﻿using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -25,27 +24,27 @@ namespace EntityStates.JellyfishMonster.MOAJ
             {
                 for (int i = 0; i < SpawnNova.jellyCount; i++)
                 {
-                    Vector3 position = base.characterBody.corePosition + (SpawnNova.jellyDropRadius * UnityEngine.Random.insideUnitSphere);
+                    Vector3 position = characterBody.corePosition + (SpawnNova.jellyDropRadius * UnityEngine.Random.insideUnitSphere);
 
-                    VariantSummon summon = new VariantSummon
+                    MasterSummon masterSummon = new MasterSummon
                     {
-                        applyOnStart = false,
-                        variantDefs = Array.Empty<VariantDef>(),
                         useAmbientLevel = false,
                         teamIndexOverride = characterBody.teamComponent.teamIndex,
                         ignoreTeamMemberLimit = true,
                         position = position,
                         masterPrefab = masterPrefab,
                         preSpawnSetupCallback = GiveEquipmentIndex,
-                        summonerBodyObject = null
+                        summonerBodyObject = null,
                     };
-                    if(deathRewards)
-                    {
-                        summon.deathRewardsCoefficient = 0.2f;
-                        summon.summonerDeathRewards = deathRewards;
-                    }
 
-                    summon.PerformSummon();
+                    VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
+                    {
+                        deathRewardsCoefficient = deathRewards ? 0.2f : 1,
+                        summonerDeathRewards = deathRewards,
+                        variantDefs = Array.Empty<CharacterVariantDef>()
+                    };
+
+                    variantSummon.Perform();
                 }
                 DestroyBodyAsapServer();
             }
@@ -62,7 +61,7 @@ namespace EntityStates.JellyfishMonster.MOAJ
             base.CreateDeathEffects();
             if ((bool)enterEffectPrefab)
             {
-                EffectManager.SimpleEffect(enterEffectPrefab, base.transform.position, base.transform.rotation, transmit: false);
+                EffectManager.SimpleEffect(enterEffectPrefab, transform.position, transform.rotation, transmit: false);
             }
         }
 

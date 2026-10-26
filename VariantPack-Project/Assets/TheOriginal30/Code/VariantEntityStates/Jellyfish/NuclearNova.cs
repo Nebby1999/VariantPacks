@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using RoR2;
+﻿using RoR2;
 using UnityEngine;
 
 namespace EntityStates.JellyfishMonster.Nuclear
@@ -21,28 +20,28 @@ namespace EntityStates.JellyfishMonster.Nuclear
         public override void OnEnter()
         {
             base.OnEnter();
-            this.stopwatch = 0f;
-            this.duration = NuclearNova.baseDuration / this.attackSpeedStat;
-            Transform modelTransform = base.GetModelTransform();
+            stopwatch = 0f;
+            duration = baseDuration / attackSpeedStat;
+            Transform modelTransform = GetModelTransform();
 
-            base.PlayCrossfade("Body", "Nova", "Nova.playbackRate", this.duration, 0.1f);
-            this.soundID = Util.PlaySound(EntityStates.JellyfishMonster.JellyNova.chargingSoundString, base.gameObject);
+            PlayCrossfade("Body", "Nova", "Nova.playbackRate", duration, 0.1f);
+            soundID = Util.PlaySound(JellyNova.chargingSoundString, gameObject);
 
-            if (EntityStates.JellyfishMonster.JellyNova.chargingEffectPrefab)
+            if (JellyNova.chargingEffectPrefab)
             {
-                this.chargeEffect = UnityEngine.Object.Instantiate<GameObject>(EntityStates.JellyfishMonster.JellyNova.chargingEffectPrefab, base.transform.position, base.transform.rotation);
-                this.chargeEffect.transform.parent = base.transform;
-                this.chargeEffect.transform.localScale = Vector3.one * NuclearNova.novaRadius;
-                this.chargeEffect.GetComponent<ScaleParticleSystemDuration>().newDuration = this.duration;
+                chargeEffect = Object.Instantiate<GameObject>(JellyNova.chargingEffectPrefab, transform.position, transform.rotation);
+                chargeEffect.transform.parent = transform;
+                chargeEffect.transform.localScale = Vector3.one * novaRadius;
+                chargeEffect.GetComponent<ScaleParticleSystemDuration>().newDuration = duration;
             }
 
             if (modelTransform)
             {
-                this.printController = modelTransform.GetComponent<PrintController>();
-                if (this.printController)
+                printController = modelTransform.GetComponent<PrintController>();
+                if (printController)
                 {
-                    this.printController.enabled = true;
-                    this.printController.printTime = this.duration;
+                    printController.enabled = true;
+                    printController.printTime = duration;
                 }
             }
         }
@@ -51,68 +50,68 @@ namespace EntityStates.JellyfishMonster.Nuclear
         {
             base.OnExit();
 
-            if (this.chargeEffect) EntityState.Destroy(this.chargeEffect);
-            if (this.printController) this.printController.enabled = false;
+            if (chargeEffect) Destroy(chargeEffect);
+            if (printController) printController.enabled = false;
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            this.stopwatch += Time.fixedDeltaTime;
+            stopwatch += Time.fixedDeltaTime;
 
-            if (this.stopwatch >= this.duration && base.isAuthority && !this.hasExploded)
+            if (stopwatch >= duration && isAuthority && !hasExploded)
             {
-                this.Detonate();
+                Detonate();
                 return;
             }
         }
 
         private void Detonate()
         {
-            this.hasExploded = true;
-            Util.PlaySound(EntityStates.JellyfishMonster.JellyNova.novaSoundString, base.gameObject);
+            hasExploded = true;
+            Util.PlaySound(JellyNova.novaSoundString, gameObject);
 
-            if (base.modelLocator)
+            if (modelLocator)
             {
-                if (base.modelLocator.modelBaseTransform)
+                if (modelLocator.modelBaseTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelBaseTransform.gameObject);
+                    Destroy(modelLocator.modelBaseTransform.gameObject);
                 }
-                if (base.modelLocator.modelTransform)
+                if (modelLocator.modelTransform)
                 {
-                    EntityState.Destroy(base.modelLocator.modelTransform.gameObject);
+                    Destroy(modelLocator.modelTransform.gameObject);
                 }
             }
 
-            if (this.chargeEffect)
+            if (chargeEffect)
             {
-                EntityState.Destroy(this.chargeEffect);
+                Destroy(chargeEffect);
             }
 
-            if (EntityStates.JellyfishMonster.JellyNova.novaEffectPrefab)
+            if (JellyNova.novaEffectPrefab)
             {
-                EffectManager.SpawnEffect(EntityStates.JellyfishMonster.JellyNova.novaEffectPrefab, new EffectData
+                EffectManager.SpawnEffect(JellyNova.novaEffectPrefab, new EffectData
                 {
-                    origin = base.transform.position,
-                    scale = NuclearNova.novaRadius
+                    origin = transform.position,
+                    scale = novaRadius
                 }, true);
             }
 
             new BlastAttack
             {
-                attacker = base.gameObject,
-                inflictor = base.gameObject,
-                teamIndex = TeamComponent.GetObjectTeam(base.gameObject),
-                baseDamage = this.damageStat * EntityStates.JellyfishMonster.JellyNova.novaDamageCoefficient,
-                baseForce = NuclearNova.novaForce,
-                position = base.transform.position,
-                radius = NuclearNova.novaRadius,
+                attacker = gameObject,
+                inflictor = gameObject,
+                teamIndex = TeamComponent.GetObjectTeam(gameObject),
+                baseDamage = damageStat * JellyNova.novaDamageCoefficient,
+                baseForce = novaForce,
+                position = transform.position,
+                radius = novaRadius,
                 procCoefficient = 2f,
                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                 damageType = DamageType.CrippleOnHit
             }.Fire();
 
-            if (base.healthComponent) base.healthComponent.Suicide(null, null, DamageType.Generic);
+            if (healthComponent) healthComponent.Suicide(null, null, DamageType.Generic);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

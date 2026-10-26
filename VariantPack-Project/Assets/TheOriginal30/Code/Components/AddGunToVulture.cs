@@ -1,15 +1,14 @@
 ﻿using MSU;
-using RoR2;
 using System.Collections;
 using UnityEngine;
-using VAPI.Components;
+using VAPI;
 
 namespace TO30.Components
 {
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterModel, useOnClient = true)]
     public class AddGunToVulture : VariantComponent
     {
         private static GameObject _gun;
-        private CharacterModel _model;
         private ChildLocator _childLocator;
 
         [AsyncAssetLoad]
@@ -24,17 +23,17 @@ namespace TO30.Components
 
         private void Start()
         {
-            this._childLocator = base.GetComponentInChildren<ChildLocator>();
+            _childLocator = GetComponentInChildren<ChildLocator>();
 
-            this.AddGun();
+            AddGun();
             Destroy(this);
         }
 
         private void AddGun()
         {
-            if (characterModel)
+            if (gameObject && _childLocator)
             {
-                GameObject gun = UnityEngine.Object.Instantiate<GameObject>(_gun, _childLocator.FindChild("Head"));
+                GameObject gun = Instantiate(_gun, _childLocator.FindChild("Head"));
                 gun.transform.localPosition = new Vector3(0, 3.5f, 0.5f);
                 gun.transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 180));
                 gun.transform.localScale = Vector3.one * 16f;
