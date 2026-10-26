@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   buildMode: 1
+  stageDebugDatabases: 1
 --- !u!114 &2795398002312913296
 MonoBehaviour:
   m_ObjectHideFlags: 0
