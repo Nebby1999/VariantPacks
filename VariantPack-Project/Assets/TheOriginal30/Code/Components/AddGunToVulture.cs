@@ -14,8 +14,8 @@ namespace TO30.Components
         [AsyncAssetLoad]
         private static IEnumerator Load()
         {
-            var numerator = TO30Assets.LoadAssetAsync<GameObject>("VulturePistol");
-            while (!numerator.isDone)
+            using var numerator = TO30Assets.LoadAssetAsync<GameObject>("VulturePistol");
+            while (!numerator.isComplete)
                 yield return null;
 
             _gun = numerator.asset;

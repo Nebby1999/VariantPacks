@@ -61,6 +61,8 @@ namespace TO30
                 args.ReportProgress(Util.Remap(i + 1, 0f, _fieldAssignDispatchers.Length, 0.95f, 0.99f));
                 _fieldAssignDispatchers[i]();
             }
+
+            VariantPackManager.AddVariantPack(_variantPack);
         }
 
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
@@ -78,9 +80,9 @@ namespace TO30
 
         private static IEnumerator PopulateContentPackWithAssetCollection()
         {
-            var request = TO30Assets.LoadAssetAsync<AssetCollection>("acContentPack");
+            using var request = TO30Assets.LoadAssetAsync<AssetCollection>("acContentPack");
 
-            while (!request.isDone)
+            while (!request.isComplete)
                 yield return null;
 
             _contentPack.AddContentFromAssetCollection(request.asset);
@@ -90,8 +92,8 @@ namespace TO30
         {
             TO30Log.Info($"Adding Variants");
 
-            var variantDefsRequest = TO30Assets.LoadAssetsAsync<CharacterVariantDef>();
-            var spriteRequest = TO30Assets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
+            using var variantDefsRequest = TO30Assets.LoadAssetsAsync<CharacterVariantDef>();
+            using var spriteRequest = TO30Assets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
 
             var parallelCoroutine = ParallelCoroutine.RequestFromPool();
 
@@ -102,6 +104,8 @@ namespace TO30
             {
                 yield return null;
             }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
 
             _variantPack = new VariantPack(TO30Main.GUID, "TO30_VARIANTPACK_NAME", "TO30_VARIANPACK_TOOLTIP", "TO30_VARIANTPACK_DESC", spriteRequest.asset, TO30Main.instance, TO30Main.instance.Config, TO30Main.instance.Config);
             _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
