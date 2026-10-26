@@ -9,28 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
   m_Name: IchorOverlordVisuals
   m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   materialReplacements:
-  - rendererIndex: 0
-    material: {fileID: -6826986014985053350, guid: 1503288c7c2c7984dad5e937f954874b,
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: -6826986014985053350, guid: 1503288c7c2c7984dad5e937f954874b,
       type: 2}
-  - rendererIndex: 1
-    material: {fileID: -6209886855553799015, guid: 36a103e152850e54cb63248074b56a8a,
+  - transformPath: 
+    rendererIndex: 1
+    useIndex: 1
+    replacement: {fileID: -6209886855553799015, guid: 36a103e152850e54cb63248074b56a8a,
       type: 2}
-  - rendererIndex: 2
-    material: {fileID: -7559930435209392719, guid: 275ab94bc4e01db41af9721c33a83ca3,
+  - transformPath: 
+    rendererIndex: 2
+    useIndex: 1
+    replacement: {fileID: -7559930435209392719, guid: 275ab94bc4e01db41af9721c33a83ca3,
       type: 2}
-  lightReplacements:
-  - rendererIndex: 1
-    color:
-      serializedVersion: 2
-      rgba: 4278236666
-    lightType: 0
-  - rendererIndex: 0
-    color:
-      serializedVersion: 2
-      rgba: 4280504705
-    lightType: 0
   meshReplacements: []
+  lightReplacements:
+  - transformPath: 
+    lightIndex: 1
+    useIndex: 1
+    lightColor: {r: 0.98039216, g: 0.70980394, b: 0, a: 1}
+  - transformPath: 
+    lightIndex: 0
+    useIndex: 1
+    lightColor: {r: 0.5058824, g: 0.31764707, b: 0.13725491, a: 1}
+  prefabInstantiationDatas: []

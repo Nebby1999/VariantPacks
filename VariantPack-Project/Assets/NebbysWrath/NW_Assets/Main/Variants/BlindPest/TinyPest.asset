@@ -9,35 +9,93 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: TinyPest
   m_EditorClassIdentifier: 
-  bodyName: FlyingVerminBody
-  _variantTier: 1
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: FlyingVerminBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 5
-  variantSpawnCondition: {fileID: 11400000, guid: 3d0c1b23b17a75746957d4da78ba4971,
-    type: 2}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: 610bb954e8660434594312bab28f021f, type: 2}
+  spawnCondition:
+    rid: 8453672705155661863
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: GlobalCDR
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 75
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661864
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 0.5
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 5
-  attackSpeedMultiplier: 5
-  damageMultiplier: 0.9
-  armorBonus: 0
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155661865
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: b06d4f8f76344824e889d18dae72c4b3, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_TINY_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 0.5
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8453672705155661863
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: 0
+        _stages:
+          Value: -1
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: RoR2/DLC1/Common/DLC1.asset
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+    - rid: 8453672705155661864
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_TINY_PREFIX
+    - rid: 8453672705155661865
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 0.5
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 5
+        _attackSpeedMultiplier: 5
+        _damageMultiplier: 0.9
+        armorBonus: 0
+        _armorMultiplier: 1

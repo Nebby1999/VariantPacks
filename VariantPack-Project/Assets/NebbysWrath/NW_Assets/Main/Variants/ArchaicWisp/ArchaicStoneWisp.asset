@@ -9,40 +9,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: ArchaicStoneWisp
   m_EditorClassIdentifier: 
-  bodyName: MoffeinArchWisp
-  _variantTier: 2
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: MoffeinArchWisp
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: NW_ARCHAICSTONEWISP_ARRIVAL
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661837
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 059624d6d4b6919459385aae7e4b5651, type: 2}
-    skillSlot: 0
-  healthMultiplier: 2
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.5
-  attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: 10
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: 703867db131722c4c90cd0cc118962d7, type: 2}
-  sizeModifier: {fileID: 11400000, guid: 1215b9f01b09ac641bb64f1c3b17645d, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_STONE_PREFIX
-    overrideType: 0
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.SetupBasicPrintController, NebbysWrath,
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8453672705155661838
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: f30c6b88810a30b4c92fdd962263fa65, type: 2}
+  scaleMultiplier: 1.5
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.SetupBasicPrintController, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    attachmentType: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661837
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_STONE_PREFIX
+    - rid: 8453672705155661838
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.5
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 10
+        _armorMultiplier: 1

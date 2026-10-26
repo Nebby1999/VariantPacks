@@ -9,39 +9,90 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: CollapsedChild
   m_EditorClassIdentifier: 
-  bodyName: ChildBody
-  _variantTier: 2
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ChildBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 5
-  variantSpawnCondition: {fileID: 11400000, guid: a02e5b63c6a27564db7a12d68c41f044,
-    type: 2}
   arrivalToken: NW_COLLAPSEDCHILD_ARRIVAL
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: 8453672705155661876
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661877
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: ef4232ee2224768489718d91e21f5ce6, type: 2}
-    skillSlot: 0
-  healthMultiplier: 2
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 0.75
-  damageMultiplier: 1
-  armorBonus: 10
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: cefd15370a8a37149bb41f4a175215d2, type: 2}
-  sizeModifier: {fileID: 11400000, guid: bae133fb093c54e43a53aadfaaed05ad, type: 2}
-  aiModifier: 0
-  baseAIDampBonus: 0
-  baseAIDampMultiplier: 1
-  nameOverrides:
-  - token: NW_COLLAPSED_PREFIX
-    overrideType: 0
-  componentProviders: []
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8453672705155661878
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 6051bec66a8415149872f0e19f6319e0, type: 2}
+  scaleMultiplier: 0.8
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8453672705155661876
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: 0
+        _stages:
+          Value: -1
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: RoR2/DLC2/Common/DLC2.asset
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+    - rid: 8453672705155661877
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_COLLAPSED_PREFIX
+    - rid: 8453672705155661878
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 0.75
+        _damageMultiplier: 1
+        armorBonus: 10
+        _armorMultiplier: 1

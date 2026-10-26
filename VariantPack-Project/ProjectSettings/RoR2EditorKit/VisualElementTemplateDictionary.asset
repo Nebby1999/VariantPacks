@@ -31,3 +31,23 @@ MonoBehaviour:
     _hexRepresentation: 80f85cf135da6ea41834b0e48a22acfa
   - k_templateName: EditorSettingsElement
     _hexRepresentation: 265068b42b0081049b3077b0c70c968f
+  - k_templateName: EditorWizardWindow
+    _hexRepresentation: 619d656bf7e23fb4e97791b64acb9360
+  - k_templateName: CharacterVariantTargetDrawer
+    _hexRepresentation: 0274fadf4b796a343ab0b9947dcfc22b
+  - k_templateName: AddressReferencedAssetElement
+    _hexRepresentation: 30b4e3ace0f0780438893ada1634fb4a
+  - k_templateName: AdvancedDropdownElement
+    _hexRepresentation: 7fae48d609dfc3c4b997a81345338bf6
+  - k_templateName: AddressableEquipmentInfoDrawer
+    _hexRepresentation: 7b9ddf9a986e0b84fad6c01c0b87b87d
+  - k_templateName: VariantDeathStateOverrideDrawer
+    _hexRepresentation: 8a1902027e89af24e9d88b1feb29b71a
+  - k_templateName: VariantBuffStorageDrawer
+    _hexRepresentation: 3b7e55bb8bee2a843ac8aa3ead300ea0
+  - k_templateName: VariantComponentCollectionDrawer
+    _hexRepresentation: e9aaebc14efa15849b050fb7bec630cd
+  - k_templateName: AddressableItemCountPairDrawer
+    _hexRepresentation: aa30ac910b02df04ab254f3261c58522
+  - k_templateName: VariantSkillReplacementDrawer
+    _hexRepresentation: 6b0e387b4bf702045997536f8aff3182

@@ -9,36 +9,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: RushGolem
   m_EditorClassIdentifier: 
-  bodyName: GolemBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: GolemBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: TO30_RUSHGOLEM_ARRIVAL
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662025
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: d7cb5b958dee02647be1b29189a9fed7, type: 2}
-    skillSlot: 1
-  healthMultiplier: 0.9
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1.6
-  attackSpeedMultiplier: 1.6
-  damageMultiplier: 2
-  armorBonus: 100
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: fbd53d28a20df9245a2f223e18159968, type: 2}
-  sizeModifier: {fileID: 11400000, guid: 5af98d7712abc6546bb77f787c940ff1, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: TO30_RUSH_PREFIX
-    overrideType: 0
-  componentProviders: []
+    slot: 1
+    slotName: 
+  statModifier:
+    rid: 8453672705155662026
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 1d580d4fba7199848876bcd2592eaa98, type: 2}
+  scaleMultiplier: 0.6
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662025
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_RUSH_PREFIX
+    - rid: 8453672705155662026
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 0.9
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1.6
+        _attackSpeedMultiplier: 1.6
+        _damageMultiplier: 2
+        armorBonus: 100
+        _armorMultiplier: 1

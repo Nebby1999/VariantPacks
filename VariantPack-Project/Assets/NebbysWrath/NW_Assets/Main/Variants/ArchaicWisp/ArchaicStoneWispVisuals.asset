@@ -9,18 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
   m_Name: ArchaicStoneWispVisuals
   m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   materialReplacements:
-  - rendererIndex: 0
-    material: {fileID: 2100000, guid: 857af1c92e5eb91498da7b3e2d388f70, type: 2}
-  - rendererIndex: 1
-    material: {fileID: 2100000, guid: c7414a4c606b3fe47b9f11cb4f235609, type: 2}
-  lightReplacements:
-  - rendererIndex: 0
-    color:
-      serializedVersion: 2
-      rgba: 4278190335
-    lightType: 2
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: 857af1c92e5eb91498da7b3e2d388f70, type: 2}
+  - transformPath: 
+    rendererIndex: 1
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: c7414a4c606b3fe47b9f11cb4f235609, type: 2}
   meshReplacements: []
+  lightReplacements:
+  - transformPath: 
+    lightIndex: 0
+    useIndex: 1
+    lightColor: {r: 1, g: 0, b: 0, a: 1}
+  prefabInstantiationDatas: []

@@ -9,41 +9,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: OverflowingTemplar
   m_EditorClassIdentifier: 
-  bodyName: ClayBruiserBody
-  _variantTier: 0
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ClayBruiserBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   spawnRate: 10
-  variantSpawnCondition: {fileID: 11400000, guid: 3d0c1b23b17a75746957d4da78ba4971,
-    type: 2}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: 44ad43381724a5a45bbc9450fc7a4ce3, type: 2}
+  spawnCondition:
+    rid: 8453672705155661900
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 11400000, guid: c4d7fbb1ba159cd48a199ecf0fc4f90e, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 1
+      count: 2
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661901
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.9
-  attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: 0
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155661902
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 0}
-  aiModifier: 0
-  baseAIDampBonus: 0
-  baseAIDampMultiplier: 1
-  nameOverrides:
-  - token: NW_OVERFLOWING_PREFIX
-    overrideType: 0
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.AttachClayBubbles, NebbysWrath, Version=0.0.0.0,
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.AttachClayBubbles, NebbysWrath, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-    attachmentType: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 8453672705155661900
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: 0
+        _stages:
+          Value: -1
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: RoR2/DLC1/Common/DLC1.asset
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+    - rid: 8453672705155661901
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_OVERFLOWING_PREFIX
+    - rid: 8453672705155661902
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.9
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1

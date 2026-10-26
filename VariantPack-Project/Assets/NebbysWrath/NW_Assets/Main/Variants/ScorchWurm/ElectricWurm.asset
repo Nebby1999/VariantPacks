@@ -9,45 +9,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: ElectricWurm
   m_EditorClassIdentifier: 
-  bodyName: ScorchlingBody
-  _variantTier: 1
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ScorchlingBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 10
-  variantSpawnCondition: {fileID: 11400000, guid: a02e5b63c6a27564db7a12d68c41f044,
-    type: 2}
   arrivalToken: 
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: 8453672705155661967
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661968
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 26132c3d2d9d5314fa79353d65a6b1b6, type: 2}
-    skillSlot: 0
+    slot: 0
+    slotName: 
   - skillDef: {fileID: 11400000, guid: cc68259b7ecf93d4295d1ecd843f7e11, type: 2}
-    skillSlot: 1
-  healthMultiplier: 2
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 1
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1.2
-  damageMultiplier: 1
-  armorBonus: 0
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: bafb5b88c4eacc54e9201a6855d440ef, type: 2}
-  sizeModifier: {fileID: 11400000, guid: 4fb016798ba1bac4694402043f8ec100, type: 2}
-  aiModifier: 0
-  baseAIDampBonus: 0
-  baseAIDampMultiplier: 1
-  nameOverrides:
-  - token: NW_ELECTRIC_PREFIX
-    overrideType: 0
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.ScorchWurmEnsureBaseAISkillDefs, NebbysWrath,
+    slot: 1
+    slotName: 
+  statModifier:
+    rid: 8453672705155661969
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 04d75c382fb386c4d8f71341e0c0a091, type: 2}
+  scaleMultiplier: 1.2
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.ScorchWurmEnsureBaseAISkillDefs, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    attachmentType: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 8453672705155661967
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: 0
+        _stages:
+          Value: -1
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: RoR2/DLC2/Common/DLC2.asset
+          _useDirectReference: 0
+          _canLoadFromCatalog: 1
+    - rid: 8453672705155661968
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_ELECTRIC_PREFIX
+    - rid: 8453672705155661969
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 1
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1.2
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1

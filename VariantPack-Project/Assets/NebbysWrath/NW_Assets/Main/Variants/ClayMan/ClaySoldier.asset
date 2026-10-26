@@ -9,34 +9,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: ClaySoldier
   m_EditorClassIdentifier: 
-  bodyName: MoffeinClayManBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: MoffeinClayManBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   spawnRate: 15
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: a46bf6d337dd7fe4a89876399c4ab993, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: GlobalCDR
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 25
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661895
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1.25
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.9
-  attackSpeedMultiplier: 1.5
-  damageMultiplier: 1
-  armorBonus: 20
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155661896
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: 4fb016798ba1bac4694402043f8ec100, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_SOLDIER_SUFFIX
-    overrideType: 1
-  componentProviders: []
+  scaleMultiplier: 1.2
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661895
+      type: {class: VariantNameSuffix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        suffixToken: NW_SOLDIER_SUFFIX
+    - rid: 8453672705155661896
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1.25
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.9
+        _attackSpeedMultiplier: 1.5
+        _damageMultiplier: 1
+        armorBonus: 20
+        _armorMultiplier: 1

@@ -9,21 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
   m_Name: AmalgamatedGreatWispVisuals
   m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   materialReplacements:
-  - rendererIndex: 0
-    material: {fileID: 2100000, guid: 11df9f98312a447459fbba27f252b282, type: 2}
-  - rendererIndex: 1
-    material: {fileID: 2100000, guid: 8d5ea1f435da57945816ec42214da9a1, type: 2}
-  lightReplacements:
-  - rendererIndex: 0
-    color:
-      serializedVersion: 2
-      rgba: 4285964799
-    lightType: 2
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: 11df9f98312a447459fbba27f252b282, type: 2}
+  - transformPath: 
+    rendererIndex: 1
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: 8d5ea1f435da57945816ec42214da9a1, type: 2}
   meshReplacements:
-  - rendererIndex: 0
-    mesh: {fileID: 4300000, guid: 6161eab8969456745bdcdd8ccf459521, type: 2}
-    meshType: 0
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 4300000, guid: 6161eab8969456745bdcdd8ccf459521, type: 2}
+  lightReplacements:
+  - transformPath: 
+    lightIndex: 0
+    useIndex: 1
+    lightColor: {r: 1, g: 0.6313726, b: 0.4627451, a: 1}
+  prefabInstantiationDatas: []

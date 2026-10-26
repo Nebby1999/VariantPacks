@@ -9,36 +9,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: IchorImp
   m_EditorClassIdentifier: 
-  bodyName: ImpBody
-  variantTier: 1
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ImpBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 5
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: 0e4b1bb38f04b654c9a25ff2b7775e0f, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: BleedOnHit
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 17
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661941
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: d149b0cbcf64d914293aa2c7270aa255, type: 2}
-    skillSlot: 0
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: 25
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: eaeed12f34eb0ca4a890dbeb079bd04d, type: 2}
-  sizeModifier: {fileID: 0}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_ICHOR_PREFIX
-    overrideType: 0
-  componentProviders: []
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8453672705155661942
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: b4b2b9e5494b98044a801cad6e3ffc3a, type: 2}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661941
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_ICHOR_PREFIX
+    - rid: 8453672705155661942
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 25
+        _armorMultiplier: 1

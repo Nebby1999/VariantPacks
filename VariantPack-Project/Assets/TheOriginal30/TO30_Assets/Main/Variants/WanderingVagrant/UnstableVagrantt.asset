@@ -9,36 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: UnstableVagrantt
   m_EditorClassIdentifier: 
-  bodyName: VagrantBody
-  _variantTier: 1
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: VagrantBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 4
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers:
+  - rid: 8453672705155662060
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662061
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: -30
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155662062
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 0}
-  aiModifier: 1
-  baseAIDampBonus: 0
-  baseAIDampMultiplier: 1
-  nameOverrides:
-  - token: TO30_UNSTABLE_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662060
+      type: {class: UnstableAIModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minTargetHealthFractionOverride: -Infinity
+        maxTargetHealthFractionOverride: Infinity
+        minUserHealthFractionOverride: -Infinity
+        maxUserHealthFractionOverride: Infinity
+    - rid: 8453672705155662061
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_UNSTABLE_PREFIX
+    - rid: 8453672705155662062
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: -30
+        _armorMultiplier: 1

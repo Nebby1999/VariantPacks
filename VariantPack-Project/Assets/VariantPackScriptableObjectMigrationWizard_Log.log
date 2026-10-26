@@ -1,0 +1,509 @@
+[VariantPackScriptableObjectMigrationWizard-Info]: Began Migration Wizard
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Variants detected, Adding 4 steps.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: A variant has visual modifiers, adding 4 steps.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Steps to execute: 8
+[VariantPackScriptableObjectMigrationWizard-Info]: Creating Legacy Tier to Runtime Tier Dictionary.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Legacy Tier Count: 4, Runtime Tier Count: 4
+[VariantPackScriptableObjectMigrationWizard-Warning]: EnumTier to RuntimeTier count: 4. Legacy AssignedAtRuntime Tier to RuntimeTier count: 0
+[VariantPackScriptableObjectMigrationWizard-Info]: Loading Addressable Bodies for 100 Legacy Variants.
+[VariantPackScriptableObjectMigrationWizard-Warning]: Could not find an AddressableBody for AncientStoneWisp (VAPI.Legacy.VariantDef)! (value==MoffeinAncientWispBody)
+[VariantPackScriptableObjectMigrationWizard-Warning]: Could not find an AddressableBody for ArchaicStoneWisp (VAPI.Legacy.VariantDef)! (value==MoffeinArchWisp)
+[VariantPackScriptableObjectMigrationWizard-Warning]: Could not find an AddressableBody for ClayAssassin (VAPI.Legacy.VariantDef)! (value==MoffeinClayManBody)
+[VariantPackScriptableObjectMigrationWizard-Info]: Migrating visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping GammaConstruct (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Warning]: Variant AncientStoneWisp (VAPI.Legacy.VariantDef) points to a non addressable body, this variant will utilize the index based migration. Make sure to test it's visuals ingame.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping EnragedWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SomewhatAncientWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping AeonicWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Warning]: Variant ArchaicStoneWisp (VAPI.Legacy.VariantDef) points to a non addressable body, this variant will utilize the index based migration. Make sure to test it's visuals ingame.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArchaicStoneWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SomewhatArchaicWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping AncientAurelionite (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping EnormousAurelionite (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping PygmyAurelionite (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping MalfunctioningAWU (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SwarmingAWU (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BeetleEmpress (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BeetleMatriarch (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlphaBisonVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ArmormelterPest (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping TinyPest (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ArmormelterVermin (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping TinyVermin (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AluminumContraptionVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SteelContraptionVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CollapsedChildVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DenseChildVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OverflowingApothecary (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping DevourerDunestrider (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OverflowingDunestrider (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping StarvingDunestrider (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Warning]: Variant ClayAssassin (VAPI.Legacy.VariantDef) points to a non addressable body, this variant will utilize the index based migration. Make sure to test it's visuals ingame.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClayAssassinVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ClaySoldier (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OverflowingClayman (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OverflowingTemplar (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping VampiricTemplar (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BrotherGhostVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BrotherGhostVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IncineratingElderLemurianVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGeepVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGipVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatGrandParentVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SunWorshipper (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AmalgamatedGreatWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreaterStoneWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SomewhatGreatWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping Goop (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGupVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping MortarCrab (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BruiserImp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorImpVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BerserkerOverlord (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorOverlordVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostArchaicWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping LeastestWisp (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LesserStoneWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping MoltenWorm (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ADShroomVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created HealershroomVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping MammaShroom (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping Adolescent (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ChildVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ElectricWurmVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping MalfunctioningSCU (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SwarmingSCU (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GausssianProbeVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SolusProbeMK2 (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SwarmerProbe (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ColossalGolem (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping AncientStoneTitan (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping TransplanarBarnacle (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MothershipVagrantVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OmicronConstruct (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ProtoConstruct (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping ArmoredBeetle (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BattleBeetle (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SpeedyBeetle (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ToxicBeetleVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BeetleGuardBrute (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardSharpshooterVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlbinoBisonVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping SpeedyBison (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping FuckingTemplar (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenElderLemurianVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FullAutoGolemVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping OverchargedGolem (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created RushGolemVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping TitanishGolem (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatestWispVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClottedImpVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CursedJellyfishVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MOAJVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created NuclearJellyfishVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpectralJellyfishVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping BadassLemurian (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FlamethrowerLemurianVisuals (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostGreatWispVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created InfernalWispVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping DreamScavenger (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping EnormousStoneTitan (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping PygmyStoneTitan (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping AlloyDeagle (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArtilleryVultureVisual (VAPI.CharacterVariantVisualModifier) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Skipping UnstableVagrantt (VAPI.Legacy.VariantDef) as it has no visual modifiers.
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Finished Migrating 43 VariantVisuals. (Migrated=43, Skipped=0)
+[VariantPackScriptableObjectMigrationWizard-Info]: Migrating VariantDefs
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GammaConstruct (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnragedWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatAncientWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AeonicWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArchaicStoneWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatArchaicWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientAurelionite (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnormousAurelionite (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created PygmyAurelionite (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MalfunctioningAWU (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmingAWU (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleEmpress (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleMatriarch (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlphaBison (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmormelterPest (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TinyPest (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmormelterVermin (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TinyVermin (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AluminumContraption (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SteelContraption (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CollapsedChild (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DenseChild (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingApothecary (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DevourerDunestrider (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingDunestrider (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created StarvingDunestrider (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClayAssassin (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClaySoldier (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingClayman (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingTemplar (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created VampiricTemplar (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GhostOfKjaro (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GhostOfRunald (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IncineratingElderLemurian (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGeep (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGip (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatGrandParent (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SunWorshipper (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AmalgamatedGreatWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreaterStoneWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatGreatWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Goop (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGup (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MortarCrab (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BruiserImp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorImp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BerserkerOverlord (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorOverlord (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostArchaicWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LeastestWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LesserStoneWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenWorm (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ADShroom (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created HealerShroom (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MammaShroom (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Adolescent (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Child (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ElectricWurm (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MalfunctioningSCU (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmingSCU (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GaussianProbe (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SolusProbeMK2 (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmerProbe (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ColossalGolem (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneTitan (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TransplanarBarnacle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MothershipVagrant (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OmicronConstruct (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ProtoConstruct (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmoredBeetle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BattleBeetle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpeedyBeetle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ToxicBeetle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardBrute (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardSharpshooter (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlbinoBison (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpeedyBison (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FuckingTemplar (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenElderLemurian (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FullAutoGolem (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverchargedGolem (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created RushGolem (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TitanishGolem (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatestWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClottedImp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CursedJellyfish (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MOAJ (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created NuclearJellyfish (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpectralJellyfish (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BadassLemurian (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FlamethrowerLemurian (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostGreatWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created InfernalWisp (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DreamScavenger (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnormousStoneTitan (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created PygmyStoneTitan (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlloyDeagle (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArtilleryVulture (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizard-Info]: Created UnstableVagrantt (VAPI.CharacterVariantDef) in memory
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Finished Migrating 100 VariantDefs. (Migrated=0, Skipped=0)
+[VariantPackScriptableObjectMigrationWizard-Info]: Creating CharacterVariantVisualModifier Assets.
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AncientWisp/AncientStoneWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AncientStoneWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArchaicStoneWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ArchaicWisp/ArchaicStoneWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArchaicStoneWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlphaBisonVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Bison/AlphaBisonVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlphaBisonVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AluminumContraptionVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BrassContraption/AluminumContraptionVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AluminumContraptionVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SteelContraptionVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BrassContraption/SteelContraptionVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SteelContraptionVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CollapsedChildVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Child/CollapsedChildVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to CollapsedChildVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DenseChildVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Child/DenseChildVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to DenseChildVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClayAssassinVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayMan/ClayAssassinVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ClayAssassinVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BrotherGhostVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/BrotherGhostVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BrotherGhostVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BrotherGhostVisuals_Legacy (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/BrotherGhostVisuals_Legacy.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BrotherGhostVisuals_Legacy_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IncineratingElderLemurianVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/IncineratingElderLemurianVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IncineratingElderLemurianVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGeepVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Geep/TarredGeepVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGeepVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGipVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Gip/TarredGipVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGipVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatGrandParentVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GrandParent/GreatGrandParentVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreatGrandParentVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AmalgamatedGreatWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GreaterWisp/AmalgamatedGreatWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AmalgamatedGreatWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreaterStoneWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GreaterWisp/GreaterStoneWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreaterStoneWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGupVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Gup/TarredGupVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGupVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorImpVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Imp/IchorImpVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IchorImpVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorOverlordVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ImpOverlord/IchorOverlordVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IchorOverlordVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostArchaicWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/LesserWisp/AlmostArchaicWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlmostArchaicWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LesserStoneWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/LesserWisp/LesserStoneWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to LesserStoneWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ADShroomVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MiniMushroom/ADShroomVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ADShroomVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created HealershroomVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MiniMushroom/HealershroomVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to HealershroomVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ChildVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Parent/ChildVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ChildVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ElectricWurmVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ScorchWurm/ElectricWurmVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ElectricWurmVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GausssianProbeVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SolusProbe/GausssianProbeVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GausssianProbeVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MothershipVagrantVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/NebbysWrath/NW_Assets/Main/Variants/WanderingVagrant/MothershipVagrantVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MothershipVagrantVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ToxicBeetleVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Beetle/ToxicBeetleVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ToxicBeetleVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardSharpshooterVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/BeetleGuard/BeetleGuardSharpshooterVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BeetleGuardSharpshooterVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlbinoBisonVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Bison/AlbinoBisonVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlbinoBisonVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenElderLemurianVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/ElderLemurian/MoltenElderLemurianVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MoltenElderLemurianVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FullAutoGolemVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/FullAutoGolemVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to FullAutoGolemVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created RushGolemVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/RushGolemVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to RushGolemVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatestWispVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/GreaterWisp/GreatestWispVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreatestWispVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClottedImpVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Imp/ClottedImpVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ClottedImpVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CursedJellyfishVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/CursedJellyfishVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to CursedJellyfishVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MOAJVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/MOAJVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MOAJVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created NuclearJellyfishVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/NuclearJellyfishVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to NuclearJellyfishVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpectralJellyfishVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/SpectralJellyfishVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SpectralJellyfishVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FlamethrowerLemurianVisuals (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Lemurian/FlamethrowerLemurianVisuals.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to FlamethrowerLemurianVisuals_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostGreatWispVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/LesserWisp/AlmostGreatWispVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlmostGreatWispVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created InfernalWispVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/LesserWisp/InfernalWispVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to InfernalWispVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArtilleryVultureVisual (VAPI.CharacterVariantVisualModifier) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Vulture/ArtilleryVultureVisual.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArtilleryVultureVisual_Legacy (VAPI.Legacy.VariantVisuals)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created a total of 43 CharacterVariantVisualModifier Assets
+[VariantPackScriptableObjectMigrationWizard-Info]: Saving Assets
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GammaConstruct (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AlphaConstruct/GammaConstruct.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GammaConstruct_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AncientWisp/AncientStoneWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AncientStoneWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnragedWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AncientWisp/EnragedWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to EnragedWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatAncientWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AncientWisp/SomewhatAncientWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SomewhatAncientWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AeonicWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ArchaicWisp/AeonicWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AeonicWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArchaicStoneWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ArchaicWisp/ArchaicStoneWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArchaicStoneWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatArchaicWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ArchaicWisp/SomewhatArchaicWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SomewhatArchaicWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientAurelionite (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Aurelionite/AncientAurelionite.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AncientAurelionite_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnormousAurelionite (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Aurelionite/EnormousAurelionite.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to EnormousAurelionite_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created PygmyAurelionite (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Aurelionite/PygmyAurelionite.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to PygmyAurelionite_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MalfunctioningAWU (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AWU/MalfunctioningAWU.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MalfunctioningAWU_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmingAWU (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/AWU/SwarmingAWU.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SwarmingAWU_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleEmpress (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BeetleQueen/BeetleEmpress.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BeetleEmpress_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleMatriarch (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BeetleQueen/BeetleMatriarch.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BeetleMatriarch_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlphaBison (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Bison/AlphaBison.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlphaBison_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmormelterPest (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BlindPest/ArmormelterPest.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArmormelterPest_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TinyPest (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BlindPest/TinyPest.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TinyPest_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmormelterVermin (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BlindVermin/ArmormelterVermin.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArmormelterVermin_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TinyVermin (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BlindVermin/TinyVermin.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TinyVermin_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AluminumContraption (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BrassContraption/AluminumContraption.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AluminumContraption_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SteelContraption (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/BrassContraption/SteelContraption.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SteelContraption_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CollapsedChild (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Child/CollapsedChild.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to CollapsedChild_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DenseChild (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Child/DenseChild.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to DenseChild_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingApothecary (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayApothecary/OverflowingApothecary.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OverflowingApothecary_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DevourerDunestrider (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayDunestrider/DevourerDunestrider.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to DevourerDunestrider_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingDunestrider (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayDunestrider/OverflowingDunestrider.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OverflowingDunestrider_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created StarvingDunestrider (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayDunestrider/StarvingDunestrider.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to StarvingDunestrider_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClayAssassin (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayMan/ClayAssassin.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ClayAssassin_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClaySoldier (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayMan/ClaySoldier.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ClaySoldier_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingClayman (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayMan/OverflowingClayman.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OverflowingClayman_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverflowingTemplar (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayTemplar/OverflowingTemplar.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OverflowingTemplar_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created VampiricTemplar (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ClayTemplar/VampiricTemplar.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to VampiricTemplar_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GhostOfKjaro (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/GhostOfKjaro.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GhostOfKjaro_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GhostOfRunald (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/GhostOfRunald.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GhostOfRunald_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IncineratingElderLemurian (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ElderLemurian/IncineratingElderLemurian.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IncineratingElderLemurian_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGeep (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Geep/TarredGeep.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGeep_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGip (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Gip/TarredGip.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGip_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatGrandParent (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GrandParent/GreatGrandParent.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreatGrandParent_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SunWorshipper (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GrandParent/SunWorshipper.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SunWorshipper_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AmalgamatedGreatWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GreaterWisp/AmalgamatedGreatWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AmalgamatedGreatWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreaterStoneWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GreaterWisp/GreaterStoneWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreaterStoneWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SomewhatGreatWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/GreaterWisp/SomewhatGreatWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SomewhatGreatWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Goop (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Gup/Goop.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to Goop_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TarredGup (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Gup/TarredGup.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TarredGup_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MortarCrab (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/HermitCrab/MortarCrab.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MortarCrab_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BruiserImp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Imp/BruiserImp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BruiserImp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorImp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Imp/IchorImp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IchorImp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BerserkerOverlord (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ImpOverlord/BerserkerOverlord.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BerserkerOverlord_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created IchorOverlord (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ImpOverlord/IchorOverlord.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to IchorOverlord_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostArchaicWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/LesserWisp/AlmostArchaicWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlmostArchaicWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LeastestWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/LesserWisp/LeastestWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to LeastestWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created LesserStoneWisp (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/LesserWisp/LesserStoneWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to LesserStoneWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenWorm (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MagmaWorm/MoltenWorm.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MoltenWorm_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ADShroom (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MiniMushroom/ADShroom.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ADShroom_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created HealerShroom (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MiniMushroom/HealerShroom.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to HealerShroom_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MammaShroom (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/MiniMushroom/MammaShroom.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MammaShroom_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Adolescent (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Parent/Adolescent.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to Adolescent_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created Child (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/Parent/Child.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to Child_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ElectricWurm (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/ScorchWurm/ElectricWurm.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ElectricWurm_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MalfunctioningSCU (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SCU/MalfunctioningSCU.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MalfunctioningSCU_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmingSCU (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SCU/SwarmingSCU.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SwarmingSCU_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GaussianProbe (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SolusProbe/GaussianProbe.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GaussianProbe_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SolusProbeMK2 (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SolusProbe/SolusProbeMK2.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SolusProbeMK2_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SwarmerProbe (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/SolusProbe/SwarmerProbe.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SwarmerProbe_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ColossalGolem (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/StoneGolem/ColossalGolem.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ColossalGolem_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AncientStoneTitan (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/StoneTitan/AncientStoneTitan.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AncientStoneTitan_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TransplanarBarnacle (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/VoidBarnacle/TransplanarBarnacle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TransplanarBarnacle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MothershipVagrant (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/WanderingVagrant/MothershipVagrant.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MothershipVagrant_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OmicronConstruct (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/XiConstruct/OmicronConstruct.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OmicronConstruct_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ProtoConstruct (VAPI.CharacterVariantDef) at path Assets/NebbysWrath/NW_Assets/Main/Variants/XiConstruct/ProtoConstruct.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ProtoConstruct_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArmoredBeetle (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Beetle/ArmoredBeetle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArmoredBeetle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BattleBeetle (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Beetle/BattleBeetle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BattleBeetle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpeedyBeetle (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Beetle/SpeedyBeetle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SpeedyBeetle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ToxicBeetle (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Beetle/ToxicBeetle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ToxicBeetle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardBrute (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/BeetleGuard/BeetleGuardBrute.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BeetleGuardBrute_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BeetleGuardSharpshooter (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/BeetleGuard/BeetleGuardSharpshooter.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BeetleGuardSharpshooter_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlbinoBison (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Bison/AlbinoBison.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlbinoBison_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpeedyBison (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Bison/SpeedyBison.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SpeedyBison_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FuckingTemplar (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/ClayBruiser/FuckingTemplar.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to FuckingTemplar_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MoltenElderLemurian (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/ElderLemurian/MoltenElderLemurian.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MoltenElderLemurian_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FullAutoGolem (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/FullAutoGolem.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to FullAutoGolem_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created OverchargedGolem (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/OverchargedGolem.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to OverchargedGolem_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created RushGolem (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/RushGolem.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to RushGolem_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created TitanishGolem (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Golem/TitanishGolem.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to TitanishGolem_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created GreatestWisp (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/GreaterWisp/GreatestWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to GreatestWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ClottedImp (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Imp/ClottedImp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ClottedImp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created CursedJellyfish (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/CursedJellyfish.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to CursedJellyfish_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created MOAJ (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/MOAJ.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to MOAJ_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created NuclearJellyfish (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/NuclearJellyfish.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to NuclearJellyfish_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created SpectralJellyfish (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Jellyfish/SpectralJellyfish.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to SpectralJellyfish_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created BadassLemurian (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Lemurian/BadassLemurian.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to BadassLemurian_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created FlamethrowerLemurian (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Lemurian/FlamethrowerLemurian.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to FlamethrowerLemurian_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlmostGreatWisp (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/LesserWisp/AlmostGreatWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlmostGreatWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created InfernalWisp (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/LesserWisp/InfernalWisp.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to InfernalWisp_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created DreamScavenger (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Scav/DreamScavenger.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to DreamScavenger_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created EnormousStoneTitan (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/StoneTitan/EnormousStoneTitan.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to EnormousStoneTitan_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created PygmyStoneTitan (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/StoneTitan/PygmyStoneTitan.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to PygmyStoneTitan_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created AlloyDeagle (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Vulture/AlloyDeagle.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to AlloyDeagle_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created ArtilleryVulture (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/Vulture/ArtilleryVulture.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to ArtilleryVulture_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created UnstableVagrantt (VAPI.CharacterVariantDef) at path Assets/TheOriginal30/TO30_Assets/Main/Variants/WanderingVagrant/UnstableVagrantt.asset
+[VariantPackScriptableObjectMigrationWizardVERBOSE-Info]: Added _Legacy suffix to UnstableVagrantt_Legacy (VAPI.Legacy.VariantDef)
+[VariantPackScriptableObjectMigrationWizard-Info]: Created a total of 100 CharacterVariantDef Assets
+[VariantPackScriptableObjectMigrationWizard-Info]: Saving Assets

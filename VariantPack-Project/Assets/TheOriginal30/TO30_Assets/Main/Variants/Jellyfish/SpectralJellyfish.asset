@@ -9,35 +9,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: SpectralJellyfish
   m_EditorClassIdentifier: 
-  bodyName: JellyfishBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: JellyfishBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 4
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: TO30_SPECTRALJELLYFISH_ARRIVAL
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662039
   deathStateOverride:
-    _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
-      TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    deathStateOverride:
+      _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
+        TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   skillReplacements: []
-  healthMultiplier: 0.5
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1.5
-  attackSpeedMultiplier: 1
-  damageMultiplier: 0.5
-  armorBonus: 0
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: cb2f99555af0aef49bf31436897b1942, type: 2}
-  sizeModifier: {fileID: 11400000, guid: 73aefcbf9b987f3469110b63c374a3a5, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: TO30_SPECTRAL_PREFIX
-    overrideType: 0
-  componentProviders: []
+  statModifier:
+    rid: 8453672705155662040
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 9e2c1c9851cf52a4597ef3b729cbcd16, type: 2}
+  scaleMultiplier: 0.8
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662039
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_SPECTRAL_PREFIX
+    - rid: 8453672705155662040
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 0.5
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1.5
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 0.5
+        armorBonus: 0
+        _armorMultiplier: 1

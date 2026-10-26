@@ -9,34 +9,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: OverchargedGolem
   m_EditorClassIdentifier: 
-  bodyName: GolemBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: GolemBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: 369d47bb9477fb5449062b3c22e247d8, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: ShieldOnly
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 1
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662023
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 1
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 3
-  attackSpeedMultiplier: 0.75
-  damageMultiplier: 3
-  armorBonus: -25
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155662024
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 0}
-  aiModifier: 0
-  nameOverrides:
-  - token: TO30_OVERCHARGED_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662023
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_OVERCHARGED_PREFIX
+    - rid: 8453672705155662024
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 3
+        _attackSpeedMultiplier: 0.75
+        _damageMultiplier: 3
+        armorBonus: -25
+        _armorMultiplier: 1

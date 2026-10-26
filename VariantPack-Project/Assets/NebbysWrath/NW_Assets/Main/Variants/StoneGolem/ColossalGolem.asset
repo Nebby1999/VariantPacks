@@ -9,40 +9,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: ColossalGolem
   m_EditorClassIdentifier: 
-  bodyName: GolemBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: GolemBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 3
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: NW_COLOSSALGOLEM_ARRIVAL
-  variantInventory: {fileID: 11400000, guid: f0f5718d20599824083341defe8cfa3d, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: CritOnUse
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 1
+      aiMaxUseHealthFraction: 100
+      aiMaxUseDistance: 10
+      timeBetweenEquipmentSwitches: Infinity
+  variantNameProvider:
+    rid: 8453672705155661981
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 6f50766a496260d4fa980f1d8673561d, type: 2}
-    skillSlot: 1
-  healthMultiplier: 2
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.5
-  attackSpeedMultiplier: 1.5
-  damageMultiplier: 2
-  armorBonus: 100
-  armorMultiplier: 1
+    slot: 1
+    slotName: 
+  statModifier:
+    rid: 8453672705155661982
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: 4539723a9885fba458d4936afce3efba, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_COLOSSAL_PREFIX
-    overrideType: 0
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.ModifyPrintController, NebbysWrath, Version=0.0.0.0,
+  scaleMultiplier: 2
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.ModifyPrintController, NebbysWrath, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-    attachmentType: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661981
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_COLOSSAL_PREFIX
+    - rid: 8453672705155661982
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.5
+        _attackSpeedMultiplier: 1.5
+        _damageMultiplier: 2
+        armorBonus: 100
+        _armorMultiplier: 1

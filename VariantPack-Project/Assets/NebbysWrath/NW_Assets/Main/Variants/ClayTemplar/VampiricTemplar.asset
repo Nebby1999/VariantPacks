@@ -9,34 +9,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: VampiricTemplar
   m_EditorClassIdentifier: 
-  bodyName: ClayBruiserBody
-  variantTier: 1
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ClayBruiserBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 5
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: b6d17573db8d21244b07bc1167105056, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: BarrierOnOverHeal
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 3
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: HealOnCrit
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 20
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: Plus1Crit
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 100
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: IncreaseHealing
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 3
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: LifestealOnHit
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 1
+      aiMaxUseHealthFraction: 30
+      aiMaxUseDistance: 10
+      timeBetweenEquipmentSwitches: Infinity
+  variantNameProvider:
+    rid: 8453672705155661903
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1.5
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1.25
-  damageMultiplier: 0.6
-  armorBonus: 0
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155661904
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: e168b346aebb0dd4a82721197f81ed5a, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_VAMPIRIC_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 1.25
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661903
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_VAMPIRIC_PREFIX
+    - rid: 8453672705155661904
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1.5
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1.25
+        _damageMultiplier: 0.6
+        armorBonus: 0
+        _armorMultiplier: 1

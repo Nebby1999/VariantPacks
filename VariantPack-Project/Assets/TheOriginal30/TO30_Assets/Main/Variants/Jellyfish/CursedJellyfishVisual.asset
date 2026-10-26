@@ -9,19 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
   m_Name: CursedJellyfishVisual
   m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   materialReplacements:
-  - rendererIndex: 0
-    material: {fileID: 2100000, guid: 42a77e9225103e74f88a3cd68741c64d, type: 2}
-  lightReplacements:
-  - rendererIndex: 1
-    color:
-      serializedVersion: 2
-      rgba: 4278220287
-    lightType: 2
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: 42a77e9225103e74f88a3cd68741c64d, type: 2}
   meshReplacements:
-  - rendererIndex: 0
-    mesh: {fileID: 4300000, guid: 50ca912d61ac9674ca44701bebaab8bf, type: 2}
-    meshType: 0
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 4300000, guid: 50ca912d61ac9674ca44701bebaab8bf, type: 2}
+  lightReplacements:
+  - transformPath: 
+    lightIndex: 1
+    useIndex: 1
+    lightColor: {r: 1, g: 0.45882353, b: 0, a: 1}
+  prefabInstantiationDatas: []

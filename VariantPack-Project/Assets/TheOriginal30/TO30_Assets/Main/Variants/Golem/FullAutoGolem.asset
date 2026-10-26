@@ -9,34 +9,79 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: FullAutoGolem
   m_EditorClassIdentifier: 
-  bodyName: GolemBody
-  variantTier: 2
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: GolemBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   spawnRate: 4
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: TO30_FULLAUTO_ARRIVAL
-  variantInventory: {fileID: 11400000, guid: e04d501fdec1b9b45945f8abef8d73dc, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: GlobalCDR
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 100
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: ExtraSecondary
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 20
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662021
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 1
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 7
-  damageMultiplier: 0.75
-  armorBonus: -30
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: 5317db94d453f9c4882c52b893ce2cb7, type: 2}
-  sizeModifier: {fileID: 0}
-  aiModifier: 0
-  nameOverrides:
-  - token: TO30_FULLAUTO_PREFIX
-    overrideType: 0
-  componentProviders: []
+  statModifier:
+    rid: 8453672705155662022
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 1e45fd777539f6449aa0250f1eaeb810, type: 2}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662021
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_FULLAUTO_PREFIX
+    - rid: 8453672705155662022
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 7
+        _damageMultiplier: 0.75
+        armorBonus: -30
+        _armorMultiplier: 1

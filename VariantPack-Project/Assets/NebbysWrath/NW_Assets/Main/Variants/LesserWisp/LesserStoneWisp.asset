@@ -9,36 +9,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: LesserStoneWisp
   m_EditorClassIdentifier: 
-  bodyName: WispBody
-  variantTier: 1
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: WispBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661952
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 5b8214542da274547b26d6b96ff3866f, type: 2}
-    skillSlot: 0
-  healthMultiplier: 8
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.75
-  attackSpeedMultiplier: 1
-  damageMultiplier: 1
-  armorBonus: 10
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: 8db42413095a5c94290cfbd5773f01b1, type: 2}
-  sizeModifier: {fileID: 11400000, guid: 1215b9f01b09ac641bb64f1c3b17645d, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_STONE_PREFIX
-    overrideType: 0
-  componentProviders: []
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8453672705155661953
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 0abb306f296a6d5409adba6e1d6fe461, type: 2}
+  scaleMultiplier: 1.5
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661952
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_STONE_PREFIX
+    - rid: 8453672705155661953
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 8
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.75
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 10
+        _armorMultiplier: 1

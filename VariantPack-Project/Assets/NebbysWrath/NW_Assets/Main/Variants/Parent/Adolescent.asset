@@ -9,34 +9,85 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: Adolescent
   m_EditorClassIdentifier: 
-  bodyName: ParentBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ParentBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   spawnRate: 8
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: 9fbcc9648b459854c9e3ad7fe3effc11, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: ParentEgg
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 1
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: Medkit
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 1
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: ExtraUtility
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 2
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661963
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 0.75
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1.2
-  damageMultiplier: 1.5
-  armorBonus: 0
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155661964
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: d472074679b7f0f40931e4207a48de33, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_ADOLESCERE_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 0.75
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155661963
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_ADOLESCERE_PREFIX
+    - rid: 8453672705155661964
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 0.75
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1.2
+        _damageMultiplier: 1.5
+        armorBonus: 0
+        _armorMultiplier: 1

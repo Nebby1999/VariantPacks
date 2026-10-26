@@ -9,34 +9,83 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: FuckingTemplar
   m_EditorClassIdentifier: 
-  bodyName: ClayBruiserBody
-  variantTier: 1
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: ClayBruiserBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   spawnRate: 4
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 11400000, guid: f7aa961672232b5499c5dd763eab71b3, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers:
+  - rid: 8453672705155662016
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: Hoof
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 10
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: Syringe
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 10
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662017
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1
-  regenBonus: 0
-  regenMultiplier: 1
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 0.25
-  damageMultiplier: 1
-  armorBonus: 0
-  armorMultiplier: 1
+  statModifier:
+    rid: 8453672705155662018
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: 4fb016798ba1bac4694402043f8ec100, type: 2}
-  aiModifier: 2
-  nameOverrides:
-  - token: TO30_FUCKING_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 1.2
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662016
+      type: {class: AlwaysSprintAIModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data: 
+    - rid: 8453672705155662017
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_FUCKING_PREFIX
+    - rid: 8453672705155662018
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 0.25
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1

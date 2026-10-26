@@ -9,12 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e3da4195fd1f147907ee7b19d514a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
   m_Name: HealershroomVisuals
   m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
   materialReplacements:
-  - rendererIndex: 0
-    material: {fileID: 1690128031867762302, guid: 410ea33905f21fc4586e89417741d9db,
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 1690128031867762302, guid: 410ea33905f21fc4586e89417741d9db,
       type: 2}
-  lightReplacements: []
   meshReplacements: []
+  lightReplacements: []
+  prefabInstantiationDatas: []

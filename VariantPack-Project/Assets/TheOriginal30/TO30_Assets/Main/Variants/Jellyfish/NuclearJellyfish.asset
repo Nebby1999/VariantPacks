@@ -9,36 +9,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: NuclearJellyfish
   m_EditorClassIdentifier: 
-  bodyName: JellyfishBody
-  variantTier: 0
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: JellyfishBody
+      _useDirectReference: 0
+      _canLoadFromCatalog: 1
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   spawnRate: 5
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: 
-  variantInventory: {fileID: 0}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662037
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 6da0d49b95b71cf4398ed930efd0c3c8, type: 2}
-    skillSlot: 0
-  healthMultiplier: 15
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 0.75
-  attackSpeedMultiplier: 1
-  damageMultiplier: 6
-  armorBonus: 20
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: 1054bb7502e92b745ae7ef0dca06fa37, type: 2}
-  sizeModifier: {fileID: 0}
-  aiModifier: 0
-  nameOverrides:
-  - token: TO30_NUCLEAR_PREFIX
-    overrideType: 0
-  componentProviders: []
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8453672705155662038
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: e1c41aed9640b2f4bb510a71682c4e86, type: 2}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662037
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_NUCLEAR_PREFIX
+    - rid: 8453672705155662038
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 15
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 0.75
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 6
+        armorBonus: 20
+        _armorMultiplier: 1
