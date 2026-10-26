@@ -106,7 +106,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3e2f7333967a941defb6847302bad28c719ab6af"
+      "hash": "2dde4cecc18f3c6bcc6b008cc479596f59119be1"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",
@@ -241,13 +241,13 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#6.2.0",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#feat/Bugfixes",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "880d893ac8cb4d465860fce9a9354c7330727a34"
+      "hash": "c50984c79c82f907fe5e48a10061781e9ca88527"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.7.3",
