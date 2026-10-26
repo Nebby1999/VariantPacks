@@ -17,14 +17,10 @@ MonoBehaviour:
     _hexRepresentation: 44d42a3e58832be42bb60f31f05e064a
   - k_templateName: ExtendedHelpBox
     _hexRepresentation: f201f9522b7898947bae7ddbde4b0c1d
-  - k_templateName: VariantDefInspector
-    _hexRepresentation: 38638515cfbeeee4fb23248721f46d49
   - k_templateName: ContextMenuWrapperElement
     _hexRepresentation: 77311b170172e5f459337eef42862d00
   - k_templateName: ComponentInspectorEnableToggle
     _hexRepresentation: d8821e738f95f48498530303e90d440d
-  - k_templateName: VariantInventoryInspector
-    _hexRepresentation: 5fa50e4051ff6924ab240881851d1bea
   - k_templateName: EntityStateConfigurationInspector
     _hexRepresentation: ac961d30836210440afb45f06c794458
   - k_templateName: SerializedFieldCollectionElement
@@ -33,3 +29,5 @@ MonoBehaviour:
     _hexRepresentation: eb748256c0573e64aa147f2339196579
   - k_templateName: EntityStateMachineInspector
     _hexRepresentation: 80f85cf135da6ea41834b0e48a22acfa
+  - k_templateName: EditorSettingsElement
+    _hexRepresentation: 265068b42b0081049b3077b0c70c968f

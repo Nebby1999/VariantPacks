@@ -35,11 +35,13 @@
         "AK.Wwise.Unity.API.dll",
         "AK.Wwise.Unity.API.WwiseTypes.dll",
         "AK.Wwise.Unity.MonoBehaviour.dll",
-        "AK.Wwise.Unity.Timeline.dll"
+        "AK.Wwise.Unity.Timeline.dll",
+        "AsyncManagement.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [
-        "NW_ROR2_IMPORTED"
+        "NW_ROR2_IMPORTED",
+        "ASS"
     ],
     "versionDefines": [
         {

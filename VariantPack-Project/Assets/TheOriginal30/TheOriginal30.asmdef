@@ -34,7 +34,8 @@
     ],
     "autoReferenced": true,
     "defineConstraints": [
-        "TO30_ROR2_IMPORTED"
+        "TO30_ROR2_IMPORTED",
+        "ASS"
     ],
     "versionDefines": [
         {

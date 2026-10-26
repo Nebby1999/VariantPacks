@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using RoR2.AsyncManagement;
 using RoR2.Projectile;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace EntityStates.MiniMushroom.Healer
 {
     public class HealerGrenade : BaseState
     {
-        public static GameObject chargeEffectPrefab = SporeGrenade.chargeEffectPrefab;
+        //TODO: Fix this
+        public static EntityStateGameObject chargeEffectPrefab = new EntityStateGameObject("");//SporeGrenade.chargeEffectPrefab;
 
         public static string attackSoundString = "Play_minimushroom_spore_shoot";
 
@@ -67,7 +69,7 @@ namespace EntityStates.MiniMushroom.Healer
             Transform transform = FindModelChild("ChargeSpot");
             if ((bool)transform)
             {
-                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab, transform);
+                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab.gameObject, transform);
             }
         }
 

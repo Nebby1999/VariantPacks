@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using EntityStates.MiniMushroom;
 using RoR2;
+using RoR2.AsyncManagement;
 using RoR2.Projectile;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace EntityStates.MiniMushroom.AD
 {
     public class ArmorBreakerGrenade : BaseState
     {
-        public static GameObject chargeEffectPrefab = SporeGrenade.chargeEffectPrefab;
+        //TODO: Fix this
+        public static EntityStateGameObject chargeEffectPrefab = new EntityStateGameObject("");//SporeGrenade.chargeEffectPrefab;
 
         public static string attackSoundString = "Play_minimushroom_spore_shoot";
 
@@ -66,7 +68,7 @@ namespace EntityStates.MiniMushroom.AD
             Transform transform = FindModelChild("ChargeSpot");
             if ((bool)transform)
             {
-                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab, transform);
+                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab.gameObject, transform);
             }
         }
 
