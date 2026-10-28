@@ -264,11 +264,11 @@ namespace TO30
                     continue;
                 }
 
-                if(asset.spawnCondition is VariantDependantCondition dependantCondition)
+                if(cloned.spawnCondition is VariantDependantCondition dependantCondition)
                 {
                     dependantCondition.cannotSpawn = canSpawn == false;
-                    asset.spawnCondition = dependantCondition;
-                    _dependantSpawnAllyDefs.Add(asset);
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
@@ -282,11 +282,11 @@ namespace TO30
                     continue;
                 }
 
-                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
                 {
                     dependantCondition.cannotSpawn = canSpawn == false;
-                    asset.spawnCondition = dependantCondition;
-                    _dependantSpawnAllyDefs.Add(asset);
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
@@ -300,11 +300,11 @@ namespace TO30
                     continue;
                 }
 
-                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
                 {
                     dependantCondition.cannotSpawn = canSpawn == false;
-                    asset.spawnCondition = dependantCondition;
-                    _dependantSpawnAllyDefs.Add(asset);
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
@@ -331,11 +331,11 @@ namespace TO30
                     continue;
                 }
 
-                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
                 {
                     dependantCondition.cannotSpawn = canSpawn == false;
-                    asset.spawnCondition = dependantCondition;
-                    _dependantSpawnPolymorphDefs.Add(asset);
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnPolymorphDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
