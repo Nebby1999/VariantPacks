@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ff0c33a8b5a0f409b9611fa82ba615, type: 3}
+  m_Name: EntityStates
+  m_EditorClassIdentifier: 
+  stateTypes:
+  - _typeName: EntityStates.BeetleMonster.Battle.HeavyHeadbutt, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.BeetleMonster.Toxic.ToxicHeadbutt, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.GolemMonster.Rush.GolemBlink, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.JellyfishMonster.Nuclear.NuclearNova, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnJellies, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnNova, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
+      TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.LemurianMonster.Badass.ChargeFireballAndMissile, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.LemurianMonster.Badass.FireFireballAndMissile, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.LemurianMonster.Flamethrower.FireFlamethrower, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.Wisp1Monster.AlmostGreat.ChargeGreaterCannon, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.Wisp1Monster.AlmostGreat.FireGreaterCannon, TheOriginal30,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.ScavMonster.Dream.DreamLuck, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: EntityStates.ScavMonster.Dream.EnterLuckySit, TheOriginal30, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

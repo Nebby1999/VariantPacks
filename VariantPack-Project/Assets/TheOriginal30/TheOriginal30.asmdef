@@ -31,7 +31,8 @@
         "R2API.Elites.dll",
         "R2API.RecalculateStats.dll",
         "R2API.Prefab.dll",
-        "LoadingScreenFix.dll"
+        "LoadingScreenFix.dll",
+        "RiskOfOptions.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

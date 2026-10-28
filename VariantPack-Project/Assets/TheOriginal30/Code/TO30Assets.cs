@@ -37,7 +37,7 @@ namespace TO30
             return _assetBundle.LoadAllAssets<TAsset>();
         }
 
-        public static TO30AssetRequest<TAsset> LoadAssetsAsync<TAsset>() where TAsset : UnityEngine.Object
+        public static TO30AssetRequest<TAsset> LoadAllAssetsAsync<TAsset>() where TAsset : UnityEngine.Object
         {
             return TO30AssetRequest<TAsset>.RequestFromPool(_assetBundle);
         }
@@ -86,7 +86,7 @@ namespace TO30
 
         private static IEnumerator FinishMaterialVariants()
         {
-            using var request = LoadAssetsAsync<MaterialVariant>();
+            using var request = LoadAllAssetsAsync<MaterialVariant>();
 
             while (!request.isComplete)
                 yield return null;

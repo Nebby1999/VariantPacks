@@ -7,7 +7,7 @@ namespace EntityStates.JellyfishMonster.Nuclear
     {
         public static float baseDuration = 1.5f;
         public static float novaRadius = 24;
-        public static float novaForce = 2500;
+        public static float novaForce = 25000;
 
         private bool hasExploded;
         private float duration;

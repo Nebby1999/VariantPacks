@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: UnstableVagrant
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 4331e499912b59b47a5e45cc2ea738bb
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 4
+  arrivalToken: 
+  spawnCondition:
+    rid: -2
+  masterModifiers:
+  - rid: 8453672705155662060
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662061
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements: []
+  statModifier:
+    rid: 8453672705155662062
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 0}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662060
+      type: {class: UnstableAIModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minTargetHealthFractionOverride: -Infinity
+        maxTargetHealthFractionOverride: Infinity
+        minUserHealthFractionOverride: -Infinity
+        maxUserHealthFractionOverride: Infinity
+    - rid: 8453672705155662061
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_UNSTABLE_PREFIX
+    - rid: 8453672705155662062
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 0
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: -30
+        _armorMultiplier: 1

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: SpeedyBison
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 93e318ca0f6b60840881c5aedaf03bca
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 30
+  arrivalToken: 
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155662014
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements: []
+  statModifier:
+    rid: 8453672705155662015
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 0}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8453672705155662014
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: TO30_SPEEDY_PREFIX
+    - rid: 8453672705155662015
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 4
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1

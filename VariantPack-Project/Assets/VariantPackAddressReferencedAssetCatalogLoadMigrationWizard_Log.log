@@ -1,0 +1,10 @@
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Began AddressReferencedAsset Catalog Load Migration Wizard.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizardVERBOSE-Info]: Adding 4 steps.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizardVERBOSE-Info]: Variants detected, adding 1 step
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizardVERBOSE-Info]: Steps to Execute: 5
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable CharacterBody, this may take a while.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable ItemDef, this may take a while.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable EquipmentDef, this may take a while.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable BuffDef, this may take a while.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable UnlockableDef, this may take a while.
+[VariantPackAddressReferencedAssetCatalogLoadMigrationWizard-Info]: Loading Addressable ExpansionDef, this may take a while.
