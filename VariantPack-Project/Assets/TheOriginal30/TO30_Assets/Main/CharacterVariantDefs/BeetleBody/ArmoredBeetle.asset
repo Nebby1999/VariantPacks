@@ -49,7 +49,7 @@ MonoBehaviour:
   variantBuffs:
     buffInfos: []
   visualModifier: {fileID: 0}
-  scaleMultiplier: 1.2
+  scaleMultiplier: 1.1
   additionalVariantComponents:
     variantComponents: []
   references:

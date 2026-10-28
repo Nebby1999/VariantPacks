@@ -55,7 +55,7 @@ MonoBehaviour:
   variantBuffs:
     buffInfos: []
   visualModifier: {fileID: 11400000, guid: 89c3f5a144115e442bb4ac9472603964, type: 2}
-  scaleMultiplier: 0.8
+  scaleMultiplier: 0.9
   additionalVariantComponents:
     variantComponents: []
   references:

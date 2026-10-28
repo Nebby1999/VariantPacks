@@ -22,17 +22,25 @@ MonoBehaviour:
     _typeName: EntityStates.LemurianMonster.Flamethrower.FireFlamethrower, TheOriginal30,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
-  baseRechargeInterval: 0
+  baseRechargeInterval: 3
   baseMaxStock: 1
   rechargeStock: 1
   requiredStock: 1
   stockToConsume: 1
+  attackSpeedBuffsRestockSpeed: 0
+  attackSpeedBuffsRestockSpeed_Multiplier: 1
   resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
-  beginSkillCooldownOnSkillEnd: 0
+  beginSkillCooldownOnSkillEnd: 1
+  isCooldownBlockedUntilManuallyReset: 0
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0
   isCombatSkill: 1
   mustKeyPress: 0
+  triggeredByPressRelease: 0
+  autoHandleLuminousShot: 1
+  suppressSkillActivation: 0
+  hideStockCount: 0
+  hideCooldown: 0

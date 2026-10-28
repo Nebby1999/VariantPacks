@@ -13,6 +13,8 @@ namespace TO30.Components
         private ChildLocator childLocator;
         private void Start()
         {
+            return;
+
             model = GetComponentInChildren<CharacterModel>();
             childLocator = GetComponentInChildren<ChildLocator>();
 

@@ -19,20 +19,28 @@ MonoBehaviour:
   icon: {fileID: 0}
   activationStateMachineName: Weapon
   activationState:
-    _typeName: EntityStates.Commando.CommandoWeapon.FirePistol2, RoR2, Version=0.0.0.0,
+    _typeName: EntityStates.Vulture.Deagle.FireVulturePistol, TheOriginal30, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interruptPriority: 0
-  baseRechargeInterval: 0
-  baseMaxStock: 1
-  rechargeStock: 1
+  baseRechargeInterval: 1.5
+  baseMaxStock: 9
+  rechargeStock: 9
   requiredStock: 1
   stockToConsume: 1
+  attackSpeedBuffsRestockSpeed: 1
+  attackSpeedBuffsRestockSpeed_Multiplier: 1
   resetCooldownTimerOnUse: 1
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 1
+  isCooldownBlockedUntilManuallyReset: 0
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0
   isCombatSkill: 1
   mustKeyPress: 0
+  triggeredByPressRelease: 0
+  autoHandleLuminousShot: 1
+  suppressSkillActivation: 0
+  hideStockCount: 0
+  hideCooldown: 0

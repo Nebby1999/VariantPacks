@@ -51,12 +51,10 @@ MonoBehaviour:
     rid: 8453672705155662057
   variantBuffs:
     buffInfos: []
-  visualModifier: {fileID: 0}
+  visualModifier: {fileID: 11400000, guid: 3adfaa9893fdc9643a08fcdd69959cf9, type: 2}
   scaleMultiplier: 1
   additionalVariantComponents:
-    variantComponents:
-    - assemblyQualifiedName: TO30.Components.AddGunToVulture, TheOriginal30, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+    variantComponents: []
   references:
     version: 2
     RefIds:

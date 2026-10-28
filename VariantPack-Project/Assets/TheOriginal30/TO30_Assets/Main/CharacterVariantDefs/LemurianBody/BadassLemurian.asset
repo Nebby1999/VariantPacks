@@ -51,7 +51,7 @@ MonoBehaviour:
     rid: 8453672705155662042
   variantBuffs:
     buffInfos: []
-  visualModifier: {fileID: 0}
+  visualModifier: {fileID: 11400000, guid: 315dbfaa47605b341a3d6b471b32d29c, type: 2}
   scaleMultiplier: 1
   additionalVariantComponents:
     variantComponents:

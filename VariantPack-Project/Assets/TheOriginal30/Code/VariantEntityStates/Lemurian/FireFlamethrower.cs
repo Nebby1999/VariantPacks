@@ -1,6 +1,12 @@
-﻿using RoR2;
+﻿using EntityStates.LemurianMonster.Badass;
+using HG;
+using RoR2;
+using System.Collections.Generic;
+using System.Linq;
+using TO30;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using VAPI;
 
 namespace EntityStates.LemurianMonster.Flamethrower
 {
@@ -22,7 +28,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
         private ChildLocator childLocator;
         private Transform flamethrowerTransform;
         private Transform mouthMuzzle;
-        private bool isCrit;
+        private bool isBadass;
         private const float flamethrowerEffectBaseDistance = 16f;
 
         [SystemInitializer]
@@ -67,11 +73,28 @@ namespace EntityStates.LemurianMonster.Flamethrower
             }
             int num = Mathf.CeilToInt(flamethrowerDuration * tickFrequency);
             tickDamageCoefficient = 0.5f / num;
-            if (isAuthority && (bool)characterBody)
-            {
-                isCrit = Util.CheckRoll(critStat, characterBody.master);
-            }
             PlayAnimation("Gesture", "ChargeFireball", "ChargeFireball.playbackRate", entryDuration);
+
+            //Lore accurate badass flamethrower lemurian
+            if(characterBody.TryGetComponent<CharacterBodyVariantController>(out var variantController))
+            {
+                var variantDefsApplied = variantController.GetCharacterVariantDefs();
+
+                //Retrieve the dependant variant defs
+                List<CharacterVariantDef> badassDefs = CharacterVariantCatalog.RetrieveDependantSpawnVariants(TO30Content.CharacterVariants.BadassLemurian);
+                badassDefs.Add(TO30Content.CharacterVariants.BadassLemurian); //add the basic one
+
+                foreach(var badassDef in badassDefs)
+                {
+                    if(variantDefsApplied.Contains(badassDef))
+                    {
+                        TO30Log.Message($"Badass Flamethrower Lemurian Working as intended");
+                        isBadass = true;
+                    }
+                }
+
+                ListPool<CharacterVariantDef>.ReturnCollection(badassDefs);
+            }
         }
 
         public override void OnExit()
@@ -99,7 +122,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 bulletAttack.force = Mage.Weapon.Flamethrower.force;
                 bulletAttack.muzzleName = muzzleString;
                 bulletAttack.hitEffectPrefab = Mage.Weapon.Flamethrower.impactEffectPrefab;
-                bulletAttack.isCrit = isCrit;
+                bulletAttack.isCrit = RollCrit();
                 bulletAttack.radius = Mage.Weapon.Flamethrower.radius;
                 bulletAttack.falloffModel = BulletAttack.FalloffModel.None;
                 bulletAttack.stopperMask = LayerIndex.world.mask;
@@ -142,6 +165,10 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 {
                     flamethrowerStopwatch -= num;
                     FireGauntlet("MuzzleMouth");
+                    if (isBadass)
+                    {
+                        MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, 1.2f * damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
+                    }
                 }
                 UpdateFlamethrowerEffect();
             }

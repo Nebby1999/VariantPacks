@@ -7,6 +7,7 @@ using RoR2.ContentManagement;
 using RoR2.Skills;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using VAPI;
@@ -15,6 +16,50 @@ namespace TO30
 {
     public class TO30Content : IContentPackProvider
     {
+        public static class CharacterVariants
+        {
+            public static CharacterVariantDef AlbinoBison;
+            public static CharacterVariantDef AlloyDeagle;
+            public static CharacterVariantDef AlmostGreatWisp;
+            public static CharacterVariantDef ArmoredBeetle;
+            public static CharacterVariantDef ArtilleryVulture;
+            public static CharacterVariantDef BadassLemurian;
+            public static CharacterVariantDef BattleBeetle;
+            public static CharacterVariantDef BeetleGuardBrute;
+            public static CharacterVariantDef BeetleGuardShaprshooter;
+            public static CharacterVariantDef ClottedImp;
+            public static CharacterVariantDef CursedJellyfish;
+            public static CharacterVariantDef DreamScavenger;
+            public static CharacterVariantDef EnormousStoneTitan;
+            public static CharacterVariantDef FlamethrowerLemurian;
+            public static CharacterVariantDef FuckingTemplar;
+            public static CharacterVariantDef FullAutoGolem;
+            public static CharacterVariantDef GreatestWisp;
+            public static CharacterVariantDef InfernalWisp;
+            public static CharacterVariantDef MOAJ;
+            public static CharacterVariantDef MoltenElderLemurian;
+            public static CharacterVariantDef NuclearJellyfish;
+            public static CharacterVariantDef OverchargedGolem;
+            public static CharacterVariantDef PygmyStoneTitan;
+            public static CharacterVariantDef RushGolem;
+            public static CharacterVariantDef SpectralJellyfish;
+            public static CharacterVariantDef SpeedyBeetle;
+            public static CharacterVariantDef SpeedyBison;
+            public static CharacterVariantDef TitanishGolem;
+            public static CharacterVariantDef ToxicBeetle;
+            public static CharacterVariantDef UnstableVagrant;
+
+            public static CharacterVariantDef DevotedBadassLemurian;
+            public static CharacterVariantDef DevotedFlamethrowerLemurian;
+
+            public static CharacterVariantDef DevotedMoltenElderLemurian;
+
+            public static CharacterVariantDef GlandBeetleGuardBrute;
+            public static CharacterVariantDef GlandBeetleGuardSharpshooter;
+
+            public static CharacterVariantDef PolymorphBadassLemurian;
+            public static CharacterVariantDef PolymorphFlamethrowerLemurian;
+        }
         public string identifier => TO30Main.GUID;
 
         public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(_contentPack);
@@ -44,6 +89,8 @@ namespace TO30
             }
 
             VariantPackManager.AddVariantPack(_variantPack);
+
+            ContentLoadHelper.PopulateTypeFields(typeof(CharacterVariants), _variantPack.characterVariantDefs, null);
         }
 
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
@@ -114,7 +161,11 @@ namespace TO30
                 SerializableEntityStateType t = entityStates.asset.stateTypes[i];
                 types[i] = t.stateType;
             }
+            _contentPack.entityStateTypes.Add(types);
         }
+
+        private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
 
         private IEnumerator PopulateVariantPack()
         {
@@ -145,9 +196,14 @@ namespace TO30
                 .WithSection("General")
                 .WithKey("Enable Ally Variants")
                 .WithDescription("Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Flamethrower Lemurians for example.")
-                .WithCheckBoxConfig(new CheckBoxConfig
+                .WithConfigChange((b) =>
                 {
-                    restartRequired = true
+                    foreach(var variantDef in _dependantSpawnAllyDefs)
+                    {
+                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                        condition.cannotSpawn = b == false; 
+                        variantDef.spawnCondition = condition;
+                    }
                 })
                 .DoConfigure();
             ConfiguredBool addPolymorphLemurianVariants = new ConfiguredBool(true)
@@ -157,22 +213,20 @@ namespace TO30
                 .WithSection("General")
                 .WithKey("Enable Polymorph Lemurian Variants")
                 .WithDescription("Enables \"Polymorph Lemurian\" Variants. Starting the Polymorph Lemurian quest may spawn you as a Flamethrower Lemurian for example.")
-                .WithCheckBoxConfig(new CheckBoxConfig
+                .WithConfigChange((b) =>
                 {
-                    restartRequired = true
+                    foreach(var variantDef in _dependantSpawnPolymorphDefs)
+                    {
+                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                        condition.cannotSpawn = b == false;
+                        variantDef.spawnCondition = condition;
+                    }
                 })
                 .DoConfigure();
 
             parallelCoroutine = ParallelCoroutine.RequestFromPool();
-
-            if(addAllyVariants)
-            {
-                parallelCoroutine.Add(AddAllyVariants());
-            }
-            if(addPolymorphLemurianVariants)
-            {
-                parallelCoroutine.Add(AddPolymorphLemurianVariants());
-            }
+            parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
+            parallelCoroutine.Add(AddPolymorphLemurianVariants(addPolymorphLemurianVariants));
 
             while(!parallelCoroutine.isDone)
             {
@@ -182,7 +236,7 @@ namespace TO30
             ParallelCoroutine.ReturnToPool(parallelCoroutine);
         }
 
-        private static IEnumerator AddAllyVariants()
+        private static IEnumerator AddAllyVariants(bool canSpawn)
         {
             TO30Log.Info($"Adding Ally Variants");
             using var beetleGuardCollection = TO30Assets.LoadAssetAsync<AssetCollection>("acBeetleGuardVariants");
@@ -210,6 +264,13 @@ namespace TO30
                     continue;
                 }
 
+                if(asset.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    asset.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(asset);
+                }
+
                 _variantPack.characterVariantDefs.AddSingle(cloned);
             }
             foreach (var asset in elderLemurianCollection.asset.FindAssets<CharacterVariantDef>())
@@ -219,6 +280,13 @@ namespace TO30
                 {
                     TO30Log.Error($"Failed to clone {asset} into a DevotedLemurianBruiser clone.");
                     continue;
+                }
+
+                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    asset.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(asset);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
@@ -232,11 +300,18 @@ namespace TO30
                     continue;
                 }
 
+                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    asset.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(asset);
+                }
+
                 _variantPack.characterVariantDefs.AddSingle(cloned);
             }
         }
 
-        private static IEnumerator AddPolymorphLemurianVariants()
+        private static IEnumerator AddPolymorphLemurianVariants(bool canSpawn)
         {
             TO30Log.Info($"Adding Polymorph Lemurian Variants");
 
@@ -254,6 +329,13 @@ namespace TO30
                 {
                     TO30Log.Error($"Failed to clone {asset} into a LemurianPolymorph clone.");
                     continue;
+                }
+
+                if (asset.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    asset.spawnCondition = dependantCondition;
+                    _dependantSpawnPolymorphDefs.Add(asset);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);

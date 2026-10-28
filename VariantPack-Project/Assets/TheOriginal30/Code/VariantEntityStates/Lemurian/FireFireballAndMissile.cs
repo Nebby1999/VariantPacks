@@ -41,8 +41,9 @@ namespace EntityStates.LemurianMonster.Badass
             }
             if (isAuthority)
             {
-                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, characterBody.master));
-                ProjectileManager.instance.FireProjectile(missleProjectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(Vector3.up), gameObject, missileDamageCoef * damageStat, 0f, RollCrit(), DamageColorIndex.Default, null, -1f);
+                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, force, RollCrit());
+
+                MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, 1.2f * damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
             }
         }
 
