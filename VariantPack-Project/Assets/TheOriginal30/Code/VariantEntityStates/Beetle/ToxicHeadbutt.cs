@@ -125,6 +125,12 @@ namespace EntityStates.BeetleMonster.Toxic
                 scale = explosionRadius
             }, true);
 
+            if(Croco.BaseLeap.landingSound)
+            {
+                EffectManager.SimpleSoundEffect(Croco.BaseLeap.landingSound.index, characterBody.corePosition, transmit: true);
+            }
+
+
             if (healthComponent) healthComponent.Suicide(null, null, DamageType.Generic);
         }
 
