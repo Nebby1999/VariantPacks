@@ -39,14 +39,10 @@ namespace TO30
 
         private void AddSpectralSummons()
         {
-            var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            validMasters.AddRange(new List<MasterCatalog.MasterIndex>
-            {
-                MasterCatalog.FindMasterIndex("BeetleMaster"),
-                MasterCatalog.FindMasterIndex("ImpMaster"),
-                MasterCatalog.FindMasterIndex("LemurianMaster"),
-                MasterCatalog.FindMasterIndex("WispMaster")
-            });
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("BeetleMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("ImpMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("LemurianMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("WispMaster"));
         }
     }
 }

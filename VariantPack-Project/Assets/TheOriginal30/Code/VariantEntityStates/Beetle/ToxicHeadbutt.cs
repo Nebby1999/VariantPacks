@@ -38,7 +38,10 @@ namespace EntityStates.BeetleMonster.Toxic
                 attack.hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Headbutt");
             }
 
-            Util.PlaySound(HeadbuttState.attackSoundString, gameObject);
+            if(sfxLocator)
+            {
+                Util.PlaySound(sfxLocator.deathSound, gameObject);
+            }
             PlayCrossfade("Body", "Headbutt", "Headbutt.playbackRate", duration, 0.1f);
         }
 

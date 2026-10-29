@@ -21,12 +21,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - _typeName: EntityStates.JellyfishMonster.Nuclear.NuclearNova, TheOriginal30,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnJellies, TheOriginal30, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnNova, TheOriginal30, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
-      TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - _typeName: EntityStates.LemurianMonster.Badass.ChargeFireballAndMissile, TheOriginal30,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - _typeName: EntityStates.LemurianMonster.Badass.FireFireballAndMissile, TheOriginal30,

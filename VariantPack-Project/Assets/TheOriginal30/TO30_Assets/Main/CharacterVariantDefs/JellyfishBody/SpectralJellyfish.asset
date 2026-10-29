@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 4
   arrivalToken: TO30_SPECTRALJELLYFISH_ARRIVAL
   spawnCondition:
@@ -41,8 +42,7 @@ MonoBehaviour:
     rid: 8453672705155662039
   deathStateOverride:
     deathStateOverride:
-      _typeName: EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant,
-        TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeName: 
   skillReplacements: []
   statModifier:
     rid: 8453672705155662040
@@ -51,7 +51,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 9e2c1c9851cf52a4597ef3b729cbcd16, type: 2}
   scaleMultiplier: 0.8
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath,
+        TheOriginal30, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:

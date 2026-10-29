@@ -42,12 +42,8 @@ MonoBehaviour:
     rid: 8453672705155662035
   deathStateOverride:
     deathStateOverride:
-      _typeName: EntityStates.JellyfishMonster.MOAJ.SpawnJellies, TheOriginal30,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  skillReplacements:
-  - skillDef: {fileID: 11400000, guid: f4f8088bba51c784daa00ebc9133f7dd, type: 2}
-    slot: 0
-    slotName: 
+      _typeName: 
+  skillReplacements: []
   statModifier:
     rid: 8453672705155662036
   variantBuffs:
@@ -55,7 +51,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 068dd5fdfe057684b9f384fa4b458169, type: 2}
   scaleMultiplier: 4
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: TO30.Components.MOAJSpawnJelliesOnDeath, TheOriginal30,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:
