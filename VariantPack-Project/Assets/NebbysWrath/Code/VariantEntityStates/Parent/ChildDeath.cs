@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 
 namespace EntityStates.ParentMonster.Child
 {
+    //TODO: Turn into an "On Death" component
     public class ChildDeath : GenericCharacterDeath
     {
         public float timeBeforeDestealth = 2f;
@@ -56,7 +57,7 @@ namespace EntityStates.ParentMonster.Child
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    var spawnRequest = new VAPI.VariantDirectorSpawnRequest(parentSpawnCard, new DirectorPlacementRule
+                    /*var spawnRequest = new VAPI.VariantDirectorSpawnRequest(parentSpawnCard, new DirectorPlacementRule
                     {
                         maxDistance = 20,
                         minDistance = 3,
@@ -77,7 +78,7 @@ namespace EntityStates.ParentMonster.Child
                     {
                         var parentBody = parentMaster.GetComponent<CharacterMaster>().GetBody();
                         parentBody.AddBuff(RoR2Content.Buffs.WarCryBuff);
-                    }
+                    }*/
                 }
             }
         }

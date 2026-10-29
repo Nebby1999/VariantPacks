@@ -3,9 +3,9 @@
     "rootNamespace": "",
     "references": [
         "com.unity.multiplayer-hlapi.Runtime",
-        "VarianceAPI",
         "TheOriginal30",
-        "MSU.Runtime"
+        "MSU.Runtime",
+        "VarianceAPI.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -36,12 +36,12 @@
         "AK.Wwise.Unity.API.WwiseTypes.dll",
         "AK.Wwise.Unity.MonoBehaviour.dll",
         "AK.Wwise.Unity.Timeline.dll",
-        "AsyncManagement.dll"
+        "AsyncManagement.dll",
+        "LoadingScreenFix.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [
-        "NW_ROR2_IMPORTED",
-        "ASS"
+        "NW_ROR2_IMPORTED"
     ],
     "versionDefines": [
         {

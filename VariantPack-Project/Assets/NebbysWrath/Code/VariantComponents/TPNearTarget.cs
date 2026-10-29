@@ -1,20 +1,18 @@
-using MSU.Config;
 using RoR2;
 using RoR2.CharacterAI;
 using RoR2.Navigation;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using VAPI;
-using VAPI.Components;
-using static MSU.Config.ConfiguredVariable;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     public class TPNearTarget : VariantComponent
     {
+        //TODO: Rectify this shit, wtf is this.
+        /*
         public static float timeBetweenTeleports = 20f;
 
         private static float _minDistanceRequired = 20f;
@@ -123,6 +121,6 @@ namespace NW.Components
             {
                 bodyStateMachine.SetNextState(EntityStateCatalog.InstantiateState(ref bodyStateMachine.initialStateType));
             }
-        }
+        }*/
     }
 }

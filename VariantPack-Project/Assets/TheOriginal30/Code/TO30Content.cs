@@ -76,7 +76,7 @@ namespace TO30
                 yield return null;
             }
 
-            var contentPackPopulation = PopulateContentPackWithAssetCollection();
+            var contentPackPopulation = PopulateContentPack();
             while(contentPackPopulation.MoveNext())
             {
                 yield return null;
@@ -137,7 +137,7 @@ namespace TO30
             ParallelCoroutine.ReturnToPool(parallelProgressCoroutine);
         }
 
-        private IEnumerator PopulateContentPackWithAssetCollection()
+        private IEnumerator PopulateContentPack()
         {
             ParallelCoroutine parallelLoadCoroutine = ParallelCoroutine.RequestFromPool();
 

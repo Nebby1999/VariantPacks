@@ -1,18 +1,10 @@
 ﻿using BepInEx;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using MSU;
 using R2API.Utils;
-using System;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using RoR2;
-using VAPI;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -25,6 +17,8 @@ namespace NW
 {
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInDependency(VAPI.VAPIMain.GUID)]
+    [BepInDependency(LoadingScreenFix.LoadingScreenFix.PluginGUID)]
+    [BepInDependency(TO30.TO30Main.GUID, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class NWMain : BaseUnityPlugin
     {
@@ -40,8 +34,8 @@ namespace NW
             new NWConfig(this);
 
             new NWContent();
- 
-            LoadingScreenSpriteUtility.AddSpriteAnimations(NWAssets.GetLoadingScreenBundle());
+
+            LoadingScreenFix.LoadingScreenFix.AddSpriteAnimations(NWAssets.GetLoadingScreenBundle());
             RoR2Application.onLoad += OnLoad;
         }
 
@@ -56,13 +50,13 @@ namespace NW
         [MethodImpl(MethodImplOptions.NoInlining)]
         private void AddJellyfishSummons()
         {
-            var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
+
             if (MSUtil.IsModInstalled("com.Moffein.ClayMen"))
             {
-                validMasters.Add(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
+               TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
             }
-            validMasters.Add(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
-            validMasters.Add(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
         }
     }
 }

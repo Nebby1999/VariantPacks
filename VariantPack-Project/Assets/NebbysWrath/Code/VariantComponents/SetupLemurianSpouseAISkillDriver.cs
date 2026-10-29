@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VAPI.Components;
+using VAPI;
 
 namespace NW.Components
 {
-    public class SetupBrotherAISkillDriver : VariantComponent
+    [AddComponentMenu("")]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterMaster, useOnClient = false, useOnServer = true)]
+    public class SetupLemurianSpouseAISkillDriver : VariantComponent
     {
         public void Awake()
         {

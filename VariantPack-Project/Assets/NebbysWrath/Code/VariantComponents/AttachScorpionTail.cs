@@ -4,13 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using VAPI.Components;
+using VAPI;
 
 namespace NW.Components
 {
+    //TODO: Change this into a visual modifier for vermins and pests respectively.
     public class AttachScorpionTail : VariantComponent
     {
-        private static GameObject _scorpionDisplay;
+       /* private static GameObject _scorpionDisplay;
         private static CharacterBody _verminBody;
         private static CharacterBody _pestBody;
 
@@ -52,6 +53,6 @@ namespace NW.Components
             _scorpionInstance = Instantiate(_scorpionDisplay, targetTransform);
             _scorpionInstance.transform.localPosition = Vector3.zero;
             _scorpionInstance.transform.localScale = Vector3.one * 5;
-        }
+        }*/
     }
 }

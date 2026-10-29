@@ -2,12 +2,21 @@ using RoR2;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VAPI.Components;
+using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = true, useOnServer = true)]
     public class ShortenWorm : VariantComponent
     {
+        public CharacterBody characterBody { get; private set; }
+
+        private void Awake()
+        {
+            characterBody = GetComponent<CharacterBody>();
+        }
+
         private void Start()
         {
             if(characterBody && characterBody.TryGetComponent<WormBodyPositions2>(out var wurmPositions))

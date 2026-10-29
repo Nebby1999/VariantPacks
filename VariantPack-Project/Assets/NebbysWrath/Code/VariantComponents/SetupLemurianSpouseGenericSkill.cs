@@ -5,11 +5,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VAPI.Components;
+using VAPI;
 
 namespace NW.Components
 {
-    public class SetupBrotherGenericSkill : VariantComponent
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnServer = true, useOnClient = true)]
+    public class SetupLemurianSpouseGenericSkill : VariantComponent
     {
         private static SkillFamily summoningRoarFamily = NWAssets.LoadAsset<SkillFamily>("SummoningRoarFamily");
 
@@ -17,7 +18,7 @@ namespace NW.Components
         private static IEnumerator LoadAssets()
         {
             var request = NWAssets.LoadAssetAsync<SkillFamily>("SummoningRoarFamily");
-            while (!request.isDone)
+            while (!request.isComplete)
                 yield return null;
 
             summoningRoarFamily = request.asset;

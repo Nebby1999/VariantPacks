@@ -11,15 +11,16 @@ using VAPI;
 
 namespace EntityStates.VagrantMonster.Mothership
 {
+    //TODO: Turn this into an "On killed" component
     public class DeployJellies : DeathState
     {
-        public static GameObject masterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Jellyfish/JellyfishMaster.prefab").WaitForCompletion();
-        public static VariantDef moajDef;
+        /*public static GameObject masterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Jellyfish/JellyfishMaster.prefab").WaitForCompletion();
+        public static CharacterVariantDef moajDef;
         public static EquipmentIndex index;
         private Vector3 spawnPossition;
         private DeathRewards rewards;
 
-        private static void LoadDef() => moajDef = VariantCatalog.GetVariantDef(VariantCatalog.FindVariantIndex("MOAJ"));
+        private static void LoadDef() => moajDef = CharacterVariantCatalog.GetCharacterVariantDef(CharacterVariantCatalog.FindCharacterVariantIndex("MOAJ"));
         public override void OnEnter()
         {
             base.OnEnter();
@@ -65,6 +66,6 @@ namespace EntityStates.VagrantMonster.Mothership
                     jelly.inventory.SetEquipmentIndex(index);
                 }
             }
-        }
+        }*/
     }
 }

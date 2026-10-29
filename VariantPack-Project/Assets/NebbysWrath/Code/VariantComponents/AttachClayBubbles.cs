@@ -4,28 +4,23 @@
 //Dunestrider Muzzle-pos(0, 0, 0) scale = 1.5, 1.5 1.5
 
 using MSU;
-using Newtonsoft.Json;
 using RoR2;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
+using UnityEngine.Networking;
 using VAPI;
-using VAPI.Components;
 
 namespace NW.Components
 {
+    //TODO: This can be turned into VisualModifiers for each variant alongside a proper
+    //OnDeath component spawn, similar to SpectralJellyfish
+    [AddComponentMenu("")]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnServer = true, useOnClient = true)]
     public class AttachClayBubbles : VariantComponent, ILifeBehavior
     {
         private static GameObject _effectPrefab;
-        private static VariantDef _goop;
-        private static VariantDef _tarredGup;
         private static GameObject _gupMaster;
-
-        private static VariantDef _tarredGeep;
         private static GameObject _geepMaster;
-
-        private static VariantDef _tarredGip;
         private static GameObject _gipMaster;
 
         private static BodyIndex _moffclaymanBody;
@@ -33,6 +28,7 @@ namespace NW.Components
         private static BodyIndex _clayApothecaryBody;
         private static BodyIndex _dunestriderBody;
 
+        public CharacterBody characterBody { get; private set; }
         private GameObject _effectInstance;
         private Transform _chosenTransform;
         private BodyIndex _myIndex;
@@ -41,20 +37,11 @@ namespace NW.Components
         private static IEnumerator Load()
         {
             var effectRequest = NWAssets.LoadAssetAsync<GameObject>("ClayOverflow");
-            var goopRequest = NWAssets.LoadAssetAsync<VariantDef>("Goop");
-            var tarredGupRequest = NWAssets.LoadAssetAsync<VariantDef>("TarredGup");
-            var tarredGeepRequest = NWAssets.LoadAssetAsync<VariantDef>("TarredGeep");
-            var tarredGipRequest = NWAssets.LoadAssetAsync<VariantDef>("TarredGip");
 
-            ParallelCoroutine coroutine = new ParallelCoroutine();
-            while (!effectRequest.isDone)
+            while (!effectRequest.isComplete)
                 yield return null;
 
             _effectPrefab = effectRequest.asset;
-            _goop = goopRequest.asset;
-            _tarredGup = tarredGupRequest.asset;
-            _tarredGeep = tarredGeepRequest.asset;
-            _tarredGip = tarredGipRequest.asset;
 
             BodyCatalog.availability.CallWhenAvailable(() =>
             {
@@ -77,12 +64,13 @@ namespace NW.Components
             if(_effectInstance)
                 Destroy(_effectInstance);
 
-
-            DoSpawn();
+            if(NetworkServer.active)
+                DoSpawnServer();
         }
 
-        private void DoSpawn()
+        private void DoSpawnServer()
         {
+            /*
             VariantSummon variantSummon = new VariantSummon()
             {
                 applyOnStart = true,
@@ -133,7 +121,7 @@ namespace NW.Components
             };
             splitter.masterSummon = variantSummon;
             splitter.Perform();
-
+            */
         }
 
         private IEnumerator SwapBack(CharacterBody obj)
@@ -148,7 +136,7 @@ namespace NW.Components
 
         private void Start()
         {
-            _effectInstance = Instantiate(_effectPrefab);
+            /*_effectInstance = Instantiate(_effectPrefab);
 
             _myIndex = characterBody.bodyIndex;
             if (_myIndex == BodyIndex.None)
@@ -186,7 +174,7 @@ namespace NW.Components
             {
                 _chosenTransform = characterBody.transform;
                 Destroy(_effectInstance);
-            }
+            }*/
         }
     }
 }

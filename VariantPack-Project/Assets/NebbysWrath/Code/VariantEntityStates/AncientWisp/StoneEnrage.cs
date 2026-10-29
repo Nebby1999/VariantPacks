@@ -21,7 +21,7 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
 		private bool stoppedSound = false;
 		public static BuffDef enrageBuff;
 		public static CharacterSpawnCard minionCard;
-		public static VariantDef greaterStoneVariantDef;
+		public static CharacterVariantDef greaterStoneVariantDef;
 
 		[AsyncAssetLoad]
 		public static IEnumerator LoadAsset()
@@ -29,20 +29,20 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
 			var effectRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Golem/ExplosionGolemDeath.prefab");
 			var enrageRequest = Addressables.LoadAssetAsync<BuffDef>("RoR2/Junk/Common/bdEnrageAncientWisp.asset");
 			var greaterWispCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/GreaterWisp/cscGreaterWisp.asset");
-			var defRequest = NWAssets.LoadAssetAsync<VariantDef>("GreaterStoneWisp");
 
-			var routine = new ParallelCoroutine();
+			var routine = ParallelCoroutine.RequestFromPool();
+
 			routine.Add(enrageRequest);
 			routine.Add(greaterWispCard);
-			routine.Add(defRequest);
 			routine.Add(effectRequest);
 
 			while (!routine.IsDone())
 				yield return null;
 
+			ParallelCoroutine.ReturnToPool(routine);
+
 			minionCard = greaterWispCard.Result;
 			enrageBuff = enrageRequest.Result;
-			greaterStoneVariantDef = defRequest.asset;
 			enragePrefab = effectRequest.Result;
         }
 		public override void OnEnter()
@@ -124,23 +124,39 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
 
 		private void SummonEnemy()
 		{
-			VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(minionCard, new DirectorPlacementRule
+			if (VariantSpawnManager.instance == null)
+				return;
+
+			DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(minionCard, new DirectorPlacementRule
 			{
 				placementMode = DirectorPlacementRule.PlacementMode.Approximate,
-				minDistance = 3f,
-				maxDistance = 20f,
-				spawnOnTarget = base.transform
-			}, RoR2Application.rng);
-			directorSpawnRequest.summonerBodyObject = base.gameObject;
-			VariantDirectorSpawnRequest directorSpawnRequest2 = directorSpawnRequest;
-			directorSpawnRequest2.onSpawnedServer = (Action<SpawnCard.SpawnResult>)Delegate.Combine(directorSpawnRequest2.onSpawnedServer, new Action<SpawnCard.SpawnResult>(delegate (SpawnCard.SpawnResult spawnResult)
+				minDistance = 3,
+				maxDistance = 20,
+				spawnOnTarget = transform
+			}, VariantSpawnManager.instance.variantSpawnRng)
 			{
-				spawnResult.spawnedInstance.GetComponent<Inventory>().CopyEquipmentFrom(base.characterBody.inventory);
-			}));
-			directorSpawnRequest.applyOnStart = true;
-			directorSpawnRequest.supressRewards = true;
-			directorSpawnRequest.variantDefs = new VariantDef[] { greaterStoneVariantDef };
+				summonerBodyObject = gameObject,
+				onSpawnedServer = OnSpawnedServer
+			};
+
+			VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+			{
+				supressArrivalMessage = true,
+				variantDefs = new CharacterVariantDef[] { NWContent.CharacterVariants.GreaterStoneWisp },
+				noItemReward = true,
+				noGoldExpModifications = true,
+			};
+
 			DirectorCore.instance.TrySpawnObject(directorSpawnRequest);
 		}
-	}
+
+        private void OnSpawnedServer(SpawnCard.SpawnResult result)
+        {
+			var instance = result.spawnedInstance;
+			if(instance.TryGetComponent<CharacterMaster>(out var minionMaster) && characterBody.master)
+			{
+				Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false);
+			}
+        }
+    }
 }

@@ -38,7 +38,7 @@ namespace NW.Items
         {
             var rqst = NWAssets.LoadAssetAsync<ItemDef>("ApplyTarOnHit");
 
-            while (!rqst.isDone)
+            while (!rqst.isComplete)
                 yield return null;
 
             asset = rqst.asset;

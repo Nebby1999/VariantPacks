@@ -7,11 +7,12 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using VAPI;
 
-namespace EntityStates.LemurianBruiserMonster.GhostBrother
+namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
 {
-    public class BrotherDeath : GenericCharacterDeath
+    //TODO: Turn into an OnKill component
+    public class LemurianSpouseDeath : GenericCharacterDeath
     {
-        public static GameObject lemurianMaster = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/LemurianMaster.prefab").WaitForCompletion();
+        /*public static GameObject lemurianMaster = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/LemurianMaster.prefab").WaitForCompletion();
         public static Material ghostMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGhostEffect.mat").WaitForCompletion();
 
         private DeathRewards deathRewards;
@@ -58,6 +59,6 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
                 }
                 DestroyBodyAsapServer();
             }
-        }
+        }*/
     }
 }

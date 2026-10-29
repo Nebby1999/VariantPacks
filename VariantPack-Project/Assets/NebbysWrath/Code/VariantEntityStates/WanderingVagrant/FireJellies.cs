@@ -74,21 +74,28 @@ namespace EntityStates.VagrantMonster.Weapon.Mothership
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(JellySpawnCard, new DirectorPlacementRule
+                    DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(JellySpawnCard, new DirectorPlacementRule
                     {
                         placementMode = DirectorPlacementRule.PlacementMode.Approximate,
                         minDistance = 3f,
                         maxDistance = 20f,
-                        spawnOnTarget = base.transform
-                    }, RoR2Application.rng);
-                    directorSpawnRequest.applyOnStart = false;
-                    directorSpawnRequest.supressRewards = true;
-                    directorSpawnRequest.variantDefs = Array.Empty<VariantDef>();
-                    directorSpawnRequest.summonerBodyObject = base.gameObject;
+                        spawnOnTarget = transform,
+                    }, VariantSpawnManager.instance.variantSpawnRng)
+                    {
+                        summonerBodyObject = gameObject,
+                        onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false)
+                    };
+
+                    VariantDirectorSpawnRequest variantDirectorSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                    {
+                        noGoldExpModifications = true,
+                        noItemReward = true,
+                        variantDefs = Array.Empty<CharacterVariantDef>()
+                    };
 
                     var jellyMasterObject = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
                     if (jellyMasterObject)

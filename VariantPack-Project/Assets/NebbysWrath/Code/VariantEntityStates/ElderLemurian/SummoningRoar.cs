@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using VAPI;
 
-namespace EntityStates.LemurianBruiserMonster.GhostBrother
+namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
 {
     public class SummoningRoar : BaseState
     {
@@ -80,21 +80,30 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
-                VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(lemSpawnCard, new DirectorPlacementRule
+                DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(lemSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
                     minDistance = 3f,
                     maxDistance = 20f,
                     spawnOnTarget = transform
-                }, RoR2Application.rng);
-                directorSpawnRequest.variantDefs = Array.Empty<VariantDef>();
-                directorSpawnRequest.applyOnStart = false;
-                directorSpawnRequest.supressRewards = true;
-                directorSpawnRequest.summonerBodyObject = base.gameObject;
+                }, VariantSpawnManager.instance.variantSpawnRng)
+                {
+                    summonerBodyObject = gameObject
+                };
+
+                //Todo: Drive the "Minion" with a variant def.
+                VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                {
+                    noGoldExpModifications = true,
+                    deathRewardsCoefficient = 0,
+                    noItemReward = true,
+                    variantDefs = Array.Empty<CharacterVariantDef>()
+                };
+
                 var lem = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
-                if (lem)
+                /*if (lem)
                 {
                     var Inventory = lem.GetComponent<Inventory>();
                     if (Inventory)
@@ -110,7 +119,7 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
                             }
                         }
                     }
-                }
+                }*/
             }
         }
 

@@ -11,9 +11,10 @@ using VAPI;
 
 namespace EntityStates.GreaterWispMonster.Amalgamated
 {
+    //TODO: Turn into an onKilled component
     public class DeathSplit : GenericCharacterDeath
     {
-        public static GameObject deathEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/GreaterWisp/GreaterWispDeath.prefab").WaitForCompletion();
+        /*public static GameObject deathEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/GreaterWisp/GreaterWispDeath.prefab").WaitForCompletion();
         public static SpawnCard wispSpawnCard = Addressables.LoadAssetAsync<SpawnCard>("RoR2/Base/Wisp/cscLesserWisp.asset").WaitForCompletion();
         public static float duration = 2f;
         //This is funny
@@ -108,6 +109,6 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
             {
                 EntityState.Destroy(initialEffectInstance);
             }
-        }
+        }*/
     }
 }

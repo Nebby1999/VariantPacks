@@ -21,7 +21,7 @@ namespace EntityStates.BeetleQueenMonster.Empress
         public static int maxBeetleCount = 10;
         public static float summonBeetleInterval = 0.3f;
         public static SpawnCard beetleSpawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/Beetle/cscBeetle.asset").WaitForCompletion();
-        public static VariantDef[] beetleVariants = null;
+        public static CharacterVariantDef[] _beetleVariants = null;
 
         private Animator animator;
         private Transform modelTransform;
@@ -71,35 +71,44 @@ namespace EntityStates.BeetleQueenMonster.Empress
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
-                VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(beetleSpawnCard, new DirectorPlacementRule
+                DirectorSpawnRequest spawnRequest = new DirectorSpawnRequest(beetleSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
-                    minDistance = 3f,
-                    maxDistance = 20f,
-                    spawnOnTarget = transform
-                }, RoR2Application.rng);
-                directorSpawnRequest.summonerBodyObject = base.gameObject;
-                directorSpawnRequest.supressRewards = true;
-                directorSpawnRequest.applyOnStart = true;
-                directorSpawnRequest.variantDefs = new VariantDef[] { GetRandomVariant(directorSpawnRequest.rng) };
-                directorSpawnRequest.onSpawnedServer += (result) =>
+                    minDistance = 3,
+                    maxDistance = 20,
+                    spawnOnTarget = transform,
+                }, VariantSpawnManager.instance.variantSpawnRng)
                 {
-                    result.spawnedInstance.GetComponent<Inventory>().CopyEquipmentFrom(characterBody.inventory);
+                    summonerBodyObject = gameObject,
+                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false),
                 };
-                DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
+
+                VariantDirectorSpawnRequest variantRequest = new VariantDirectorSpawnRequest(spawnRequest)
+                {
+                    variantDefs = new CharacterVariantDef[] { GetRandomVariant(VariantSpawnManager.instance.variantSpawnRng) },
+                    supressArrivalMessage = true,
+                    noItemReward = true,
+                    noGoldExpModifications = true
+                };
+
+                DirectorCore.instance.TrySpawnObject(spawnRequest);
             }
         }
 
-        private VariantDef GetRandomVariant(Xoroshiro128Plus rng)
+        private CharacterVariantDef GetRandomVariant(Xoroshiro128Plus rng)
         {
-            if(beetleVariants == null)
+            if(_beetleVariants == null)
             {
-                BodyVariantDefProvider beetleProvider = BodyVariantDefProvider.FindProvider("BeetleBody");
-                beetleVariants = beetleProvider.GetAllVariants(true);
+                CharacterVariantProvider variantProvider = CharacterVariantCatalog.GetCharacterVariantProvider(BodyCatalog.FindBodyIndex("BeetleBody"));
+                _beetleVariants = new CharacterVariantDef[variantProvider.totalVariantCount];
+                for(int i = 0; i < _beetleVariants.Length; i++)
+                {
+                    _beetleVariants[i] = variantProvider.allVariants[i];
+                }
             }
-            return beetleVariants.Length > 0 ? beetleVariants[rng.RangeInt(0, beetleVariants.Length)] : null;
+            return _beetleVariants.Length > 0 ? _beetleVariants[rng.RangeInt(0, _beetleVariants.Length)] : null;
         }
 
         public override void FixedUpdate()

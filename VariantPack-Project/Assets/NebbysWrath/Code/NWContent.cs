@@ -1,23 +1,276 @@
-﻿using R2API.ScriptableObjects;
-using System;
-using VAPI;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EntityStates;
-using NW.Modules;
-using RoR2.ContentManagement;
-using MSU;
-using System.Collections;
+﻿using MSU;
+using MSU.Config;
 using RoR2;
+using RoR2.ContentManagement;
+using RoR2.Skills;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using VAPI;
 
 namespace NW
 {
     public class NWContent : IContentPackProvider
     {
+        public static class CharacterVariants
+        {
+            public static CharacterVariantDef Goop;
+            public static CharacterVariantDef TarredGup;
+            public static CharacterVariantDef TarredGeep;
+            public static CharacterVariantDef TarredGip;
+
+            public static CharacterVariantDef GreaterStoneWisp;
+
+            public static CharacterVariantDef SwarmerProbe;
+        }
+
         public string identifier => NWMain.GUID;
+
+        public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(_contentPack);
+        public static ReadOnlyVariantPack readOnlyVariantPack => _variantPack != null ? new ReadOnlyVariantPack(_variantPack) : default;
+
+        private static ContentPack _contentPack { get; } = new ContentPack();
+        private static VariantPack _variantPack { get; set; }
+
+        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+        {
+            var initialization = InitializeAssetsAndLang();
+            while (!initialization.IsDone())
+            {
+                yield return null;
+            }
+
+            var contentPackPopulation = PopulateContentPack();
+            while (contentPackPopulation.MoveNext())
+            {
+                yield return null;
+            }
+
+            var variantPackPopulation = PopulateVariantPack();
+            while (variantPackPopulation.MoveNext())
+            {
+                yield return null;
+            }
+
+            VariantPackManager.AddVariantPack(_variantPack);
+
+            ContentLoadHelper.PopulateTypeFields(typeof(CharacterVariants), _variantPack.characterVariantDefs, null);
+        }
+
+        public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
+        {
+            args.ReportProgress(0f);
+            yield return null;
+
+            ContentPack.Copy(_contentPack, args.output);
+
+            yield return null;
+            args.ReportProgress(1f);
+            yield break;
+        }
+
+        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
+        {
+            args.ReportProgress(0f);
+            yield return null;
+
+            var asyncAssetLoadCoroutine = AsyncAssetLoadAttribute.CreateParallelCoroutineForMod(NWMain.instance);
+            while (!asyncAssetLoadCoroutine.isDone)
+            {
+                yield return null;
+            }
+            ParallelCoroutine.ReturnToPool(asyncAssetLoadCoroutine);
+
+            yield return null;
+            args.ReportProgress(1f);
+            yield break;
+        }
+
+        private IEnumerator InitializeAssetsAndLang()
+        {
+            var parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            parallelCoroutine.Add(NWAssets.Initialize());
+            parallelCoroutine.Add(LanguageFileLoader.AddLanguageFilesFromModAsync(NWMain.instance, "languages"));
+
+            while(parallelCoroutine.isDone == false)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+        }
+
+        private IEnumerator PopulateContentPack()
+        {
+            ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            using var skillRequest = NWAssets.LoadAllAssetsAsync<SkillDef>();
+            using var entityStates = NWAssets.LoadAssetAsync<EntityStateTypeCollection>("EntityStates");
+
+            parallelCoroutine.Add(entityStates);
+            parallelCoroutine.Add(skillRequest);
+
+            while(!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            _contentPack.skillDefs.Add(skillRequest.assets);
+            Type[] entityStateTypes = new Type[entityStates.asset.stateTypes.Length];
+            for(int i = 0; i < entityStateTypes.Length; i++)
+            {
+                entityStateTypes[i] = entityStates.asset.stateTypes[i].stateType;
+            }
+            _contentPack.entityStateTypes.Add(entityStateTypes);
+        }
+
+
+        private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
+
+        private IEnumerator PopulateVariantPack()
+        {
+            NWLog.Info($"Adding Variants");
+
+            using var variantDefsRequest = NWAssets.LoadAllAssetsAsync<CharacterVariantDef>();
+            using var spriteRequest = NWAssets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
+
+            var parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            parallelCoroutine.Add(variantDefsRequest);
+            parallelCoroutine.Add(spriteRequest);
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            _variantPack = new VariantPack(NWMain.GUID, "NW_VARIANTPACK_NAME", "NW_VARIANPACK_TOOLTIP", "NW_VARIANTPACK_DESC", spriteRequest.asset, NWMain.instance, NWMain.instance.Config, NWMain.instance.Config);
+            _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
+
+            ConfiguredBool addAllyVariants = new ConfiguredBool(true)
+                .WithModGUID(NWMain.instance)
+                .WithModName(NWMain.instance)
+                .WithConfigFile(NWMain.instance.Config)
+                .WithSection("General")
+                .WithKey("Enable Ally Variants")
+                .WithDescription("Enables \"Ally\" Variants for the main allied enemy bodies in the game. Quiet Probe may spawn as Gaussian Probes for example.")
+                .WithConfigChange((b) =>
+                {
+                    foreach (var variantDef in _dependantSpawnAllyDefs)
+                    {
+                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                        condition.cannotSpawn = b == false;
+                        variantDef.spawnCondition = condition;
+                    }
+                })
+                .DoConfigure();
+
+            parallelCoroutine = ParallelCoroutine.RequestFromPool();
+            parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+        }
+
+        private static IEnumerator AddAllyVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Ally Variants");
+
+            using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
+            using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeCollection");
+
+            ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
+            parallelCoroutine.Add(alphaConstructCollection);
+            parallelCoroutine.Add(solusProbeCollection);
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            foreach (var asset in alphaConstructCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VAPIUtils.CloneIntoMinorConstructOnKill(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a MinorConstructOnKill clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Green robo ball
+            foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VAPIUtils.CloneIntoRoboBallGreenBuddy(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a RoboBallGreenBuddy clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Red robo ball
+            foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VAPIUtils.CloneIntoRoboBallRedBuddy(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a RoboBallRedBuddy clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private void AddSelf(ContentManager.AddContentPackProviderDelegate addContentPackProviderDelegate)
+        {
+            addContentPackProviderDelegate(this);
+        }
+
+        internal NWContent()
+        {
+            ContentManager.collectContentPackProviders += AddSelf;
+        }
+        /*public string identifier => NWMain.GUID;
 
         public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(contentPack);
 
@@ -200,6 +453,6 @@ namespace NW
                 },
                 AddVariantPack,
             };
-        }
+        }*/
     }
 }

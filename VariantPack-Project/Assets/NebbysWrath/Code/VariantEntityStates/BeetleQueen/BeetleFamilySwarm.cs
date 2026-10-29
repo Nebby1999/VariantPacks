@@ -73,23 +73,24 @@ namespace EntityStates.BeetleQueenMonster.Matriarchal
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
-                VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(guardSpawnCard, new DirectorPlacementRule
+                DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(guardSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
                     minDistance = 3f,
                     maxDistance = 20f,
                     spawnOnTarget = transform
-                }, RoR2Application.rng);
-                directorSpawnRequest.variantDefs = new VariantDef[0];
-                directorSpawnRequest.applyOnStart = false;
-                directorSpawnRequest.summonerBodyObject = base.gameObject;
-                directorSpawnRequest.onSpawnedServer += (spawnResult) =>
+                }, VariantSpawnManager.instance.variantSpawnRng)
                 {
-                    spawnResult.spawnedInstance.GetComponent<Inventory>().CopyEquipmentFrom(base.characterBody.inventory);
-
+                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false)
                 };
+
+                VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                {
+                    variantDefs = new CharacterVariantDef[0],
+                };
+
                 DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
             }
         }
@@ -108,22 +109,24 @@ namespace EntityStates.BeetleQueenMonster.Matriarchal
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
-                VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(beetleSpawnCard, new DirectorPlacementRule
+                DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(beetleSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
                     minDistance = 3f,
                     maxDistance = 20f,
                     spawnOnTarget = transform
-                }, RoR2Application.rng);
-                directorSpawnRequest.summonerBodyObject = base.gameObject;
-                directorSpawnRequest.variantDefs = new VariantDef[0];
-                directorSpawnRequest.applyOnStart = false;
-                directorSpawnRequest.onSpawnedServer += (spawnResult) =>
+                }, VariantSpawnManager.instance.variantSpawnRng)
                 {
-                    spawnResult.spawnedInstance.GetComponent<Inventory>().CopyEquipmentFrom(base.characterBody.inventory);
+                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false)
                 };
+
+                VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                {
+                    variantDefs = new CharacterVariantDef[0],
+                };
+
                 DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
             }
         }

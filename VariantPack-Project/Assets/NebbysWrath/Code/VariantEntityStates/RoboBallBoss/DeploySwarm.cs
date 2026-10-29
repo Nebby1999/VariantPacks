@@ -23,7 +23,6 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
         public static float summonDuration = DeployMinions.summonDuration;
         public static string summonMuzzleString = DeployMinions.summonMuzzleString;
         public static GameObject roboBallMiniMaster = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/RoboBallBoss/RoboBallMiniMaster.prefab").WaitForCompletion();
-        public static VariantDef swarmingDef = NWAssets.LoadAsset<VariantDef>("SwarmerProbe");
 
         private Animator animator;
         private Transform modelTransform;
@@ -86,15 +85,21 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
 
         private void SummonMinion()
         {
-            var summon = new VariantSummon
+            var summon = new MasterSummon
             {
                 position = childLocator.FindChild(summonMuzzleString).position,
                 masterPrefab = roboBallMiniMaster,
                 summonerBodyObject = characterBody.gameObject,
-                applyOnStart = true,
-                supressRewards = true,
-                variantDefs = new VariantDef[] { swarmingDef }
-            }.PerformSummon();
+                preSpawnSetupCallback = (master) => Util.CopyEliteStatus(characterBody.masterObject, master.gameObject, false),
+            };
+
+            var variantMasterSummon = new VariantMasterSummon(summon)
+            {
+                variantDefs = new CharacterVariantDef[] { NWContent.CharacterVariants.SwarmerProbe },
+                noGoldExpModifications = true,
+                noItemReward = true
+            };
+            variantMasterSummon.Perform();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

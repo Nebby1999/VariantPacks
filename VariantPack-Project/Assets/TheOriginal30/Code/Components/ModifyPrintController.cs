@@ -19,7 +19,6 @@ namespace TO30.Components
                 printController.printTime = 25f;
                 printController.maxPrintHeight = 100;
             }
-            Destroy(this);
         }
     }
 }
