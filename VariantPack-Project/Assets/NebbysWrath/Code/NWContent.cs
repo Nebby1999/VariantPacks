@@ -23,7 +23,7 @@ namespace NW
             public static CharacterVariantDef AlphaBison;
             public static CharacterVariantDef AlmostArchaicWisp;
             public static CharacterVariantDef AluminumContraption;
-            public static CharacterVariantDef AmalgamatedGreaterWisp;
+            public static CharacterVariantDef AmalgamatedGreatWisp;
             public static CharacterVariantDef AncientAurelionite;
             public static CharacterVariantDef AncientStoneTitan;
             public static CharacterVariantDef AncientStoneWisp;
@@ -88,7 +88,7 @@ namespace NW
             //Mods
             public static CharacterVariantDef AeonicWisp;
             public static CharacterVariantDef ArchaicStoneWisp;
-            public static CharacterVariantDef ClayAssasin;
+            public static CharacterVariantDef ClayAssassin;
             public static CharacterVariantDef ClaySoldier;
             public static CharacterVariantDef EnragedWisp;
             public static CharacterVariantDef OverflowingClayman;
@@ -229,20 +229,30 @@ namespace NW
             NWLog.Info("Initializing Modules");
 
             IContentPieceProvider damageTypeProvder = ContentUtil.CreateContentPieceProvider<IDamageTypeContent>(NWMain.instance, _contentPack);
-            IContentPieceProvider<GameObject> clonedPrefabProvider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(NWMain.instance, _contentPack);
             IContentPieceProvider<ItemDef> itemDefProvider = ContentUtil.CreateGenericContentPieceProvider<ItemDef>(NWMain.instance, _contentPack);
             ItemModule.AddProvider(NWMain.instance, itemDefProvider);
 
             ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
 
             parallelCoroutine.Add(DamageTypeModule.Initialize(damageTypeProvder));
-            parallelCoroutine.Add(PrefabCloneModule.Initialize(clonedPrefabProvider));
             parallelCoroutine.Add(ItemModule.InitializeItems(NWMain.instance));
 
             while(!parallelCoroutine.isDone)
             {
                 yield return null;
             }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            //Initialize prefabs after damage types
+            IContentPieceProvider<GameObject> clonedPrefabProvider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(NWMain.instance, _contentPack);
+            var coroutine = PrefabCloneModule.Initialize(clonedPrefabProvider);
+
+            while(coroutine.MoveNext())
+            {
+                yield return null;
+            }
+
             yield break;
         }
 
@@ -304,7 +314,7 @@ namespace NW
             NWLog.Info($"Adding Ally Variants");
 
             using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
-            using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeCollection");
+            using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeVariants");
 
             ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(alphaConstructCollection);

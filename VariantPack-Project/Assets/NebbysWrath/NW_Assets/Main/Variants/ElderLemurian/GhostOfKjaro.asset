@@ -77,9 +77,9 @@ MonoBehaviour:
   scaleMultiplier: 1.25
   additionalVariantComponents:
     variantComponents:
-    - assemblyQualifiedName: NW.Components.SetupBrotherGenericSkill, NebbysWrath,
+    - assemblyQualifiedName: NW.Components.SetupLemurianSpouseAISkillDriver, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    - assemblyQualifiedName: NW.Components.SetupBrotherAISkillDriver, NebbysWrath,
+    - assemblyQualifiedName: NW.Components.SetupLemurianSpouseGenericSkill, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - assemblyQualifiedName: NW.Components.OnKill.LemurianSpouseSummonMinions, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -89,9 +89,9 @@ MonoBehaviour:
     - rid: 8453672705155661905
       type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        minimumStageCompletions: 5
+        minimumStageCompletions: 3
         _stages:
-          Value: -1
+          Value: 0
         customStages: []
         requiredUnlock:
           _asset: {fileID: 0}

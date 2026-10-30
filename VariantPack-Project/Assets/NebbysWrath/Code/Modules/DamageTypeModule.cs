@@ -20,7 +20,7 @@ namespace NW.Modules
         {
             var contents = provider.GetContents().OfType<IDamageTypeContent>();
             List<IDamageTypeContent> initialized = new List<IDamageTypeContent>();
-            ParallelCoroutine routine = new ParallelCoroutine();
+            ParallelCoroutine routine = ParallelCoroutine.RequestFromPool();
 
             foreach(var content in contents)
             {
@@ -33,6 +33,8 @@ namespace NW.Modules
 
             while (!routine.isDone)
                 yield return null;
+
+            ParallelCoroutine.ReturnToPool(routine);
 
             foreach(var content in initialized)
             {

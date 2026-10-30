@@ -34,17 +34,22 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var preppedRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/PreppedBellBall.prefab");
-            var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bell/BellBall.prefab");
+            var preppedRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Bell.PreppedBellBall_prefab);
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Bell.BellBall_prefab);
+            var projectileGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Bell.BellBallGhost_prefab);
             var materialRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matSteelContraptionBall");
 
-            var routine = new ParallelCoroutine();
+            var routine = ParallelCoroutine.RequestFromPool();
+
             routine.Add(preppedRequest);
             routine.Add(projectileRequest);
+            routine.Add(projectileGhostRequest);
             routine.Add(materialRequest);
 
             while (!routine.IsDone())
                 yield return null;
+
+            ParallelCoroutine.ReturnToPool(routine);
 
             projectilePrefab = projectileRequest.Result.InstantiateClone("SteelBall", true);
             preppedBall = preppedRequest.Result.InstantiateClone("PreppedSteelBall");
@@ -53,7 +58,8 @@ namespace NW.PrefabClones
 
             projectilePrefab.transform.localScale *= 4;
             ProjectileController controller = projectilePrefab.GetComponent<ProjectileController>();
-            controller.ghostPrefab = controller.ghostPrefab.InstantiateClone("SteelBallGhost");
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
+            controller.ghostPrefab = projectileGhostRequest.Result.InstantiateClone("SteelBallGhost");
             controller.ghostPrefab.transform.localScale *= 4;
             controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset.material;
         }

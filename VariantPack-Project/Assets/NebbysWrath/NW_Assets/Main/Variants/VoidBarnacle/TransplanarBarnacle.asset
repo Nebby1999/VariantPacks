@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 33
   arrivalToken: 
   spawnCondition:
@@ -51,7 +52,7 @@ MonoBehaviour:
   scaleMultiplier: 1
   additionalVariantComponents:
     variantComponents:
-    - assemblyQualifiedName: NW.Components.TPNearTarget, NebbysWrath, Version=0.0.0.0,
+    - assemblyQualifiedName: NW.Components.TeleportEvery20Seconds, NebbysWrath, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   references:
     version: 2

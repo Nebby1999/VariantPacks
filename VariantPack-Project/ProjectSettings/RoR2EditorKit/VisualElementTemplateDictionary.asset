@@ -53,3 +53,5 @@ MonoBehaviour:
     _hexRepresentation: 6b0e387b4bf702045997536f8aff3182
   - k_templateName: BaseGameAssetReferenceTDrawer
     _hexRepresentation: 60caa778f75edc34f8936b2edd1f6cf6
+  - k_templateName: VariantBuffInfoDrawer
+    _hexRepresentation: 44f2b61e07bb61744bb763cf5d38aa85

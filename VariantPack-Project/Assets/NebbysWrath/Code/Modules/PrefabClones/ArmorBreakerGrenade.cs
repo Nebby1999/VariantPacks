@@ -32,21 +32,27 @@ namespace NW.PrefabClones
         public IEnumerator LoadContentAsync()
         {
             var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matADShroom");
-            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
+            var sporeGrenadeRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_MiniMushroom.SporeGrenadeProjectile_prefab);
+            var sporeGrenadeGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_MiniMushroom.SporeGrenadeGhost_prefab);
 
-            ParallelCoroutine routine = new ParallelCoroutine();
+            ParallelCoroutine routine = ParallelCoroutine.RequestFromPool();
+
             routine.Add(selfRequest);
-            routine.Add(request);
+            routine.Add(sporeGrenadeRequest);
+            routine.Add(sporeGrenadeGhostRequest);
 
             while (!routine.IsDone())
                 yield return null;
 
-            projectile = PrefabAPI.InstantiateClone(request.Result, "ArmorBreakerGrenade", true);
-            projectile.AddComponent<ClonedPrefabBehaviour>();
+            ParallelCoroutine.ReturnToPool(routine);
 
+            projectile = PrefabAPI.InstantiateClone(sporeGrenadeRequest.Result, "ArmorBreakerGrenade", true);
+            projectile.AddComponent<ClonedPrefabBehaviour>();
             var projectileController = projectile.GetComponent<ProjectileController>();
-            _projectileGhost = projectileController.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
+
+            _projectileGhost = sporeGrenadeGhostRequest.Result.InstantiateClone("ArmorBreakerGrenadeGhost", false);
             _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
+            projectileController.ghostPrefabAddress = new AssetReferenceGameObject("");
             projectileController.ghostPrefab = _projectileGhost;
 
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();
@@ -57,8 +63,14 @@ namespace NW.PrefabClones
 
         public void Initialize()
         {
-            projectile.AddComponent<ModdedDamageTypeHolderComponent>().Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
-            _childProjectile.AddComponent<ModdedDamageTypeHolderComponent>().Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            if (projectile.TryGetComponent<ProjectileDamage>(out var damage))
+            {
+                damage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            }
+            if (_childProjectile.TryGetComponent<ProjectileDamage>(out damage))
+            {
+                damage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            }
         }
 
         public void ModifyContentPack(ContentPack contentPack)

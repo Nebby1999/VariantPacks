@@ -26,7 +26,7 @@ namespace TO30
             public static CharacterVariantDef BadassLemurian;
             public static CharacterVariantDef BattleBeetle;
             public static CharacterVariantDef BeetleGuardBrute;
-            public static CharacterVariantDef BeetleGuardShaprshooter;
+            public static CharacterVariantDef BeetleGuardSharpshooter;
             public static CharacterVariantDef ClottedImp;
             public static CharacterVariantDef CursedJellyfish;
             public static CharacterVariantDef DreamScavenger;

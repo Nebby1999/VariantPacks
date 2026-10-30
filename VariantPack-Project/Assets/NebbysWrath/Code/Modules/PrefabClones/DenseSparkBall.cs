@@ -28,14 +28,17 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Child/ChildTrackingSparkBall.prefab");
-            var moonMeshMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/bazaar/matLunarInfection.mat");
-            var trailMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/LunarGolem/matLunarGolemShieldTrails.mat");
-            var glowParticles = Addressables.LoadAssetAsync<Material>("RoR2/Base/LunarGolem/matLunarGolemMuzzleFlash.mat");
-            var orbParticles = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matJellyfishLightningSphere.mat");
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC2_Child.ChildTrackingSparkBall_prefab);
+            var projectileGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC2_Child.ChildTrackingSparkBallGhost_prefab);
+            var moonMeshMat = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_bazaar.matLunarInfection_mat);
+            var trailMat = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_LunarGolem.matLunarGolemShieldTrails_mat);
+            var glowParticles = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_LunarGolem.matLunarGolemMuzzleFlash_mat);
+            var orbParticles = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Common_VFX.matJellyfishLightningSphere_mat);
 
-            var coroutine = new ParallelCoroutine();
+            var coroutine = ParallelCoroutine.RequestFromPool();
+
             coroutine.Add(projectileRequest);
+            coroutine.Add(projectileGhostRequest);
             coroutine.Add(moonMeshMat);
             coroutine.Add(trailMat);
             coroutine.Add(glowParticles);
@@ -43,6 +46,8 @@ namespace NW.PrefabClones
 
             while (!coroutine.IsDone())
                 yield return null;
+
+            ParallelCoroutine.ReturnToPool(coroutine);
 
             denseSparkBall = PrefabAPI.InstantiateClone(projectileRequest.Result, "CollapsingSparkBall", true);
             denseSparkBall.AddComponent<ClonedPrefabBehaviour>();
@@ -52,7 +57,8 @@ namespace NW.PrefabClones
             impactExplosion.canRejectForce = false;
 
             var controller = denseSparkBall.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "CollapsingSparkBallGhost");
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "CollapsingSparkBallGhost");
 
             ghostPrefab.GetComponentInChildren<Light>().color = Color.blue;
             ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = moonMeshMat.Result;

@@ -29,7 +29,7 @@ namespace NW
             var majorConstructBody = DLC1Content.BodyPrefabs.MajorConstructBody;
             var childLocator = majorConstructBody.GetComponentInChildren<ChildLocator>();
 
-            var ROOT = childLocator.transform.Find("MegaConstructArmature/ROOT");
+            var ROOT = childLocator.transform.Find("MegaConstructArmature").Find("ROOT");
             GameObject barragePoint = null;
             Transform t = null;
 

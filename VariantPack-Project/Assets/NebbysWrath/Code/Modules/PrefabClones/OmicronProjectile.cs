@@ -28,23 +28,29 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Titan/TitanRockProjectile.prefab");
-            var matRequest1 = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/MajorAndMinorConstruct/matConstructBeamInitial.mat");
-            var matRequest2 = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/MajorAndMinorConstruct/matConstructBeamBackdrop.mat");
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Titan.TitanRockProjectile_prefab);
+            var projectileGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Titan.TitanRockProjectileGhost_prefab);
+            var matRequest1 = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_MajorAndMinorConstruct.matConstructBeamInitial_mat);
+            var matRequest2 = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_MajorAndMinorConstruct.matConstructBeamBackdrop_mat);
 
-            var coroutine = new ParallelCoroutine();
+            var coroutine = ParallelCoroutine.RequestFromPool();
+
             coroutine.Add(projectileRequest);
+            coroutine.Add(projectileGhostRequest);
             coroutine.Add(matRequest1);
             coroutine.Add(matRequest2);
 
             while (!coroutine.IsDone())
                 yield return null;
 
+            ParallelCoroutine.ReturnToPool(coroutine);
+
             omicronProjectile = PrefabAPI.InstantiateClone(projectileRequest.Result, "OmicronLaser", true);
             omicronProjectile.AddComponent<ClonedPrefabBehaviour>();
 
             var controller = omicronProjectile.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "OmicronLaserGhost");
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "OmicronLaserGhost");
             var trail = ghostPrefab.GetComponentInChildren<TrailRenderer>();
 
             var gradient = new Gradient();

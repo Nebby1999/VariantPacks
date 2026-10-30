@@ -24,8 +24,10 @@ namespace NW.PrefabClones
 
         public void Initialize()
         {
-            var damageTypeComponent = ichorSpike.AddComponent<ModdedDamageTypeHolderComponent>();
-            damageTypeComponent.Add(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            if(ichorSpike.TryGetComponent<ProjectileDamage>(out var projectileDamage))
+            {
+                projectileDamage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+            }
         }
 
         public bool IsAvailable(ContentPack contentPack)
@@ -36,20 +38,26 @@ namespace NW.PrefabClones
         public IEnumerator LoadContentAsync()
         {
             var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matIchorSwipe");
-            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpVoidspikeProjectile.prefab");
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_ImpBoss.ImpVoidspikeProjectile_prefab);
+            var projectileGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_ImpBoss.ImpVoidspikeProjectileGhost_prefab);
 
-            var coroutine = new ParallelCoroutine();
+            var coroutine = ParallelCoroutine.RequestFromPool();
+
             coroutine.Add(selfRequest);
-            coroutine.Add(request);
+            coroutine.Add(projectileRequest);
+            coroutine.Add(projectileGhostRequest);
 
             while (!coroutine.IsDone())
                 yield return null;
 
-            ichorSpike = PrefabAPI.InstantiateClone(request.Result, "IchorSpikeProjectile", true);
+            ParallelCoroutine.ReturnToPool(coroutine);
+
+            ichorSpike = PrefabAPI.InstantiateClone(projectileRequest.Result, "IchorSpikeProjectile", true);
             ichorSpike.AddComponent<ClonedPrefabBehaviour>();
 
             var controller = ichorSpike.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "IchorSpikeGhost");
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "IchorSpikeGhost");
             ghostPrefab.GetComponent<Light>().color = new Color(0.98f, 0.71f, 0, 1);
             ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
             controller.ghostPrefab = ghostPrefab;

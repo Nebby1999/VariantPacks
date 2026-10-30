@@ -32,21 +32,27 @@ namespace NW.PrefabClones
         public IEnumerator LoadContentAsync()
         {
             var selfRequest = NWAssets.LoadAssetAsync<MaterialVariant>("matHealerShroom");
-            var request = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/MiniMushroom/SporeGrenadeProjectile.prefab");
+            var sporeGrenadeRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_MiniMushroom.SporeGrenadeProjectile_prefab);
+            var sporeGrenadeGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_MiniMushroom.SporeGrenadeGhost_prefab);
 
-            var coroutine = new ParallelCoroutine();
+            var coroutine = ParallelCoroutine.RequestFromPool();
+
             coroutine.Add(selfRequest);
-            coroutine.Add(request);
+            coroutine.Add(sporeGrenadeRequest);
+            coroutine.Add(sporeGrenadeGhostRequest);
 
             while (!coroutine.IsDone())
                 yield return null;
 
-            projectile = PrefabAPI.InstantiateClone(request.Result, "HealerGrenadeProjectile", true);
-            projectile.AddComponent<ClonedPrefabBehaviour>();
+            ParallelCoroutine.ReturnToPool(coroutine);
 
+            projectile = PrefabAPI.InstantiateClone(sporeGrenadeRequest.Result, "HealerGrenadeProjectile", true);
+            projectile.AddComponent<ClonedPrefabBehaviour>();
             var controller = projectile.GetComponent<ProjectileController>();
-            _projectileGhost = controller.ghostPrefab.InstantiateClone("HealingGrenadeGhost");
+
+            _projectileGhost = sporeGrenadeGhostRequest.Result.InstantiateClone("HealingGrenadeGhost", false);
             _projectileGhost.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
             controller.ghostPrefab = _projectileGhost;
 
             var impactExplosion = projectile.GetComponent<ProjectileImpactExplosion>();

@@ -28,15 +28,18 @@ namespace NW.PrefabClones
 
         public IEnumerator LoadContentAsync()
         {
-            var projectileRequest = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Child/ChildTrackingSparkBall.prefab");
-            var nullifierExplosion = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Nullifier/NullifierDeathBombProjectile.prefab");
-            var moonMeshMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/matVoidDeathBombAreaIndicatorFront.mat");
-            var trailMat = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/EliteVoid/matVoidInfestorBillboard.mat");
-            var glowParticles = Addressables.LoadAssetAsync<Material>("RoR2/Base/Nullifier/matNullifierStarParticleOffset.mat");
-            var orbParticles = Addressables.LoadAssetAsync<Material>("RoR2/Base/Nullifier/matNullifierStarParticle.mat");
+            var projectileRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC2_Child.ChildTrackingSparkBall_prefab);
+            var projectileGhostRequest = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC2_Child.ChildTrackingSparkBallGhost_prefab);
+            var nullifierExplosion = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Nullifier.NullifierDeathBombProjectile_prefab);
+            var moonMeshMat = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Common.matVoidDeathBombAreaIndicatorFront_mat);
+            var trailMat = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_EliteVoid.matVoidInfestorBillboard_mat);
+            var glowParticles = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Nullifier.matNullifierStarParticleOffset_mat);
+            var orbParticles = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Nullifier.matNullifierStarParticle_mat);
 
-            var coroutine = new ParallelCoroutine();
+            var coroutine = ParallelCoroutine.RequestFromPool();
+
             coroutine.Add(projectileRequest);
+            coroutine.Add(projectileGhostRequest);
             coroutine.Add(nullifierExplosion);
             coroutine.Add(moonMeshMat);
             coroutine.Add(trailMat);
@@ -45,6 +48,8 @@ namespace NW.PrefabClones
 
             while (!coroutine.IsDone())
                 yield return null;
+
+            ParallelCoroutine.ReturnToPool(coroutine);
 
             collapsingSparkBallProjectile = PrefabAPI.InstantiateClone(projectileRequest.Result, "CollapsingSparkBall", true);
             collapsingSparkBallProjectile.AddComponent<ClonedPrefabBehaviour>();
@@ -58,7 +63,8 @@ namespace NW.PrefabClones
             impactExplosion.childrenCount = 1;
 
             var controller = collapsingSparkBallProjectile.GetComponent<ProjectileController>();
-            var ghostPrefab = PrefabAPI.InstantiateClone(controller.ghostPrefab, "CollapsingSparkBallGhost");
+            controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "CollapsingSparkBallGhost");
 
             ghostPrefab.GetComponentInChildren<Light>().color = Color.black;
             ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = moonMeshMat.Result;
