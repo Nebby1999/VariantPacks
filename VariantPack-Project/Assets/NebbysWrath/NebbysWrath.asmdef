@@ -37,7 +37,8 @@
         "AK.Wwise.Unity.MonoBehaviour.dll",
         "AK.Wwise.Unity.Timeline.dll",
         "AsyncManagement.dll",
-        "LoadingScreenFix.dll"
+        "LoadingScreenFix.dll",
+        "RoR2BepInExPack.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

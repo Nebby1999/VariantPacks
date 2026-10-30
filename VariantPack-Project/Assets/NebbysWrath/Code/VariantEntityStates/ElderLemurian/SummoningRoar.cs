@@ -93,7 +93,6 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
                     summonerBodyObject = gameObject
                 };
 
-                //Todo: Drive the "Minion" with a variant def.
                 VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
                 {
                     noGoldExpModifications = true,
@@ -103,23 +102,14 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
                 };
 
                 var lem = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
-                /*if (lem)
+                if (lem)
                 {
                     var Inventory = lem.GetComponent<Inventory>();
                     if (Inventory)
                     {
                         Inventory.GiveItemString("HealthDecay", 10);
-                        var characterBody = Inventory.GetComponentInParent<CharacterMaster>().GetBody();
-                        if (characterBody)
-                        {
-                            var characterModel = characterBody.modelLocator.modelTransform.GetComponent<CharacterModel>();
-                            if (characterModel)
-                            {
-                                characterModel.baseRendererInfos[0].defaultMaterial = Resources.Load<Material>("Materials/matGhostEffect");
-                            }
-                        }
                     }
-                }*/
+                }
             }
         }
 

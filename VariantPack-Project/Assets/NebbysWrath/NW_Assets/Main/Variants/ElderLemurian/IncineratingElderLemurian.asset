@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 3
   arrivalToken: NW_INCINERATING_ARRIVAL
   spawnCondition:
@@ -68,9 +69,7 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 30fd73221307a5d459b698d9c810dd0a, type: 2}
   scaleMultiplier: 1.1
   additionalVariantComponents:
-    variantComponents:
-    - assemblyQualifiedName: NW.Components.AddFlames, NebbysWrath, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+    variantComponents: []
   references:
     version: 2
     RefIds:

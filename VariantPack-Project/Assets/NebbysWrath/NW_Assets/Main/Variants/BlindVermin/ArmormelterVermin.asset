@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 3
   arrivalToken: NW_ARMORMELTERVERMIN_ARRIVAL
   spawnCondition:
@@ -53,12 +54,10 @@ MonoBehaviour:
     rid: 8453672705155661868
   variantBuffs:
     buffInfos: []
-  visualModifier: {fileID: 0}
+  visualModifier: {fileID: 11400000, guid: e8fd3e94990a1e84695c6ca8f525fecd, type: 2}
   scaleMultiplier: 1.2
   additionalVariantComponents:
-    variantComponents:
-    - assemblyQualifiedName: NW.Components.AttachScorpionTail, NebbysWrath, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+    variantComponents: []
   references:
     version: 2
     RefIds:

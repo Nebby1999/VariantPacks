@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 10
   arrivalToken: 
   spawnCondition:
@@ -53,12 +54,10 @@ MonoBehaviour:
     rid: 8453672705155661899
   variantBuffs:
     buffInfos: []
-  visualModifier: {fileID: 0}
+  visualModifier: {fileID: 11400000, guid: ee9be4d27e1b2214e996fe328b062cda, type: 2}
   scaleMultiplier: 1.2
   additionalVariantComponents:
-    variantComponents:
-    - assemblyQualifiedName: NW.Components.AttachClayBubbles, NebbysWrath, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+    variantComponents: []
   references:
     version: 2
     RefIds:

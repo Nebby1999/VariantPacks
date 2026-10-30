@@ -27,4 +27,16 @@ MonoBehaviour:
     useIndex: 1
     replacement: {fileID: 4300000, guid: d5490d68f8640144bb949c11ddf9291c, type: 2}
   lightReplacements: []
-  prefabInstantiationDatas: []
+  prefabInstantiationDatas:
+  - prefabDirectReference: {fileID: 4260832685502718683, guid: 832f9b1bafe57de42b2f7c60dd06f7ad,
+      type: 3}
+    prefabAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+    transformPath: 
+    childLocatorEntry: MuzzleMouth
+    useChildLocatorEntry: 1
+    localPosition: {x: 0, y: 4.9, z: -1}
+    localRotation: {x: -84, y: -12, z: -80}
+    localScale: {x: 0.25, y: 0.25, z: 0.25}
