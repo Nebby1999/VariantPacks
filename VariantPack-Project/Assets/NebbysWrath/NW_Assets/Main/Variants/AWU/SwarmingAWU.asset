@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: SuperRoboBallBossBody
+      _address: 3ca6c25a49df3bd46aa339fd46b7a29f
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 2
   arrivalToken: 
   spawnCondition:

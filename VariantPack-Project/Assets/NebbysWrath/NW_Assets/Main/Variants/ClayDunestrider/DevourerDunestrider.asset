@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: ClayBossBody
+      _address: af133a84c7aa7dc4c99258d12a594ccf
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 2
   arrivalToken: 
   spawnCondition:
@@ -29,19 +30,19 @@ MonoBehaviour:
     itemsToGrant:
     - itemDef:
         _asset: {fileID: 0}
-        _address: IncreaseHealing
+        _address: c5bd9e5a32e762d4c838847b61274a58
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 2
     - itemDef:
         _asset: {fileID: 0}
-        _address: BarrierOnOverHeal
+        _address: 79e5630993f4f894c8e7473f06ef2996
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 2
     - itemDef:
         _asset: {fileID: 0}
-        _address: NearbyDamageBonus
+        _address: d286cf211b845c44091be9d9b16f0920
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 10

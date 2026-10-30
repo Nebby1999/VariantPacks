@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: GupBody
+      _address: 0c2faaa7c910fb24d988c3a7fe4a4714
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 7
   arrivalToken: NW_GOOP_ARRIVAL
   spawnCondition:
@@ -60,7 +61,7 @@ MonoBehaviour:
       data:
         minimumStageCompletions: 0
         _stages:
-          Value: -1
+          Value: 0
         customStages: []
         requiredUnlock:
           _asset: {fileID: 0}

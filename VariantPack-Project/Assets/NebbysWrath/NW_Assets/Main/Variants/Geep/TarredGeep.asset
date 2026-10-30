@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: GeepBody
+      _address: e4307cc64406b144e82935f81b7e202c
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 10
   arrivalToken: 
   spawnCondition:

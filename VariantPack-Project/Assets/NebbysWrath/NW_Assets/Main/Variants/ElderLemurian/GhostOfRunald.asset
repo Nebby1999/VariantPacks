@@ -15,7 +15,7 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: LemurianBruiserBody
+      _address: aeb788f5fc372714a8827b167aee0594
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 39be14bf3e345f242b308045e1a02d6b, type: 2}
@@ -30,13 +30,13 @@ MonoBehaviour:
     itemsToGrant:
     - itemDef:
         _asset: {fileID: 0}
-        _address: IceRing
+        _address: 6d3b91533da0afe46835989b320e75fd
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 3
     - itemDef:
         _asset: {fileID: 0}
-        _address: Phasing
+        _address: e93e276051f234a46a9f5469c67f3363
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 5
@@ -48,14 +48,14 @@ MonoBehaviour:
       count: 25
     - itemDef:
         _asset: {fileID: 0}
-        _address: Ghost
+        _address: 16ccf2adbf6613944b7a5ef2a2c9bf9b
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 25
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}
-        _address: EliteIceEquipment
+        _address: 4fc94356fd66a3142ae700bb460d1d8c
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       canTriggerEquipment: 0

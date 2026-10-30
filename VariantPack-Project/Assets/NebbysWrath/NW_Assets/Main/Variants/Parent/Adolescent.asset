@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: ParentBody
+      _address: b39683568507e2e498f005d3b225e52d
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 8
   arrivalToken: 
   spawnCondition:
@@ -29,13 +30,13 @@ MonoBehaviour:
     itemsToGrant:
     - itemDef:
         _asset: {fileID: 0}
-        _address: ParentEgg
+        _address: 2ed530121eace7240ad4716be1e4688c
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 1
     - itemDef:
         _asset: {fileID: 0}
-        _address: Medkit
+        _address: 93c61cda02e1e4b47bdb9156a844be4b
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 1

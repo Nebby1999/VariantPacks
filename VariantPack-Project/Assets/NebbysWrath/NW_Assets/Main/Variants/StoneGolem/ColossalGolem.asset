@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: GolemBody
+      _address: f21a0264f74389246acbbc5e281092b1
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 3
   arrivalToken: NW_COLOSSALGOLEM_ARRIVAL
   spawnCondition:
@@ -30,7 +31,7 @@ MonoBehaviour:
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}
-        _address: CritOnUse
+        _address: b4638a5cc1d40c54c8e79b26638d6483
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       canTriggerEquipment: 1

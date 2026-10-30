@@ -15,7 +15,7 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: ClayBruiserBody
+      _address: a59e219f5c78ea949a7103a148d1ba0e
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}

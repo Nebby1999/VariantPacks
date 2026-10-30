@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: BisonBody
+      _address: 93e318ca0f6b60840881c5aedaf03bca
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 5
   arrivalToken: 
   spawnCondition:
@@ -29,13 +30,13 @@ MonoBehaviour:
     itemsToGrant:
     - itemDef:
         _asset: {fileID: 0}
-        _address: Behemoth
+        _address: 02bf2f4fd76fe3e4d8651ee87fa60821
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 2
     - itemDef:
         _asset: {fileID: 0}
-        _address: Hoof
+        _address: 07051b56a0b24054690c84641592d2a1
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 10

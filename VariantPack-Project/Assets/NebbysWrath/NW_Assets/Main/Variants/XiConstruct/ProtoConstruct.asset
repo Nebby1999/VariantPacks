@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: MegaConstructBody
+      _address: 64b97b2c7e3e0d949b41abbe57bf3c2d
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 4
   arrivalToken: 
   spawnCondition:

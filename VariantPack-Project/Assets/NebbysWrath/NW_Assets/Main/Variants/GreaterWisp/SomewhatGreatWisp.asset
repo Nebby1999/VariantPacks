@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: GreaterWispBody
+      _address: 367cb012c5eb41c4c8f3aa69262b5c2c
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 6
   arrivalToken: 
   spawnCondition:

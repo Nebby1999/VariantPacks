@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: MiniMushroomBody
+      _address: 5744f0917b24e9d4bb5c894cec04b5a6
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 5
   arrivalToken: 
   spawnCondition:
@@ -29,7 +30,7 @@ MonoBehaviour:
     itemsToGrant:
     - itemDef:
         _asset: {fileID: 0}
-        _address: Mushroom
+        _address: ac71388c314282149b9a9d9e18ad5b81
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 5

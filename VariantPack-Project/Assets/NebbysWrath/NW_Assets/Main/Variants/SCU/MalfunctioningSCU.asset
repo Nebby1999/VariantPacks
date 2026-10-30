@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: RoboBallBossBody
+      _address: 7e94f25ac4fe3df4fb1846103b839709
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 4
   arrivalToken: 
   spawnCondition:

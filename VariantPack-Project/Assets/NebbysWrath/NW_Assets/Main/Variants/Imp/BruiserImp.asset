@@ -15,11 +15,12 @@ MonoBehaviour:
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: ImpBody
+      _address: 3e09a3664cb1cef47aad9e234268a20d
       _useDirectReference: 0
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 10
   arrivalToken: 
   spawnCondition:
@@ -35,13 +36,13 @@ MonoBehaviour:
       count: 75
     - itemDef:
         _asset: {fileID: 0}
-        _address: Crowbar
+        _address: 4929a1eb49b1ada4897cf95713a2585f
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 3
     - itemDef:
         _asset: {fileID: 0}
-        _address: Hoof
+        _address: 07051b56a0b24054690c84641592d2a1
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 20

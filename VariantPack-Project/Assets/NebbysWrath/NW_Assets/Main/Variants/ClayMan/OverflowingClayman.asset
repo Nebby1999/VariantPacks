@@ -66,7 +66,7 @@ MonoBehaviour:
       data:
         minimumStageCompletions: 0
         _stages:
-          Value: -1
+          Value: 0
         customStages: []
         requiredUnlock:
           _asset: {fileID: 0}
