@@ -5,15 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace EntityStates.MiniMushroom.Healer
 {
     public class HealerGrenade : BaseState
     {
-        //TODO: Fix this
-        public static EntityStateGameObject chargeEffectPrefab = new EntityStateGameObject("");//SporeGrenade.chargeEffectPrefab;
-
         public static string attackSoundString = "Play_minimushroom_spore_shoot";
 
         public static string chargeUpSoundString = "Play_minimushroom_spore_chargeUp";
@@ -52,7 +50,7 @@ namespace EntityStates.MiniMushroom.Healer
 
         private Animator modelAnimator;
 
-        private GameObject chargeEffectInstance;
+        private GameObject vfxObject;
 
         public override void OnEnter()
         {
@@ -69,7 +67,8 @@ namespace EntityStates.MiniMushroom.Healer
             Transform transform = FindModelChild("ChargeSpot");
             if ((bool)transform)
             {
-                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab.gameObject, transform);
+                vfxObject = transform.gameObject;
+                vfxObject.SetActive(true);
             }
         }
 
@@ -99,9 +98,9 @@ namespace EntityStates.MiniMushroom.Healer
         {
             PlayAnimation("Gesture, Additive", "Empty");
             AkSoundEngine.StopPlayingID(chargeupSoundID);
-            if ((bool)chargeEffectInstance)
+            if ((bool)vfxObject)
             {
-                EntityState.Destroy(chargeEffectInstance);
+                vfxObject.SetActive(false);
             }
             base.OnExit();
         }

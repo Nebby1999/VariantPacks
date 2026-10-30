@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 2
   arrivalToken: 
   spawnCondition:
@@ -41,8 +42,7 @@ MonoBehaviour:
     rid: 8453672705155661989
   deathStateOverride:
     deathStateOverride:
-      _typeName: EntityStates.VagrantMonster.Mothership.DeployJellies, NebbysWrath,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: 00c9ac0f517e3fb43a0d0d1c26bcaf93, type: 2}
     slot: 0
@@ -54,7 +54,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: bd3c47eda38430443ac24d3e11ff8196, type: 2}
   scaleMultiplier: 1.2
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.OnKill.MothershipVagrantSummonJelliesOnKill,
+        NebbysWrath, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:

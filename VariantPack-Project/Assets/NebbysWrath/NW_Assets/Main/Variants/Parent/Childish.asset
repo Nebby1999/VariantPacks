@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
-  m_Name: Child
+  m_Name: Childish
   m_EditorClassIdentifier: 
   targetBody:
     targetBody:
@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 6
   arrivalToken: 
   spawnCondition:
@@ -53,8 +54,7 @@ MonoBehaviour:
     rid: 8453672705155661965
   deathStateOverride:
     deathStateOverride:
-      _typeName: EntityStates.ParentMonster.Child.ChildDeath, NebbysWrath, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      _typeName: 
   skillReplacements:
   - skillDef: {fileID: 11400000, guid: fb6d22489cfd8b44f9c3a69d424fec9d, type: 2}
     slot: 0
@@ -69,7 +69,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: b20b53be048b6bd4bb1f123fc8f9ce6f, type: 2}
   scaleMultiplier: 0.3
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.OnKill.ChildishParentSummonParentsOnKill,
+        NebbysWrath, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:

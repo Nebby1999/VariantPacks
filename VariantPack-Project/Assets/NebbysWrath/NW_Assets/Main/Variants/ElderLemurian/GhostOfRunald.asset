@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 39be14bf3e345f242b308045e1a02d6b, type: 2}
   isUnique: 1
+  isHidden: 0
   spawnRate: 1
   arrivalToken: NW_RUNALD_ARRIVAL
   spawnCondition:
@@ -42,6 +43,12 @@ MonoBehaviour:
     - itemDef:
         _asset: {fileID: 0}
         _address: PrimaryCDR
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      count: 25
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: Ghost
         _useDirectReference: 0
         _canLoadFromCatalog: 1
       count: 25
@@ -73,6 +80,8 @@ MonoBehaviour:
     - assemblyQualifiedName: NW.Components.SetupBrotherGenericSkill, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - assemblyQualifiedName: NW.Components.SetupBrotherAISkillDriver, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    - assemblyQualifiedName: NW.Components.OnKill.LemurianSpouseSummonMinions, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2

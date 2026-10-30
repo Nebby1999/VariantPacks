@@ -51,3 +51,5 @@ MonoBehaviour:
     _hexRepresentation: aa30ac910b02df04ab254f3261c58522
   - k_templateName: VariantSkillReplacementDrawer
     _hexRepresentation: 6b0e387b4bf702045997536f8aff3182
+  - k_templateName: BaseGameAssetReferenceTDrawer
+    _hexRepresentation: 60caa778f75edc34f8936b2edd1f6cf6

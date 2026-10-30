@@ -10,9 +10,6 @@ namespace EntityStates.MiniMushroom.AD
 {
     public class ArmorBreakerGrenade : BaseState
     {
-        //TODO: Fix this
-        public static EntityStateGameObject chargeEffectPrefab = new EntityStateGameObject("");//SporeGrenade.chargeEffectPrefab;
-
         public static string attackSoundString = "Play_minimushroom_spore_shoot";
 
         public static string chargeUpSoundString = "Play_minimushroom_spore_chargeUp";
@@ -51,7 +48,7 @@ namespace EntityStates.MiniMushroom.AD
 
         private Animator modelAnimator;
 
-        private GameObject chargeEffectInstance;
+        private GameObject vfxObject;
 
         public override void OnEnter()
         {
@@ -68,7 +65,8 @@ namespace EntityStates.MiniMushroom.AD
             Transform transform = FindModelChild("ChargeSpot");
             if ((bool)transform)
             {
-                chargeEffectInstance = Object.Instantiate(chargeEffectPrefab.gameObject, transform);
+                vfxObject = transform.gameObject;
+                vfxObject.SetActive(true);
             }
         }
 
@@ -98,9 +96,9 @@ namespace EntityStates.MiniMushroom.AD
         {
             PlayAnimation("Gesture, Additive", "Empty");
             AkSoundEngine.StopPlayingID(chargeupSoundID);
-            if ((bool)chargeEffectInstance)
+            if ((bool)vfxObject)
             {
-                EntityState.Destroy(chargeEffectInstance);
+                vfxObject.SetActive(false);
             }
             base.OnExit();
         }

@@ -26,3 +26,16 @@ MonoBehaviour:
       _defaultSerializedValue: 
     _settingType: 0
     _settingProviderName: R2EKEditorProjectSettings
+  - _typeName: ItemDefInspector
+    _editorTypeQualifiedName: RoR2.Editor.Inspectors.ItemDefInspector, RoR2.Editor.Scripts,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _editorTypeQualifiedHash: -2143334447
+    _serializedSettings:
+    - _settingName: isInspectorEnabled
+      _settingID: 1392571204
+      _valueTypeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      _serializedValue: 0
+      _defaultSerializedValue: 
+    _settingType: 0
+    _settingProviderName: R2EKEditorProjectSettings
