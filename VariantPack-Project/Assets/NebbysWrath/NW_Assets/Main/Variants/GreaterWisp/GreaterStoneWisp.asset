@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: 367cb012c5eb41c4c8f3aa69262b5c2c
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   isHidden: 0

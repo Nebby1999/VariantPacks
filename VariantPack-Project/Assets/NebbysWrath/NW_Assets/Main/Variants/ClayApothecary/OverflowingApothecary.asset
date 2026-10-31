@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: 3b8ea1cc43cf9d8488d9f62507cabfaf
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   isHidden: 0
@@ -57,7 +57,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 37c5aca8f08b8e14eb224f97d9c3d1d4, type: 2}
   scaleMultiplier: 1
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.OnKill.SpawnTarredGupOnKilled, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:
@@ -72,17 +74,13 @@ MonoBehaviour:
           _asset: {fileID: 0}
           _address: 
           _useDirectReference: 0
-          _canLoadFromCatalog: 1
+          _canLoadFromCatalog: 0
         forbiddenUnlock:
           _asset: {fileID: 0}
           _address: 
           _useDirectReference: 0
-          _canLoadFromCatalog: 1
-        requiredExpansionDefs:
-        - _asset: {fileID: 0}
-          _address: RoR2/DLC1/Common/DLC1.asset
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
+          _canLoadFromCatalog: 0
+        requiredExpansionDefs: []
     - rid: 8453672705155661883
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

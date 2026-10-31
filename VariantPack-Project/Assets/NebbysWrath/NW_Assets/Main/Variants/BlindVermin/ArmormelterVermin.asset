@@ -17,14 +17,14 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: 6e26dd6fa27f71742ae16ff147698597
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   isHidden: 0
   spawnRate: 3
   arrivalToken: NW_ARMORMELTERVERMIN_ARRIVAL
   spawnCondition:
-    rid: 8453672705155661866
+    rid: -2
   masterModifiers: []
   inventoryDefinition:
     itemsToGrant:
@@ -32,7 +32,7 @@ MonoBehaviour:
         _asset: {fileID: 0}
         _address: c54706c1f007b7840b2394716d6c00d6
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
+        _canLoadFromCatalog: 0
       count: 3
     equipmentInfo:
       equipmentDef:
@@ -61,28 +61,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8453672705155661866
-      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        minimumStageCompletions: 0
-        _stages:
-          Value: 0
-        customStages: []
-        requiredUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
-        forbiddenUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
-        requiredExpansionDefs:
-        - _asset: {fileID: 0}
-          _address: RoR2/DLC1/Common/DLC1.asset
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8453672705155661867
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

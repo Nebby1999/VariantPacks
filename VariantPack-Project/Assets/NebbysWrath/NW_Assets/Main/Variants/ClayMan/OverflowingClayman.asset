@@ -57,7 +57,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: ee9be4d27e1b2214e996fe328b062cda, type: 2}
   scaleMultiplier: 1.2
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.OnKill.SpawnTarredGupOnKilled, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:
@@ -72,15 +74,15 @@ MonoBehaviour:
           _asset: {fileID: 0}
           _address: 
           _useDirectReference: 0
-          _canLoadFromCatalog: 1
+          _canLoadFromCatalog: 0
         forbiddenUnlock:
           _asset: {fileID: 0}
           _address: 
           _useDirectReference: 0
-          _canLoadFromCatalog: 1
+          _canLoadFromCatalog: 0
         requiredExpansionDefs:
         - _asset: {fileID: 0}
-          _address: RoR2/DLC1/Common/DLC1.asset
+          _address: d4f30c23b971a9b428e2796dc04ae099
           _useDirectReference: 0
           _canLoadFromCatalog: 1
     - rid: 8453672705155661898

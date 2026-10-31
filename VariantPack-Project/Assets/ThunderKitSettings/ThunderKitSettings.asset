@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9057f7f601990a4883b2cb295c4f43e, type: 3}
   m_Name: ThunderKitSettings
   m_EditorClassIdentifier: 
-  FirstLoad: 0
+  FirstLoad: 1
   ShowOnStartup: 1
   GameExecutable: 
   GamePath: 
@@ -28,7 +28,7 @@ MonoBehaviour:
   CacheSize: 0.26
   MarkdownOpenMode: 1
   SelectedPipeline: {fileID: 11400000, guid: bdaca432cf1a8e444ba1111e9a5fa25c, type: 2}
-  SelectedManifest: {fileID: -3892906877110538616, guid: b7d8ea5cac64bce43ae579f151f88976,
+  SelectedManifest: {fileID: -3892906877110538616, guid: 36f8f2fd117d48d4fb7de4e79d74e18c,
     type: 2}
   QuickAccessPipelines:
   - {fileID: 11400000, guid: a0cbad8bcc417564985210c519a74169, type: 2}

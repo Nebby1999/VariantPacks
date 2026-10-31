@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: af133a84c7aa7dc4c99258d12a594ccf
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   isHidden: 0
@@ -30,15 +30,15 @@ MonoBehaviour:
   inventoryDefinition:
     itemsToGrant:
     - itemDef:
-        _asset: {fileID: 0}
-        _address: ExtraSpecial
-        _useDirectReference: 0
-        _canLoadFromCatalog: 1
+        _asset: {fileID: 11400000, guid: 1c8095478d265ac49bd8ac3b861e6392, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 0
       count: 1
     - itemDef:
-        _asset: {fileID: 0}
-        _address: SpecialCDR
-        _useDirectReference: 0
+        _asset: {fileID: 11400000, guid: 82e412205bd92f041a62e7ee7ebf7f87, type: 2}
+        _address: 
+        _useDirectReference: 1
         _canLoadFromCatalog: 1
       count: 25
     equipmentInfo:

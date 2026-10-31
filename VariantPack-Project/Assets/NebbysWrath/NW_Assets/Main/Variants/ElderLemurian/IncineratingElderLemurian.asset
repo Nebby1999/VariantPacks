@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: aeb788f5fc372714a8827b167aee0594
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
   isHidden: 0
@@ -32,13 +32,13 @@ MonoBehaviour:
         _asset: {fileID: 0}
         _address: 02bf2f4fd76fe3e4d8651ee87fa60821
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
+        _canLoadFromCatalog: 0
       count: 2
     - itemDef:
         _asset: {fileID: 0}
         _address: 07051b56a0b24054690c84641592d2a1
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
+        _canLoadFromCatalog: 0
       count: 10
     equipmentInfo:
       equipmentDef:

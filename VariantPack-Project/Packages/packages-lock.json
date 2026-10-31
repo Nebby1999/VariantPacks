@@ -106,7 +106,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "63a0fa8ec240d84514410907ccfdddd5cc6687a2"
+      "hash": "1c805894f7476447413ed60f9e6212114a92db78"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",

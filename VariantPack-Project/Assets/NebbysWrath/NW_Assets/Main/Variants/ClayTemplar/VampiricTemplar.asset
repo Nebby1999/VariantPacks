@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: a59e219f5c78ea949a7103a148d1ba0e
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   isHidden: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
         _asset: {fileID: 0}
         _address: 976f5123f7fa62d4fbc54a04fc3fb660
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
+        _canLoadFromCatalog: 0
       canTriggerEquipment: 1
       aiMaxUseHealthFraction: 30
       aiMaxUseDistance: 10

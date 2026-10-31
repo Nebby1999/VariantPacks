@@ -55,16 +55,16 @@ MonoBehaviour:
         _asset: {fileID: 0}
         _address: 241e8b3bc7780a84c80f09f9e4e057e0
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
-      count: 0
+        _canLoadFromCatalog: 0
+      count: 1
       timedApplicationImpl:
         rid: -2
     - buffDef:
         _asset: {fileID: 0}
         _address: 241e8b3bc7780a84c80f09f9e4e057e0
         _useDirectReference: 0
-        _canLoadFromCatalog: 1
-      count: 0
+        _canLoadFromCatalog: 0
+      count: 1
       timedApplicationImpl:
         rid: -2
   visualModifier: {fileID: 11400000, guid: 55ad8872b297c6344915000e8a84fc4a, type: 2}

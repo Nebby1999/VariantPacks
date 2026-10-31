@@ -17,14 +17,14 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: 1203e363724d2f84c9306a8987fc0b99
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   isHidden: 0
   spawnRate: 33
   arrivalToken: 
   spawnCondition:
-    rid: 8453672705155661824
+    rid: -2
   masterModifiers: []
   inventoryDefinition:
     itemsToGrant: []
@@ -57,28 +57,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8453672705155661824
-      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        minimumStageCompletions: 0
-        _stages:
-          Value: 0
-        customStages: []
-        requiredUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
-        forbiddenUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
-        requiredExpansionDefs:
-        - _asset: {fileID: 0}
-          _address: RoR2/DLC1/Common/DLC1.asset
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8453672705155661825
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
