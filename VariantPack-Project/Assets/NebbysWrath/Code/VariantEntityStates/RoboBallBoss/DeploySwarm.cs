@@ -99,7 +99,7 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
                 noGoldExpModifications = true,
                 noItemReward = true
             };
-            variantMasterSummon.Perform();
+            summon.Perform();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

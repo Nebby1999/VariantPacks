@@ -73,7 +73,7 @@ namespace NW.Components.OnKill
                     variantDefs = Array.Empty<CharacterVariantDef>()
                 };
 
-                variantSummon.Perform();
+                masterSummon.Perform();
             }
         }
     }

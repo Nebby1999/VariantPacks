@@ -56,7 +56,7 @@ namespace NW.Components.OnKill
                     variantDefs = moajDef ? new CharacterVariantDef[] { moajDef } : Array.Empty<CharacterVariantDef>(),
                 };
 
-                variantMasterSummon.Perform();
+                masterSummon.Perform();
             }
         }
     }

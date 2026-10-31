@@ -51,7 +51,7 @@ namespace TO30.Components
                     variantDefs = RetrieveVariantDefsExceptMOAJ()
                 };
 
-                variantSummon.Perform();
+                masterSummon.Perform();
             }
         }
 

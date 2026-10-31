@@ -82,7 +82,7 @@ namespace TO30.Components
                 noItemReward = true
             };
 
-            variantSummon.Perform();
+            masterSummon.Perform();
         }
 
         private void PreSpawnSetupCallback(CharacterMaster master)
