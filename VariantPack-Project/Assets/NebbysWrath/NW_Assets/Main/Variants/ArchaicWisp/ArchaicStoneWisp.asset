@@ -20,6 +20,7 @@ MonoBehaviour:
       _canLoadFromCatalog: 1
   variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 2
   arrivalToken: NW_ARCHAICSTONEWISP_ARRIVAL
   spawnCondition:
@@ -70,7 +71,7 @@ MonoBehaviour:
       data:
         _healthMultiplier: 2
         regenBonus: 0
-        _regenMultiplier: 0
+        _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 1
         _moveSpeedMultiplier: 0.5

@@ -78,7 +78,7 @@ MonoBehaviour:
       data:
         _healthMultiplier: 1.5
         regenBonus: 0
-        _regenMultiplier: 0
+        _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 0
         _moveSpeedMultiplier: 0
