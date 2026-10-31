@@ -103,6 +103,11 @@ namespace NW
             public static CharacterVariantDef EmpathyRedSolusProbeMK2;
             public static CharacterVariantDef EmpathyRedSwarmerProbe;
             public static CharacterVariantDef NucleusGammaConstruct;
+
+            //Soul
+            public static CharacterVariantDef SoulAlmostArchaicWisp;
+            public static CharacterVariantDef SoulLeastestWisp;
+            public static CharacterVariantDef SoulLesserStoneWisp;
         }
 
         public string identifier => NWMain.GUID;
@@ -257,6 +262,7 @@ namespace NW
         }
 
         private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnSoulDefs = new List<CharacterVariantDef>();
 
         private IEnumerator PopulateVariantPack()
         {
@@ -280,26 +286,43 @@ namespace NW
             _variantPack = new VariantPack(NWMain.GUID, "NW_VARIANTPACK_NAME", "NW_VARIANPACK_TOOLTIP", "NW_VARIANTPACK_DESC", spriteRequest.asset, NWMain.instance, NWMain.instance.Config, NWMain.instance.Config);
             _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
 
-            ConfiguredBool addAllyVariants = new ConfiguredBool(true)
-                .WithModGUID(NWMain.instance)
-                .WithModName(NWMain.instance)
-                .WithConfigFile(NWMain.instance.Config)
-                .WithSection("General")
-                .WithKey("Enable Ally Variants")
-                .WithDescription("Enables \"Ally\" Variants for the main allied enemy bodies in the game. Quiet Probe may spawn as Gaussian Probes for example.")
-                .WithConfigChange((b) =>
+
+            ConfiguredBool CreateConfiguredBoolForPackOption(string key, string desc, ConfiguredVariable<bool>.OnConfigChangedDelegate onConfigChanged)
+            {
+                return new ConfiguredBool(true)
+                    .WithModGUID(NWMain.instance)
+                    .WithModName(NWMain.instance)
+                    .WithConfigFile(NWMain.instance.Config)
+                    .WithSection("General")
+                    .WithKey(key)
+                    .WithDescription(desc)
+                    .WithConfigChange(onConfigChanged)
+                    .DoConfigure();
+            }
+
+            ConfiguredBool addAllyVariants = CreateConfiguredBoolForPackOption("Enable Ally Variants", "Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Flamethrower Devoted Lemurians for example.", b =>
+            {
+                foreach (var variantDef in _dependantSpawnAllyDefs)
                 {
-                    foreach (var variantDef in _dependantSpawnAllyDefs)
-                    {
-                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
-                        condition.cannotSpawn = b == false;
-                        variantDef.spawnCondition = condition;
-                    }
-                })
-                .DoConfigure();
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addArtifactOfSoulWispVariants = CreateConfiguredBoolForPackOption("Enable Artifact of Soul Wisp Variants", "Enables \"Lesser Wisp Soul\" Variants. Playing with the Artifact of Soul enabled may spawn a Leastest Lesser Wisp Soul for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnSoulDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
 
             parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
+            parallelCoroutine.Add(AddArtifactOfSoulWispVariants(addArtifactOfSoulWispVariants));
 
             while (!parallelCoroutine.isDone)
             {
@@ -329,7 +352,7 @@ namespace NW
 
             foreach (var asset in alphaConstructCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoMinorConstructOnKill(asset);
+                var cloned = VariantCloning.CloneIntoMinorConstructOnKill(asset);
                 if (!cloned)
                 {
                     NWLog.Error($"Failed to clone {asset} into a MinorConstructOnKill clone.");
@@ -349,7 +372,7 @@ namespace NW
             //Green robo ball
             foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoRoboBallGreenBuddy(asset);
+                var cloned = VariantCloning.CloneIntoRoboBallGreenBuddy(asset);
                 if (!cloned)
                 {
                     NWLog.Error($"Failed to clone {asset} into a RoboBallGreenBuddy clone.");
@@ -369,7 +392,7 @@ namespace NW
             //Red robo ball
             foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoRoboBallRedBuddy(asset);
+                var cloned = VariantCloning.CloneIntoRoboBallRedBuddy(asset);
                 if (!cloned)
                 {
                     NWLog.Error($"Failed to clone {asset} into a RoboBallRedBuddy clone.");
@@ -381,6 +404,37 @@ namespace NW
                     dependantCondition.cannotSpawn = canSpawn == false;
                     cloned.spawnCondition = dependantCondition;
                     _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddArtifactOfSoulWispVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Artifact of Soul Wisp Variants");
+
+            using var lesserWispCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLesserWispVariants");
+
+            while (!lesserWispCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in lesserWispCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoWispSoul(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a Lesser Wisp Soul clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnSoulDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);

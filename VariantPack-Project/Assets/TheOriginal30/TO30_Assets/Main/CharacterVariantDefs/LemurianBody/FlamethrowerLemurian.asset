@@ -68,7 +68,7 @@ MonoBehaviour:
       type: {class: BaseAIDampModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
         baseAIDampBonus: 0
-        _baseAIDampMultiplier: 0.3
+        _baseAIDampMultiplier: 0.8
     - rid: 8453672705155662044
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

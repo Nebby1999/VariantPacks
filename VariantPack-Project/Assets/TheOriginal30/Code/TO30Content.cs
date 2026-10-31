@@ -59,6 +59,18 @@ namespace TO30
 
             public static CharacterVariantDef PolymorphBadassLemurian;
             public static CharacterVariantDef PolymorphFlamethrowerLemurian;
+
+            public static CharacterVariantDef SoulAlmostGreatWisp;
+            public static CharacterVariantDef SoulInfernalWisp;
+
+            public static CharacterVariantDef GuraguraDreamScavenger;
+            public static CharacterVariantDef KipkipDreamScavenger;
+            public static CharacterVariantDef TwiptwipDreamScavenger;
+            public static CharacterVariantDef WipwipDreamScavenger;
+
+            public static CharacterVariantDef Sanctum1DreamScavenger;
+            public static CharacterVariantDef Sanctum2DreamScavenger;
+            public static CharacterVariantDef Sanctum3DreamScavenger;
         }
         public string identifier => TO30Main.GUID;
 
@@ -166,6 +178,9 @@ namespace TO30
 
         private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
         private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnSoulDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnTwistedScavDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnSanctumScavDefs = new List<CharacterVariantDef>();
 
         private IEnumerator PopulateVariantPack()
         {
@@ -189,44 +204,75 @@ namespace TO30
             _variantPack = new VariantPack(TO30Main.GUID, "TO30_VARIANTPACK_NAME", "TO30_VARIANPACK_TOOLTIP", "TO30_VARIANTPACK_DESC", spriteRequest.asset, TO30Main.instance, TO30Main.instance.Config, TO30Main.instance.Config);
             _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
 
-            ConfiguredBool addAllyVariants = new ConfiguredBool(true)
-                .WithModGUID(TO30Main.instance)
-                .WithModName(TO30Main.instance)
-                .WithConfigFile(TO30Main.instance.Config)
-                .WithSection("General")
-                .WithKey("Enable Ally Variants")
-                .WithDescription("Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Flamethrower Lemurians for example.")
-                .WithConfigChange((b) =>
+            ConfiguredBool CreateConfiguredBoolForPackOption(string key, string desc, ConfiguredVariable<bool>.OnConfigChangedDelegate onConfigChanged)
+            {
+                return new ConfiguredBool(true)
+                    .WithModGUID(TO30Main.instance)
+                    .WithModName(TO30Main.instance)
+                    .WithConfigFile(TO30Main.instance.Config)
+                    .WithSection("General")
+                    .WithKey(key)
+                    .WithDescription(desc)
+                    .WithConfigChange(onConfigChanged)
+                    .DoConfigure();
+            }
+
+            ConfiguredBool addAllyVariants = CreateConfiguredBoolForPackOption("Enable Ally Variants", "Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Flamethrower Devoted Lemurians for example.", b =>
+            {
+                foreach (var variantDef in _dependantSpawnAllyDefs)
                 {
-                    foreach(var variantDef in _dependantSpawnAllyDefs)
-                    {
-                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
-                        condition.cannotSpawn = b == false; 
-                        variantDef.spawnCondition = condition;
-                    }
-                })
-                .DoConfigure();
-            ConfiguredBool addPolymorphLemurianVariants = new ConfiguredBool(true)
-                .WithModGUID(TO30Main.instance)
-                .WithModName(TO30Main.instance)
-                .WithConfigFile(TO30Main.instance.Config)
-                .WithSection("General")
-                .WithKey("Enable Polymorph Lemurian Variants")
-                .WithDescription("Enables \"Polymorph Lemurian\" Variants. Starting the Polymorph Lemurian quest may spawn you as a Flamethrower Lemurian for example.")
-                .WithConfigChange((b) =>
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addPolymorphLemurianVariants = CreateConfiguredBoolForPackOption("Enable Polymorph Lemurian Variants", "Enables \"Polymorph Lemurian\" Variants. Starting the Polymoprh Lemurian quest may spawn you as a Flamethrower Lemurian for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnPolymorphDefs)
                 {
-                    foreach(var variantDef in _dependantSpawnPolymorphDefs)
-                    {
-                        VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
-                        condition.cannotSpawn = b == false;
-                        variantDef.spawnCondition = condition;
-                    }
-                })
-                .DoConfigure();
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addArtifactOfSoulWispVariants = CreateConfiguredBoolForPackOption("Enable Artifact of Soul Wisp Variants", "Enables \"Lesser Wisp Soul\" Variants. Playing with the Artifact of Soul enabled may spawn an Infernal Lesser Wisp Soul for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnSoulDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addTwistedScavVariants = CreateConfiguredBoolForPackOption("Enable Twisted Scavenger Variants", "Enables \"Twisted Scavenger\" Variants. Reaching \"A Moment, Whole\" may spawn a Dream Twisted Scavenger for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnTwistedScavDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addSanctumScavVariants = CreateConfiguredBoolForPackOption("Enable Sanctum Scavenger Variants", "Enables \"Sanctum Scavenger\" Variants. Hitting all Sconces in \"Lurid Basilica\" may spawn a Dream Sanctum Scavenger for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnSanctumScavDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
 
             parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
             parallelCoroutine.Add(AddPolymorphLemurianVariants(addPolymorphLemurianVariants));
+            parallelCoroutine.Add(AddArtifactOfSoulWispVariants(addArtifactOfSoulWispVariants));
+            parallelCoroutine.Add(AddTwistedScavVariants(addTwistedScavVariants));
+            parallelCoroutine.Add(AddSanctumScavVariants(addSanctumScavVariants));
 
             while(!parallelCoroutine.isDone)
             {
@@ -257,7 +303,7 @@ namespace TO30
 
             foreach(var asset in beetleGuardCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoBeetleGuardGland(asset);
+                var cloned = VariantCloning.CloneIntoBeetleGuardGland(asset);
                 if(!cloned)
                 {
                     TO30Log.Error($"Failed to clone {asset} into a BeetleGuardAlly clone.");
@@ -275,7 +321,7 @@ namespace TO30
             }
             foreach (var asset in elderLemurianCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoDevotedLemurianBruiser(asset);
+                var cloned = VariantCloning.CloneIntoDevotedLemurianBruiser(asset);
                 if (!cloned)
                 {
                     TO30Log.Error($"Failed to clone {asset} into a DevotedLemurianBruiser clone.");
@@ -293,7 +339,7 @@ namespace TO30
             }
             foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoDevotedLemurian(asset);
+                var cloned = VariantCloning.CloneIntoDevotedLemurian(asset);
                 if (!cloned)
                 {
                     TO30Log.Error($"Failed to clone {asset} into a DevotedLemurian clone.");
@@ -324,7 +370,7 @@ namespace TO30
 
             foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
             {
-                var cloned = VAPIUtils.CloneIntoLemurianPolymorph(asset);
+                var cloned = VariantCloning.CloneIntoLemurianPolymorph(asset);
                 if (!cloned)
                 {
                     TO30Log.Error($"Failed to clone {asset} into a LemurianPolymorph clone.");
@@ -339,6 +385,107 @@ namespace TO30
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddArtifactOfSoulWispVariants(bool canSpawn)
+        {
+            TO30Log.Info($"Adding Artifact of Soul Wisp Variants");
+
+            using var lesserWispCollection = TO30Assets.LoadAssetAsync<AssetCollection>("acLesserWispVariants");
+
+            while (!lesserWispCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in lesserWispCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoWispSoul(asset);
+                if (!cloned)
+                {
+                    TO30Log.Error($"Failed to clone {asset} into a Lesser Wisp Soul clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnSoulDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddTwistedScavVariants(bool canSpawn)
+        {
+            TO30Log.Info($"Adding Twisted Scavenger Variants");
+
+            using var scavengerCollection = TO30Assets.LoadAssetAsync<AssetCollection>("acScavengerVariants");
+
+            while (!scavengerCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in scavengerCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                CharacterVariantDef[] clones = VariantCloning.CloneIntoLunarScavs(asset, true, true);
+
+                if(clones.Length == 0)
+                {
+                    TO30Log.Error($"Failed to clone {asset} into twisted scavenger clones.");
+                    continue;
+                }
+
+                foreach(var clone in clones)
+                {
+                    if(clone.spawnCondition is VariantDependantCondition dependantCondition)
+                    {
+                        dependantCondition.cannotSpawn = canSpawn == false;
+                        clone.spawnCondition = dependantCondition;
+                        _dependantSpawnTwistedScavDefs.Add(clone);
+                    }
+                }
+
+                _variantPack.characterVariantDefs.Add(clones);
+            }
+        }
+
+        private static IEnumerator AddSanctumScavVariants(bool canSpawn)
+        {
+            TO30Log.Info($"Adding Sanctum Scavenger Variants");
+
+            using var scavengerCollection = TO30Assets.LoadAssetAsync<AssetCollection>("acScavengerVariants");
+
+            while (!scavengerCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in scavengerCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                CharacterVariantDef[] clones = VariantCloning.CloneIntoSanctumScavs(asset, true, true);
+
+                if (clones.Length == 0)
+                {
+                    TO30Log.Error($"Failed to clone {asset} into sanctum scavenger clones.");
+                    continue;
+                }
+
+                foreach (var clone in clones)
+                {
+                    if (clone.spawnCondition is VariantDependantCondition dependantCondition)
+                    {
+                        dependantCondition.cannotSpawn = canSpawn == false;
+                        clone.spawnCondition = dependantCondition;
+                        _dependantSpawnTwistedScavDefs.Add(clone);
+                    }
+                }
+
+                _variantPack.characterVariantDefs.Add(clones);
             }
         }
 

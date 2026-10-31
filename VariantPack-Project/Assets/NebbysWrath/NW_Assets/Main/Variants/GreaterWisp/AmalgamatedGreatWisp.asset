@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: 367cb012c5eb41c4c8f3aa69262b5c2c
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   isHidden: 0
@@ -76,6 +76,6 @@ MonoBehaviour:
         _shieldMultiplier: 1
         _moveSpeedMultiplier: 1
         _attackSpeedMultiplier: 1
-        _damageMultiplier: 1.5
+        _damageMultiplier: 1.25
         armorBonus: 0
         _armorMultiplier: 1

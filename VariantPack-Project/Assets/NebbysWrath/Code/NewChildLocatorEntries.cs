@@ -26,8 +26,9 @@ namespace NW
 
         private static void AddXiConstructChildLocatorEntries()
         {
-            var majorConstructBody = DLC1Content.BodyPrefabs.MajorConstructBody;
-            var childLocator = majorConstructBody.GetComponentInChildren<ChildLocator>();
+            //MegaConstruct is Xi Construct
+            var megaConstructBody = DLC1Content.BodyPrefabs.MegaConstructBody;
+            var childLocator = megaConstructBody.GetComponentInChildren<ChildLocator>();
 
             var ROOT = childLocator.transform.Find("MegaConstructArmature").Find("ROOT");
             GameObject barragePoint = null;

@@ -9,65 +9,71 @@ using VAPI;
 namespace NW.Components.OnKill
 {
     [AddComponentMenu("")]
-    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody)]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class AmalgamatedSummonMinions : VariantComponent, IOnKilledServerReceiver
     {
-        private static CharacterSpawnCard wispSpawnCard;
         public CharacterBody characterBody { get; private set; }
 
         public int count = 5;
 
-        [AsyncAssetLoad]
-        private static IEnumerator LoadAssets()
-        {
-            var spawnCardHandle = Addressables.LoadAssetAsync<CharacterSpawnCard>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Wisp.cscLesserWisp_asset);
-
-            while(spawnCardHandle.Task.IsCompleted == false)
-            {
-                yield return null;
-            }
-
-            wispSpawnCard = spawnCardHandle.Result;
-        }
+        private bool killed = false;
+        private bool didSpawns = false;
+        private Run.FixedTimeStamp timeUntilSpawns;
 
         private void Awake()
         {
             characterBody = GetComponent<CharacterBody>();
         }
 
+        private void FixedUpdate()
+        {
+            if (killed == false)
+                return;
+
+            if(timeUntilSpawns.hasPassed && didSpawns == false)
+            {
+                DoSpawns();
+            }
+        }
+
         public void OnKilledServer(DamageReport damageReport)
         {
-            if (!VariantSpawnManager.instance)
+            killed = true;
+            timeUntilSpawns = Run.FixedTimeStamp.now + 1.9f;
+        }
+
+        private void DoSpawns()
+        {
+            if (!VariantSpawnManager.instance || didSpawns == true)
             {
                 return;
             }
+            didSpawns = true;
 
             DeathRewards deathRewards = GetComponent<DeathRewards>();
             for (int i = 0; i < count; i++)
             {
-                DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(wispSpawnCard, new DirectorPlacementRule
+                Vector3 position = characterBody.corePosition + (5 * UnityEngine.Random.insideUnitSphere);
+                MasterSummon masterSummon = new MasterSummon()
                 {
-                    placementMode = DirectorPlacementRule.PlacementMode.Approximate,
-                    minDistance = 0,
-                    maxDistance = 5f,
-                    position = characterBody.corePosition
-                }, VariantSpawnManager.instance.variantSpawnRng)
-                {
-                    teamIndexOverride = characterBody.teamComponent.teamIndex,
-                    onSpawnedServer = (rslt) => Util.CopyEliteStatus(characterBody.masterObject, rslt.spawnedInstance, false),
-                    ignoreTeamMemberLimit = true
+                    masterPrefab = MasterCatalog.FindMasterPrefab("WispMaster"),
+                    useAmbientLevel = false,
+                    ignoreTeamMemberLimit = true,
+                    position = position,
+                    preSpawnSetupCallback = (mstr) => Util.CopyEliteStatus(characterBody.masterObject, mstr.gameObject, false),
+                    teamIndexOverride = characterBody.teamComponent.teamIndex
                 };
 
-                VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
                 {
                     deathRewardsCoefficient = 0.2f,
-                    requesterDeathRewards = characterBody.GetComponent<DeathRewards>(),
+                    summonerDeathRewards = characterBody.GetComponent<DeathRewards>(),
                     noGoldExpModifications = true,
                     noItemReward = true,
                     variantDefs = Array.Empty<CharacterVariantDef>()
                 };
 
-                DirectorCore.instance.TrySpawnObject(directorSpawnRequest);
+                variantSummon.Perform();
             }
         }
     }

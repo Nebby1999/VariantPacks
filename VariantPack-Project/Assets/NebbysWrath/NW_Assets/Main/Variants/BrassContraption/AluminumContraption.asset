@@ -17,7 +17,7 @@ MonoBehaviour:
       _asset: {fileID: 0}
       _address: be5d36650448cdf4d8670591f2701e7e
       _useDirectReference: 0
-      _canLoadFromCatalog: 1
+      _canLoadFromCatalog: 0
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   isHidden: 0
@@ -29,9 +29,9 @@ MonoBehaviour:
   inventoryDefinition:
     itemsToGrant:
     - itemDef:
-        _asset: {fileID: 0}
-        _address: GlobalCDR
-        _useDirectReference: 0
+        _asset: {fileID: 11400000, guid: 1b1b0069edb63c547b07b2d9383b61e5, type: 2}
+        _address: 
+        _useDirectReference: 1
         _canLoadFromCatalog: 1
       count: 50
     equipmentInfo:
