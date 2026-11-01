@@ -125,7 +125,7 @@ namespace EntityStates.LemurianMonster.Meatballer
             }
             else
             {
-                vector = characterBody.transform.position + (ray.direction * 10);
+                vector = characterBody.transform.position + (ray.direction * 50);
             }
 
             float magnitude = projectileVelocity;
