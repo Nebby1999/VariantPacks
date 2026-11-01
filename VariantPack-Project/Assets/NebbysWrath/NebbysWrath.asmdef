@@ -38,7 +38,15 @@
         "AK.Wwise.Unity.Timeline.dll",
         "AsyncManagement.dll",
         "LoadingScreenFix.dll",
-        "RoR2BepInExPack.dll"
+        "RoR2BepInExPack.dll",
+        "MonoMod.RuntimeDetour.dll",
+        "MonoMod.dll",
+        "Mono.Cecil.dll",
+        "MonoMod.Utils.dll",
+        "Mono.Cecil.Mdb.dll",
+        "Mono.Cecil.Pdb.dll",
+        "AncientWisp.dll",
+        "ArchaicWisp.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

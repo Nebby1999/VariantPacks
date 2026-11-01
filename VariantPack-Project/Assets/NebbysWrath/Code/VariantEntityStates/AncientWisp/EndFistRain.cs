@@ -12,8 +12,8 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = baseDuration / this.attackSpeedStat;
-            base.PlayAnimation("Body", "EndRain", "EndRain.playbackRate", this.duration);
+            duration = baseDuration / attackSpeedStat;
+            base.PlayAnimation("Body", "EndRain", "EndRain.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -29,9 +29,9 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (base.fixedAge >= duration && base.isAuthority)
             {
-                this.outer.SetNextStateToMain();
+                outer.SetNextStateToMain();
                 return;
             }
         }

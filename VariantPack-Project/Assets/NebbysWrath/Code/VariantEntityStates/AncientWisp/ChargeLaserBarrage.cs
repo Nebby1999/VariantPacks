@@ -34,20 +34,20 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = ChargeLaserBarrage.baseDuration / this.attackSpeedStat;
+            duration = ChargeLaserBarrage.baseDuration / attackSpeedStat;
             Transform modelTransform = base.GetModelTransform();
             //base.PlayAnimation("Gesture", "ChargeRHCannon", "ChargeRHCannon.playbackRate", this.duration);
-            this.modelAnimator = base.GetModelAnimator();
-            if (this.modelAnimator)
+            modelAnimator = base.GetModelAnimator();
+            if (modelAnimator)
             {
-                int layerIndex = this.modelAnimator.GetLayerIndex("Gesture");
-                if (this.modelAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Throw1"))
+                int layerIndex = modelAnimator.GetLayerIndex("Gesture");
+                if (modelAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Throw1"))
                 {
-                    base.PlayCrossfade("Gesture", "Throw2", "Throw.playbackRate", this.duration / 0.3f, 0.2f);
+                    base.PlayCrossfade("Gesture", "Throw2", "Throw.playbackRate", duration / 0.3f, 0.2f);
                 }
                 else
                 {
-                    base.PlayCrossfade("Gesture", "Throw1", "Throw.playbackRate", this.duration / 0.3f, 0.2f);
+                    base.PlayCrossfade("Gesture", "Throw1", "Throw.playbackRate", duration / 0.3f, 0.2f);
                 }
             }
             if (modelTransform)
@@ -58,23 +58,23 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                     Transform transform = component.FindChild("MuzzleRight");
                     if (transform)
                     {
-                        this.chargeEffectRight = UnityEngine.Object.Instantiate<GameObject>(ChargeLaserBarrage.effectPrefab, transform.position, transform.rotation);
-                        this.chargeEffectRight.transform.parent = transform;
+                        chargeEffectRight = UnityEngine.Object.Instantiate<GameObject>(ChargeLaserBarrage.effectPrefab, transform.position, transform.rotation);
+                        chargeEffectRight.transform.parent = transform;
                     }
                 }
             }
             if (base.characterBody)
             {
-                base.characterBody.SetAimTimer(this.duration);
+                base.characterBody.SetAimTimer(duration);
             }
-            Util.PlayAttackSpeedSound("Play_greater_wisp_attack", base.gameObject, this.attackSpeedStat * (2f / ChargeLaserBarrage.baseDuration));
+            Util.PlayAttackSpeedSound("Play_greater_wisp_attack", base.gameObject, attackSpeedStat * (2f / ChargeLaserBarrage.baseDuration));
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            EntityState.Destroy(this.chargeEffectLeft);
-            EntityState.Destroy(this.chargeEffectRight);
+            EntityState.Destroy(chargeEffectLeft);
+            EntityState.Destroy(chargeEffectRight);
         }
 
         public override void Update()
@@ -86,13 +86,13 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         {
             base.FixedUpdate();
 
-            if (!playedSwing2 && this.duration - base.fixedAge < 0.6f)
+            if (!playedSwing2 && duration - base.fixedAge < 0.6f)
             {
-                if (this.modelAnimator)
+                if (modelAnimator)
                 {
                     playedSwing2 = true;
-                    int layerIndex = this.modelAnimator.GetLayerIndex("Gesture");
-                    if (this.modelAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Throw1"))
+                    int layerIndex = modelAnimator.GetLayerIndex("Gesture");
+                    if (modelAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Throw1"))
                     {
                         base.PlayCrossfade("Gesture", "Throw2", "Throw.playbackRate", FireLaserBarrage.baseDuration * 6f, 0.1f);
                     }
@@ -103,10 +103,10 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                 }
             }
 
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (base.fixedAge >= duration && base.isAuthority)
             {
                 FireLaserBarrage nextState = new FireLaserBarrage();
-                this.outer.SetNextState(nextState);
+                outer.SetNextState(nextState);
                 return;
             }
         }

@@ -83,12 +83,15 @@ namespace EntityStates.BeetleQueenMonster.Matriarchal
                     spawnOnTarget = transform
                 }, VariantSpawnManager.instance.variantSpawnRng)
                 {
-                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false)
+                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false),
+                    summonerBodyObject = gameObject
                 };
 
                 VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
                 {
-                    variantDefs = new CharacterVariantDef[0],
+                    supressArrivalMessage = true,
+                    noItemReward = true,
+                    noGoldExpModifications = true,
                 };
 
                 DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
@@ -119,12 +122,15 @@ namespace EntityStates.BeetleQueenMonster.Matriarchal
                     spawnOnTarget = transform
                 }, VariantSpawnManager.instance.variantSpawnRng)
                 {
-                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false)
+                    onSpawnedServer = (result) => Util.CopyEliteStatus(characterBody.masterObject, result.spawnedInstance, false),
+                    summonerBodyObject = gameObject
                 };
 
                 VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
                 {
-                    variantDefs = new CharacterVariantDef[0],
+                    noGoldExpModifications = true,
+                    noItemReward = true,
+                    supressArrivalMessage = true
                 };
 
                 DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);

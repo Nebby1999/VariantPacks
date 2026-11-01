@@ -60,7 +60,7 @@ MonoBehaviour:
     slot: 0
     slotName: 
   - skillDef: {fileID: 0}
-    slot: 1
+    slot: 2
     slotName: 
   statModifier:
     rid: 8453672705155661966

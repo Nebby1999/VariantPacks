@@ -45,15 +45,15 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
             Ray aimRay = base.GetAimRay();
 
             string text = "MuzzleRight";
-            this.duration = FireLaserBarrage.baseDuration / this.attackSpeedStat;
-            this.durationBetweenShots = FireLaserBarrage.baseDurationBetweenShots / this.attackSpeedStat;
+            duration = FireLaserBarrage.baseDuration / attackSpeedStat;
+            durationBetweenShots = FireLaserBarrage.baseDurationBetweenShots / attackSpeedStat;
             if (FireLaserBarrage.effectPrefab)
             {
                 EffectManager.SimpleMuzzleFlash(FireLaserBarrage.effectPrefab, base.gameObject, text, false);
             }
             if (base.isAuthority && base.modelLocator && base.modelLocator.modelTransform)
             {
-                bulletsToFire = Math.Min(FireLaserBarrage.maxBullets, Mathf.CeilToInt(FireLaserBarrage.bulletCount * this.attackSpeedStat));
+                bulletsToFire = Math.Min(FireLaserBarrage.maxBullets, Mathf.CeilToInt(FireLaserBarrage.bulletCount * attackSpeedStat));
                 ChildLocator component = base.modelLocator.modelTransform.GetComponent<ChildLocator>();
                 if (component)
                 {
@@ -67,7 +67,7 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                         {
                             forward = raycastHit.point - transform.position;
                         }
-                        ProjectileManager.instance.FireProjectile(FireLaserBarrage.projectilePrefab, this.bulletCountCurrent < bulletCount / 2 ? transform.position : aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, this.damageStat * FireLaserBarrage.damageCoefficient, FireLaserBarrage.force, base.RollCrit());
+                        ProjectileManager.instance.FireProjectile(FireLaserBarrage.projectilePrefab, bulletCountCurrent < bulletCount / 2 ? transform.position : aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, damageStat * FireLaserBarrage.damageCoefficient, FireLaserBarrage.force, base.RollCrit());
                     }
                 }
             }
@@ -83,17 +83,17 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
             base.FixedUpdate();
             if (base.isAuthority)
             {
-                if (this.bulletCountCurrent >= bulletsToFire && base.fixedAge >= this.duration)
+                if (bulletCountCurrent >= bulletsToFire && base.fixedAge >= duration)
                 {
-                    this.outer.SetNextStateToMain();
+                    outer.SetNextStateToMain();
                     return;
                 }
-                if (this.bulletCountCurrent < bulletsToFire && base.fixedAge >= this.durationBetweenShots)
+                if (bulletCountCurrent < bulletsToFire && base.fixedAge >= durationBetweenShots)
                 {
                     FireLaserBarrage fireRHCannon = new FireLaserBarrage();
-                    fireRHCannon.bulletCountCurrent = this.bulletCountCurrent + 1;
-                    fireRHCannon.bulletsToFire = this.bulletsToFire;
-                    this.outer.SetNextState(fireRHCannon);
+                    fireRHCannon.bulletCountCurrent = bulletCountCurrent + 1;
+                    fireRHCannon.bulletsToFire = bulletsToFire;
+                    outer.SetNextState(fireRHCannon);
                     return;
                 }
             }

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace NW.Components.OnKill
 {
     [AddComponentMenu("")]
-    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody)]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class LemurianSpouseSummonMinions : VariantComponent, IOnKilledServerReceiver
     {
         public CharacterBody characterBody { get; private set; }

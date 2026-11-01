@@ -25,7 +25,8 @@ MonoBehaviour:
   arrivalToken: 
   spawnCondition:
     rid: -2
-  masterModifiers: []
+  masterModifiers:
+  - rid: 8453672839368671233
   inventoryDefinition:
     itemsToGrant: []
     equipmentInfo:
@@ -76,6 +77,11 @@ MonoBehaviour:
         _shieldMultiplier: 1
         _moveSpeedMultiplier: 1
         _attackSpeedMultiplier: 1
-        _damageMultiplier: 1.25
+        _damageMultiplier: 1
         armorBonus: 0
         _armorMultiplier: 1
+    - rid: 8453672839368671233
+      type: {class: BaseAIDampModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        baseAIDampBonus: 0
+        _baseAIDampMultiplier: 5

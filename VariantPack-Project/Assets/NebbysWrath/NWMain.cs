@@ -5,6 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using System.Security.Permissions;
 using RoR2;
+using MonoMod.RuntimeDetour;
+using System;
+using MonoMod.Cil;
+using Mono.Cecil.Cil;
+using EntityStates;
+using RoR2.ContentManagement;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -45,15 +51,18 @@ namespace NW
             {
                 AddJellyfishSummons();
             }
+            if(MSUtil.IsModInstalled("com.Moffein.AncientWisp"))
+            {
+                AncientWispVariantHandler.Init();
+            }
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
         private void AddJellyfishSummons()
         {
-
             if (MSUtil.IsModInstalled("com.Moffein.ClayMen"))
             {
-               TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
+                TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
             }
             TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
             TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));

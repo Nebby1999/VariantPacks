@@ -73,7 +73,6 @@ namespace EntityStates.LemurianMonster.Flamethrower
             }
             int num = Mathf.CeilToInt(flamethrowerDuration * tickFrequency);
             tickDamageCoefficient = 0.5f / num;
-            PlayAnimation("Gesture", "ChargeFireball", "ChargeFireball.playbackRate", entryDuration);
 
             //Lore accurate badass flamethrower lemurian
             if(characterBody.TryGetComponent<CharacterBodyVariantController>(out var variantController))
@@ -184,7 +183,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
             Vector3 direction = aimRay.direction;
             if ((bool)flamethrowerTransform)
             {
-                flamethrowerTransform.forward = direction;
+                flamethrowerTransform.rotation = Util.QuaternionSafeLookRotation(direction);
             }
         }
 

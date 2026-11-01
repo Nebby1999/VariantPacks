@@ -36,7 +36,7 @@ namespace EntityStates.Wisp1Monster.Archaic
             PlayAnimation("Body", "FireAttack1", "FireAttack1.playbackRate", duration);
             if ((bool)effectPrefab)
             {
-                EffectManager.SimpleMuzzleFlash(this.effectPrefab, base.gameObject, "Muzzle", false);
+                EffectManager.SimpleMuzzleFlash(effectPrefab, base.gameObject, "Muzzle", false);
             }
 
             if (base.isAuthority && base.modelLocator && base.modelLocator.modelTransform)

@@ -26,7 +26,7 @@ MonoBehaviour:
   spawnCondition:
     rid: -2
   masterModifiers:
-  - rid: 8453672705155662043
+  - rid: 8453672839368671232
   inventoryDefinition:
     itemsToGrant: []
     equipmentInfo:
@@ -64,11 +64,6 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8453672705155662043
-      type: {class: BaseAIDampModifier, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        baseAIDampBonus: 0
-        _baseAIDampMultiplier: 0.8
     - rid: 8453672705155662044
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
@@ -86,3 +81,10 @@ MonoBehaviour:
         _damageMultiplier: 0.75
         armorBonus: 10
         _armorMultiplier: 1
+    - rid: 8453672839368671232
+      type: {class: AISkillDriverAimVectorModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _aimVectorMaxSpeedMultiplier: 1
+        _aimVectorDampTimeMultiplier: 5
+        aiSkillDriverTarget: StrafeAndShoot
+        targetSkillSlot: 0

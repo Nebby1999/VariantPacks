@@ -2,6 +2,7 @@ using MSU;
 using RoR2;
 using RoR2.CharacterAI;
 using RoR2.Skills;
+using System;
 using System.Collections;
 using UnityEngine;
 using VAPI;
@@ -14,6 +15,11 @@ namespace NW.Components
     {
         public void Awake()
         {
+            if(gameObject.TryGetComponent<PlayerCharacterMasterController>(out var pcmc))
+            {
+                return;
+            }
+
             var aiSkillDriver = gameObject.AddComponent<AISkillDriver>();
             aiSkillDriver.customName = "SummoningRoar";
             aiSkillDriver.skillSlot = RoR2.SkillSlot.Special;
@@ -43,20 +49,25 @@ namespace NW.Components
         {
             SkillFamily skillFamily = NWContent.readOnlyContentPack.skillFamilies.Find("SummoningRoarFamily");
             SkillLocator locator = GetComponent<SkillLocator>();
-            gameObject.SetActive(false);
 
             GenericSkill specialSkill = locator.GetOrFindSkill(SkillSlot.Special, null);
             if(specialSkill == null)
             {
-                specialSkill = gameObject.AddComponent<GenericSkill>();
-            }
+                try
+                {
+                    specialSkill = gameObject.AddComponent<GenericSkill>();
+                    specialSkill._skillFamily = skillFamily;
+                }
+                catch(Exception e)
+                {
 
-            specialSkill._skillFamily = skillFamily;
+                }
+            }
+            specialSkill.Awake();
             HG.ArrayUtils.ArrayAppend(ref locator.allSkills, specialSkill);
             locator.special = specialSkill;
             var esm = EntityStateMachine.FindByCustomName(gameObject, "Body");
             esm.SetNextState(EntityStateCatalog.InstantiateState(esm.initialStateType.stateType));
-            gameObject.SetActive(true);
         }
     }
 }

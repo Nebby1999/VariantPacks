@@ -50,9 +50,6 @@ MonoBehaviour:
   - skillDef: {fileID: 11400000, guid: 585aa05008c19c9428a2bee9bade6028, type: 2}
     slot: 1
     slotName: 
-  - skillDef: {fileID: 11400000, guid: 14c75575bfd0a2143b8a74241ccb6d3e, type: 2}
-    slot: 2
-    slotName: 
   statModifier:
     rid: 8453672705155661828
   variantBuffs:

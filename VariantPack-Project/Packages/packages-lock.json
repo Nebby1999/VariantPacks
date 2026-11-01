@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "0n_x-unjunkcontent": {
+      "version": "file:UnJunkContent",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "bbepis-bepinexpack": {
       "version": "file:BepInExPack",
       "depth": 0,
@@ -95,6 +101,18 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "moffein-ancient_wisp": {
+      "version": "file:Ancient_Wisp",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "moffein-archaic_wisp": {
+      "version": "file:Archaic_Wisp",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "nebby-loadingscreenspritefix": {
       "version": "file:LoadingScreenSpriteFix",
       "depth": 0,
@@ -106,7 +124,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "6ba491108733e44b7f5ce1b819963680ec981f6e"
+      "hash": "d5d51b83258d1d527413f34738dd1c045ce942bc"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",
@@ -218,6 +236,12 @@
     },
     "riskofthunder-r2api_skins": {
       "version": "file:R2API_Skins",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-r2api_sound": {
+      "version": "file:R2API_Sound",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}

@@ -9,7 +9,7 @@ using VAPI;
 namespace NW.Components.OnKill
 {
     [AddComponentMenu("")]
-    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody)]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class ChildishParentSummonParentsOnKill : VariantComponent, IOnKilledServerReceiver
     {
         private static CharacterSpawnCard parentCard;
@@ -70,6 +70,7 @@ namespace NW.Components.OnKill
                 var parentMaster = DirectorCore.instance.TrySpawnObject(directorSpawnRequest);
                 if(parentMaster && parentMaster.TryGetComponent<CharacterMaster>(out var master) && master.TryGetBody(out var body))
                 {
+                    body.AddBuff(RoR2Content.Buffs.SmallArmorBoost);
                     body.AddBuff(RoR2Content.Buffs.WarCryBuff);
                 }
             }
