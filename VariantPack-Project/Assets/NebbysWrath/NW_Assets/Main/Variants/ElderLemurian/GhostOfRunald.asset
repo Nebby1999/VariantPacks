@@ -46,12 +46,6 @@ MonoBehaviour:
         _useDirectReference: 1
         _canLoadFromCatalog: 1
       count: 25
-    - itemDef:
-        _asset: {fileID: 0}
-        _address: 16ccf2adbf6613944b7a5ef2a2c9bf9b
-        _useDirectReference: 0
-        _canLoadFromCatalog: 0
-      count: 1
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}

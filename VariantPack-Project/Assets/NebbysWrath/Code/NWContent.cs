@@ -36,6 +36,7 @@ namespace NW
             public static CharacterVariantDef DevourerDunestrider;
             public static CharacterVariantDef EnormousAurelionite;
             public static CharacterVariantDef GaussianProbe;
+            public static CharacterVariantDef GhostLemurian;
             public static CharacterVariantDef GhostOfKjaro;
             public static CharacterVariantDef GhostOfRunald;
             public static CharacterVariantDef GreatGrandParent;
@@ -97,6 +98,7 @@ namespace NW
             public static CharacterVariantDef SomewhatArchaicWisp;
 
             //Ally
+            public static CharacterVariantDef DevotedGhostLemurian;
             public static CharacterVariantDef DevotedGhostOfKjaro;
             public static CharacterVariantDef DevotedGhostOfRunald;
             public static CharacterVariantDef DevotedIncineratingElderLemurian;
@@ -487,6 +489,10 @@ namespace NW
 
             foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
             {
+                //skip the ghost lemurian, doesnt make sense to make a clone of it as there's no polymorph ghost of kjaro/runald
+                if (asset.cachedName.Contains("Ghost"))
+                    continue;
+
                 var cloned = VariantCloning.CloneIntoLemurianPolymorph(asset);
                 if (!cloned)
                 {

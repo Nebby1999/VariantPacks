@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assets:
   - {fileID: 11400000, guid: dedb801be20478e418ad2f53a6e7bfc1, type: 2}
+  - {fileID: 11400000, guid: 5de411c9e62d8794ca8e55539961d5e3, type: 2}

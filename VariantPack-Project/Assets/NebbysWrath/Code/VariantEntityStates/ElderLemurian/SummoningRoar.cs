@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using NW;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +83,16 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
             if ((bool)transform && VariantSpawnManager.instance)
             {
+                CharacterVariantDef bestDef = null;
+                if(characterBody.bodyIndex == RoR2Content.BodyPrefabs.LemurianBruiserBody.bodyIndex)
+                {
+                    bestDef = NWContent.CharacterVariants.GhostLemurian;
+                }
+                else if(characterBody.bodyIndex == CU8Content.BodyPrefabs.DevotedLemurianBruiserBody.bodyIndex)
+                {
+                    bestDef = NWContent.CharacterVariants.DevotedGhostLemurian;
+                }
+
                 DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(lemSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
@@ -98,7 +109,7 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
                     noGoldExpModifications = true,
                     deathRewardsCoefficient = 0,
                     noItemReward = true,
-                    variantDefs = Array.Empty<CharacterVariantDef>()
+                    variantDefs = bestDef ? new CharacterVariantDef[1] { bestDef } : Array.Empty<CharacterVariantDef>()
                 };
 
                 var lem = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
@@ -107,7 +118,8 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
                     var Inventory = lem.GetComponent<Inventory>();
                     if (Inventory)
                     {
-                        Inventory.GiveItemString("HealthDecay", 10);
+                        Inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay, 10);
+                        Inventory.GiveItemPermanent(RoR2Content.Items.Ghost);
                     }
                 }
             }

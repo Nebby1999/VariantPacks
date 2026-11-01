@@ -49,25 +49,18 @@ namespace NW.Components
         {
             SkillFamily skillFamily = NWContent.readOnlyContentPack.skillFamilies.Find("SummoningRoarFamily");
             SkillLocator locator = GetComponent<SkillLocator>();
-
+            gameObject.SetActive(false);
             GenericSkill specialSkill = locator.GetOrFindSkill(SkillSlot.Special, null);
             if(specialSkill == null)
             {
-                try
-                {
-                    specialSkill = gameObject.AddComponent<GenericSkill>();
-                    specialSkill._skillFamily = skillFamily;
-                }
-                catch(Exception e)
-                {
-
-                }
+                specialSkill = gameObject.AddComponent<GenericSkill>();
+                specialSkill._skillFamily = skillFamily;
             }
-            specialSkill.Awake();
             HG.ArrayUtils.ArrayAppend(ref locator.allSkills, specialSkill);
             locator.special = specialSkill;
             var esm = EntityStateMachine.FindByCustomName(gameObject, "Body");
             esm.SetNextState(EntityStateCatalog.InstantiateState(esm.initialStateType.stateType));
+            gameObject.SetActive(true);
         }
     }
 }

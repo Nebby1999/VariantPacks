@@ -24,6 +24,8 @@ namespace NW.Components.OnKill
                 return;
             }
 
+            CharacterVariantDef bestDef = characterBody.bodyIndex == RoR2Content.BodyPrefabs.LemurianBruiserBody.bodyIndex ? NWContent.CharacterVariants.GhostLemurian : characterBody.bodyIndex == CU8Content.BodyPrefabs.DevotedLemurianBruiserBody.bodyIndex ? NWContent.CharacterVariants.DevotedGhostLemurian : null;
+
             DeathRewards deathRewards = GetComponent<DeathRewards>();
             for(int i = 0; i < 3; i++)
             {
@@ -38,18 +40,19 @@ namespace NW.Components.OnKill
                     preSpawnSetupCallback = (mstr) =>
                     {
                         Util.CopyEliteStatus(characterBody.masterObject, mstr.gameObject, true);
-                        mstr.inventory.GiveItemPermanent(RoR2Content.Items.Ghost);
                     }
                 };
 
                 VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
                 {
-                    variantDefs = Array.Empty<CharacterVariantDef>(),
+                    variantDefs = bestDef ? new CharacterVariantDef[] { bestDef } : Array.Empty<CharacterVariantDef>(),
                     deathRewardsCoefficient = 1,
                     summonerDeathRewards = deathRewards,
                     noItemReward = true,
                     noGoldExpModifications = true,
                 };
+
+                masterSummon.Perform();
             }
         }
     }
