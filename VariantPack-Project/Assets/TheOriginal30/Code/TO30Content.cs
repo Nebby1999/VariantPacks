@@ -319,6 +319,7 @@ namespace TO30
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
             }
+
             foreach (var asset in elderLemurianCollection.asset.FindAssets<CharacterVariantDef>())
             {
                 var cloned = VariantCloning.CloneIntoDevotedLemurianBruiser(asset);

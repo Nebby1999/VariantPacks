@@ -101,6 +101,8 @@
     "NW_ELECTRIC_PREFIX": "Electric",
 
     "NW_PROTO_PREFIX": "Prototype",
-    "NW_OMICRON_PREFIX": "Omicron"
+    "NW_OMICRON_PREFIX": "Omicron",
+    
+    "NW_MEATBALLER_PREFIX" : "Lobber"
   }
 }

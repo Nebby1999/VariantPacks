@@ -49,6 +49,7 @@ namespace NW
             public static CharacterVariantDef MalfunctioningAWU;
             public static CharacterVariantDef MalfunctioningSCU;
             public static CharacterVariantDef MammaShroom;
+            public static CharacterVariantDef MeatballerLemurian;
             public static CharacterVariantDef MoltenWorm;
             public static CharacterVariantDef MortarCrab;
             public static CharacterVariantDef MothershipVagrant;
@@ -96,6 +97,10 @@ namespace NW
             public static CharacterVariantDef SomewhatArchaicWisp;
 
             //Ally
+            public static CharacterVariantDef DevotedGhostOfKjaro;
+            public static CharacterVariantDef DevotedGhostOfRunald;
+            public static CharacterVariantDef DevotedIncineratingElderLemurian;
+            public static CharacterVariantDef DevotedMeatballerLemurian;
             public static CharacterVariantDef EmpathyGreenGaussianProbe;
             public static CharacterVariantDef EmpathyGreenSolusProbeMK2;
             public static CharacterVariantDef EmpathyGreenSwarmerProbe;
@@ -104,10 +109,14 @@ namespace NW
             public static CharacterVariantDef EmpathyRedSwarmerProbe;
             public static CharacterVariantDef NucleusGammaConstruct;
 
+            //Polymorph
+            public static CharacterVariantDef PolymorphMeatballerLemurian;
+
             //Soul
             public static CharacterVariantDef SoulAlmostArchaicWisp;
             public static CharacterVariantDef SoulLeastestWisp;
             public static CharacterVariantDef SoulLesserStoneWisp;
+
         }
 
         public string identifier => NWMain.GUID;
@@ -262,6 +271,7 @@ namespace NW
         }
 
         private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
         private static List<CharacterVariantDef> _dependantSpawnSoulDefs = new List<CharacterVariantDef>();
 
         private IEnumerator PopulateVariantPack()
@@ -300,9 +310,19 @@ namespace NW
                     .DoConfigure();
             }
 
-            ConfiguredBool addAllyVariants = CreateConfiguredBoolForPackOption("Enable Ally Variants", "Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Flamethrower Devoted Lemurians for example.", b =>
+            ConfiguredBool addAllyVariants = CreateConfiguredBoolForPackOption("Enable Ally Variants", "Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Lobber Devoted Lemurians for example.", b =>
             {
                 foreach (var variantDef in _dependantSpawnAllyDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addLemurianPolymorphVariants = CreateConfiguredBoolForPackOption("Enable Polymorph Lemurian Variants", "Enables \"Polymorph Lemurian\" Variants. Starting the Polymoprh Lemurian quest may spawn you as a Lobber Lemurian for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnPolymorphDefs)
                 {
                     VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
                     condition.cannotSpawn = b == false;
@@ -322,6 +342,7 @@ namespace NW
 
             parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
+            parallelCoroutine.Add(AddLemurianPolymorphVariants(addLemurianPolymorphVariants));
             parallelCoroutine.Add(AddArtifactOfSoulWispVariants(addArtifactOfSoulWispVariants));
 
             while (!parallelCoroutine.isDone)
@@ -336,12 +357,16 @@ namespace NW
         {
             NWLog.Info($"Adding Ally Variants");
 
+            using var lemurianCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianVariants");
+            using var lemurianBruiserCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianBruiserVariants");
             using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
             using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeVariants");
 
             ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(alphaConstructCollection);
             parallelCoroutine.Add(solusProbeCollection);
+            parallelCoroutine.Add(lemurianCollection);
+            parallelCoroutine.Add(lemurianBruiserCollection);
 
             while (!parallelCoroutine.isDone)
             {
@@ -350,6 +375,7 @@ namespace NW
 
             ParallelCoroutine.ReturnToPool(parallelCoroutine);
 
+            //Minor Construct
             foreach (var asset in alphaConstructCollection.asset.FindAssets<CharacterVariantDef>())
             {
                 var cloned = VariantCloning.CloneIntoMinorConstructOnKill(asset);
@@ -408,8 +434,76 @@ namespace NW
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
             }
+
+            //Devoted Lemurians
+            foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoDevotedLemurian(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a DevotedLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Devoted Lemurian Bruisers
+            foreach (var asset in lemurianBruiserCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoDevotedLemurianBruiser(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a DevotedLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
         }
 
+        private static IEnumerator AddLemurianPolymorphVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Lemurian Polymorph Variants");
+
+            using var lemurianCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianVariants");
+
+            while (lemurianCollection.isComplete == false)
+                yield return null;
+
+            foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoLemurianPolymorph(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a PolymorphLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnPolymorphDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
         private static IEnumerator AddArtifactOfSoulWispVariants(bool canSpawn)
         {
             NWLog.Info($"Adding Artifact of Soul Wisp Variants");
