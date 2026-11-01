@@ -46,6 +46,18 @@ MonoBehaviour:
         _useDirectReference: 1
         _canLoadFromCatalog: 1
       count: 25
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 41f305b2b67e5ad4abf406b4113e6202
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 30
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 6cf6a91143b4c9b49ab061de0a45361a
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 10
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}
@@ -105,13 +117,13 @@ MonoBehaviour:
     - rid: 8453672705155661910
       type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        _healthMultiplier: 6
-        regenBonus: 0
+        _healthMultiplier: 2
+        regenBonus: 1
         _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 1
         _moveSpeedMultiplier: 1
         _attackSpeedMultiplier: 1.25
-        _damageMultiplier: 3
+        _damageMultiplier: 1.25
         armorBonus: 50
         _armorMultiplier: 1

@@ -214,9 +214,11 @@ namespace NW
 
             using var skillRequest = NWAssets.LoadAllAssetsAsync<SkillDef>();
             using var skillFamilyRequest = NWAssets.LoadAllAssetsAsync<SkillFamily>();
+            using var gameObjectRequest = NWAssets.LoadAllAssetsAsync<GameObject>();
 
             parallelCoroutine.Add(skillRequest);
             parallelCoroutine.Add(skillFamilyRequest);
+            parallelCoroutine.Add(gameObjectRequest);
 
             while(!parallelCoroutine.isDone)
             {
@@ -227,6 +229,11 @@ namespace NW
 
             _contentPack.skillDefs.Add(skillRequest.assets);
             _contentPack.skillFamilies.Add(skillFamilyRequest.assets);
+
+            foreach(var go in gameObjectRequest.assets)
+            {
+                ContentUtil.AddAssetToContentPack(go, _contentPack);
+            }
 
             Type[] allTypes = GetType().Assembly.GetTypes();
             List<Type> entityStateTypes = new List<Type>();
