@@ -94,7 +94,8 @@ namespace EntityStates.VagrantMonster.Weapon.Mothership
                     {
                         noGoldExpModifications = true,
                         noItemReward = true,
-                        variantDefs = Array.Empty<CharacterVariantDef>()
+                        variantDefs = null,
+                        supressArrivalMessage = true,
                     };
 
                     var jellyMasterObject = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);

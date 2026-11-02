@@ -86,7 +86,7 @@
     
     "NW_ARMORMELTERVERMIN_ARRIVAL": "A Corrosive vermin shows up...",
 
-    "NW_MOLTEN_PREFIX": "Molten",
+    "NW_HATCHLING_SUFFIX": "Hatchling",
 
     "NW_GOOP_OVERRIDE": "Goop",
     "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt...",
@@ -103,6 +103,8 @@
     "NW_PROTO_PREFIX": "Prototype",
     "NW_OMICRON_PREFIX": "Omicron",
     
-    "NW_MEATBALLER_PREFIX" : "Lobber"
+    "NW_MEATBALLER_PREFIX" : "Lobber",
+
+    "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth..."
   }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
-  m_Name: MoltenWorm
+  m_Name: HatchlingWorm
   m_EditorClassIdentifier: 
   targetBody:
     targetBody:
@@ -21,7 +21,7 @@ MonoBehaviour:
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   isHidden: 0
-  spawnRate: 2
+  spawnRate: 4
   arrivalToken: 
   spawnCondition:
     rid: 8453672705155661954
@@ -29,11 +29,11 @@ MonoBehaviour:
   inventoryDefinition:
     itemsToGrant:
     - itemDef:
-        _asset: {fileID: 0}
-        _address: b7677bcd0bfe5cd41b956b002d039248
-        _useDirectReference: 0
-        _canLoadFromCatalog: 0
-      count: 1
+        _asset: {fileID: 11400000, guid: 82e412205bd92f041a62e7ee7ebf7f87, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 1
+      count: 100
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
   variantNameProvider:
-    rid: 8453672705155661955
+    rid: 8121176549267341312
   deathStateOverride:
     deathStateOverride:
       _typeName: 
@@ -63,6 +63,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 8121176549267341312
+      type: {class: VariantNameSuffix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        suffixToken: NW_HATCHLING_SUFFIX
     - rid: 8453672705155661954
       type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
@@ -85,10 +89,6 @@ MonoBehaviour:
           _address: RoR2/DLC1/Common/DLC1.asset
           _useDirectReference: 0
           _canLoadFromCatalog: 1
-    - rid: 8453672705155661955
-      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        prefixToken: NW_MOLTEN_PREFIX
     - rid: 8453672705155661956
       type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
@@ -100,5 +100,5 @@ MonoBehaviour:
         _moveSpeedMultiplier: 1
         _attackSpeedMultiplier: 1
         _damageMultiplier: 0.5
-        armorBonus: 0
+        armorBonus: -30
         _armorMultiplier: 1

@@ -11,25 +11,38 @@ namespace NW.Components
     public class ShortenWorm : VariantComponent
     {
         public CharacterBody characterBody { get; private set; }
+        public WormBodyPositions2 positions2 { get; private set; }
 
         private void Awake()
         {
             characterBody = GetComponent<CharacterBody>();
+            positions2 = GetComponent<WormBodyPositions2>();
         }
 
         private void Start()
         {
-            if(characterBody && characterBody.TryGetComponent<WormBodyPositions2>(out var wurmPositions))
+            if(characterBody && positions2)
             {
-                ShortenWormLength(wurmPositions);
+                ShortenWormLength();
             }
         }
 
-        private void ShortenWormLength(WormBodyPositions2 wormPositions)
+        private void ShortenWormLength()
         {
-            for(int i = 0; i < wormPositions.segmentLengths.Length; i++)
+            for(int i = 0; i < positions2.segmentLengths.Length; i++)
             {
-                wormPositions.segmentLengths[i] /= 2f;
+                positions2.segmentLengths[i] /= 1.5f;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (positions2)
+            {
+                for(int i = 0; i < positions2.segmentLengths.Length; i++)
+                {
+                    positions2.segmentLengths[i] *= 1.5f;
+                }
             }
         }
     }

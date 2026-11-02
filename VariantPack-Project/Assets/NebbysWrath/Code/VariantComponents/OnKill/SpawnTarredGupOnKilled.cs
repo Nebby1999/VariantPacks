@@ -87,13 +87,6 @@ namespace NW.Components.OnKill
                 variantDefs = variantDefs
             };
 
-            var splitter = new BodySplitter
-            {
-                body = characterBody,
-                moneyMultiplier = 0.5f,
-                count = 2
-            };
-
             variantMasterSummon.onSummonPerformed += (rprt) =>
             {
                 var body = rprt.masterSummonReport.summonBodyInstance;
@@ -104,8 +97,7 @@ namespace NW.Components.OnKill
                 }
             };
 
-            splitter.masterSummon = masterSummon;
-            splitter.Perform();
+            masterSummon.Perform();
         }
 
 

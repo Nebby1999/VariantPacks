@@ -57,7 +57,7 @@ MonoBehaviour:
       _typeName: 
   skillReplacements: []
   statModifier:
-    rid: 8453672705155661962
+    rid: 8121176537124831234
   variantBuffs:
     buffInfos: []
   visualModifier: {fileID: 0}
@@ -69,20 +69,21 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8453672705155661961
-      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        prefixToken: NW_MAMMA_PREFIX
-    - rid: 8453672705155661962
-      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+    - rid: 8121176537124831234
+      type: {class: StatModifierWithRoot, ns: NW, asm: NebbysWrath}
       data:
         _healthMultiplier: 1.5
         regenBonus: 0
         _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 0
-        _moveSpeedMultiplier: 0
+        _moveSpeedMultiplier: 0.1
         _attackSpeedMultiplier: 1
         _damageMultiplier: 2
         armorBonus: -50
         _armorMultiplier: 1
+        rootBonus: 1
+    - rid: 8453672705155661961
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_MAMMA_PREFIX

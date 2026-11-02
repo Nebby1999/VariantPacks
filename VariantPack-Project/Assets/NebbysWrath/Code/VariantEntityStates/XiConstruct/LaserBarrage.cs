@@ -14,7 +14,7 @@ namespace EntityStates.MegaConstruct.Omicron
         private static float _duration;
         private static bool _obtainedOrigs;
 
-        private static float _baseTimeBetweenLasers = 0.5f;
+        private static float _baseTimeBetweenLasers = 0.25f;
         private static float _baseDurationUntilFullSpeed;
         private static float _fullSpeedMultiplier = 2;
 
@@ -90,7 +90,7 @@ namespace EntityStates.MegaConstruct.Omicron
                 FireProjectileInfo info = new FireProjectileInfo
                 {
                     crit = RollCrit(),
-                    damage = damageStat,
+                    damage = damageStat * 0.5f,
                     damageColorIndex = DamageColorIndex.Default,
                     force = 30,
                     owner = gameObject,

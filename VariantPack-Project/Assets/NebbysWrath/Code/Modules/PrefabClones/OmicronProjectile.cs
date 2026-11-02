@@ -48,6 +48,18 @@ namespace NW.PrefabClones
             omicronProjectile = PrefabAPI.InstantiateClone(projectileRequest.Result, "OmicronLaser", true);
             omicronProjectile.AddComponent<ClonedPrefabBehaviour>();
 
+            if(omicronProjectile.TryGetComponent<ProjectileSteerTowardTarget>(out var steer))
+            {
+                steer.rotationSpeed *= 2;
+            }
+
+            if(omicronProjectile.TryGetComponent<ProjectileDirectionalTargetFinder>(out var targetfinder))
+            {
+                targetfinder.lookRange = 100;
+                targetfinder.targetSearchInterval = 0.1f;
+                targetfinder.sortMode = RoR2.BullseyeSearch.SortMode.Distance;
+            }
+
             var controller = omicronProjectile.GetComponent<ProjectileController>();
             controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
             var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "OmicronLaserGhost");

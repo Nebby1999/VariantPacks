@@ -27,6 +27,7 @@ namespace NW
             public static CharacterVariantDef AncientAurelionite;
             public static CharacterVariantDef AncientStoneTitan;
             public static CharacterVariantDef AncientStoneWisp;
+            public static CharacterVariantDef AncientWorm;
             public static CharacterVariantDef BeetleEmpress;
             public static CharacterVariantDef BeetleMatriarch;
             public static CharacterVariantDef BerserkerOverlord;
@@ -41,6 +42,7 @@ namespace NW
             public static CharacterVariantDef GhostOfRunald;
             public static CharacterVariantDef GreatGrandParent;
             public static CharacterVariantDef GreaterStoneWisp;
+            public static CharacterVariantDef HatchlingWorm;
             public static CharacterVariantDef HealerShroom;
             public static CharacterVariantDef IchorImp;
             public static CharacterVariantDef IchorOverlord;
@@ -51,11 +53,11 @@ namespace NW
             public static CharacterVariantDef MalfunctioningSCU;
             public static CharacterVariantDef MammaShroom;
             public static CharacterVariantDef MeatballerLemurian;
-            public static CharacterVariantDef MoltenWorm;
             public static CharacterVariantDef MortarCrab;
             public static CharacterVariantDef MothershipVagrant;
             public static CharacterVariantDef OverflowingDunestrider;
             public static CharacterVariantDef OverflowingTemplar;
+            public static CharacterVariantDef OverloadingAncientWorm;
             public static CharacterVariantDef PygmyAurelionite;
             public static CharacterVariantDef SolusProbeMK2;
             public static CharacterVariantDef SomewhatGreatWisp;
@@ -290,11 +292,13 @@ namespace NW
 
             using var variantDefsRequest = NWAssets.LoadAllAssetsAsync<CharacterVariantDef>();
             using var spriteRequest = NWAssets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
+            using var magmaWormCollection = NWAssets.LoadAssetAsync<AssetCollection>("acMagmaWormVariants");
 
             var parallelCoroutine = ParallelCoroutine.RequestFromPool();
 
             parallelCoroutine.Add(variantDefsRequest);
             parallelCoroutine.Add(spriteRequest);
+            parallelCoroutine.Add(magmaWormCollection);
 
             while (!parallelCoroutine.isDone)
             {
@@ -305,6 +309,19 @@ namespace NW
 
             _variantPack = new VariantPack(NWMain.GUID, "NW_VARIANTPACK_NAME", "NW_VARIANPACK_TOOLTIP", "NW_VARIANTPACK_DESC", spriteRequest.asset, NWMain.instance, NWMain.instance.Config, NWMain.instance.Config);
             _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
+
+            //Create the overloading worm variants, make them configurable and independent
+            foreach(var magmaWormVariant in magmaWormCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoOverloadingWorm(magmaWormVariant, false, false);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {magmaWormVariant} into an OverloadingWorm clone.");
+                    continue;
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
 
 
             ConfiguredBool CreateConfiguredBoolForPackOption(string key, string desc, ConfiguredVariable<bool>.OnConfigChangedDelegate onConfigChanged)

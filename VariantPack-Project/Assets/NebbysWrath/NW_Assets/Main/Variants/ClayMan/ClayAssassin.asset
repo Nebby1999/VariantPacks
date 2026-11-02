@@ -61,7 +61,7 @@ MonoBehaviour:
         rid: -2
     - buffDef:
         _asset: {fileID: 0}
-        _address: 241e8b3bc7780a84c80f09f9e4e057e0
+        _address: f8ae3093de860bd4a84d1987b1a41b3d
         _useDirectReference: 0
         _canLoadFromCatalog: 0
       count: 1
