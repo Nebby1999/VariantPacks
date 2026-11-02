@@ -37,6 +37,6 @@ MonoBehaviour:
     transformPath: 
     childLocatorEntry: MuzzleMouth
     useChildLocatorEntry: 1
-    localPosition: {x: 0, y: 4.9, z: -1}
+    localPosition: {x: 0.1, y: -2.3981, z: 2.62}
     localRotation: {x: -84, y: -12, z: -80}
     localScale: {x: 0.25, y: 0.25, z: 0.25}

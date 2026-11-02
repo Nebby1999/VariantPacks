@@ -281,6 +281,7 @@ namespace NW
 
         private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
         private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnAWUDefs = new List<CharacterVariantDef>();
         private static List<CharacterVariantDef> _dependantSpawnSoulDefs = new List<CharacterVariantDef>();
 
         private IEnumerator PopulateVariantPack()
@@ -349,10 +350,21 @@ namespace NW
                 }
             });
 
+            ConfiguredBool addAWUVariants = CreateConfiguredBoolForPackOption("Enable Alloy Worship Unit Variants", "Enables \"Alloy Worship Unit\" Variants. Fighting the Alloy Worship Unit may spawn a Malfunctioning Alloy Worship Unit for example.", b =>
+            {
+                foreach (var variantDef in _dependantSpawnAWUDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
             parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
             parallelCoroutine.Add(AddLemurianPolymorphVariants(addLemurianPolymorphVariants));
             parallelCoroutine.Add(AddArtifactOfSoulWispVariants(addArtifactOfSoulWispVariants));
+            parallelCoroutine.Add(AddSuperRoboBallBossVariants(addAWUVariants));
 
             while (!parallelCoroutine.isDone)
             {
@@ -542,6 +554,37 @@ namespace NW
                     dependantCondition.cannotSpawn = canSpawn == false;
                     cloned.spawnCondition = dependantCondition;
                     _dependantSpawnSoulDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddSuperRoboBallBossVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Alloy Worship Unit Variants");
+
+            using var lesserWispCollection = NWAssets.LoadAssetAsync<AssetCollection>("acRoboBallBossVariants");
+
+            while (!lesserWispCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in lesserWispCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoSuperRoboBallBoss(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into an Alloy Worship Unit clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAWUDefs.Add(cloned);
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
