@@ -60,6 +60,7 @@ namespace NW
             public static CharacterVariantDef OverflowingTemplar;
             public static CharacterVariantDef OverloadingAncientWorm;
             public static CharacterVariantDef OverloadingHatchlingWorm;
+            public static CharacterVariantDef Pinky;
             public static CharacterVariantDef PygmyAurelionite;
             public static CharacterVariantDef SolusProbeMK2;
             public static CharacterVariantDef SomewhatGreatWisp;
@@ -410,7 +411,7 @@ namespace NW
             using var lemurianBruiserCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianBruiserVariants");
             using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
             using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeVariants");
-            using var nullifierCollection = NWAssets.LoadAssetAsync<AssetCollection>("acNullifierVariants")
+            using var nullifierCollection = NWAssets.LoadAssetAsync<AssetCollection>("acNullifierVariants");
 
             ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(alphaConstructCollection);

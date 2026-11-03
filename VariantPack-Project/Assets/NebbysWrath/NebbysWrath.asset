@@ -115,7 +115,6 @@ MonoBehaviour:
   includeMetaFiles: 0
   files:
   - {fileID: 102900000, guid: 7dc0a75988ca9264daf7839669817a36, type: 3}
-  - {fileID: 102900000, guid: c9d4c06a87947c14ba80be08a5fb76d4, type: 3}
 --- !u!114 &8324102109481770816
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -227,7 +227,7 @@ namespace EntityStates.DefectiveUnit.EvilBuddy
         {
             Ray aimRay = GetAimRay();
             search.teamMaskFilter = TeamMask.all;
-            search.teamMaskFilter.RemoveTeam(base.teamComponent.teamIndex);
+            search.teamMaskFilter.RemoveTeam(teamComponent.teamIndex);
             search.filterByLoS = true;
             search.searchOrigin = aimRay.origin;
             search.searchDirection = aimRay.direction;

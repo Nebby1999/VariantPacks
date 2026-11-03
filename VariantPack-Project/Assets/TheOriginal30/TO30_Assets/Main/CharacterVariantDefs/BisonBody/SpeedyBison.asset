@@ -21,7 +21,7 @@ MonoBehaviour:
   variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   isHidden: 0
-  spawnRate: 30
+  spawnRate: 15
   arrivalToken: 
   spawnCondition:
     rid: -2
@@ -69,7 +69,7 @@ MonoBehaviour:
         _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 1
-        _moveSpeedMultiplier: 4
+        _moveSpeedMultiplier: 2
         _attackSpeedMultiplier: 1
         _damageMultiplier: 1
         armorBonus: 0

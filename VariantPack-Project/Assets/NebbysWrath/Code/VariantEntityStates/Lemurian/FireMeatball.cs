@@ -86,7 +86,7 @@ namespace EntityStates.LemurianMonster.Meatballer
                 SpitMeatball(muzzleName);
                 if(_isBadass)
                 {
-                    MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, 1.2f * damageStat, RollCrit(), missleProjectilePrefab, DamageColorIndex.DeathMark, false);
+                    MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, damageStat, RollCrit(), missleProjectilePrefab, DamageColorIndex.DeathMark, false);
                 }
             }
         }

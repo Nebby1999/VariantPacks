@@ -163,10 +163,11 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 if (flamethrowerStopwatch > num)
                 {
                     flamethrowerStopwatch -= num;
+                    TO30Log.Warning("FlamethrowerTick");
                     FireGauntlet("MuzzleMouth");
                     if (isBadass)
                     {
-                        MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, 1.2f * damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
+                        MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, damageStat * 0.1f , RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
                     }
                 }
                 UpdateFlamethrowerEffect();

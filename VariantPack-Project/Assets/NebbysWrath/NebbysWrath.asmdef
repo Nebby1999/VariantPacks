@@ -46,7 +46,8 @@
         "Mono.Cecil.Mdb.dll",
         "Mono.Cecil.Pdb.dll",
         "AncientWisp.dll",
-        "ArchaicWisp.dll"
+        "ArchaicWisp.dll",
+        "Grumpy.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

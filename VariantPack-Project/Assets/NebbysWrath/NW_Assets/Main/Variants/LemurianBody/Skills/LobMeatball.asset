@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LobMeatball
   m_EditorClassIdentifier: 
   skillName: LobMeatball
-  skillNameToken: 
-  skillDescriptionToken: 
+  skillNameToken: NW_LEMURIAN_MEATBALL_NAME
+  skillDescriptionToken: NW_LEMURIAN_MEATBALL_DESC
   keywordTokens: []
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a57ef7b522469f44fb39fde38b2d8615, type: 3}
   activationStateMachineName: Weapon
   activationState:
     _typeName: EntityStates.LemurianMonster.Meatballer.ChargeMeatball, NebbysWrath,

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 1229136950, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: acNullifierVariants
   m_EditorClassIdentifier: 
-  assets: []
+  assets:
+  - {fileID: 11400000, guid: 0d6a24ae89fe88f49853fc2ef5fd0dba, type: 2}

@@ -43,7 +43,7 @@ namespace EntityStates.LemurianMonster.Badass
             {
                 ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, force, RollCrit());
 
-                MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, 1.2f * damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
+                MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);
             }
         }
 
