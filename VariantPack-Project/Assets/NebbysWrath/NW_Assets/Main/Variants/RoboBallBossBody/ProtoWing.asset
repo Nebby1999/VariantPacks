@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: ProtoWing
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 7e94f25ac4fe3df4fb1846103b839709
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 1
+  arrivalToken: NW_PROTOWING_ARRIVAL
+  spawnCondition:
+    rid: 8121176582070206468
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8121176582070206469
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 30778a98ed696a249a52c748221ed87d, type: 2}
+    slot: 2
+    slotName: 
+  statModifier:
+    rid: 8121176582070206470
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 296666e15ec39404eb145bb02b3c1275, type: 2}
+  scaleMultiplier: 1.25
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8121176582070206468
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: -1
+        _stages:
+          Value: 0
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: 234e83997deed274291470be69e7662e
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
+    - rid: 8121176582070206469
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_PROTOWING_PREFIX
+    - rid: 8121176582070206470
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1.25
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1.2
+        armorBonus: 50
+        _armorMultiplier: 1

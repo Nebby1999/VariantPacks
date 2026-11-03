@@ -1,10 +1,12 @@
 using RoR2;
 using RoR2.CharacterAI;
 using System.Collections.Generic;
+using UnityEngine;
 using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterMaster, useOnClient = false, useOnServer = true)]
     public sealed class AncientWormModifyAI : VariantComponent
     {

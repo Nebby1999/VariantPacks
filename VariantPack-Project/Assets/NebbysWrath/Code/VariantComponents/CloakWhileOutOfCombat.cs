@@ -1,8 +1,10 @@
 using RoR2;
+using UnityEngine;
 using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnServer = true)]
     public class CloakWhileOutOfCombat : VariantComponent
     {

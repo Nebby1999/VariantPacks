@@ -10,29 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: DeploySwarm
+  m_Name: RollerSpawn
   m_EditorClassIdentifier: 
   skillName: 
   skillNameToken: 
   skillDescriptionToken: 
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: Weapon
+  activationStateMachineName: Body
   activationState:
-    _typeName: EntityStates.RoboBallBoss.Weapon.Swarming.DeploySwarm, NebbysWrath,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  interruptPriority: 0
-  baseRechargeInterval: 15
+    _typeName: EntityStates.MinePod.Roller.RollerPlant, NebbysWrath, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interruptPriority: 1
+  baseRechargeInterval: 8
   baseMaxStock: 1
   rechargeStock: 1
   requiredStock: 1
   stockToConsume: 1
+  attackSpeedBuffsRestockSpeed: 0
+  attackSpeedBuffsRestockSpeed_Multiplier: 1
   resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 0
+  isCooldownBlockedUntilManuallyReset: 0
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0
   isCombatSkill: 1
   mustKeyPress: 0
+  triggeredByPressRelease: 0
+  autoHandleLuminousShot: 1
+  suppressSkillActivation: 0
+  hideStockCount: 0
+  hideCooldown: 0

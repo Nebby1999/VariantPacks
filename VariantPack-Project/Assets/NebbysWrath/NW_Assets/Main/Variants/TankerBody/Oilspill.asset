@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: Oilspill
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 83e832bf55deb4f4394648366c672574
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 10
+  arrivalToken: 
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 11400000, guid: bbba328ed1a9e2b47ac823fb207c9105, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 0
+      count: 100
+    - itemDef:
+        _asset: {fileID: 11400000, guid: d7a243d34a599044ca350306f37d1119, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 0
+      count: 2
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: -2
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 0}
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8121176582070206474
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 0}
+  scaleMultiplier: 0.9
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8121176582070206474
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1.5
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1.2
+        _attackSpeedMultiplier: 1.2
+        _damageMultiplier: 1
+        armorBonus: -10
+        _armorMultiplier: 1

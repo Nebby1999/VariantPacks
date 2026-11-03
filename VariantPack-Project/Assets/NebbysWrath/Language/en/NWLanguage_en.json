@@ -59,6 +59,7 @@
     "NW_SCRAPYARD_PREFIX": "Scrapyard",
     "NW_KAMIKAZE_PREFIX": "Kamikaze",
     "NW_PINKY_PREFIX": "Pinky",
+    "NW_PROTOWING_PREFIX": "Prototype-Wing",
     "NW_EMPRESS_SUFFIX": "Imperatrix",
     "NW_SOLDIER_SUFFIX": "Soldier",
     "NW_HATCHLING_SUFFIX": "Hatchling",
@@ -82,7 +83,8 @@
     "NW_COLLAPSEDCHILD_ARRIVAL": "A child of the Void appears...",
     "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth...",
     "NW_EVILBUDDY_ARRIVAL": "???: \"0022; I HATE YOU >:C\"",
-    "NW_PINKY_ARRIVAL": "A \"Pinky\" shows up",
+    "NW_PINKY_ARRIVAL": "A \"Pinky\" shows up...",
+    "NW_PROTOWING_ARRIVAL": "A Prototype Wing Unit has been deployed...",
     
     "NW_LEMURIAN_MEATBALL_NAME": "Spit Fire Bomb",
     "NW_LEMURIAN_MEATBALL_DESC": "Spit an arcing fire bomb that deals <style=cIsDamage>100% Damage</style>. The fire bomb leaves a sphere of flames that deals <style=cIsDamage>13x11% Damage</style> over 3 seconds.\r\nIf you're <style=cIsHealth>Badass</style>, additionally fire a Missile that deals <style=cIsDamage>100% Damage</style>."

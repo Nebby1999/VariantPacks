@@ -5,6 +5,7 @@ using VAPI;
 
 namespace NW.Components.OnKill
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class InventoryDisableBlastOnKill : VariantComponent, IOnKilledServerReceiver, IOnDamageDealtServerReceiver
     {

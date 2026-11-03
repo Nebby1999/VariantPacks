@@ -21,7 +21,7 @@ MonoBehaviour:
   variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
   isUnique: 0
   isHidden: 0
-  spawnRate: 100
+  spawnRate: 25
   arrivalToken: 
   spawnCondition:
     rid: -2

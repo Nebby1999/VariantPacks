@@ -9,6 +9,7 @@ using VAPI;
 
 namespace NW.Components.OnHit
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class NullifyingMineOnHitHandler : VariantComponent, IOnDamageDealtServerReceiver
     {

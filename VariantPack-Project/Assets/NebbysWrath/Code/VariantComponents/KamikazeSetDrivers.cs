@@ -5,6 +5,7 @@ using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterMaster, useOnServer = true)]
     public sealed class KamikazeSetDrivers : VariantComponent
     {

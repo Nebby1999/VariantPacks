@@ -10,30 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
-  m_Name: SwarmingSCU
+  m_Name: MalfunctioningAmalgamator
   m_EditorClassIdentifier: 
   targetBody:
     targetBody:
       _asset: {fileID: 0}
-      _address: 7e94f25ac4fe3df4fb1846103b839709
+      _address: c45c2e459d145c94d8223f438eec62ec
       _useDirectReference: 0
       _canLoadFromCatalog: 0
-  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
+  variantTier: {fileID: 11400000, guid: 14c3c3b6ccba08248b4a1f3558cb9bbb, type: 2}
   isUnique: 0
   isHidden: 0
-  spawnRate: 2
+  spawnRate: 4
   arrivalToken: 
   spawnCondition:
     rid: -2
-  masterModifiers: []
+  masterModifiers:
+  - rid: 8453672705155661970
   inventoryDefinition:
-    itemsToGrant:
-    - itemDef:
-        _asset: {fileID: 11400000, guid: 19ee59a8501fc444e963ca3df41d40ba, type: 2}
-        _address: 
-        _useDirectReference: 1
-        _canLoadFromCatalog: 1
-      count: 25
+    itemsToGrant: []
     equipmentInfo:
       equipmentDef:
         _asset: {fileID: 0}
@@ -45,20 +40,17 @@ MonoBehaviour:
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
   variantNameProvider:
-    rid: 8453672705155661973
+    rid: 8453672705155661971
   deathStateOverride:
     deathStateOverride:
       _typeName: 
-  skillReplacements:
-  - skillDef: {fileID: 11400000, guid: 30778a98ed696a249a52c748221ed87d, type: 2}
-    slot: 2
-    slotName: 
+  skillReplacements: []
   statModifier:
-    rid: 8453672705155661974
+    rid: 8453672705155661972
   variantBuffs:
     buffInfos: []
   visualModifier: {fileID: 0}
-  scaleMultiplier: 0.5
+  scaleMultiplier: 1
   additionalVariantComponents:
     variantComponents: []
   references:
@@ -66,20 +58,27 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8453672705155661973
+    - rid: 8453672705155661970
+      type: {class: UnstableAIModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minTargetHealthFractionOverride: -Infinity
+        maxTargetHealthFractionOverride: Infinity
+        minUserHealthFractionOverride: -Infinity
+        maxUserHealthFractionOverride: Infinity
+    - rid: 8453672705155661971
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        prefixToken: NW_SWARMING_PREFIX
-    - rid: 8453672705155661974
+        prefixToken: NW_MALFUNCTIONING_PREFIX
+    - rid: 8453672705155661972
       type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        _healthMultiplier: 0.5
+        _healthMultiplier: 1
         regenBonus: 0
         _regenMultiplier: 1
         shieldBonus: 0
         _shieldMultiplier: 1
-        _moveSpeedMultiplier: 3
-        _attackSpeedMultiplier: 3
-        _damageMultiplier: 0.5
-        armorBonus: 0
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: -30
         _armorMultiplier: 1

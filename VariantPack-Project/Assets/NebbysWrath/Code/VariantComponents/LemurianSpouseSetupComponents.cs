@@ -42,6 +42,7 @@ namespace NW.Components
         }
     }
 
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnServer = true, useOnClient = true)]
     public class SetupLemurianSpouseGenericSkill : VariantComponent
     {

@@ -1,3 +1,6 @@
+using EntityStates.RoboBallBoss.Weapon;
+using Mono.Cecil.Cil;
+using MonoMod.Cil;
 using RoR2;
 using System;
 using UnityEngine;
@@ -15,6 +18,38 @@ namespace NW
             On.EntityStates.ExtractorUnit.ExtractLunge.OnStealBegin += Klepto_DontChangeState;
             On.RoR2.HealthComponent.TakeDamageProcess += Pinky_DamageModifier;
             On.EntityStates.SolusWing.GlitchState.ResetGlitch += Glitched_ForeverGlitch;
+            IL.EntityStates.RoboBallBoss.Weapon.DeployMinions.SummonMinion += Swarmer_DeploySwarmProbes;
+        }
+
+        private static void Swarmer_DeploySwarmProbes(MonoMod.Cil.ILContext il)
+        {
+            DirectorSpawnRequest TurnIntoSwarmerProbe(DirectorSpawnRequest toReturn, DeployMinions deployMinionsStateInstance)
+            {
+                if(deployMinionsStateInstance.TryGetComponent<CharacterBodyVariantController>(out var variantController))
+                {
+                    bool isSwarmer = variantController.IsVariantApplied(NWContent.CharacterVariants.SwarmingSCU) || variantController.IsVariantApplied(NWContent.CharacterVariants.AWUSwarmingSCU);
+                    VariantDirectorSpawnRequest variantDirectorSpawnRequest = new VariantDirectorSpawnRequest(toReturn)
+                    {
+                        noItemReward = true,
+                        noGoldExpModifications = true,
+                        supressArrivalMessage = true,
+                        variantDefs = isSwarmer ? new CharacterVariantDef[] { NWContent.CharacterVariants.SwarmerProbe } : null
+                    };
+                }
+                return toReturn;
+            }
+            ILCursor cursor = new ILCursor(il);
+
+            bool matchTrySpawnObject = cursor.TryGotoNext(MoveType.Before, x => x.MatchCallOrCallvirt<DirectorCore>(nameof(DirectorCore.TrySpawnObject)));
+
+            if(!matchTrySpawnObject)
+            {
+                NWLog.Fatal($"Failed to hook EntityStates.RoboBallBoss.Weapon.DeployMinions.SummonMinion(). Swarming SCU will not spawn exclusively Swarmer Probes!");
+                return;
+            }
+
+            cursor.Emit(OpCodes.Ldarg_0);
+            cursor.EmitDelegate<Func<DirectorSpawnRequest, DeployMinions, DirectorSpawnRequest>>(TurnIntoSwarmerProbe);
         }
 
         private static void Glitched_ForeverGlitch(On.EntityStates.SolusWing.GlitchState.orig_ResetGlitch orig, EntityStates.SolusWing.GlitchState self)

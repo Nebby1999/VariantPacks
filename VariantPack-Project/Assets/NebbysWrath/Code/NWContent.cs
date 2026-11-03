@@ -29,6 +29,7 @@ namespace NW
             public static CharacterVariantDef AncientStoneWisp;
             public static CharacterVariantDef AncientWorm;
             public static CharacterVariantDef AWUMalfunctioningSCU;
+            public static CharacterVariantDef AWUProtoWing;
             public static CharacterVariantDef AWUSwarmingSCU;
             public static CharacterVariantDef BeetleEmpress;
             public static CharacterVariantDef BeetleMatriarch;
@@ -61,6 +62,7 @@ namespace NW
             public static CharacterVariantDef OverloadingAncientWorm;
             public static CharacterVariantDef OverloadingHatchlingWorm;
             public static CharacterVariantDef Pinky;
+            public static CharacterVariantDef ProtoWing;
             public static CharacterVariantDef PygmyAurelionite;
             public static CharacterVariantDef SolusProbeMK2;
             public static CharacterVariantDef SomewhatGreatWisp;
@@ -98,7 +100,9 @@ namespace NW
             public static CharacterVariantDef GlitchedWing;
             public static CharacterVariantDef InvalidatingMine;
             public static CharacterVariantDef KleptomaniacExtractor;
+            public static CharacterVariantDef MalfunctioningAmalgamator;
             public static CharacterVariantDef NullifyingMine;
+            public static CharacterVariantDef Oilspill;
             public static CharacterVariantDef ScrapyardHunter;
 
             //Mods

@@ -7,6 +7,7 @@ using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterMaster, useOnClient = false, useOnServer = true)]
     public sealed class EvilBuddyMasterModifier : VariantComponent
     {
@@ -50,6 +51,7 @@ namespace NW.Components
             }
         }
     }
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = true, useOnServer  = true)]
     public sealed class EvilBuddyBodyModifier : VariantComponent
     {

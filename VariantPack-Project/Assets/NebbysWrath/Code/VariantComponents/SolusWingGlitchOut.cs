@@ -1,8 +1,10 @@
 using RoR2;
+using UnityEngine;
 using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = true, useOnServer = true)]
     public class SolusWingGlitchOut : VariantComponent
     {
