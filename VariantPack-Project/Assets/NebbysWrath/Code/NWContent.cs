@@ -28,6 +28,8 @@ namespace NW
             public static CharacterVariantDef AncientStoneTitan;
             public static CharacterVariantDef AncientStoneWisp;
             public static CharacterVariantDef AncientWorm;
+            public static CharacterVariantDef AWUMalfunctioningSCU;
+            public static CharacterVariantDef AWUSwarmingSCU;
             public static CharacterVariantDef BeetleEmpress;
             public static CharacterVariantDef BeetleMatriarch;
             public static CharacterVariantDef BerserkerOverlord;
@@ -49,7 +51,6 @@ namespace NW
             public static CharacterVariantDef IncineratingElderLemurian;
             public static CharacterVariantDef LeastestWisp;
             public static CharacterVariantDef LesserStoneWisp;
-            public static CharacterVariantDef MalfunctioningAWU;
             public static CharacterVariantDef MalfunctioningSCU;
             public static CharacterVariantDef MammaShroom;
             public static CharacterVariantDef MeatballerLemurian;
@@ -58,13 +59,13 @@ namespace NW
             public static CharacterVariantDef OverflowingDunestrider;
             public static CharacterVariantDef OverflowingTemplar;
             public static CharacterVariantDef OverloadingAncientWorm;
+            public static CharacterVariantDef OverloadingHatchlingWorm;
             public static CharacterVariantDef PygmyAurelionite;
             public static CharacterVariantDef SolusProbeMK2;
             public static CharacterVariantDef SomewhatGreatWisp;
             public static CharacterVariantDef StarvingDunestrider;
             public static CharacterVariantDef SteelContraption;
             public static CharacterVariantDef SwarmerProbe;
-            public static CharacterVariantDef SwarmingAWU;
             public static CharacterVariantDef SwarmingSCU;
             public static CharacterVariantDef VampiricTemplar;
 
@@ -89,6 +90,15 @@ namespace NW
             public static CharacterVariantDef DenseChild;
             public static CharacterVariantDef ElectricWurm;
 
+            //DLC3
+            public static CharacterVariantDef CloakedExtractor;
+            public static CharacterVariantDef DeffectiveSlammer;
+            public static CharacterVariantDef EvilBuddy;
+            public static CharacterVariantDef InvalidatingMine;
+            public static CharacterVariantDef KleptomaniacExtractor;
+            public static CharacterVariantDef NullifyingMine;
+            public static CharacterVariantDef ScrapyardHunter;
+
             //Mods
             public static CharacterVariantDef AeonicWisp;
             public static CharacterVariantDef ArchaicStoneWisp;
@@ -111,6 +121,7 @@ namespace NW
             public static CharacterVariantDef EmpathyRedGaussianProbe;
             public static CharacterVariantDef EmpathyRedSolusProbeMK2;
             public static CharacterVariantDef EmpathyRedSwarmerProbe;
+            public static CharacterVariantDef KamikazeReaver;
             public static CharacterVariantDef NucleusGammaConstruct;
 
             //Polymorph
@@ -399,12 +410,14 @@ namespace NW
             using var lemurianBruiserCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianBruiserVariants");
             using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
             using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeVariants");
+            using var nullifierCollection = NWAssets.LoadAssetAsync<AssetCollection>("acNullifierVariants")
 
             ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
             parallelCoroutine.Add(alphaConstructCollection);
             parallelCoroutine.Add(solusProbeCollection);
             parallelCoroutine.Add(lemurianCollection);
             parallelCoroutine.Add(lemurianBruiserCollection);
+            parallelCoroutine.Add(nullifierCollection);
 
             while (!parallelCoroutine.isDone)
             {
@@ -504,6 +517,26 @@ namespace NW
                 }
 
                 if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Zoea Nullifiers
+            foreach (var asset in nullifierCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoNullifierAlly(asset);
+                if(!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a ZoeaNullifier clone.");
+                    continue;
+                }
+
+                if(cloned.spawnCondition is VariantDependantCondition dependantCondition)
                 {
                     dependantCondition.cannotSpawn = canSpawn == false;
                     cloned.spawnCondition = dependantCondition;

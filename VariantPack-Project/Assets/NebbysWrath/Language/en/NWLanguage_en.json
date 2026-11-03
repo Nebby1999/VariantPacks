@@ -108,7 +108,14 @@
     "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth...",
 
     "NW_EVILBUDDY_ARRIVAL": "???: \"0022; I HATE YOU >:C\"",
+    "NW_ABANDONED_OVERRIDE": "Abandoned Core",
+    "NW_SLAMMER_PREFIX": "Slammer",
 
-    "NW_ABANDONED_OVERRIDE": "Abandoned Core"
+    "NW_KLEPTOMANIAC_PREFIX": "Kleptomaniac",
+    "NW_CLOAKED_PREFIX": "Cloaked",
+
+    "NW_SCRAPYARD_PREFIX": "Scrapyard",
+
+    "NW_KAMIKAZE_PREFIX": "Kamikaze"
   }
 }
