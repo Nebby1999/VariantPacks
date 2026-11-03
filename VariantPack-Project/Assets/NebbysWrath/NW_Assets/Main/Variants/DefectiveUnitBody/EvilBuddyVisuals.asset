@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
+  m_Name: EvilBuddyVisuals
+  m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  materialReplacements:
+  - transformPath: 
+    rendererIndex: 0
+    useIndex: 1
+    replacement: {fileID: 2100000, guid: 02521c69f1904aa4b80d45e90cc6e919, type: 2}
+  - transformPath: 
+    rendererIndex: 1
+    useIndex: 1
+    replacement: {fileID: 4633049340277315190, guid: 0af5ac3ef037c12429d81c1c041a95f0,
+      type: 2}
+  meshReplacements: []
+  lightReplacements:
+  - transformPath: 
+    lightIndex: 0
+    useIndex: 1
+    lightColor: {r: 1, g: 0, b: 0, a: 1}
+  prefabInstantiationDatas:
+  - prefabDirectReference: {fileID: 3814459836916608754, guid: 8ea0b3792497c6b448b7ad61471dae1e,
+      type: 3}
+    prefabAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+    transformPath: 
+    childLocatorEntry: Muzzle
+    useChildLocatorEntry: 1
+    localPosition: {x: 0, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: -90}
+    localScale: {x: 2, y: 2, z: 2}

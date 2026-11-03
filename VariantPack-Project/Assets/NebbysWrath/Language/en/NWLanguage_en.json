@@ -105,6 +105,10 @@
     
     "NW_MEATBALLER_PREFIX" : "Lobber",
 
-    "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth..."
+    "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth...",
+
+    "NW_EVILBUDDY_ARRIVAL": "???: \"0022; I HATE YOU >:C\"",
+
+    "NW_ABANDONED_OVERRIDE": "Abandoned Core"
   }
 }

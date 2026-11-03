@@ -105,6 +105,10 @@
 
     "NW_MEATBALLER_PREFIX": "(Lanzador)",
 
-    "NW_ANCIENTWORM_ARRIVAL": "Un gusano ancestral escarva por la tierra..."
+    "NW_ANCIENTWORM_ARRIVAL": "Un gusano ancestral escarva por la tierra...",
+
+    "NW_EVILBUDDY_ARRIVAL": "???: \"0022; TE ODIO >:C\"",
+
+    "NW_ABANDONED_PREFIX": "Abandoned Core"
   }
 }
