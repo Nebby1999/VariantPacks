@@ -95,6 +95,7 @@ namespace NW
             public static CharacterVariantDef CloakedExtractor;
             public static CharacterVariantDef DeffectiveSlammer;
             public static CharacterVariantDef EvilBuddy;
+            public static CharacterVariantDef GlitchedWing;
             public static CharacterVariantDef InvalidatingMine;
             public static CharacterVariantDef KleptomaniacExtractor;
             public static CharacterVariantDef NullifyingMine;

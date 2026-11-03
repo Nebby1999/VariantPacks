@@ -14,6 +14,17 @@ namespace NW
             On.EntityStates.ExtractorUnit.ExtractLunge.EndAttack += Klepto_StealAgainIfApplicable;
             On.EntityStates.ExtractorUnit.ExtractLunge.OnStealBegin += Klepto_DontChangeState;
             On.RoR2.HealthComponent.TakeDamageProcess += Pinky_DamageModifier;
+            On.EntityStates.SolusWing.GlitchState.ResetGlitch += Glitched_ForeverGlitch;
+        }
+
+        private static void Glitched_ForeverGlitch(On.EntityStates.SolusWing.GlitchState.orig_ResetGlitch orig, EntityStates.SolusWing.GlitchState self)
+        {
+            orig(self);
+            //Make it permanent if we're glitched variant.
+            if (self.TryGetComponent<CharacterBodyVariantController>(out var variantController) && variantController.IsVariantApplied(NWContent.CharacterVariants.GlitchedWing))
+            {
+                self.permanent = true;
+            }
         }
 
         //IOnIncomingDamageServerReciever runs after we set the boolean to ignore armor, so this needs to happen before that.
