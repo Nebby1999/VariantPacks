@@ -64,7 +64,7 @@ namespace NW.Components.OnKill
                     requesterDeathRewards = characterBody.GetComponent<DeathRewards>(),
                     noGoldExpModifications = true,
                     noItemReward = true,
-                    variantDefs = Array.Empty<CharacterVariantDef>()
+                    preassignedVariantDefs = Array.Empty<CharacterVariantDef>()
                 };
 
                 var parentMaster = DirectorCore.instance.TrySpawnObject(directorSpawnRequest);

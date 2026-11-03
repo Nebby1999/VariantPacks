@@ -48,7 +48,7 @@ namespace TO30.Components
                     deathRewardsCoefficient = deathRewards ? 0.2f : 1,
                     summonerDeathRewards = deathRewards,
                     supressArrivalMessage = true,
-                    variantDefs = RetrieveVariantDefsExceptMOAJ()
+                    preassignedVariantDefs = RetrieveVariantDefsExceptMOAJ()
                 };
 
                 masterSummon.Perform();

@@ -54,7 +54,7 @@ namespace NW.Components.OnKill
                     summonerDeathRewards = characterBody.GetComponent<DeathRewards>(),
                     deathRewardsCoefficient = 1 / count,
                     supressArrivalMessage = true,
-                    variantDefs = moajDef ? new CharacterVariantDef[] { moajDef } : null,
+                    preassignedVariantDefs = moajDef ? new CharacterVariantDef[] { moajDef } : null,
                 };
 
                 masterSummon.Perform();

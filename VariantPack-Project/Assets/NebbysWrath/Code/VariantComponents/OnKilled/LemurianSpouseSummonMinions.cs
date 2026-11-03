@@ -45,7 +45,7 @@ namespace NW.Components.OnKill
 
                 VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
                 {
-                    variantDefs = bestDef ? new CharacterVariantDef[] { bestDef } : Array.Empty<CharacterVariantDef>(),
+                    preassignedVariantDefs = bestDef ? new CharacterVariantDef[] { bestDef } : Array.Empty<CharacterVariantDef>(),
                     deathRewardsCoefficient = 1,
                     summonerDeathRewards = deathRewards,
                     noItemReward = true,

@@ -70,7 +70,7 @@ namespace NW.Components.OnKill
                     summonerDeathRewards = characterBody.GetComponent<DeathRewards>(),
                     noGoldExpModifications = true,
                     noItemReward = true,
-                    variantDefs = Array.Empty<CharacterVariantDef>()
+                    preassignedVariantDefs = Array.Empty<CharacterVariantDef>()
                 };
 
                 masterSummon.Perform();

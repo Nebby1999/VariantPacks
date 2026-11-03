@@ -76,7 +76,7 @@ namespace TO30.Components
             {
                 deathRewardsCoefficient = 1f,
                 summonerDeathRewards = deathRewards,
-                variantDefs = new CharacterVariantDef[] { variant },
+                preassignedVariantDefs = new CharacterVariantDef[] { variant },
                 supressArrivalMessage = true,
                 noGoldExpModifications = true,
                 noItemReward = true

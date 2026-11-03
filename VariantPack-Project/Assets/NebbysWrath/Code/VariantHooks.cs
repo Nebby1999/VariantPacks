@@ -33,7 +33,7 @@ namespace NW
                         noItemReward = true,
                         noGoldExpModifications = true,
                         supressArrivalMessage = true,
-                        variantDefs = isSwarmer ? new CharacterVariantDef[] { NWContent.CharacterVariants.SwarmerProbe } : null
+                        preassignedVariantDefs = isSwarmer ? new CharacterVariantDef[] { NWContent.CharacterVariants.SwarmerProbe } : null
                     };
                 }
                 return toReturn;

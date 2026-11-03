@@ -109,7 +109,7 @@ namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
                     noGoldExpModifications = true,
                     deathRewardsCoefficient = 0,
                     noItemReward = true,
-                    variantDefs = bestDef ? new CharacterVariantDef[1] { bestDef } : Array.Empty<CharacterVariantDef>()
+                    preassignedVariantDefs = bestDef ? new CharacterVariantDef[1] { bestDef } : Array.Empty<CharacterVariantDef>()
                 };
 
                 var lem = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);

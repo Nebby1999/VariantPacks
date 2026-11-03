@@ -94,7 +94,7 @@ namespace EntityStates.VagrantMonster.Weapon.Mothership
                     {
                         noGoldExpModifications = true,
                         noItemReward = true,
-                        variantDefs = null,
+                        preassignedVariantDefs = null,
                         supressArrivalMessage = true,
                     };
 

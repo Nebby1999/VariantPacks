@@ -76,7 +76,7 @@ namespace NW
                     deathRewardsCoefficient = 1,
                     noGoldExpModifications = true,
                     noItemReward = true,
-                    variantDefs = variantsToUse?.ToArray()
+                    preassignedVariantDefs = variantsToUse?.ToArray()
                 };
 
                 return toReturn;

@@ -87,7 +87,7 @@ namespace EntityStates.BeetleQueenMonster.Empress
 
                 VariantDirectorSpawnRequest variantRequest = new VariantDirectorSpawnRequest(spawnRequest)
                 {
-                    variantDefs = new CharacterVariantDef[] { GetRandomVariant(VariantSpawnManager.instance.variantSpawnRng) },
+                    preassignedVariantDefs = new CharacterVariantDef[] { GetRandomVariant(VariantSpawnManager.instance.variantSpawnRng) },
                     supressArrivalMessage = true,
                     noItemReward = true,
                     noGoldExpModifications = true

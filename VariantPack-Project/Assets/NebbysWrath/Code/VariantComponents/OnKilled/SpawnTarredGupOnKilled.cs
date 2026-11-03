@@ -84,7 +84,7 @@ namespace NW.Components.OnKill
             {
                 noGoldExpModifications = true,
                 noItemReward = true,
-                variantDefs = variantDefs
+                preassignedVariantDefs = variantDefs
             };
 
             variantMasterSummon.onSummonPerformed += (rprt) =>

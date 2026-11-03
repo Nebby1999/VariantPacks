@@ -120,7 +120,7 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
 
             var variantMasterSummon = new VariantMasterSummon(summon)
             {
-                variantDefs = null,
+                preassignedVariantDefs = null,
                 noGoldExpModifications = true,
                 noItemReward = true
             };
