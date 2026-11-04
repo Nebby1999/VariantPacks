@@ -154,10 +154,8 @@ namespace TO30
             ParallelCoroutine parallelLoadCoroutine = ParallelCoroutine.RequestFromPool();
 
             using var skillRequest = TO30Assets.LoadAllAssetsAsync<SkillDef>();
-            using var entityStates = TO30Assets.LoadAssetAsync<EntityStateTypeCollection>("EntityStates");
 
             parallelLoadCoroutine.Add(skillRequest);
-            parallelLoadCoroutine.Add(entityStates);
 
             while(!parallelLoadCoroutine.isDone)
             {
@@ -167,13 +165,16 @@ namespace TO30
             ParallelCoroutine.ReturnToPool(parallelLoadCoroutine);
 
             _contentPack.skillDefs.Add(skillRequest.assets);
-            Type[] types = new Type[entityStates.asset.stateTypes.Length];
-            for (int i = 0; i < entityStates.asset.stateTypes.Length; i++)
+            Type[] allTypes = GetType().Assembly.GetTypes();
+            List<Type> entityStateTypes = new List<Type>();
+            foreach (Type type in allTypes)
             {
-                SerializableEntityStateType t = entityStates.asset.stateTypes[i];
-                types[i] = t.stateType;
+                if (type.IsSameOrSubclassOf(typeof(EntityState)) && !type.IsAbstract)
+                {
+                    entityStateTypes.Add(type);
+                }
             }
-            _contentPack.entityStateTypes.Add(types);
+            _contentPack.entityStateTypes.Add(entityStateTypes.ToArray());
         }
 
         private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();

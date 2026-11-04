@@ -18,11 +18,11 @@ MonoBehaviour:
       _address: 894ddb3154df15e4d96c71adeae0e90a
       _useDirectReference: 0
       _canLoadFromCatalog: 0
-  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
-  isUnique: 0
+  variantTier: {fileID: 11400000, guid: 39be14bf3e345f242b308045e1a02d6b, type: 2}
+  isUnique: 1
   isHidden: 0
-  spawnRate: 25
-  arrivalToken: 
+  spawnRate: 20
+  arrivalToken: NW_GLITCHED_ARRIVAL
   spawnCondition:
     rid: -2
   masterModifiers: []
@@ -62,7 +62,7 @@ MonoBehaviour:
     - rid: 8121176582070206466
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        prefixToken: Glitched
+        prefixToken: NW_GLITCHED_PREFIX
     - rid: 8121176582070206467
       type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

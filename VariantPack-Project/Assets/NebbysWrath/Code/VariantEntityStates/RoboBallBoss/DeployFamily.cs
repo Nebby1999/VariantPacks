@@ -122,7 +122,8 @@ namespace EntityStates.RoboBallBoss.Weapon.Swarming
             {
                 preassignedVariantDefs = null,
                 noGoldExpModifications = true,
-                noItemReward = true
+                noItemReward = true,
+                spawnManagerMultiplier = 1.1f
             };
             summon.Perform();
         }
