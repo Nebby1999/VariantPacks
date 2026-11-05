@@ -450,6 +450,13 @@ namespace NW
                 }
 
                 _variantPack.characterVariantDefs.AddSingle(cloned);
+
+                if (asset.cachedName.Contains("Gamma"))
+                    continue;
+
+                //Adds theta construct as an attachable construct
+                cloned = VariantCloning.CloneIntoMinorConstructAttachable(asset);
+                _variantPack.characterVariantDefs.AddSingle(cloned);
             }
 
             //Green robo ball

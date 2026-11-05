@@ -51,7 +51,7 @@ MonoBehaviour:
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
   variantNameProvider:
-    rid: -2
+    rid: 8121176617131966464
   deathStateOverride:
     deathStateOverride:
       _typeName: 
@@ -85,3 +85,7 @@ MonoBehaviour:
         _damageMultiplier: 1
         armorBonus: -10
         _armorMultiplier: 1
+    - rid: 8121176617131966464
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_OILSPILL_PREFIX
