@@ -67,7 +67,27 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                         {
                             forward = raycastHit.point - transform.position;
                         }
-                        ProjectileManager.instance.FireProjectile(FireLaserBarrage.projectilePrefab, bulletCountCurrent < bulletCount / 2 ? transform.position : aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, damageStat * FireLaserBarrage.damageCoefficient, FireLaserBarrage.force, base.RollCrit());
+
+                        DamageTypeCombo? dmgTypeOverride = null;
+                        if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var pjDamage))
+                        {
+                            var combo = pjDamage.damageType;
+                            combo.damageSource |= DamageSource.Secondary;
+                            dmgTypeOverride = combo;
+                        }
+
+                        FireProjectileInfo info = new FireProjectileInfo
+                        {
+                            projectilePrefab = FireLaserBarrage.projectilePrefab,
+                            position = bulletCountCurrent < bulletCount / 2 ? transform.position : aimRay.origin,
+                            rotation = Util.QuaternionSafeLookRotation(forward),
+                            owner = gameObject,
+                            damage = damageStat * damageCoefficient,
+                            force = force,
+                            crit = RollCrit(),
+                            damageTypeOverride = dmgTypeOverride
+                        };
+                        ProjectileManager.instance.FireProjectile(info);
                     }
                 }
             }

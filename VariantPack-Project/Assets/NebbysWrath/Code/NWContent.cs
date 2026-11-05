@@ -50,11 +50,13 @@ namespace NW
             public static CharacterVariantDef IchorImp;
             public static CharacterVariantDef IchorOverlord;
             public static CharacterVariantDef IncineratingElderLemurian;
+            public static CharacterVariantDef KamikazeReaver;
             public static CharacterVariantDef LeastestWisp;
             public static CharacterVariantDef LesserStoneWisp;
             public static CharacterVariantDef MalfunctioningSCU;
             public static CharacterVariantDef MammaShroom;
             public static CharacterVariantDef MeatballerLemurian;
+            public static CharacterVariantDef MinorConstructAttachableThetaConstruct;
             public static CharacterVariantDef MortarCrab;
             public static CharacterVariantDef MothershipVagrant;
             public static CharacterVariantDef OverflowingDunestrider;
@@ -70,6 +72,7 @@ namespace NW
             public static CharacterVariantDef SteelContraption;
             public static CharacterVariantDef SwarmerProbe;
             public static CharacterVariantDef SwarmingSCU;
+            public static CharacterVariantDef ThetaConstruct;
             public static CharacterVariantDef VampiricTemplar;
 
             //DLC1
@@ -103,6 +106,7 @@ namespace NW
             public static CharacterVariantDef MalfunctioningAmalgamator;
             public static CharacterVariantDef NullifyingMine;
             public static CharacterVariantDef Oilspill;
+            public static CharacterVariantDef RollerPod;
             public static CharacterVariantDef ScrapyardHunter;
 
             //Mods
@@ -127,8 +131,9 @@ namespace NW
             public static CharacterVariantDef EmpathyRedGaussianProbe;
             public static CharacterVariantDef EmpathyRedSolusProbeMK2;
             public static CharacterVariantDef EmpathyRedSwarmerProbe;
-            public static CharacterVariantDef KamikazeReaver;
+            public static CharacterVariantDef NucleusThetaConstruct;
             public static CharacterVariantDef NucleusGammaConstruct;
+            public static CharacterVariantDef ZoeaKamikazeReaver;
 
             //Polymorph
             public static CharacterVariantDef PolymorphMeatballerLemurian;

@@ -26,7 +26,7 @@ MonoBehaviour:
   spawnCondition:
     rid: -2
   masterModifiers:
-  - rid: -2
+  - rid: 8121176629247737857
   inventoryDefinition:
     itemsToGrant: []
     equipmentInfo:
@@ -39,6 +39,7 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8121176563352076305
   deathStateOverride:
@@ -80,3 +81,8 @@ MonoBehaviour:
         _damageMultiplier: 1
         armorBonus: 0
         _armorMultiplier: 1
+    - rid: 8121176629247737857
+      type: {class: ReplaceSkillDrivers, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        skillDriversPrefab: {fileID: 8443116340802109024, guid: 186c1366be43363489d8f9a9ead50daa,
+          type: 3}

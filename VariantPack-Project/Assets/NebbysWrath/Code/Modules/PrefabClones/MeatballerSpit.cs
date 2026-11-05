@@ -60,6 +60,19 @@ namespace NW.PrefabClones
                     dotZone.forceVector = Vector3.zero;
                 }
             }
+
+            if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var prjDamage))
+            {
+                var combo = prjDamage.damageType;
+                combo.damageSource |= DamageSource.Primary;
+                prjDamage.damageType = combo;
+            }
+            if(_dotZone.TryGetComponent<ProjectileDamage>(out prjDamage))
+            {
+                var combo = prjDamage.damageType;
+                combo.damageSource |= DamageSource.Primary;
+                prjDamage.damageType = combo;
+            }
         }
 
         public void ModifyContentPack(ContentPack contentPack)

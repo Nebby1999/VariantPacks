@@ -101,6 +101,14 @@ namespace EntityStates.RoboBallMini.Weapon.MK2
                         bonusPitch = (float)num2 / (float)(projectileCount - 1) * totalYawSpread;
                     }
                     Vector3 forward = Util.ApplySpread(aimRay.direction, 0f, 0f, 1f, 1f, bonusYaw, bonusPitch);
+
+                    DamageTypeCombo? comboOverride = null;
+                    if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var projectileDamage))
+                    {
+                        var combo = projectileDamage.damageType;
+                        combo.damageSource |= DamageSource.Primary;
+                        comboOverride = combo;
+                    }
                     ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, base.characterBody.master), DamageColorIndex.Default, null, speedOverride);
                     projectilesFired++;
                 }

@@ -62,6 +62,10 @@ namespace NW.PrefabClones
             controller.ghostPrefab = projectileGhostRequest.Result.InstantiateClone("SteelBallGhost");
             controller.ghostPrefab.transform.localScale *= 4;
             controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset.material;
+            ProjectileDamage projectileDamage = projectilePrefab.EnsureComponent<ProjectileDamage>();
+            DamageTypeCombo combo = projectileDamage.damageType;
+            combo.damageSource |= DamageSource.Primary;
+            projectileDamage.damageType = combo;
         }
 
         public void ModifyContentPack(ContentPack contentPack)

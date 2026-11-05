@@ -181,7 +181,7 @@ namespace EntityStates.Scorchling.Electric
                 ray2.direction = direction;
             }
             Quaternion rotation = Util.QuaternionSafeLookRotation(ray2.direction);
-            ProjectileManager.instance.FireProjectile(mortarProjectilePrefab, ray2.origin, rotation, base.gameObject, damageStat * mortarDamageCoefficient, 0f, Util.CheckRoll(critStat, base.characterBody.master), DamageColorIndex.Default, null, magnitude);
+            ProjectileManager.instance.FireProjectile(mortarProjectilePrefab, ray2.origin, rotation, base.gameObject, damageStat * mortarDamageCoefficient, 0f, Util.CheckRoll(critStat, base.characterBody.master), DamageColorIndex.Default, null, magnitude, DamageTypeCombo.GenericPrimary);
         }
 
         public override void OnExit()

@@ -95,6 +95,7 @@ namespace EntityStates.MegaConstruct.Omicron
                     force = 30,
                     owner = gameObject,
                     projectilePrefab = OmicronProjectile.omicronProjectile,
+                    damageTypeOverride = DamageTypeCombo.GenericUtility
                 };
 
                 for(int i = 0; i < _firePoints.Length; i++)

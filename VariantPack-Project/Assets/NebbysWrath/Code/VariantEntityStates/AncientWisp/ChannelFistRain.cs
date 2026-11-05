@@ -106,6 +106,15 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                     Quaternion rotation;
                     Vector3 rot = new Vector3(90f, 0f, 0f);
                     rotation = Quaternion.Euler(rot);
+                    
+                    DamageTypeCombo? damageTypeOverride = null;
+                    if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var pjDamage))
+                    {
+                        var combo = pjDamage.damageType;
+                        combo.damageSource |= DamageSource.Primary;
+                        damageTypeOverride = combo;
+                    }
+
                     FireProjectileInfo fireProjectileInfo = default(FireProjectileInfo);
                     fireProjectileInfo.projectilePrefab = projectilePrefab;
                     fireProjectileInfo.position = point;
@@ -114,6 +123,8 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                     fireProjectileInfo.damage = damageStat * damageCoefficient;
                     fireProjectileInfo.force = 2000f;
                     fireProjectileInfo.crit = base.characterBody.RollCrit();
+                    fireProjectileInfo.damageTypeOverride = damageTypeOverride;
+
                     ProjectileManager.instance.FireProjectile(fireProjectileInfo);
                 }
             }

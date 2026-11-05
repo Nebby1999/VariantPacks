@@ -100,6 +100,7 @@ namespace EntityStates.LemurianBruiserMonster.Incinerating
                 bulletAttack.maxDistance = maxDistance;
                 bulletAttack.smartCollision = true;
                 bulletAttack.damageType = (Util.CheckRoll(ignitePercentChance, base.characterBody.master) ? DamageType.PercentIgniteOnHit : DamageType.Generic);
+                bulletAttack.damageType.damageSource |= DamageSource.Secondary;
                 bulletAttack.Fire();
             }
         }

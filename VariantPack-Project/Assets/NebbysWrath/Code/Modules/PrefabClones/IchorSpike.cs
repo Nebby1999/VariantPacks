@@ -27,6 +27,7 @@ namespace NW.PrefabClones
             if(ichorSpike.TryGetComponent<ProjectileDamage>(out var projectileDamage))
             {
                 projectileDamage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+                projectileDamage.damageType.damageSource |= RoR2.DamageSource.Primary;
             }
         }
 

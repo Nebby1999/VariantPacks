@@ -74,6 +74,11 @@ namespace NW.PrefabClones
             systems[1].sharedMaterial = orbParticles.Result;
 
             controller.ghostPrefab = ghostPrefab;
+
+            var projectileDamage = collapsingSparkBallProjectile.EnsureComponent<ProjectileDamage>();
+            var combo = projectileDamage.damageType;
+            combo.damageSource |= RoR2.DamageSource.Primary;
+            projectileDamage.damageType = combo;
         }
 
         public void ModifyContentPack(ContentPack contentPack)

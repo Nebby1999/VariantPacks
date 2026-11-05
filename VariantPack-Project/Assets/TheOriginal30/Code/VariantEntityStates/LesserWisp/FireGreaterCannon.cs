@@ -35,7 +35,16 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
                     Transform muzzleTransform = childLocator.FindChild("Muzzle");
                     if (muzzleTransform)
                     {
-                        ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/WispCannon"), transform.position, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, 80f, Util.CheckRoll(critStat, characterBody.master), DamageColorIndex.Default, null, -1f);
+                        DamageTypeCombo? comboOverride = null;
+                        var projectilePrefab = Resources.Load<GameObject>("Prefabs/Projectiles/WispCannon");
+                        if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var prjDamage))
+                        {
+                            var combo = prjDamage.damageType;
+                            combo.damageSource |= DamageSource.Primary;
+                            comboOverride = combo;
+                        }
+
+                        ProjectileManager.instance.FireProjectile(projectilePrefab, transform.position, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, 80f, Util.CheckRoll(critStat, characterBody.master), DamageColorIndex.Default, null, -1f, comboOverride);
                     }
                 }
             }

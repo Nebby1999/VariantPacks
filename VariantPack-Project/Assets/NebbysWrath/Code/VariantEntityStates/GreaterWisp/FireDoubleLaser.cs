@@ -70,6 +70,7 @@ namespace EntityStates.GreaterWispMonster.Stone
                 leftBlastAttack.radius = blastRadius;
                 leftBlastAttack.falloffModel = BlastAttack.FalloffModel.SweetSpot;
                 leftBlastAttack.bonusForce = force * leftModifiedAimRay.direction;
+                leftBlastAttack.damageType = DamageTypeCombo.GenericPrimary;
                 leftBlastAttack.Fire();
                 _ = leftModifiedAimRay.origin;
                 if (!modelTransform)
@@ -110,6 +111,7 @@ namespace EntityStates.GreaterWispMonster.Stone
                 blastAttack.radius = blastRadius;
                 blastAttack.falloffModel = BlastAttack.FalloffModel.SweetSpot;
                 blastAttack.bonusForce = force * rightModifiedAimRay.direction;
+                blastAttack.damageType = DamageTypeCombo.GenericPrimary;
                 blastAttack.Fire();
                 _ = rightModifiedAimRay.origin;
                 if (!modelTransform)

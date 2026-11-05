@@ -66,10 +66,12 @@ namespace NW.PrefabClones
             if (projectile.TryGetComponent<ProjectileDamage>(out var damage))
             {
                 damage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+                damage.damageType.damageSource |= RoR2.DamageSource.Primary;
             }
             if (_childProjectile.TryGetComponent<ProjectileDamage>(out damage))
             {
                 damage.damageType.AddModdedDamageType(DamageTypes.PulverizeOnHit.pulverizeOnHit);
+                damage.damageType.damageSource |= RoR2.DamageSource.Primary;
             }
         }
 

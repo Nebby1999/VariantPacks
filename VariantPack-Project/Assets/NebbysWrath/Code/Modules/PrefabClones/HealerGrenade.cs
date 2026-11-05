@@ -72,6 +72,15 @@ namespace NW.PrefabClones
             healingWard.interval = 0.5f;
             healingWard.rangeIndicator = projectile.transform;
             healingWard.floorWard = true;
+
+            if(projectile.TryGetComponent<ProjectileDamage>(out var prjDamage))
+            {
+                prjDamage.damageType.damageSource |= DamageSource.Primary;
+            }
+            if (_childProjectile.TryGetComponent<ProjectileDamage>(out prjDamage))
+            {
+                prjDamage.damageType.damageSource |= DamageSource.Primary;
+            }
         }
     }
 }

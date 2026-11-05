@@ -97,7 +97,7 @@ namespace EntityStates.JellyfishMonster.Nuclear
                 }, true);
             }
 
-            new BlastAttack
+            var blastAttack = new BlastAttack
             {
                 attacker = gameObject,
                 inflictor = gameObject,
@@ -109,7 +109,9 @@ namespace EntityStates.JellyfishMonster.Nuclear
                 procCoefficient = 2f,
                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                 damageType = DamageType.CrippleOnHit
-            }.Fire();
+            };
+            blastAttack.damageType.damageSource |= DamageSource.Primary;
+            blastAttack.Fire();
 
             if (healthComponent) healthComponent.Suicide(null, null, DamageType.Generic);
         }

@@ -60,6 +60,7 @@ namespace EntityStates.DefectiveUnit.Slammer
                     blastAttack.radius = 12f;
                     blastAttack.baseDamage = damageCoefficient * damageStat;
                     blastAttack.damageType = DamageTypeExtended.InventoryDisable;
+                    blastAttack.damageType.damageSource |= DamageSource.Secondary;
                     blastAttack.procCoefficient = 1f;
                     blastAttack.crit = RollCrit();
                     blastAttack.baseForce = 0f;

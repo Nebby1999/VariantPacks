@@ -76,6 +76,7 @@ namespace EntityStates.ParentMonster.Child
                             attack.baseForce = forceMagnitude;
                             attack.position = transform.position;
                             attack.radius = radius;
+                            attack.damageType = DamageTypeCombo.GenericPrimary;
                             attack.Fire();
                         }
                     }

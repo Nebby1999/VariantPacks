@@ -84,6 +84,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
                     bulletAttack.HitEffectNormal = false;
                     bulletAttack.radius = 0.5f;
                     bulletAttack.procCoefficient = 1f / (float)bulletCount;
+                    bulletAttack.damageType = DamageTypeCombo.GenericPrimary;
                     bulletAttack.Fire();
                 }
                 if ((bool)transform2)
@@ -106,6 +107,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
                     bulletAttack.HitEffectNormal = false;
                     bulletAttack.radius = 0.5f;
                     bulletAttack.procCoefficient = 1f / (float)bulletCount;
+                    bulletAttack.damageType = DamageTypeCombo.GenericPrimary;
                     bulletAttack.Fire();
                 }
             }

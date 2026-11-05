@@ -66,7 +66,8 @@ namespace EntityStates.MinorConstruct.Weapon.Theta
                 force = force,
                 crit = isCrit,
                 fuseOverride = projectileFuseOverride ?? -1,
-                speedOverride = projectileSpeedOverride ?? -1
+                speedOverride = projectileSpeedOverride ?? -1,
+                damageTypeOverride = DamageTypeCombo.GenericPrimary
             };
 
             ModifyProjectileInfo(ref info);

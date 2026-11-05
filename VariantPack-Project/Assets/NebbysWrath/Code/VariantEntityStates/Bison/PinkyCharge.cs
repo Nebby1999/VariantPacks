@@ -305,6 +305,7 @@ namespace EntityStates.Bison.Pinky
             attack.forceVector = Vector3.up * upwardForceMagnitude;
             attack.pushAwayForce = awayForceMagnitude;
             attack.hitBoxGroup = hitboxGroup;
+            attack.damageType = DamageTypeCombo.GenericUtility;
         }
 
         private Vector3 _lastKnownBestTargetPosition;

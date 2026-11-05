@@ -72,6 +72,7 @@ namespace EntityStates.MegaConstruct.Omicron
                 position = targetTransform.position,
                 rotation = Quaternion.LookRotation(GetAimRay().direction),
                 projectilePrefab = OmicronProjectile.omicronProjectile,
+                damageTypeOverride = DamageTypeCombo.GenericPrimary,
             };
             ProjectileManager.instance.FireProjectile(info);
         }

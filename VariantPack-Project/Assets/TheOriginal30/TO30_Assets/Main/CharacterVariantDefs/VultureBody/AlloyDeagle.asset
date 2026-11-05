@@ -38,6 +38,8 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers:
+  - rid: 8121176629247737858
   variantNameProvider:
     rid: 8453672705155662056
   deathStateOverride:
@@ -60,6 +62,15 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 8121176629247737858
+      type: {class: LoadCharacterSoundbank, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        loadFromBody:
+          targetBody:
+            _asset: {fileID: 0}
+            _address: 
+            _useDirectReference: 0
+            _canLoadFromCatalog: 1
     - rid: 8453672705155662056
       type: {class: VariantNameSuffix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

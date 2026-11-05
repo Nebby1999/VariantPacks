@@ -129,6 +129,8 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 bulletAttack.maxDistance = maxDistance;
                 bulletAttack.smartCollision = true;
                 bulletAttack.damageType = (Util.CheckRoll(Mage.Weapon.Flamethrower.ignitePercentChance, characterBody.master) ? DamageType.IgniteOnHit : DamageType.Generic);
+                bulletAttack.damageType.damageSource |= DamageSource.Primary;
+
                 bulletAttack.Fire();
                 if ((bool)characterMotor)
                 {

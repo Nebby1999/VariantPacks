@@ -38,15 +38,13 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8453672705155661893
   deathStateOverride:
     deathStateOverride:
       _typeName: 
-  skillReplacements:
-  - skillDef: {fileID: 11400000, guid: 21efc3eb7cad95541a53b7fa7c278d19, type: 2}
-    slot: 0
-    slotName: 
+  skillReplacements: []
   statModifier:
     rid: 8453672705155661894
   variantBuffs:
@@ -70,7 +68,9 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 55ad8872b297c6344915000e8a84fc4a, type: 2}
   scaleMultiplier: 0.75
   additionalVariantComponents:
-    variantComponents: []
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.CloakWhileOutOfCombat, NebbysWrath, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   references:
     version: 2
     RefIds:

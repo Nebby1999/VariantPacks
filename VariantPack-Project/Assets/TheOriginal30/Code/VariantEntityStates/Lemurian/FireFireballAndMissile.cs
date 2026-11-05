@@ -41,6 +41,13 @@ namespace EntityStates.LemurianMonster.Badass
             }
             if (isAuthority)
             {
+                DamageTypeCombo? comboOverride = null;
+                if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var prjDamage))
+                {
+                    var combo = prjDamage.damageType;
+                    combo.damageSource |= DamageSource.Primary;
+                    comboOverride = combo;
+                }
                 ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, force, RollCrit());
 
                 MissileUtils.FireMissile(characterBody.corePosition, characterBody, default, null, damageStat, RollCrit(), FireFireballAndMissile.missleProjectilePrefab, DamageColorIndex.DeathMark, false);

@@ -278,6 +278,7 @@ namespace EntityStates.ArchWispMonster.Stone
                 bulletAttack.HitEffectNormal = false;
                 bulletAttack.radius = 0f;
                 bulletAttack.maxDistance = maxDistance;
+                bulletAttack.damageType = DamageTypeCombo.GenericPrimary;
                 bulletAttack.Fire();
             }
         }
