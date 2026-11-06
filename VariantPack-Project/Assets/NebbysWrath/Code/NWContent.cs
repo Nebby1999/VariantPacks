@@ -34,6 +34,7 @@ namespace NW
             public static CharacterVariantDef BeetleEmpress;
             public static CharacterVariantDef BeetleMatriarch;
             public static CharacterVariantDef BerserkerOverlord;
+            public static CharacterVariantDef BloatedPest;
             public static CharacterVariantDef BruiserImp;
             public static CharacterVariantDef Childish;
             public static CharacterVariantDef ColossalGolem;
