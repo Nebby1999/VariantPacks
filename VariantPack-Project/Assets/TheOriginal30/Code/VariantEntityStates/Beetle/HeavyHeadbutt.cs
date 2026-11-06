@@ -26,6 +26,7 @@ namespace EntityStates.BeetleMonster.Battle
             attack.teamIndex = TeamComponent.GetObjectTeam(attack.attacker);
             attack.damage = HeadbuttState.damageCoefficient * damageStat;
             attack.hitEffectPrefab = HeadbuttState.hitEffectPrefab;
+            attack.damageType = DamageTypeCombo.GenericPrimary;
 
             Transform modelTransform = GetModelTransform();
             if (modelTransform)

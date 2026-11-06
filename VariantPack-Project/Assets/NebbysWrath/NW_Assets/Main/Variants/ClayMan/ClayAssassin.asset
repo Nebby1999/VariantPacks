@@ -44,7 +44,10 @@ MonoBehaviour:
   deathStateOverride:
     deathStateOverride:
       _typeName: 
-  skillReplacements: []
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 21efc3eb7cad95541a53b7fa7c278d19, type: 2}
+    slot: 0
+    slotName: 
   statModifier:
     rid: 8453672705155661894
   variantBuffs:

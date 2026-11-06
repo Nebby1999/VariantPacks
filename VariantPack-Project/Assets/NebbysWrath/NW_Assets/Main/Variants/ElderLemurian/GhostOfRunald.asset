@@ -68,12 +68,12 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: Infinity
+  bodyModifiers: []
   variantNameProvider:
     rid: 8453672705155661909
   deathStateOverride:
     deathStateOverride:
-      _typeName: EntityStates.LemurianBruiserMonster.GhostBrother.BrotherDeath, NebbysWrath,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeName: 
   skillReplacements: []
   statModifier:
     rid: 8453672705155661910
