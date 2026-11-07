@@ -38,6 +38,7 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8453672705155662041
   deathStateOverride:
@@ -54,9 +55,7 @@ MonoBehaviour:
   visualModifier: {fileID: 11400000, guid: 315dbfaa47605b341a3d6b471b32d29c, type: 2}
   scaleMultiplier: 1
   additionalVariantComponents:
-    variantComponents:
-    - assemblyQualifiedName: TO30.Components.AddMissileLauncherToLemurian, TheOriginal30,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    variantComponents: []
   references:
     version: 2
     RefIds:

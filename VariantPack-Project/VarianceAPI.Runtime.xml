@@ -3244,7 +3244,7 @@
         </member>
         <member name="P:VAPI.ReadOnlyVariantPack.isHidden">
             <summary>
-            Returns if this pack is hidden, internal use only
+            Returns if this pack is hidden from the rulebook
             </summary>
         </member>
         <member name="M:VAPI.ReadOnlyVariantPack.#ctor(VAPI.VariantPack)">
@@ -3310,9 +3310,9 @@
             A <see cref="T:RoR2.ContentManagement.NamedAssetCollection`1"/> that contains your pack's <see cref="T:VAPI.CharacterVariantDef"/>
             </summary>
         </member>
-        <member name="F:VAPI.VariantPack._isHidden">
+        <member name="F:VAPI.VariantPack.isHidden">
             <summary>
-            Wether this pack is hidden from the rulebook, internal use only
+            Wether this pack is hidden from the rulebook
             </summary>
         </member>
         <member name="P:VAPI.VariantPack.variantPackIndex">
@@ -3325,7 +3325,7 @@
             Your VariantPack's enabled choice in the rulebook, this is null up until VarianceAPI's rulebook class initializes
             </summary>
         </member>
-        <member name="M:VAPI.VariantPack.#ctor(System.String,System.String,System.String,System.String,UnityEngine.Sprite,BepInEx.BaseUnityPlugin,BepInEx.Configuration.ConfigFile,BepInEx.Configuration.ConfigFile)">
+        <member name="M:VAPI.VariantPack.#ctor(System.String,System.String,System.String,System.String,UnityEngine.Sprite,BepInEx.BaseUnityPlugin,BepInEx.Configuration.ConfigFile,BepInEx.Configuration.ConfigFile,System.Boolean)">
             <summary>
             Constructor for creating a Variant Pack
             </summary>
@@ -3337,15 +3337,8 @@
             <param name="_ownerPlugin">The plugin that's adding this VariantPack</param>
             <param name="_tierConfig">The ConfigFile for configuring this VariantPack's tiers. If left null, the Tiers in this VariantPack cannot be configured</param>
             <param name="_variantConfig">The ConfigFile for configuring this VariantPack's Variants. If left null, the Variants in this VariantPack cannot be configured</param>
+            <param name="_isHidden">Wether the VariantPack is hidden from the rulebook display, this shouldnt really be set to true, unless you're creating a Pack that contains exclusively tiers</param>
             <exception cref="T:System.ArgumentNullException">When any of the non-nullable arguments are null</exception>
-        </member>
-        <member name="M:VAPI.VariantPack.#ctor(System.String,UnityEngine.Sprite,BepInEx.Configuration.ConfigFile,BepInEx.BaseUnityPlugin)">
-            <summary>
-            Internal constructor for the Base API's VariantPack, which includes the Common, Uncommon, Rare and Legendary Tiers.
-            <br></br>
-            If you decided to publicize VAPI, DO NOT utilize this constructor!
-            </summary>
-            <exception cref="T:System.ArgumentNullException">When any of the non nullable arguments are null</exception>
         </member>
         <member name="T:VAPI.VariantPackIndex">
             <summary>

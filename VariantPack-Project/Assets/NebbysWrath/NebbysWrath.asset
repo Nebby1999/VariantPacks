@@ -73,7 +73,7 @@ MonoBehaviour:
   Author: Nebby
   Name: VariantPack_NebbysWrath
   Description: Variants from MonsterVariantsPlus, Ported to VarianceAPI.
-  Version: 2.1.2
+  Version: 3.0.0
   Dependencies:
   - {fileID: -3892906877110538616, guid: fcb9990091998194f96ac649c34ad280, type: 2}
   - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}

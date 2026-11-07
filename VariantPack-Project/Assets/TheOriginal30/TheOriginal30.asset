@@ -16,9 +16,11 @@ MonoBehaviour:
   - <MSUBuildPath>
   includeMetaFiles: 0
   files:
-  - {fileID: 2800000, guid: bb0bc82f1090aad4a9d08624f355736c, type: 3}
+  - {fileID: 2800000, guid: 11751c45c245d134db7aa655ae1cfdb2, type: 3}
   - {fileID: 4900000, guid: d81c72ed55517554586a2fcf8bef9218, type: 3}
   - {fileID: 4900000, guid: 10765ac6fd88e214d8df13b3d11a44f1, type: 3}
+  - {fileID: 4900000, guid: bd31bd2d863cb414abf856a2bfe2ef77, type: 3}
+  - {fileID: 102900000, guid: 16c2b554f0ab9bf42a0b2fd35ee45691, type: 3}
 --- !u!114 &-3892906877110538616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +74,8 @@ MonoBehaviour:
   - <ManifestPluginStaging>
   Author: Nebby
   Name: VariantPack_TheOriginal30
-  Description: All of Rob's Variants, ported and modified to VarianceAPI
+  Description: The Original Thirty Variants developed by Rob, ported and modified
+    to VarianceAPI.
   Version: 3.0.0
   Dependencies:
   - {fileID: -3892906877110538616, guid: fcb9990091998194f96ac649c34ad280, type: 2}

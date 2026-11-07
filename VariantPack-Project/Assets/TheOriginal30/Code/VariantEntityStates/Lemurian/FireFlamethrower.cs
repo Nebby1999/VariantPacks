@@ -165,7 +165,6 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 if (flamethrowerStopwatch > num)
                 {
                     flamethrowerStopwatch -= num;
-                    TO30Log.Warning("FlamethrowerTick");
                     FireGauntlet("MuzzleMouth");
                     if (isBadass)
                     {

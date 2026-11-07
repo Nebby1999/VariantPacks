@@ -120,11 +120,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git#feat/3.0.0",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "19d142682c31193c48318517a6ce8234db4b730a"
+      "hash": "cc2e4450b072aad161c0c67913ea8186a31e9d9d"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",
