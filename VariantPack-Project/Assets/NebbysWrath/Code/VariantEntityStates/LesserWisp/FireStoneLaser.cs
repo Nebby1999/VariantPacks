@@ -66,6 +66,7 @@ namespace EntityStates.Wisp1Monster.Stone
             blastAttack.radius = blastRadius;
             blastAttack.falloffModel = BlastAttack.FalloffModel.SweetSpot;
             blastAttack.bonusForce = force * modifiedAimRay.direction;
+            blastAttack.damageType = DamageTypeCombo.GenericPrimary;
             blastAttack.Fire();
             _ = modifiedAimRay.origin;
             if (!modelTransform)

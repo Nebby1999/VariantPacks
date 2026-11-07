@@ -57,8 +57,16 @@ namespace EntityStates.LemurianBruiserMonster.Incinerating
                     Ray aimRay = GetAimRay();
                     float speedOverride = projectileSpeed;
                     float bonusYaw = (float)Mathf.FloorToInt((float)projectilesFired - (float)(3 - 1) / 2f) / (float)(3 - 1) * totalYawSpread;
+                    DamageTypeCombo? comboOverride = null;
+                    if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var pjDamage))
+                    {
+                        var combo = pjDamage.damageType;
+                        combo.damageSource |= DamageSource.Primary;
+                        comboOverride = combo;
+                    }
+
                     Vector3 forward = Util.ApplySpread(aimRay.direction, 0f, 0f, 1f, 1f, bonusYaw);
-                    ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, base.characterBody.master), DamageColorIndex.Default, null, speedOverride);
+                    ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(forward), base.gameObject, damageStat * damageCoefficient, force, Util.CheckRoll(critStat, base.characterBody.master), DamageColorIndex.Default, null, speedOverride, comboOverride);
                     projectilesFired++;
                 }
             }

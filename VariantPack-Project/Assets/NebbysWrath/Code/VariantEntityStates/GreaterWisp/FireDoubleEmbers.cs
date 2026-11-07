@@ -12,7 +12,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
     {
         public static string attackString = FireEmbers.attackString;
         public static float minSpread = FireEmbers.minSpread;
-        public static float maxSpread = FireEmbers.maxSpread;
+        public static float maxSpread = FireEmbers.maxSpread * 5;
         public static int bulletCount = (int)(FireEmbers.bulletCount * 2.5f);
         public static GameObject tracerEffectPrefab = FireEmbers.tracerEffectPrefab;
         public static GameObject hitEffectPrefab = FireEmbers.hitEffectPrefab;
@@ -21,10 +21,26 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
         public float damageCoefficient = FireEmbers.damageCoefficient;
         public float force = FireEmbers.force;
         private float duration;
+        private bool varsInit;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            if(varsInit == false)
+            {
+                varsInit = true;
+                attackString = FireEmbers.attackString;
+                minSpread = FireEmbers.minSpread * 2;
+                maxSpread = FireEmbers.maxSpread * 5;
+                bulletCount = (int)(FireEmbers.bulletCount * 2.5f);
+                tracerEffectPrefab = FireEmbers.tracerEffectPrefab;
+                hitEffectPrefab = FireEmbers.hitEffectPrefab;
+                effectPrefab = FireEmbers.effectPrefab;
+                baseDuration = FireCannons.baseDuration;
+                damageCoefficient = FireEmbers.damageCoefficient;
+                force = FireEmbers.force;
+            }
+
             Ray aimRay = GetAimRay();
             string text1 = "MuzzleLeft";
             string text2 = "MuzzleRight";
@@ -68,6 +84,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
                     bulletAttack.HitEffectNormal = false;
                     bulletAttack.radius = 0.5f;
                     bulletAttack.procCoefficient = 1f / (float)bulletCount;
+                    bulletAttack.damageType = DamageTypeCombo.GenericPrimary;
                     bulletAttack.Fire();
                 }
                 if ((bool)transform2)
@@ -90,6 +107,7 @@ namespace EntityStates.GreaterWispMonster.Amalgamated
                     bulletAttack.HitEffectNormal = false;
                     bulletAttack.radius = 0.5f;
                     bulletAttack.procCoefficient = 1f / (float)bulletCount;
+                    bulletAttack.damageType = DamageTypeCombo.GenericPrimary;
                     bulletAttack.Fire();
                 }
             }

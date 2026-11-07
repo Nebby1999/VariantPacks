@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: EvilBuddy
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 57fe0a260ff3a2b47aa0ef72c4d75580
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 3
+  arrivalToken: NW_EVILBUDDY_ARRIVAL
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8121176563352076295
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 37e6fbb06764e6341aa9b0182fdee4cd, type: 2}
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8121176563352076293
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 1a1efcad569a41b48a5c44805920b06c, type: 2}
+  scaleMultiplier: 1
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.SetupEvilBuddyHitbox, NebbysWrath, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - assemblyQualifiedName: NW.Components.EvilBuddyBodyModifier, NebbysWrath, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - assemblyQualifiedName: NW.Components.EvilBuddyMasterModifier, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8121176563352076293
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 1.5
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 2
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1
+    - rid: 8121176563352076295
+      type: {class: VariantNameOverride, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        overrideToken: NW_ABANDONED_OVERRIDE

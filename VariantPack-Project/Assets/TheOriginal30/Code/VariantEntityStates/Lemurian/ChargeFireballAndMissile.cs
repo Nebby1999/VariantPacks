@@ -1,8 +1,4 @@
 ﻿using RoR2;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace EntityStates.LemurianMonster.Badass
@@ -28,7 +24,7 @@ namespace EntityStates.LemurianMonster.Badass
             duration = baseDuration / attackSpeedStat;
             GetModelAnimator();
             Transform modelTransform = GetModelTransform();
-            Util.PlayAttackSpeedSound(attackString, base.gameObject, attackSpeedStat);
+            Util.PlayAttackSpeedSound(attackString, gameObject, attackSpeedStat);
             if ((bool)modelTransform)
             {
                 ChildLocator component = modelTransform.GetComponent<ChildLocator>();
@@ -50,14 +46,14 @@ namespace EntityStates.LemurianMonster.Badass
             base.OnExit();
             if ((bool)chargeVfxInstance)
             {
-                EntityState.Destroy(chargeVfxInstance);
+                Destroy(chargeVfxInstance);
             }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.fixedAge >= duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
                 FireFireballAndMissile nextState = new FireFireballAndMissile();
                 outer.SetNextState(nextState);

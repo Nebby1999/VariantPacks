@@ -45,8 +45,8 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         {
             base.OnEnter();
             _lastUpdateTime = Time.time;
-            this._duration = baseDuration;
-            this._durationBetweenCast = baseDuration / Mathf.Min(explosionCount * this.attackSpeedStat, maxExplosions);
+            _duration = baseDuration;
+            _durationBetweenCast = baseDuration / Mathf.Min(explosionCount * attackSpeedStat, maxExplosions);
             base.PlayCrossfade("Body", "ChannelRain", 0.3f);
             Util.PlaySound("Play_titanboss_shift_charge", base.gameObject);
 
@@ -89,7 +89,7 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                 {
                     enemyTeam = TeamIndex.Monster;
                 }
-                Transform transform = this.FindTargetClosest(vector, enemyTeam);
+                Transform transform = FindTargetClosest(vector, enemyTeam);
                 Vector3 a = vector;
                 if (transform)
                 {
@@ -106,14 +106,25 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
                     Quaternion rotation;
                     Vector3 rot = new Vector3(90f, 0f, 0f);
                     rotation = Quaternion.Euler(rot);
+                    
+                    DamageTypeCombo? damageTypeOverride = null;
+                    if(projectilePrefab.TryGetComponent<ProjectileDamage>(out var pjDamage))
+                    {
+                        var combo = pjDamage.damageType;
+                        combo.damageSource |= DamageSource.Primary;
+                        damageTypeOverride = combo;
+                    }
+
                     FireProjectileInfo fireProjectileInfo = default(FireProjectileInfo);
                     fireProjectileInfo.projectilePrefab = projectilePrefab;
                     fireProjectileInfo.position = point;
                     fireProjectileInfo.rotation = rotation;
                     fireProjectileInfo.owner = base.gameObject;
-                    fireProjectileInfo.damage = this.damageStat * damageCoefficient;
+                    fireProjectileInfo.damage = damageStat * damageCoefficient;
                     fireProjectileInfo.force = 2000f;
                     fireProjectileInfo.crit = base.characterBody.RollCrit();
+                    fireProjectileInfo.damageTypeOverride = damageTypeOverride;
+
                     ProjectileManager.instance.FireProjectile(fireProjectileInfo);
                 }
             }
@@ -122,16 +133,16 @@ namespace EntityStates.MoffeinAncientWispSkills.AncientStoneWisp
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            this.castTimer += Time.time - _lastUpdateTime;
+            castTimer += Time.time - _lastUpdateTime;
             _lastUpdateTime = Time.time;
-            if (this.castTimer >= this._durationBetweenCast)
+            if (castTimer >= _durationBetweenCast)
             {
-                this.PlaceRain();
-                this.castTimer -= this._durationBetweenCast;
+                PlaceRain();
+                castTimer -= _durationBetweenCast;
             }
-            if (base.fixedAge >= this._duration && base.isAuthority)
+            if (base.fixedAge >= _duration && base.isAuthority)
             {
-                this.outer.SetNextState(new EndFistRain());
+                outer.SetNextState(new EndFistRain());
             }
         }
 

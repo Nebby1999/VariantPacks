@@ -9,34 +9,81 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: MammaShroom
   m_EditorClassIdentifier: 
-  bodyName: MiniMushroomBody
-  _variantTier: 2
-  _variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 5744f0917b24e9d4bb5c894cec04b5a6
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 4a950ad3516fe5440938e0aad3119cf4, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 2
-  variantSpawnCondition: {fileID: 0}
   arrivalToken: NW_MAMMASHROOM_ARRIVAL
-  variantInventory: {fileID: 11400000, guid: 58b8ef2ab14f12c41b38dea3fcdd8566, type: 2}
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 79e5630993f4f894c8e7473f06ef2996
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 1
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: ac71388c314282149b9a9d9e18ad5b81
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 7
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8453672705155661961
   deathStateOverride:
-    _typeName: 
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 1.5
-  regenBonus: 0
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 0
-  moveSpeedMultiplier: 0
-  attackSpeedMultiplier: 1
-  damageMultiplier: 2
-  armorBonus: -50
-  armorMultiplier: 1
+  statModifier:
+    rid: 8121176537124831234
+  variantBuffs:
+    buffInfos: []
   visualModifier: {fileID: 0}
-  sizeModifier: {fileID: 11400000, guid: 4539723a9885fba458d4936afce3efba, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_MAMMA_PREFIX
-    overrideType: 0
-  componentProviders: []
+  scaleMultiplier: 2
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8121176537124831234
+      type: {class: StatModifierWithRoot, ns: NW, asm: NebbysWrath}
+      data:
+        _healthMultiplier: 1.5
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 0
+        _moveSpeedMultiplier: 0.1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 2
+        armorBonus: -50
+        _armorMultiplier: 1
+        rootBonus: 1
+    - rid: 8453672705155661961
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_MAMMA_PREFIX

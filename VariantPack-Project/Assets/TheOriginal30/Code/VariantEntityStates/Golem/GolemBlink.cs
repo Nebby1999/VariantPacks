@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using EntityStates.ParentMonster;
+﻿using EntityStates.ParentMonster;
 using RoR2;
 using RoR2.Navigation;
 using UnityEngine;
@@ -18,47 +17,47 @@ namespace EntityStates.GolemMonster.Rush
         public override void OnEnter()
         {
             base.OnEnter();
-            Util.PlaySound(LoomingPresence.beginSoundString, base.gameObject);
-            this.modelTransform = base.GetModelTransform();
+            Util.PlaySound(LoomingPresence.beginSoundString, gameObject);
+            modelTransform = GetModelTransform();
 
-            if (this.modelTransform)
+            if (modelTransform)
             {
-                this.characterModel = this.modelTransform.GetComponent<CharacterModel>();
-                this.hurtboxGroup = this.modelTransform.GetComponent<HurtBoxGroup>();
+                characterModel = modelTransform.GetComponent<CharacterModel>();
+                hurtboxGroup = modelTransform.GetComponent<HurtBoxGroup>();
             }
 
-            if (this.characterModel)
+            if (characterModel)
             {
-                this.characterModel.invisibilityCount++;
+                characterModel.invisibilityCount++;
             }
 
-            if (this.hurtboxGroup)
+            if (hurtboxGroup)
             {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
+                HurtBoxGroup hurtBoxGroup = hurtboxGroup;
                 int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter + 1;
                 hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
             }
 
-            if (base.characterMotor)
+            if (characterMotor)
             {
-                base.characterMotor.enabled = false;
+                characterMotor.enabled = false;
             }
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
-                Vector3 vector = base.inputBank.aimDirection * LoomingPresence.blinkDistance;
-                this.blinkDestination = base.transform.position;
-                this.blinkStart = base.transform.position;
+                Vector3 vector = inputBank.aimDirection * LoomingPresence.blinkDistance;
+                blinkDestination = transform.position;
+                blinkStart = transform.position;
 
                 NodeGraph groundNodes = SceneInfo.instance.groundNodes;
-                NodeGraph.NodeIndex nodeIndex = groundNodes.FindClosestNode(base.transform.position + vector, base.characterBody.hullClassification);
+                NodeGraph.NodeIndex nodeIndex = groundNodes.FindClosestNode(transform.position + vector, characterBody.hullClassification);
 
-                groundNodes.GetNodePosition(nodeIndex, out this.blinkDestination);
+                groundNodes.GetNodePosition(nodeIndex, out blinkDestination);
 
-                this.blinkDestination += base.transform.position - base.characterBody.footPosition;
-                vector = this.blinkDestination - this.blinkStart;
+                blinkDestination += transform.position - characterBody.footPosition;
+                vector = blinkDestination - blinkStart;
 
-                this.CreateBlinkEffect(Util.GetCorePosition(base.gameObject), vector);
+                CreateBlinkEffect(Util.GetCorePosition(gameObject), vector);
             }
         }
 
@@ -72,66 +71,66 @@ namespace EntityStates.GolemMonster.Rush
 
         private void SetPosition(Vector3 newPosition)
         {
-            if (base.characterMotor)
+            if (characterMotor)
             {
-                base.characterMotor.Motor.SetPositionAndRotation(newPosition, Quaternion.identity, true);
+                characterMotor.Motor.SetPositionAndRotation(newPosition, Quaternion.identity, true);
             }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            this.stopwatch += Time.fixedDeltaTime;
+            stopwatch += Time.fixedDeltaTime;
 
-            if (base.characterMotor && base.characterDirection)
+            if (characterMotor && characterDirection)
             {
-                base.characterMotor.velocity = Vector3.zero;
+                characterMotor.velocity = Vector3.zero;
             }
 
-            this.SetPosition(Vector3.Lerp(this.blinkStart, this.blinkDestination, this.stopwatch / LoomingPresence.duration));
+            SetPosition(Vector3.Lerp(blinkStart, blinkDestination, stopwatch / LoomingPresence.duration));
 
-            if (this.stopwatch >= LoomingPresence.duration && base.isAuthority)
+            if (stopwatch >= LoomingPresence.duration && isAuthority)
             {
-                this.outer.SetNextStateToMain();
+                outer.SetNextStateToMain();
             }
         }
 
         public override void OnExit()
         {
-            Util.PlaySound(LoomingPresence.endSoundString, base.gameObject);
-            this.modelTransform = base.GetModelTransform();
+            Util.PlaySound(LoomingPresence.endSoundString, gameObject);
+            modelTransform = GetModelTransform();
 
-            if (base.characterDirection)
+            if (characterDirection)
             {
-                base.characterDirection.forward = base.GetAimRay().direction;
+                characterDirection.forward = GetAimRay().direction;
             }
 
-            if (this.modelTransform && LoomingPresence.destealthMaterial)
+            if (modelTransform && LoomingPresence.destealthMaterial)
             {
-                TemporaryOverlay temporaryOverlay = this.modelTransform.gameObject.AddComponent<TemporaryOverlay>();
+                TemporaryOverlay temporaryOverlay = modelTransform.gameObject.AddComponent<TemporaryOverlay>();
                 temporaryOverlay.duration = LoomingPresence.destealthDuration;
                 temporaryOverlay.destroyComponentOnEnd = true;
                 temporaryOverlay.originalMaterial = LoomingPresence.destealthMaterial;
-                temporaryOverlay.inspectorCharacterModel = this.modelTransform.gameObject.GetComponent<CharacterModel>();
+                temporaryOverlay.inspectorCharacterModel = modelTransform.gameObject.GetComponent<CharacterModel>();
                 temporaryOverlay.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
                 temporaryOverlay.animateShaderAlpha = true;
             }
 
-            if (this.characterModel)
+            if (characterModel)
             {
-                this.characterModel.invisibilityCount--;
+                characterModel.invisibilityCount--;
             }
 
-            if (this.hurtboxGroup)
+            if (hurtboxGroup)
             {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
+                HurtBoxGroup hurtBoxGroup = hurtboxGroup;
                 int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter - 1;
                 hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
             }
 
-            if (base.characterMotor)
+            if (characterMotor)
             {
-                base.characterMotor.enabled = true;
+                characterMotor.enabled = true;
             }
 
             base.OnExit();

@@ -49,6 +49,7 @@ namespace EntityStates.ImpMonster.Weapon.Ichor
             attack.isCrit = Util.CheckRoll(critStat, base.characterBody.master);
             attack.procCoefficient = procCoefficient;
             attack.damageType = DamageType.Generic;
+            attack.damageType.damageSource = DamageSource.Primary;
             R2API.DamageAPI.AddModdedDamageType(attack, NW.DamageTypes.PulverizeOnHit.pulverizeOnHit);
 
             Util.PlayAttackSpeedSound(enterSoundString, base.gameObject, attackSpeedStat);

@@ -9,44 +9,121 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32c800de692724987c09332b116470, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
   m_Name: GhostOfKjaro
   m_EditorClassIdentifier: 
-  bodyName: LemurianBruiserBody
-  variantTier: 3
-  variantTierDef: {fileID: 0}
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: aeb788f5fc372714a8827b167aee0594
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 39be14bf3e345f242b308045e1a02d6b, type: 2}
   isUnique: 0
+  isHidden: 0
   spawnRate: 1
-  variantSpawnCondition: {fileID: 11400000, guid: 0e923aecbc4b31e448989af09ca2a5f3,
-    type: 2}
   arrivalToken: NW_KJARO_ARRIVAL
-  variantInventory: {fileID: 11400000, guid: 9792d81803729db418f67a8bd16d9f0a, type: 2}
+  spawnCondition:
+    rid: 8453672705155661905
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 280327b58ad79e44ca9c0dced7692f33
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 3
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: e93e276051f234a46a9f5469c67f3363
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 5
+    - itemDef:
+        _asset: {fileID: 11400000, guid: 19ee59a8501fc444e963ca3df41d40ba, type: 2}
+        _address: 
+        _useDirectReference: 1
+        _canLoadFromCatalog: 1
+      count: 25
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 41f305b2b67e5ad4abf406b4113e6202
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 30
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 6cf6a91143b4c9b49ab061de0a45361a
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 10
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: ff9f264d18696494f920343be0bf938a
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: Infinity
+  bodyModifiers: []
+  variantNameProvider:
+    rid: 8453672705155661906
   deathStateOverride:
-    _typeName: EntityStates.LemurianBruiserMonster.GhostBrother.BrotherDeath, NebbysWrath,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    deathStateOverride:
+      _typeName: 
   skillReplacements: []
-  healthMultiplier: 6
-  regenBonus: 1
-  regenMultiplier: 0
-  shieldBonus: 0
-  shieldMultiplier: 1
-  moveSpeedMultiplier: 1
-  attackSpeedMultiplier: 1.25
-  damageMultiplier: 3
-  armorBonus: 50
-  armorMultiplier: 1
-  visualModifier: {fileID: 11400000, guid: 22bb6dd4706610448865bdcc846a53ab, type: 2}
-  sizeModifier: {fileID: 11400000, guid: e168b346aebb0dd4a82721197f81ed5a, type: 2}
-  aiModifier: 0
-  nameOverrides:
-  - token: NW_KJARO_OVERRIDE
-    overrideType: 2
-  componentProviders:
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.SetupBrotherGenericSkill, NebbysWrath,
+  statModifier:
+    rid: 8453672705155661907
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 7340d4c841f98d24390c5181f3085cac, type: 2}
+  scaleMultiplier: 1.25
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.SetupLemurianSpouseAISkillDriver, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    attachmentType: 0
-  - componentToAdd:
-      assemblyQualifiedName: NW.Components.SetupBrotherAISkillDriver, NebbysWrath,
+    - assemblyQualifiedName: NW.Components.SetupLemurianSpouseGenericSkill, NebbysWrath,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    attachmentType: 1
+    - assemblyQualifiedName: NW.Components.OnKill.LemurianSpouseSummonMinions, NebbysWrath,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  references:
+    version: 2
+    RefIds:
+    - rid: 8453672705155661905
+      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        minimumStageCompletions: 3
+        _stages:
+          Value: 0
+        customStages: []
+        requiredUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
+        forbiddenUnlock:
+          _asset: {fileID: 0}
+          _address: 
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
+        requiredExpansionDefs: []
+    - rid: 8453672705155661906
+      type: {class: VariantNameOverride, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        overrideToken: NW_KJARO_OVERRIDE
+    - rid: 8453672705155661907
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 1
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1.25
+        _damageMultiplier: 1.25
+        armorBonus: 50
+        _armorMultiplier: 1

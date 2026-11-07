@@ -1,17 +1,9 @@
 ﻿using BepInEx;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using MSU;
 using R2API.Utils;
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
+using RoR2;
+using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using RoR2;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -47,14 +39,10 @@ namespace TO30
 
         private void AddSpectralSummons()
         {
-            var validMasters = EntityStates.JellyfishMonster.Spectral.SpawnRandomLesserEnemyVariant.validMasters;
-            validMasters.AddRange(new List<MasterCatalog.MasterIndex>
-            {
-                MasterCatalog.FindMasterIndex("BeetleMaster"),
-                MasterCatalog.FindMasterIndex("ImpMaster"),
-                MasterCatalog.FindMasterIndex("LemurianMaster"),
-                MasterCatalog.FindMasterIndex("WispMaster")
-            });
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("BeetleMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("ImpMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("LemurianMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("WispMaster"));
         }
     }
 }

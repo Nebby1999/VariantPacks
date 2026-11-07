@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using EntityStates.GreaterWispMonster;
+﻿using EntityStates.GreaterWispMonster;
 using RoR2;
 using UnityEngine;
 
@@ -18,14 +17,14 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
 
         public override void OnEnter()
         {
-            if (this.goodState == null) this.goodState = new ChargeCannons();
-            this.attackString = this.goodState.attackString;
-            this.effectPrefab = this.goodState.effectPrefab;
+            if (goodState == null) goodState = new ChargeCannons();
+            attackString = goodState.attackString;
+            effectPrefab = goodState.effectPrefab;
 
             base.OnEnter();
-            Util.PlayAttackSpeedSound(this.attackString, base.gameObject, this.attackSpeedStat * (2f / ChargeGreaterCannon.baseDuration));
-            this.duration = ChargeGreaterCannon.baseDuration / this.attackSpeedStat;
-            Transform modelTransform = base.GetModelTransform();
+            Util.PlayAttackSpeedSound(attackString, gameObject, attackSpeedStat * (2f / baseDuration));
+            duration = baseDuration / attackSpeedStat;
+            Transform modelTransform = GetModelTransform();
 
             if (modelTransform)
             {
@@ -35,26 +34,26 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
                     Transform muzzleTransform = childLocator.FindChild("Muzzle");
                     if (muzzleTransform)
                     {
-                        this.chargeEffect = UnityEngine.Object.Instantiate<GameObject>(this.effectPrefab, transform.position, transform.rotation);
-                        this.chargeEffect.transform.parent = transform;
-                        ScaleParticleSystemDuration scaleParticleSystemDuration = this.chargeEffect.GetComponent<ScaleParticleSystemDuration>();
-                        if (scaleParticleSystemDuration) scaleParticleSystemDuration.newDuration = this.duration;
+                        chargeEffect = Object.Instantiate<GameObject>(effectPrefab, transform.position, transform.rotation);
+                        chargeEffect.transform.parent = transform;
+                        ScaleParticleSystemDuration scaleParticleSystemDuration = chargeEffect.GetComponent<ScaleParticleSystemDuration>();
+                        if (scaleParticleSystemDuration) scaleParticleSystemDuration.newDuration = duration;
                     }
                 }
             }
 
-            if (base.characterBody)
+            if (characterBody)
             {
-                base.characterBody.SetAimTimer(this.duration);
+                characterBody.SetAimTimer(duration);
             }
 
-            base.PlayAnimation("Body", "ChargeAttack1", "ChargeAttack1.playbackRate", this.duration);
+            PlayAnimation("Body", "ChargeAttack1", "ChargeAttack1.playbackRate", duration);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            EntityState.Destroy(this.chargeEffect);
+            Destroy(chargeEffect);
         }
 
         public override void Update()
@@ -66,10 +65,10 @@ namespace EntityStates.Wisp1Monster.AlmostGreat
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
                 FireGreaterCannon nextState = new FireGreaterCannon();
-                this.outer.SetNextState(nextState);
+                outer.SetNextState(nextState);
                 return;
             }
         }

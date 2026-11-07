@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using NW;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using VAPI;
 
-namespace EntityStates.LemurianBruiserMonster.GhostBrother
+namespace EntityStates.LemurianBruiserMonster.LemurianSpouse
 {
     public class SummoningRoar : BaseState
     {
@@ -80,35 +81,45 @@ namespace EntityStates.LemurianBruiserMonster.GhostBrother
             enemySearch.RefreshCandidates();
             HurtBox hurtBox = enemySearch.GetResults().FirstOrDefault();
             Transform transform = (((bool)hurtBox && (bool)hurtBox.healthComponent) ? hurtBox.healthComponent.body.coreTransform : base.characterBody.coreTransform);
-            if ((bool)transform)
+            if ((bool)transform && VariantSpawnManager.instance)
             {
-                VariantDirectorSpawnRequest directorSpawnRequest = new VariantDirectorSpawnRequest(lemSpawnCard, new DirectorPlacementRule
+                CharacterVariantDef bestDef = null;
+                if(characterBody.bodyIndex == RoR2Content.BodyPrefabs.LemurianBruiserBody.bodyIndex)
+                {
+                    bestDef = NWContent.CharacterVariants.GhostLemurian;
+                }
+                else if(characterBody.bodyIndex == CU8Content.BodyPrefabs.DevotedLemurianBruiserBody.bodyIndex)
+                {
+                    bestDef = NWContent.CharacterVariants.DevotedGhostLemurian;
+                }
+
+                DirectorSpawnRequest directorSpawnRequest = new DirectorSpawnRequest(lemSpawnCard, new DirectorPlacementRule
                 {
                     placementMode = DirectorPlacementRule.PlacementMode.Approximate,
                     minDistance = 3f,
                     maxDistance = 20f,
                     spawnOnTarget = transform
-                }, RoR2Application.rng);
-                directorSpawnRequest.variantDefs = Array.Empty<VariantDef>();
-                directorSpawnRequest.applyOnStart = false;
-                directorSpawnRequest.supressRewards = true;
-                directorSpawnRequest.summonerBodyObject = base.gameObject;
+                }, VariantSpawnManager.instance.variantSpawnRng)
+                {
+                    summonerBodyObject = gameObject
+                };
+
+                VariantDirectorSpawnRequest variantSpawnRequest = new VariantDirectorSpawnRequest(directorSpawnRequest)
+                {
+                    noGoldExpModifications = true,
+                    deathRewardsCoefficient = 0,
+                    noItemReward = true,
+                    preassignedVariantDefs = bestDef ? new CharacterVariantDef[1] { bestDef } : Array.Empty<CharacterVariantDef>()
+                };
+
                 var lem = DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
                 if (lem)
                 {
                     var Inventory = lem.GetComponent<Inventory>();
                     if (Inventory)
                     {
-                        Inventory.GiveItemString("HealthDecay", 10);
-                        var characterBody = Inventory.GetComponentInParent<CharacterMaster>().GetBody();
-                        if (characterBody)
-                        {
-                            var characterModel = characterBody.modelLocator.modelTransform.GetComponent<CharacterModel>();
-                            if (characterModel)
-                            {
-                                characterModel.baseRendererInfos[0].defaultMaterial = Resources.Load<Material>("Materials/matGhostEffect");
-                            }
-                        }
+                        Inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay, 10);
+                        Inventory.GiveItemPermanent(RoR2Content.Items.Ghost);
                     }
                 }
             }

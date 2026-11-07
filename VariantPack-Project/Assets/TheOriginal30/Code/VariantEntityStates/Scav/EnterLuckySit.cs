@@ -1,5 +1,4 @@
-﻿using EntityStates.ScavMonster;
-using RoR2;
+﻿using RoR2;
 
 namespace EntityStates.ScavMonster.Dream
 {
@@ -10,22 +9,22 @@ namespace EntityStates.ScavMonster.Dream
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = EnterSit.baseDuration / this.attackSpeedStat;
+            duration = EnterSit.baseDuration / attackSpeedStat;
 
-            Util.PlaySound(EnterSit.soundString, base.gameObject);
-            base.PlayCrossfade("Body", "EnterSit", "Sit.playbackRate", this.duration, 0.1f);
+            Util.PlaySound(EnterSit.soundString, gameObject);
+            PlayCrossfade("Body", "EnterSit", "Sit.playbackRate", duration, 0.1f);
 
-            base.modelLocator.normalizeToFloor = true;
-            base.modelLocator.modelTransform.GetComponent<AimAnimator>().enabled = true;
+            modelLocator.normalizeToFloor = true;
+            modelLocator.modelTransform.GetComponent<AimAnimator>().enabled = true;
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= this.duration)
+            if (fixedAge >= duration)
             {
-                this.outer.SetNextState(new DreamLuck());
+                outer.SetNextState(new DreamLuck());
             }
         }
     }

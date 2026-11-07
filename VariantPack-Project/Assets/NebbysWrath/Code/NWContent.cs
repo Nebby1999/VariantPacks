@@ -1,205 +1,673 @@
-﻿using R2API.ScriptableObjects;
-using System;
-using VAPI;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EntityStates;
-using NW.Modules;
-using RoR2.ContentManagement;
+﻿using EntityStates;
 using MSU;
-using System.Collections;
+using MSU.Config;
+using NW.Modules;
 using RoR2;
+using RoR2.ContentManagement;
+using RoR2.Skills;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using VAPI;
 
 namespace NW
 {
     public class NWContent : IContentPackProvider
     {
+        public static class CharacterVariants
+        {
+            //Base
+            public static CharacterVariantDef Adolescent;
+            public static CharacterVariantDef ADShroom;
+            public static CharacterVariantDef AlphaBison;
+            public static CharacterVariantDef AlmostArchaicWisp;
+            public static CharacterVariantDef AluminumContraption;
+            public static CharacterVariantDef AmalgamatedGreatWisp;
+            public static CharacterVariantDef AncientAurelionite;
+            public static CharacterVariantDef AncientStoneTitan;
+            public static CharacterVariantDef AncientStoneWisp;
+            public static CharacterVariantDef AncientWorm;
+            public static CharacterVariantDef AWUMalfunctioningSCU;
+            public static CharacterVariantDef AWUProtoWing;
+            public static CharacterVariantDef AWUSwarmingSCU;
+            public static CharacterVariantDef BeetleEmpress;
+            public static CharacterVariantDef BeetleMatriarch;
+            public static CharacterVariantDef BerserkerOverlord;
+            public static CharacterVariantDef BloatedPest;
+            public static CharacterVariantDef BruiserImp;
+            public static CharacterVariantDef Childish;
+            public static CharacterVariantDef ColossalGolem;
+            public static CharacterVariantDef DevourerDunestrider;
+            public static CharacterVariantDef EnormousAurelionite;
+            public static CharacterVariantDef GaussianProbe;
+            public static CharacterVariantDef GhostLemurian;
+            public static CharacterVariantDef GhostOfKjaro;
+            public static CharacterVariantDef GhostOfRunald;
+            public static CharacterVariantDef GreatGrandParent;
+            public static CharacterVariantDef GreaterStoneWisp;
+            public static CharacterVariantDef HatchlingWorm;
+            public static CharacterVariantDef HealerShroom;
+            public static CharacterVariantDef IchorImp;
+            public static CharacterVariantDef IchorOverlord;
+            public static CharacterVariantDef IncineratingElderLemurian;
+            public static CharacterVariantDef KamikazeReaver;
+            public static CharacterVariantDef LeastestWisp;
+            public static CharacterVariantDef LesserStoneWisp;
+            public static CharacterVariantDef MalfunctioningSCU;
+            public static CharacterVariantDef MammaShroom;
+            public static CharacterVariantDef MeatballerLemurian;
+            public static CharacterVariantDef MinorConstructAttachableThetaConstruct;
+            public static CharacterVariantDef MortarCrab;
+            public static CharacterVariantDef MothershipVagrant;
+            public static CharacterVariantDef OverflowingDunestrider;
+            public static CharacterVariantDef OverflowingTemplar;
+            public static CharacterVariantDef OverloadingAncientWorm;
+            public static CharacterVariantDef OverloadingHatchlingWorm;
+            public static CharacterVariantDef Pinky;
+            public static CharacterVariantDef ProtoWing;
+            public static CharacterVariantDef PygmyAurelionite;
+            public static CharacterVariantDef SolusProbeMK2;
+            public static CharacterVariantDef SomewhatGreatWisp;
+            public static CharacterVariantDef StarvingDunestrider;
+            public static CharacterVariantDef SteelContraption;
+            public static CharacterVariantDef SwarmerProbe;
+            public static CharacterVariantDef SwarmingSCU;
+            public static CharacterVariantDef ThetaConstruct;
+            public static CharacterVariantDef VampiricTemplar;
+
+            //DLC1
+            public static CharacterVariantDef ArmormelterPest;
+            public static CharacterVariantDef ArmormelterVermin;
+            public static CharacterVariantDef GammaConstruct;
+            public static CharacterVariantDef Goop;
+            public static CharacterVariantDef OmicronConstruct;
+            public static CharacterVariantDef OverflowingApothecary;
+            public static CharacterVariantDef ProtoConstruct;
+            public static CharacterVariantDef SunWorshipper;
+            public static CharacterVariantDef TarredGeep;
+            public static CharacterVariantDef TarredGip;
+            public static CharacterVariantDef TarredGup;
+            public static CharacterVariantDef TinyPest;
+            public static CharacterVariantDef TinyVermin;
+            public static CharacterVariantDef TransplanarBarnacle;
+
+            //DLC2
+            public static CharacterVariantDef CollapsedChild;
+            public static CharacterVariantDef DenseChild;
+            public static CharacterVariantDef ElectricWurm;
+
+            //DLC3
+            public static CharacterVariantDef CloakedExtractor;
+            public static CharacterVariantDef DeffectiveSlammer;
+            public static CharacterVariantDef EvilBuddy;
+            public static CharacterVariantDef GlitchedWing;
+            public static CharacterVariantDef InvalidatingMine;
+            public static CharacterVariantDef KleptomaniacExtractor;
+            public static CharacterVariantDef MalfunctioningAmalgamator;
+            public static CharacterVariantDef NullifyingMine;
+            public static CharacterVariantDef Oilspill;
+            public static CharacterVariantDef RollerPod;
+            public static CharacterVariantDef ScrapyardHunter;
+
+            //Mods
+            public static CharacterVariantDef AeonicWisp;
+            public static CharacterVariantDef ArchaicStoneWisp;
+            public static CharacterVariantDef ClayAssassin;
+            public static CharacterVariantDef ClaySoldier;
+            public static CharacterVariantDef EnragedWisp;
+            public static CharacterVariantDef OverflowingClayman;
+            public static CharacterVariantDef SomewhatAncientWisp;
+            public static CharacterVariantDef SomewhatArchaicWisp;
+
+            //Ally
+            public static CharacterVariantDef DevotedGhostLemurian;
+            public static CharacterVariantDef DevotedGhostOfKjaro;
+            public static CharacterVariantDef DevotedGhostOfRunald;
+            public static CharacterVariantDef DevotedIncineratingElderLemurian;
+            public static CharacterVariantDef DevotedMeatballerLemurian;
+            public static CharacterVariantDef EmpathyGreenGaussianProbe;
+            public static CharacterVariantDef EmpathyGreenSolusProbeMK2;
+            public static CharacterVariantDef EmpathyGreenSwarmerProbe;
+            public static CharacterVariantDef EmpathyRedGaussianProbe;
+            public static CharacterVariantDef EmpathyRedSolusProbeMK2;
+            public static CharacterVariantDef EmpathyRedSwarmerProbe;
+            public static CharacterVariantDef NucleusThetaConstruct;
+            public static CharacterVariantDef NucleusGammaConstruct;
+            public static CharacterVariantDef ZoeaKamikazeReaver;
+
+            //Polymorph
+            public static CharacterVariantDef PolymorphMeatballerLemurian;
+
+            //Soul
+            public static CharacterVariantDef SoulAlmostArchaicWisp;
+            public static CharacterVariantDef SoulLeastestWisp;
+            public static CharacterVariantDef SoulLesserStoneWisp;
+
+        }
+
         public string identifier => NWMain.GUID;
 
-        public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(contentPack);
+        public static ReadOnlyContentPack readOnlyContentPack => new ReadOnlyContentPack(_contentPack);
+        public static ReadOnlyVariantPack readOnlyVariantPack => _variantPack != null ? new ReadOnlyVariantPack(_variantPack) : default;
 
-        internal static ContentPack contentPack { get; } = new ContentPack();
-
-        internal static ParallelCoroutine _parallelPreLoadDispatchers = new ParallelCoroutine();
-
-        private static Func<IEnumerator>[] _loadDispatchers;
-
-        internal static ParallelCoroutine _parallelPostLoadDispatchers = new ParallelCoroutine();
-
-        private static Action[] _fieldAssignDispatchers = Array.Empty<Action>();
-
-        private bool _initialized;
-
-        private static VariantPackDef _variantPack;
+        private static ContentPack _contentPack = new ContentPack();
+        private static VariantPack _variantPack;
 
         public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
-            if (_initialized)
-                yield break;
-
-            var enumerator = NWAssets.Initialize();
-            while (!enumerator.IsDone())
+            var initialization = InitializeAssetsAndLang();
+            while (!initialization.IsDone())
             {
                 yield return null;
             }
 
-            while (!_parallelPreLoadDispatchers.isDone)
-                yield return null;
-
-            for (int i = 0; i < _loadDispatchers.Length; i++)
+            var contentPackPopulation = PopulateContentPack();
+            while (contentPackPopulation.MoveNext())
             {
-                args.ReportProgress(Util.Remap(i + 1, 0f, _loadDispatchers.Length, 0.1f, 0.2f)); //report progress
-                enumerator = _loadDispatchers[i](); //call method
-
-                while (enumerator?.MoveNext() ?? false) yield return null; //await
+                yield return null;
             }
 
-            while (!_parallelPostLoadDispatchers.isDone)
-                yield return null;
-
-            for (int i = 0; i < _fieldAssignDispatchers.Length; i++)
+            var initializeModules = InitializeModules();
+            while(initializeModules.MoveNext())
             {
-                args.ReportProgress(Util.Remap(i + 1, 0f, _fieldAssignDispatchers.Length, 0.95f, 0.99f));
-                _fieldAssignDispatchers[i]();
+                yield return null;
             }
+
+            var variantPackPopulation = PopulateVariantPack();
+            while (variantPackPopulation.MoveNext())
+            {
+                yield return null;
+            }
+
+            VariantPackManager.AddVariantPack(_variantPack);
+
+            ContentLoadHelper.PopulateTypeFields(typeof(CharacterVariants), _variantPack.characterVariantDefs, null);
         }
 
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
         {
-            ContentPack.Copy(contentPack, args.output);
-            args.ReportProgress(1f);
+            args.ReportProgress(0f);
             yield return null;
-        }
 
-        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
-        {
+            ContentPack.Copy(_contentPack, args.output);
+
+            yield return null;
             args.ReportProgress(1f);
             yield break;
         }
 
-        private static IEnumerator PopulateContentPackWithAssetCollection()
+        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
-            var request = NWAssets.LoadAssetAsync<AssetCollection>("acContentPack");
-
-            while (!request.isDone)
-                yield return null;
-
-            contentPack.AddContentFromAssetCollection(request.asset);
-        }
-
-        private static IEnumerator AddVariantPack()
-        {
-            NWLog.Info("Adding Variants");
-
-            var variantPackRequest = NWAssets.LoadAssetAsync<VariantPackDef>("NWVariantPack");
-            var variantDefsRequest = NWAssets.LoadAssetsAsync<VariantDef>();
-
-            var coroutine = new ParallelCoroutine();
-            coroutine.Add(variantPackRequest);
-            coroutine.Add(variantDefsRequest);
-
-            while (!coroutine.IsDone())
-                yield return null;
-
-            _variantPack = variantPackRequest.asset;
-            _variantPack.variants = variantDefsRequest.assets;
-            VariantPackCatalog.AddVariantPack(_variantPack, NWMain.instance.Config);
-        }
-
-        private static IEnumerator AddGupDefsToGupVariantHandler()
-        {
-            var goopDef = NWAssets.LoadAssetAsync<VariantDef>("Goop");
-            var tarredGupDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGup");
-            var tarredGeepDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGeep");
-            var tarredGipDef = NWAssets.LoadAssetAsync<VariantDef>("TarredGip");
-
-            ParallelCoroutine coroutine = new ParallelCoroutine();
-            coroutine.Add(goopDef);
-            coroutine.Add(tarredGupDef);
-            coroutine.Add(tarredGeepDef);
-            coroutine.Add(tarredGipDef);
-
-            while (!coroutine.IsDone())
-                yield return null;
-
-            var goop = goopDef.asset;
-            var tarredGup = tarredGupDef.asset;
-            var tarredGeep = tarredGeepDef.asset;
-            var tarredGip = tarredGipDef.asset;
-
-            GupVariantHelper.AddToBlacklist(goop);
-            GupVariantHelper.AddGupProgression(tarredGup, tarredGeep, tarredGip);
-        }
-
-        private static IEnumerator AddStates()
-        {
-            NWLog.Info("Adding EntityStates");
+            args.ReportProgress(0f);
             yield return null;
-            contentPack.entityStateTypes.Add(typeof(NWMain).Assembly
-            .GetTypes()
-            .Where(t => t.IsSubclassOf(typeof(EntityState)) && !t.IsAbstract)
-            .ToArray());
-        }
 
-        private IEnumerator CallAsyncLoadAttributes()
-        {
-            var routine = AsyncAssetLoadAttribute.CreateCoroutineForMod(NWMain.instance);
-
-            routine.Start();
-            while (!routine.isDone)
+            var asyncAssetLoadCoroutine = AsyncAssetLoadAttribute.CreateParallelCoroutineForMod(NWMain.instance);
+            while (!asyncAssetLoadCoroutine.isDone)
+            {
                 yield return null;
+            }
+            ParallelCoroutine.ReturnToPool(asyncAssetLoadCoroutine);
+
+            yield return null;
+
+            GupVariantHelper.AddVariantToGupBlacklist(CharacterVariants.Goop);
+            GupVariantHelper.AddGupVariantRelation(CharacterVariants.TarredGup, CharacterVariants.TarredGeep, CharacterVariants.TarredGip);
+
+            args.ReportProgress(1f);
+            yield break;
         }
 
-        private void AddSelf(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
+        private IEnumerator InitializeAssetsAndLang()
         {
-            addContentPackProvider(this);
+            var parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            parallelCoroutine.Add(NWAssets.Initialize());
+            parallelCoroutine.Add(LanguageFileLoader.AddLanguageFilesFromModAsync(NWMain.instance, "languages"));
+
+            while(parallelCoroutine.isDone == false)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
         }
 
-        public NWContent()
+        private IEnumerator PopulateContentPack()
+        {
+            ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            using var skillRequest = NWAssets.LoadAllAssetsAsync<SkillDef>();
+            using var skillFamilyRequest = NWAssets.LoadAllAssetsAsync<SkillFamily>();
+            using var gameObjectRequest = NWAssets.LoadAllAssetsAsync<GameObject>();
+
+            parallelCoroutine.Add(skillRequest);
+            parallelCoroutine.Add(skillFamilyRequest);
+            parallelCoroutine.Add(gameObjectRequest);
+
+            while(!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            _contentPack.skillDefs.Add(skillRequest.assets);
+            _contentPack.skillFamilies.Add(skillFamilyRequest.assets);
+
+            foreach(var go in gameObjectRequest.assets)
+            {
+                ContentUtil.AddAssetToContentPack(go, _contentPack);
+            }
+
+            Type[] allTypes = GetType().Assembly.GetTypes();
+            List<Type> entityStateTypes = new List<Type>();
+            foreach (Type type in allTypes)
+            {
+                if(type.IsSameOrSubclassOf(typeof(EntityState)) && !type.IsAbstract)
+                {
+                    entityStateTypes.Add(type);
+                }
+            }
+            _contentPack.entityStateTypes.Add(entityStateTypes.ToArray());
+        }
+
+        private IEnumerator InitializeModules()
+        {
+            NWLog.Info("Initializing Modules");
+
+            IContentPieceProvider damageTypeProvder = ContentUtil.CreateContentPieceProvider<IDamageTypeContent>(NWMain.instance, _contentPack);
+            IContentPieceProvider<ItemDef> itemDefProvider = ContentUtil.CreateGenericContentPieceProvider<ItemDef>(NWMain.instance, _contentPack);
+            ItemModule.AddProvider(NWMain.instance, itemDefProvider);
+
+            ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            parallelCoroutine.Add(DamageTypeModule.Initialize(damageTypeProvder));
+            parallelCoroutine.Add(ItemModule.InitializeItems(NWMain.instance));
+
+            while(!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            //Initialize prefabs after damage types
+            IContentPieceProvider<GameObject> clonedPrefabProvider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(NWMain.instance, _contentPack);
+            var coroutine = PrefabCloneModule.Initialize(clonedPrefabProvider);
+
+            while(coroutine.MoveNext())
+            {
+                yield return null;
+            }
+
+            yield break;
+        }
+
+        private static List<CharacterVariantDef> _dependantSpawnAllyDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnPolymorphDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnAWUDefs = new List<CharacterVariantDef>();
+        private static List<CharacterVariantDef> _dependantSpawnSoulDefs = new List<CharacterVariantDef>();
+
+        private IEnumerator PopulateVariantPack()
+        {
+            NWLog.Info($"Adding Variants");
+
+            using var variantDefsRequest = NWAssets.LoadAllAssetsAsync<CharacterVariantDef>();
+            using var spriteRequest = NWAssets.LoadAssetAsync<Sprite>("texPackEnabledIcon");
+            using var magmaWormCollection = NWAssets.LoadAssetAsync<AssetCollection>("acMagmaWormVariants");
+
+            var parallelCoroutine = ParallelCoroutine.RequestFromPool();
+
+            parallelCoroutine.Add(variantDefsRequest);
+            parallelCoroutine.Add(spriteRequest);
+            parallelCoroutine.Add(magmaWormCollection);
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            _variantPack = new VariantPack(NWMain.GUID, "NW_VARIANTPACK_NAME", "NW_VARIANPACK_TOOLTIP", "NW_VARIANTPACK_DESC", spriteRequest.asset, NWMain.instance, NWMain.instance.Config, NWMain.instance.Config);
+            _variantPack.characterVariantDefs.Add(variantDefsRequest.assets);
+
+            //Create the overloading worm variants, make them configurable and independent
+            foreach(var magmaWormVariant in magmaWormCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoOverloadingWorm(magmaWormVariant, false, false);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {magmaWormVariant} into an OverloadingWorm clone.");
+                    continue;
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+
+            ConfiguredBool CreateConfiguredBoolForPackOption(string key, string desc, ConfiguredVariable<bool>.OnConfigChangedDelegate onConfigChanged)
+            {
+                return new ConfiguredBool(true)
+                    .WithModGUID(NWMain.instance)
+                    .WithModName(NWMain.instance)
+                    .WithConfigFile(NWMain.instance.Config)
+                    .WithSection("General")
+                    .WithKey(key)
+                    .WithDescription(desc)
+                    .WithConfigChange(onConfigChanged)
+                    .DoConfigure();
+            }
+
+            ConfiguredBool addAllyVariants = CreateConfiguredBoolForPackOption("Enable Ally Variants", "Enables \"Ally\" Variants for the main allied enemy bodies in the game. Devoted Lemurians may spawn as Lobber Devoted Lemurians for example.", b =>
+            {
+                foreach (var variantDef in _dependantSpawnAllyDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addLemurianPolymorphVariants = CreateConfiguredBoolForPackOption("Enable Polymorph Lemurian Variants", "Enables \"Polymorph Lemurian\" Variants. Starting the Polymoprh Lemurian quest may spawn you as a Lobber Lemurian for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnPolymorphDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addArtifactOfSoulWispVariants = CreateConfiguredBoolForPackOption("Enable Artifact of Soul Wisp Variants", "Enables \"Lesser Wisp Soul\" Variants. Playing with the Artifact of Soul enabled may spawn a Leastest Lesser Wisp Soul for example", b =>
+            {
+                foreach (var variantDef in _dependantSpawnSoulDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            ConfiguredBool addAWUVariants = CreateConfiguredBoolForPackOption("Enable Alloy Worship Unit Variants", "Enables \"Alloy Worship Unit\" Variants. Fighting the Alloy Worship Unit may spawn a Malfunctioning Alloy Worship Unit for example.", b =>
+            {
+                foreach (var variantDef in _dependantSpawnAWUDefs)
+                {
+                    VariantDependantCondition condition = (VariantDependantCondition)variantDef.spawnCondition;
+                    condition.cannotSpawn = b == false;
+                    variantDef.spawnCondition = condition;
+                }
+            });
+
+            parallelCoroutine = ParallelCoroutine.RequestFromPool();
+            parallelCoroutine.Add(AddAllyVariants(addAllyVariants));
+            parallelCoroutine.Add(AddLemurianPolymorphVariants(addLemurianPolymorphVariants));
+            parallelCoroutine.Add(AddArtifactOfSoulWispVariants(addArtifactOfSoulWispVariants));
+            parallelCoroutine.Add(AddSuperRoboBallBossVariants(addAWUVariants));
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+        }
+
+        private static IEnumerator AddAllyVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Ally Variants");
+
+            using var lemurianCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianVariants");
+            using var lemurianBruiserCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianBruiserVariants");
+            using var alphaConstructCollection = NWAssets.LoadAssetAsync<AssetCollection>("acAlphaConstructVariants");
+            using var solusProbeCollection = NWAssets.LoadAssetAsync<AssetCollection>("acSolusProbeVariants");
+            using var nullifierCollection = NWAssets.LoadAssetAsync<AssetCollection>("acNullifierVariants");
+
+            ParallelCoroutine parallelCoroutine = ParallelCoroutine.RequestFromPool();
+            parallelCoroutine.Add(alphaConstructCollection);
+            parallelCoroutine.Add(solusProbeCollection);
+            parallelCoroutine.Add(lemurianCollection);
+            parallelCoroutine.Add(lemurianBruiserCollection);
+            parallelCoroutine.Add(nullifierCollection);
+
+            while (!parallelCoroutine.isDone)
+            {
+                yield return null;
+            }
+
+            ParallelCoroutine.ReturnToPool(parallelCoroutine);
+
+            //Minor Construct
+            foreach (var asset in alphaConstructCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoMinorConstructOnKill(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a MinorConstructOnKill clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+
+                if (asset.cachedName.Contains("Gamma"))
+                    continue;
+
+                //Adds theta construct as an attachable construct
+                cloned = VariantCloning.CloneIntoMinorConstructAttachable(asset);
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Green robo ball
+            foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoRoboBallGreenBuddy(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a RoboBallGreenBuddy clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Red robo ball
+            foreach (var asset in solusProbeCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoRoboBallRedBuddy(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a RoboBallRedBuddy clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Devoted Lemurians
+            foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoDevotedLemurian(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a DevotedLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Devoted Lemurian Bruisers
+            foreach (var asset in lemurianBruiserCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoDevotedLemurianBruiser(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a DevotedLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+
+            //Zoea Nullifiers
+            foreach (var asset in nullifierCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoNullifierAlly(asset);
+                if(!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a ZoeaNullifier clone.");
+                    continue;
+                }
+
+                if(cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAllyDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddLemurianPolymorphVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Lemurian Polymorph Variants");
+
+            using var lemurianCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLemurianVariants");
+
+            while (lemurianCollection.isComplete == false)
+                yield return null;
+
+            foreach (var asset in lemurianCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                //skip the ghost lemurian, doesnt make sense to make a clone of it as there's no polymorph ghost of kjaro/runald
+                if (asset.cachedName.Contains("Ghost"))
+                    continue;
+
+                var cloned = VariantCloning.CloneIntoLemurianPolymorph(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a PolymorphLemurian clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnPolymorphDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+        private static IEnumerator AddArtifactOfSoulWispVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Artifact of Soul Wisp Variants");
+
+            using var lesserWispCollection = NWAssets.LoadAssetAsync<AssetCollection>("acLesserWispVariants");
+
+            while (!lesserWispCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in lesserWispCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoWispSoul(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into a Lesser Wisp Soul clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnSoulDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private static IEnumerator AddSuperRoboBallBossVariants(bool canSpawn)
+        {
+            NWLog.Info($"Adding Alloy Worship Unit Variants");
+
+            using var lesserWispCollection = NWAssets.LoadAssetAsync<AssetCollection>("acRoboBallBossVariants");
+
+            while (!lesserWispCollection.isComplete)
+            {
+                yield return null;
+            }
+
+            foreach (var asset in lesserWispCollection.asset.FindAssets<CharacterVariantDef>())
+            {
+                var cloned = VariantCloning.CloneIntoSuperRoboBallBoss(asset);
+                if (!cloned)
+                {
+                    NWLog.Error($"Failed to clone {asset} into an Alloy Worship Unit clone.");
+                    continue;
+                }
+
+                if (cloned.spawnCondition is VariantDependantCondition dependantCondition)
+                {
+                    dependantCondition.cannotSpawn = canSpawn == false;
+                    cloned.spawnCondition = dependantCondition;
+                    _dependantSpawnAWUDefs.Add(cloned);
+                }
+
+                _variantPack.characterVariantDefs.AddSingle(cloned);
+            }
+        }
+
+        private void AddSelf(ContentManager.AddContentPackProviderDelegate addContentPackProviderDelegate)
+        {
+            addContentPackProviderDelegate(this);
+        }
+
+        internal NWContent()
         {
             ContentManager.collectContentPackProviders += AddSelf;
-            NWAssets.assetsAvailability.CallWhenAvailable(() =>
-            {
-                _parallelPostLoadDispatchers.Add(AsyncAssetLoadAttribute.CreateParallelCoroutineForMod(NWMain.instance));
-                _parallelPostLoadDispatchers.Add(AddGupDefsToGupVariantHandler());
-            });
-        }
-
-        static NWContent()
-        {
-            var main = NWMain.instance;
-            _loadDispatchers = new Func<IEnumerator>[]
-            {
-                () => LanguageFileLoader.AddLanguageFilesFromModAsync(main, "languages"),
-                PopulateContentPackWithAssetCollection,
-                AddStates,
-                () =>
-                {
-                    NWLog.Info($"Initializing Damage Types.");
-                    IContentPieceProvider provider = ContentUtil.CreateContentPieceProvider<IDamageTypeContent>(main, contentPack);
-                    return DamageTypeModule.Initialize(provider);
-                },
-                () =>
-                {
-                    NWLog.Info($"Initializing Cloned Prefabs.");
-
-                    IContentPieceProvider<GameObject> provider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(main, contentPack);
-
-                    return PrefabCloneModule.Initialize(provider);
-                },
-                () =>
-                {
-                    NWLog.Info($"Initializing Variant Items");
-
-                    IContentPieceProvider<ItemDef> provider = ContentUtil.CreateGenericContentPieceProvider<ItemDef>(main, contentPack);
-                    ItemModule.AddProvider(main, provider);
-                    return ItemModule.InitializeItems(main);
-                },
-                AddVariantPack,
-            };
         }
     }
 }

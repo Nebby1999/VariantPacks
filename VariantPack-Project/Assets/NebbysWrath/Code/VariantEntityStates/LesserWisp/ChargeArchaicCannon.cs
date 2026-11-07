@@ -102,7 +102,7 @@ namespace EntityStates.Wisp1Monster.Archaic
         {
             base.FixedUpdate();
             stopwatch += Time.fixedDeltaTime;
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (base.fixedAge >= duration && base.isAuthority)
             {
                 FireArchaicCannon nextState = new FireArchaicCannon();
                 outer.SetNextState(nextState);

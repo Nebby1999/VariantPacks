@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: MeatballerLemurian
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 7dbddf7b5091ed5498164334ac1d43c7
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 4
+  arrivalToken: 
+  spawnCondition:
+    rid: -2
+  masterModifiers: []
+  inventoryDefinition:
+    itemsToGrant:
+    - itemDef:
+        _asset: {fileID: 0}
+        _address: 65b19103d8e4f9b4e8c4296dd2a0bc35
+        _useDirectReference: 0
+        _canLoadFromCatalog: 0
+      count: 1
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  variantNameProvider:
+    rid: 8121176537124831232
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 6552d1aaa93d939419e6a14488825487, type: 2}
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8121176537124831233
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 11400000, guid: 4b2879bda401c474fafd55ed0df06c9e, type: 2}
+  scaleMultiplier: 1.1
+  additionalVariantComponents:
+    variantComponents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8121176537124831232
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_MEATBALLER_PREFIX
+    - rid: 8121176537124831233
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 2
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 1
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 0.5
+        armorBonus: 0
+        _armorMultiplier: 1

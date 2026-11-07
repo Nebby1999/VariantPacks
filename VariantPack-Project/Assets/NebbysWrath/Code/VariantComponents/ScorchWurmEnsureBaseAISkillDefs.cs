@@ -2,10 +2,13 @@ using MSU;
 using RoR2.CharacterAI;
 using RoR2.Skills;
 using System.Collections;
-using VAPI.Components;
+using UnityEngine;
+using VAPI;
 
 namespace NW.Components
 {
+    [AddComponentMenu("")]
+    [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterMaster, useOnClient = false, useOnServer = true)]
     public class ScorchWurmEnsureBaseAISkillDefs : VariantComponent
     {
         private static SkillDef _electricBreach;
@@ -17,12 +20,13 @@ namespace NW.Components
             var breachRequest = NWAssets.LoadAssetAsync<SkillDef>("ElectricBreach");
             var spewRequest = NWAssets.LoadAssetAsync<SkillDef>("SpewOrb");
 
-            var routine = new ParallelCoroutine();
+            var routine = ParallelCoroutine.RequestFromPool();
             routine.Add(breachRequest);
             routine.Add(spewRequest);
 
             while (!routine.IsDone())
                 yield return null;
+            ParallelCoroutine.ReturnToPool(routine);
 
             _electricBreach = breachRequest.asset;
             _spewOrb = spewRequest.asset;

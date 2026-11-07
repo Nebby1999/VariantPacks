@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be31ef42cc4d60408ad62ea3150b7bd, type: 3}
+  m_Name: KamikazeReaver
+  m_EditorClassIdentifier: 
+  targetBody:
+    targetBody:
+      _asset: {fileID: 0}
+      _address: 4ac56d0b387fe344bba43f086ba72fe7
+      _useDirectReference: 0
+      _canLoadFromCatalog: 0
+  variantTier: {fileID: 11400000, guid: 7675e88febfefcd43a018cbc3d593e0e, type: 2}
+  isUnique: 0
+  isHidden: 0
+  spawnRate: 5
+  arrivalToken: 
+  spawnCondition:
+    rid: -2
+  masterModifiers:
+  - rid: 8121176629247737857
+  inventoryDefinition:
+    itemsToGrant: []
+    equipmentInfo:
+      equipmentDef:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+        _canLoadFromCatalog: 1
+      canTriggerEquipment: 0
+      aiMaxUseHealthFraction: 0
+      aiMaxUseDistance: 0
+      timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
+  variantNameProvider:
+    rid: 8121176563352076305
+  deathStateOverride:
+    deathStateOverride:
+      _typeName: 
+  skillReplacements:
+  - skillDef: {fileID: 11400000, guid: 2126962e47a03784886b557a35a8352a, type: 2}
+    slot: 0
+    slotName: 
+  statModifier:
+    rid: 8121176563352076306
+  variantBuffs:
+    buffInfos: []
+  visualModifier: {fileID: 0}
+  scaleMultiplier: 0.5
+  additionalVariantComponents:
+    variantComponents:
+    - assemblyQualifiedName: NW.Components.KamikazeSetDrivers, NebbysWrath, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8121176563352076305
+      type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        prefixToken: NW_KAMIKAZE_PREFIX
+    - rid: 8121176563352076306
+      type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        _healthMultiplier: 0.75
+        regenBonus: 0
+        _regenMultiplier: 1
+        shieldBonus: 0
+        _shieldMultiplier: 1
+        _moveSpeedMultiplier: 3
+        _attackSpeedMultiplier: 1
+        _damageMultiplier: 1
+        armorBonus: 0
+        _armorMultiplier: 1
+    - rid: 8121176629247737857
+      type: {class: ReplaceSkillDrivers, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        skillDriversPrefab: {fileID: 8443116340802109024, guid: 186c1366be43363489d8f9a9ead50daa,
+          type: 3}

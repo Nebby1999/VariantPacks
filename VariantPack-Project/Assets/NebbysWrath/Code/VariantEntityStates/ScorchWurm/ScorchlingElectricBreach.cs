@@ -150,14 +150,14 @@ namespace EntityStates.Scorchling.Electric
                 origin = breachPosition,
                 scale = blastRadius
             }, transmit: true);
-            return new BlastAttack
+            var blastAttack = new BlastAttack
             {
                 attacker = base.gameObject,
                 baseDamage = damageStat * blastDamageCoefficient,
                 baseForce = blastForce,
                 bonusForce = blastBonusForce,
                 crit = RollCrit(),
-                damageType = DamageType.Stun1s,
+                damageType = DamageTypeCombo.GenericSecondary,
                 falloffModel = BlastAttack.FalloffModel.None,
                 procCoefficient = blastProcCoefficient,
                 radius = blastRadius,
@@ -165,7 +165,9 @@ namespace EntityStates.Scorchling.Electric
                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                 impactEffect = EffectCatalog.FindEffectIndexFromPrefab(blastImpactEffectPrefab),
                 teamIndex = base.teamComponent.teamIndex
-            }.Fire();
+            };
+            blastAttack.damageType.damageSource = DamageSource.Secondary;
+            return blastAttack.Fire();
         }
 
         public override void OnExit()

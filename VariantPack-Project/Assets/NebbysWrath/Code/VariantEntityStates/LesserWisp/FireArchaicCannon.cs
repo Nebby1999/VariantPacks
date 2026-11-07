@@ -36,7 +36,7 @@ namespace EntityStates.Wisp1Monster.Archaic
             PlayAnimation("Body", "FireAttack1", "FireAttack1.playbackRate", duration);
             if ((bool)effectPrefab)
             {
-                EffectManager.SimpleMuzzleFlash(this.effectPrefab, base.gameObject, "Muzzle", false);
+                EffectManager.SimpleMuzzleFlash(effectPrefab, base.gameObject, "Muzzle", false);
             }
 
             if (base.isAuthority && base.modelLocator && base.modelLocator.modelTransform)
@@ -47,6 +47,14 @@ namespace EntityStates.Wisp1Monster.Archaic
                     Transform muzzleTransform = childLocator.FindChild("Muzzle");
                     if (muzzleTransform)
                     {
+                        DamageTypeCombo? comboOverride = null;
+                        if(projectile.TryGetComponent<ProjectileDamage>(out var prjDAmage))
+                        {
+                            var combo = prjDAmage.damageType;
+                            combo.damageSource |= DamageSource.Primary;
+                            comboOverride = combo;
+                        }
+
                         ProjectileManager.instance.FireProjectile(projectile, transform.position, Util.QuaternionSafeLookRotation(aimRay.direction), gameObject, damageStat * damageCoefficient, 80f, Util.CheckRoll(critStat, characterBody.master), DamageColorIndex.Default, null, -1f);
                     }
                 }

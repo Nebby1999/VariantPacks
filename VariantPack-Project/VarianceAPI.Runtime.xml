@@ -1,0 +1,3512 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VarianceAPI.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:VAPI.AddressReferencedAssets.AddressReferencedBody">
+            <summary>
+            An <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset`1"/> that loads GameObjects, and has support for loading via the Body Catalog.
+            <br></br>
+            Like other uses of AddressReferencedAsset, it is not recommended to reuse an instance across various <see cref="T:VAPI.CharacterVariantTarget"/>, instead clone them via <see cref="!:VAPIUtils.CloneAddressReferencedAsset&lt;T1, T2&gt;(T1?)"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.AddressReferencedAssets.AddressReferencedBody.CanLoadFromCatalog">
+             <summary>
+            Wether this AddressReferencedAsset can load an Asset using the game's catalogues.
+            
+                 If this is true, you're encouraged to wait for AddressReferencedAsset to initialize
+                 fully using R2API.AddressReferencedAssets.AddressReferencedAsset.OnAddressReferencedAssetsLoaded
+             </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.LoadAsyncCoroutine">
+            <summary>
+            Loads the body asynchronously via a coroutine.
+            <br></br>
+            If the underlying address is not empty, it'll try to load the asset via the body catalog.
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.Load">
+            <summary>
+            Loads the body.
+            <br></br>
+            If the underlying address is not empty, it'll try to load the asset via the body catalog.
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.op_Implicit(VAPI.AddressReferencedAssets.AddressReferencedBody)~System.Boolean">
+            <summary>
+            Implicitly converts this into a boolean, converts to true if the asset is not null
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.op_Implicit(VAPI.AddressReferencedAssets.AddressReferencedBody)~UnityEngine.GameObject">
+            <summary>
+            Implicitly converts this into a GameObject
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.op_Implicit(System.String)~VAPI.AddressReferencedAssets.AddressReferencedBody">
+            <summary>
+            Implicitly encapsulates <paramref name="address"/> into an instance of AddressReferencedBody
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.op_Implicit(UnityEngine.GameObject)~VAPI.AddressReferencedAssets.AddressReferencedBody">
+            <summary>
+            Implicitly encapsulates <paramref name="asset"/> into an instance of AddressReferencedBody
+            </summary>
+            <param name="asset"></param>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.#ctor">
+            <summary>
+            Parameterless constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.#ctor(UnityEngine.GameObject)">
+            <summary>
+            Constructor, sets the underlying asset value to <paramref name="asset"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressReferencedAssets.AddressReferencedBody.#ctor(System.String)">
+            <summary>
+            Constructor, sets the underlying address value to <paramref name="addressOrName"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.CataloguedVariantReference">
+            <summary>
+            Provides a method to reference an existing <see cref="T:VAPI.CharacterVariantDef"/> either via it's cachedName or via a direct reference.
+            </summary>
+        </member>
+        <member name="M:VAPI.CataloguedVariantReference.GetCharacterVariantDef">
+            <summary>
+            Retrieves the CharacterVariantDef referenced by this.
+            <br></br>
+            Returns null if the underlying metadata resolved to an invalid variant.
+            </summary>
+        </member>
+        <member name="M:VAPI.CataloguedVariantReference.IsValid">
+            <summary>
+            Returns true if this reference is valid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.CataloguedVariantReference.#ctor(VAPI.CharacterVariantDef)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.CataloguedVariantReference.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantIndex">
+            <summary>
+            Index struct for <see cref="T:VAPI.CharacterVariantIndex"/>. These are networked via a <see cref="T:VAPI.NetworkCharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.#ctor(System.Int32)">
+            <summary>
+            Constructor for a <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+            <param name="i">The index of the variant</param>
+        </member>
+        <member name="P:VAPI.CharacterVariantIndex.isValid">
+            <summary>
+            Returns true if the index is valid
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantIndex.none">
+            <summary>
+            Represents an invalid index
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Explicit(VAPI.CharacterVariantIndex)~System.Int32">
+            <summary>
+            Explicitly casts a <see cref="T:VAPI.CharacterVariantIndex"/> into an <see cref="T:System.Int32"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Explicit(System.Int32)~VAPI.CharacterVariantIndex">
+            <summary>
+            Explicitly casts an <see cref="T:System.Int32"/> int a <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.Equals(VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="other"/> and this have the same indices
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.Equals(System.Object)">
+            <summary>
+            Returns true if <paramref name="obj"/> is a boxed <see cref="T:VAPI.CharacterVariantIndex"/>, and it has the same index as this
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.GetHashCode">
+            <summary>
+            Returns the hash code for this <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Equality(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Equality operator, see <see cref="M:VAPI.CharacterVariantIndex.Equals(VAPI.CharacterVariantIndex)"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Inequality(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Inequality operator, negates the result of <see cref="M:VAPI.CharacterVariantIndex.Equals(VAPI.CharacterVariantIndex)"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_LessThan(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="a"/> is less than <paramref name="b"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_GreaterThan(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="a"/> is greater than <paramref name="b"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_LessThanOrEqual(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="a"/> is less or equal to <paramref name="b"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_GreaterThanOrEqual(VAPI.CharacterVariantIndex,VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="a"/> is greater or equal to <paramref name="b"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Increment(VAPI.CharacterVariantIndex)">
+            <summary>
+            Incremental operator
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.op_Decrement(VAPI.CharacterVariantIndex)">
+            <summary>
+            Decremental Operator
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantIndex.ToString">
+            <summary>
+            Returns a human readable representation of this index
+            </summary>
+        </member>
+        <member name="T:VAPI.NetworkCharacterVariantIndex">
+            <summary>
+            A Networkable version of <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.NetworkCharacterVariantIndex.i">
+            <summary>
+            The index being networked
+            </summary>
+        </member>
+        <member name="M:VAPI.NetworkCharacterVariantIndex.op_Implicit(VAPI.CharacterVariantIndex)~VAPI.NetworkCharacterVariantIndex">
+            <summary>
+            Implicitly casts a <see cref="T:VAPI.CharacterVariantIndex"/> into a <see cref="T:VAPI.NetworkCharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.NetworkCharacterVariantIndex.op_Implicit(VAPI.NetworkCharacterVariantIndex)~VAPI.CharacterVariantIndex">
+            <summary>
+            Implicitly casts a <see cref="T:VAPI.NetworkCharacterVariantIndex"/> into a <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+            <param name="networkMasterIndex"></param>
+        </member>
+        <member name="M:VAPI.NetworkCharacterVariantIndex.Equals(VAPI.NetworkCharacterVariantIndex)">
+            <summary>
+            Returns true if the <see cref="T:VAPI.NetworkCharacterVariantIndex"/> passed in <paramref name="other"/> has the same index as this
+            </summary>
+        </member>
+        <member name="M:VAPI.NetworkCharacterVariantIndex.Equals(System.Object)">
+            <summary>
+            Returns true if the <paramref name="obj"/> is a boxed <see cref="T:VAPI.NetworkCharacterVariantIndex"/>, and it's index is equal to this's index
+            </summary>
+        </member>
+        <member name="M:VAPI.NetworkCharacterVariantIndex.GetHashCode">
+            <summary>
+            Retrieves the hash code for this <see cref="T:VAPI.NetworkCharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantMask">
+            <summary>
+            A Mask of <see cref="T:VAPI.CharacterVariantIndex"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantMask.Enumerator">
+            <summary>
+            Enumerator
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantMask.Count">
+            <summary>
+            Returns the amount of variants
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.#ctor">
+            <summary>
+            Parameterless constructor, this should not be used. Utilize <see cref="M:VAPI.CharacterVariantMask.Rent"/> or <see cref="M:VAPI.CharacterVariantMask.Rent(VAPI.CharacterVariantMask@)"/> instead.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Rent">
+            <summary>
+            Rents a <see cref="T:VAPI.CharacterVariantMask"/> from the internal pool
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Rent(VAPI.CharacterVariantMask@)">
+            <summary>
+            Rents a <see cref="T:VAPI.CharacterVariantMask"/> from the internal pool.
+            <br></br>
+            Returns a disposable struct used to return the mask to the pool when it goes out of scope
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Return(VAPI.CharacterVariantMask)">
+            <summary>
+            Returns <paramref name="mask"/> to the internal collection
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Contains(VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="characterVariantIndex"/> is set in this mask
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Add(VAPI.CharacterVariantIndex)">
+            <summary>
+            Adds <paramref name="characterVariantIndex"/> to this mask
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Remove(VAPI.CharacterVariantIndex)">
+            <summary>
+            Removes <paramref name="characterVariantIndex"/> from this mask
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Clear">
+            <summary>
+            Clears the mask
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.CopyTo(VAPI.CharacterVariantIndex[],System.Int32)">
+            <summary>
+            Copies this mask's data to <paramref name="array"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.CloneTo(VAPI.CharacterVariantMask)">
+            <summary>
+            Clones this mask to <paramref name="other"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.GetEnumerator">
+            <summary>
+            Retrieves the enumerator for this mask.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VAPI.CharacterVariantCatalog">
+            <summary>
+            Catalog for <see cref="T:VAPI.CharacterVariantDef"/>s
+            <para></para>
+            This catalog also contains methods for interfacing with <see cref="T:VAPI.CharacterVariantProvider"/>s, ways to retrieve dependant spawn variants and more.
+            <para></para>
+            If you need to run code after this catalog initializes, consider using <see cref="F:VAPI.CharacterVariantCatalog.catalogAvailability"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantCatalog.registeredCharacterVariantDefs">
+            <summary>
+            A <see cref="T:HG.ReadOnlyArray`1"/> of the registered <see cref="T:VAPI.CharacterVariantDef"/>s
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantCatalog.characterVariantCount">
+            <summary>
+            The amount of <see cref="T:VAPI.CharacterVariantDef"/>s stored in the catalog
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantCatalog.catalogAvailability">
+            <summary>
+            Catalog availability. Catalog initializes after <see cref="T:RoR2.BodyCatalog"/>, and <see cref="T:VAPI.VariantPackManager"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.RetrieveDependantSpawnVariants(VAPI.CharacterVariantIndex)">
+            <summary>
+            Retrieves a list of dependant spawn variants for <paramref name="characterVariantIndex"/>.
+            <br></br>
+            Retrieved list is null if <paramref name="characterVariantIndex"/> points to an invalid index, or if there are no dependant variants associated with <paramref name="characterVariantIndex"/>.
+            <br></br>
+            If not null, the list is taken from a <see cref="T:HG.ListPool`1"/> of <see cref="T:VAPI.CharacterVariantDef"/>. consider returning the list to the pool manually once youre done with it.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.RetrieveDependantSpawnVariants(VAPI.CharacterVariantDef)">
+            <summary>
+            Retrieves a list of dependant spawn variants for <paramref name="dependee"/>.
+            <br></br>
+            Retrieved list is null if <paramref name="dependee"/> is null, or if there are no dependant variants associated with <paramref name="dependee"/>.
+            <br></br>
+            If not null, the list is taken from a <see cref="T:HG.ListPool`1"/> of <see cref="T:VAPI.CharacterVariantDef"/>. consider returning the list to the pool manually once youre done with it.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.GetCharacterVariantDef(VAPI.CharacterVariantIndex)">
+            <summary>
+            Gets the <see cref="T:VAPI.CharacterVariantDef"/> with the specified <paramref name="index"/>
+            <br></br>
+            Returns null if the <paramref name="index"/> is out of range
+            </summary>
+            <param name="index">The index of the <see cref="T:VAPI.CharacterVariantDef"/></param>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.FindCharacterVariantIndex(System.String)">
+            <summary>
+            Finds the <see cref="T:VAPI.CharacterVariantIndex"/> that has the <see cref="T:VAPI.CharacterVariantDef"/> with the specified name in <paramref name="characterVariantDefName"/>
+            <br></br>
+            Returns <see cref="F:VAPI.CharacterVariantIndex.none"/> if there's no <see cref="T:VAPI.CharacterVariantDef"/> with the name <paramref name="characterVariantDefName"/>
+            </summary>
+            <param name="characterVariantDefName">The name of the <see cref="T:VAPI.CharacterVariantDef"/></param>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.FindCharacterVariantProvider(UnityEngine.GameObject)">
+            <summary>
+            Finds the <see cref="T:VAPI.CharacterVariantProvider"/> for the <paramref name="bodyPrefab"/>.
+            <para></para>
+            Returns null if the body prefab is null, or if the body has no <see cref="T:VAPI.CharacterVariantProvider"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.FindCharacterVariantProvider(RoR2.CharacterBody)">
+            <summary>
+            Finds the <see cref="T:VAPI.CharacterVariantProvider"/> for the <paramref name="bodyComponent"/>.
+            <para></para>
+            Returns null if the body Component is null, or if the body has no <see cref="T:VAPI.CharacterVariantProvider"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.GetCharacterVariantProvider(RoR2.BodyIndex)">
+            <summary>
+            Finds the <see cref="T:VAPI.CharacterVariantProvider"/> for the specified body in <paramref name="bodyIndex"/>.
+            <br></br>
+            returns null if <paramref name="bodyIndex"/> has no variant provider
+            </summary>
+            <param name="bodyIndex">The index to retrieve it's variant provider</param>
+        </member>
+        <member name="M:VAPI.CharacterVariantCatalog.ForceVariantAvailabilityRecalculation">
+            <summary>
+            Forces all <see cref="T:VAPI.CharacterVariantProvider"/> to recalculate their available variants.
+            </summary>
+        </member>
+        <member name="T:VAPI.Extensions">
+            <summary>
+            Basic extensions class
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.Write(UnityEngine.Networking.NetworkWriter,VAPI.NetworkCharacterVariantIndex)">
+            <summary>
+            Writes a <see cref="T:VAPI.NetworkCharacterVariantIndex"/> to <paramref name="writer"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.ReadNetworkCharacterVariantIndex(UnityEngine.Networking.NetworkReader)">
+            <summary>
+            Reads a <see cref="T:VAPI.NetworkCharacterVariantIndex"/> from <paramref name="reader"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.Write(UnityEngine.Networking.NetworkWriter,VAPI.CharacterVariantIndex)">
+            <summary>
+            Writes a <see cref="T:VAPI.CharacterVariantIndex"/> to <paramref name="writer"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.ReadCharacterVariantIndex(UnityEngine.Networking.NetworkReader)">
+            <summary>
+            Reads a <see cref="T:VAPI.CharacterVariantIndex"/> from <paramref name="reader"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.Write(UnityEngine.Networking.NetworkWriter,VAPI.CharacterVariantTierIndex)">
+            <summary>
+            Writes a <see cref="T:VAPI.CharacterVariantTierIndex"/> to <paramref name="writer"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.ReadCharacterVariantTierIndex(UnityEngine.Networking.NetworkReader)">
+            <summary>
+            Reads a <see cref="T:VAPI.CharacterVariantTierIndex"/> from <paramref name="reader"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.Extensions.GetOrFindSkill(RoR2.SkillLocator,RoR2.SkillSlot,System.String)">
+            <summary>
+            Gets or Finds a GenericSkill from within <paramref name="locator"/>.
+            <br></br>
+            If <paramref name="slot"/> is none, the GenericSkill is retrieved using <paramref name="fallbackSkillName"/>
+            <br></br>
+            This method returns null if the locator doesnt have a GenericSkill at slot <paramref name="slot"/>, or if it doesnt have a GenericSkill with the name <paramref name="fallbackSkillName"/>
+            </summary>
+            <param name="locator">The locator where we want to find a skill</param>
+            <param name="slot">The skill slot</param>
+            <param name="fallbackSkillName">The skill's name</param>
+        </member>
+        <member name="T:VAPI.CharacterVariantProvider">
+            <summary>
+            A class that provides <see cref="T:VAPI.CharacterVariantDef"/>s for <see cref="T:RoR2.BodyIndex"/>es
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantProvider.totalVariantCount">
+            <summary>
+            The total amount of variants stored in this provider
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantProvider.allVariants">
+            <summary>
+            A ReadOnlyArray of all the variants stored in this provider. Keep in mind that these are not filtered by availability.
+            <br></br>
+            If you wish to get variants by their current availability, check <see cref="P:VAPI.CharacterVariantProvider.filteredUniqueVariants"/> and <see cref="P:VAPI.CharacterVariantProvider.filteredNonUniqueVariants"/> respectively.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.associatedBodyIndex">
+            <summary>
+            The <see cref="T:RoR2.BodyIndex"/> associated with this provider, the <see cref="T:VAPI.CharacterVariantDef"/>s stored here is for this body
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantProvider.filteredUniqueVariants">
+            <summary>
+            A ReadOnlyList of the <see cref="T:VAPI.CharacterVariantDef"/>s that are unique and can spawn on the current stage
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantProvider.filteredNonUniqueVariants">
+            <summary>
+            A ReadOnlyList of the <see cref="T:VAPI.CharacterVariantDef"/>s that are not unique and can spawn on the current stage
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantProvider.FilterVariants">
+            <summary>
+            Filtes the variant for the current stage, this is called automatically on stage start
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantProvider.RollType">
+            <summary>
+            Defines a roll type to use.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollType.Default">
+            <summary>
+            Unique variants are rolled first, if no uniques are picked, then non uniques are rolled.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollType.Unique">
+            <summary>
+            Only roll unique variants
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollType.NonUnique">
+            <summary>
+            Only roll non unique variants
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantProvider.RollVariantDefsArgs">
+            <summary>
+            Arguments for rolling the <see cref="T:VAPI.CharacterVariantDef"/> for a character
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollVariantDefsArgs.rng">
+            <summary>
+            The RNG instance used in the rolling
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollVariantDefsArgs.spawnChanceMultiplier">
+            <summary>
+            A multiplier applied to the spawn chance of the variant
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollVariantDefsArgs.rollType">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantProvider.RollType"/> to use, defaults to <see cref="F:VAPI.CharacterVariantProvider.RollType.Default"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantProvider.RollVariantDefsArgs.additiveVariantDefs">
+            <summary>
+            an array of VariantDefs that are guaranteed to be included on the final array.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantProvider.RollVariantDefs(VAPI.CharacterVariantProvider.RollVariantDefsArgs)">
+            <summary>
+            Rolls an array of <see cref="T:VAPI.CharacterVariantDef"/>s from this provider.
+            <br></br>
+            If a Unique variant is rolled, only the unique variant will be returned. If no unique variants are rolled, then multiple variants may be selected, causing a merged variant
+            </summary>
+            <param name="args">The arguments for rolling the variants</param>
+        </member>
+        <member name="T:VAPI.CharacterVariantTierIndex">
+            <summary>
+            Index for <see cref="T:VAPI.CharacterVariantTierDef"/>s
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierIndex.None">
+            <summary>
+            Represents an invalid index
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantTierCatalog">
+            <summary>
+            Catalog for <see cref="T:VAPI.CharacterVariantTierDef"/>
+            <para></para>
+            If you need to run code after this catalog initializes, consider using <see cref="F:VAPI.CharacterVariantTierCatalog.catalogAvailability"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierCatalog.registeredCharacterVariantTierDefs">
+            <summary>
+            A <see cref="T:HG.ReadOnlyArray`1"/> of the registered <see cref="T:VAPI.CharacterVariantTierDef"/>s
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierCatalog.characterVariantTierCount">
+            <summary>
+            The amount of <see cref="T:VAPI.CharacterVariantTierDef"/>s stored in the catalog.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierCatalog.catalogAvailability">
+            <summary>
+            Catalog availability. Catalog initializes after <see cref="T:VAPI.VariantPackManager"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierCatalog.GetCharacterVariantTierDef(VAPI.CharacterVariantTierIndex)">
+            <summary>
+            Gets the <see cref="T:VAPI.CharacterVariantTierDef"/> with the specified <paramref name="index"/>
+            <br></br>
+            Returns null if the <paramref name="index"/> is out of range
+            </summary>
+            <param name="index">The index of the <see cref="T:VAPI.CharacterVariantTierDef"/></param>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierCatalog.FindCharacterVariantTierIndex(System.String)">
+            <summary>
+            Finds the <see cref="T:VAPI.CharacterVariantTierIndex"/> that has the <see cref="T:VAPI.CharacterVariantTierDef"/> with the specified name in <paramref name="characterVariantTierName"/>
+            <br></br>
+            Returns <see cref="F:VAPI.CharacterVariantTierIndex.None"/> if there's no <see cref="T:VAPI.CharacterVariantTierDef"/> with the name <paramref name="characterVariantTierName"/>
+            </summary>
+            <param name="characterVariantTierName">The name of the <see cref="T:VAPI.CharacterVariantTierDef"/></param>
+        </member>
+        <member name="T:VAPI.PreAssignedSpawnData">
+            <summary>
+            A struct that represents metadata assigned before spawning.
+            <br></br>
+            This is mainly utilized when a variant is spawned via <see cref="T:VAPI.VariantMasterSummon"/>, <see cref="T:VAPI.VariantDirectorSpawnRequest"/> or by using <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/>.
+            </summary>
+        </member>
+        <member name="F:VAPI.PreAssignedSpawnData.additiveVariantDefs">
+            <summary>
+            An array of CharacterVariantDefs to add to the final array of variants.
+            <br></br>
+            If not null and not empty, it is guaranteed that these variants will be applied to the body
+            </summary>
+        </member>
+        <member name="F:VAPI.PreAssignedSpawnData.spawnRateMultiplier">
+            <summary>
+            A spawn rate multiplier utilized by the <see cref="T:VAPI.VariantSpawnManager"/>'s systems for rolling variants.
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterBodyVariantController">
+            <summary>
+            The <see cref="T:VAPI.CharacterBodyVariantController"/> is a NetworkBehaviour that manages the application and storage of <see cref="T:VAPI.CharacterVariantDef"/> at the body level.
+            <para></para>
+            This component is added automatically to any CharacterBody prefab that has CharacterVariantDefs, it is not necessary to add it manually.
+            <para></para>
+            Variants are mainly spawned via the <see cref="T:VAPI.VariantSpawnManager"/>, done when the Body calls "Start"
+            <br></br>
+            When an array of <see cref="T:VAPI.CharacterVariantDef"/> is assigned via <see cref="M:VAPI.CharacterBodyVariantController.SetCharacterVariantDefsServer(VAPI.CharacterVariantDef[])"/>, the controller will try and store this array in the <see cref="T:VAPI.CharacterMasterVariantStorage"/> on the master. This in turn will apply any master modifications, and store the variants in case the body respawns.
+            <para></para>
+            If you want to "Script" a variant spawn, it is recommended to utilize <see cref="T:VAPI.VariantMasterSummon"/> and <see cref="T:VAPI.VariantDirectorSpawnRequest"/>. Alternatively you can use <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/>.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.characterBody">
+            <summary>
+            Access to the <see cref="T:RoR2.CharacterBody"/> sibling component
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.characterDeathBehavior">
+            <summary>
+            Access to the <see cref="T:RoR2.CharacterDeathBehavior"/> sibling component, may be null
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.characterModel">
+            <summary>
+            Access to the <see cref="T:RoR2.CharacterModel"/> for the body, may be null
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.doNotRollForVariants">
+            <summary>
+            If true, the <see cref="T:VAPI.VariantSpawnManager"/> will not roll for variants for this body.
+            <para></para>
+            <see cref="T:VAPI.VariantMasterSummon"/>, <see cref="T:VAPI.VariantDirectorSpawnRequest"/> and <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/> have methods for setting this value.
+            <br></br>
+            The setter is server only.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.supressArrivalMessageServer">
+            <summary>
+            Server only boolean.
+            <br></br>
+            If true, when variants are applied to this body there will be no arrival message or sound effect transmitted.
+            <para></para>
+            <see cref="T:VAPI.VariantMasterSummon"/>, <see cref="T:VAPI.VariantDirectorSpawnRequest"/> and <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/> have methods for setting this value.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.variantsApplied">
+            <summary>
+            Returns true if _any_ variant is applied to this body.
+            <br></br>
+            This strictly means that the underlying <see cref="T:VAPI.CharacterVariantDef"/> array is not null, and not empty. If the underlying array is not null, but empty, this will return false.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.preAssignedSpawnDataServer">
+            <summary>
+            See <see cref="T:VAPI.PreAssignedSpawnData"/> for more info.
+            <br></br>
+            The setter is server only
+            </summary>
+        </member>
+        <member name="E:VAPI.CharacterBodyVariantController.onVariantsUnapplied">
+            <summary>
+            Event fired when variants are unapplied for this character.
+            <para></para>
+            Fired on both Server and Client
+            <br></br>
+            This gets called twice, once when the body first spawns, and another time when the <see cref="T:VAPI.CharacterVariantDef"/> array has been set.
+            </summary>
+        </member>
+        <member name="E:VAPI.CharacterBodyVariantController.onVariantsApplied">
+            <summary>
+            Event fired when variants are applied for this character.
+            <para></para>
+            Fired on both Server and Client
+            <br></br>
+            This gets called twice, once when the body first spawns, and another time when the <see cref="T:VAPI.CharacterVariantDef"/> array has been set.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.IsVariantApplied(VAPI.CharacterVariantDef)">
+            <summary>
+            Returns true if <paramref name="characterVariantDef"/> is inside the Controller's internal <see cref="T:VAPI.CharacterVariantMask"/>.
+            <br></br>
+            If <paramref name="characterVariantDef"/> is null, it returns false.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.IsVariantApplied(VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="variantIndex"/> is inside the Controller's internal <see cref="T:VAPI.CharacterVariantMask"/>
+            <br></br>
+            If <paramref name="variantIndex"/> is out of bounds of the <see cref="T:VAPI.CharacterVariantCatalog"/>, it returns false
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.OnStartClient">
+            <summary>
+            Do not call this method, left for networking purposes.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.GetCharacterVariantDefs">
+            <summary>
+            Retrieves a <see cref="T:HG.ReadOnlyArray`1"/> of the <see cref="T:VAPI.CharacterVariantDef"/> currently applied to this character.
+            <br></br>
+            If the character has a master, the retrieved value is from the <see cref="T:VAPI.CharacterMasterVariantStorage"/>. Otherwise it's from the internal array stored in this controller.
+            <para></para>
+            This array is never null, keep in mind that it may be empty, an empty array is a valid state for the controller as it represents the abscense of variants.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.GetCharacterMasterVariantStorage">
+            <summary>
+            Retrieves the <see cref="T:VAPI.CharacterMasterVariantStorage"/> for this body.
+            <para></para>
+            Returns null if the linking process fails, or if the body is flagged as <see cref="F:RoR2.CharacterBody.BodyFlags.Masterless"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.SetCharacterVariantDefsServer(VAPI.CharacterVariantDef[])">
+            <summary>
+            Method used to set the <see cref="T:VAPI.CharacterVariantDef"/> for this character.
+            <para></para>
+            It is recommended to use <see cref="T:VAPI.VariantMasterSummon"/>, <see cref="T:VAPI.VariantDirectorSpawnRequest"/> or <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/> instead of utilizing this method directly.
+            <br></br>
+            The array is rejected if <see cref="P:VAPI.CharacterBodyVariantController.variantsApplied"/> is true.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterBodyVariantController.cachedVariantName">
+            <summary>
+            The current variant name for this character.
+            <br></br>
+            This is calculated by running the <see cref="T:VAPI.IVariantNameProvider"/> of the applied variants against the <see cref="P:VAPI.CharacterBodyVariantController.characterBody"/>'s name token
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterBodyVariantController.ModifyStatArguments(R2API.RecalculateStatsAPI.StatHookEventArgs)">
+            <summary>
+            Method used to apply stat modifiers, you shouldn't call this directly as it's called automatically by MSU's systems.
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterMasterVariantStorage">
+            <summary>
+            The <see cref="T:VAPI.CharacterMasterVariantStorage"/> is a MonoBehaviour that manages the application and storage of <see cref="T:VAPI.CharacterVariantDef"/> at the master level.
+            <para></para>
+            This component is added automatically to any CharacterMaster prefab whose body prefab has the <see cref="T:VAPI.CharacterBodyVariantController"/> component, it is not necessary to add it manually.
+            <br></br>
+            As the name implies, it's main purpose is to store the <see cref="T:VAPI.CharacterVariantDef"/>s that are applied to the body. This way the variant is preserved when the body respawns or when being taken to a new stage.
+            <br></br>
+            Only one set of variant defs may be applied to the master at a time, if the Master's body index changes, the variants are unapplied.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterMasterVariantStorage.characterMaster">
+            <summary>
+            Access to the <see cref="T:RoR2.CharacterMaster"/> sibling component
+            </summary>
+        </member>
+        <member name="E:VAPI.CharacterMasterVariantStorage.onVariantsUnapplied">
+            <summary>
+            Event fired when variants are unapplied for this master.
+            <para></para>
+            Fired on both Server and Client
+            </summary>
+        </member>
+        <member name="E:VAPI.CharacterMasterVariantStorage.onVariantsApplied">
+            <summary>
+            Event fired when variants are applied for this master.
+            <para></para>
+            Fired on both Server and Client
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterMasterVariantStorage.RemoveVariantStorageForCharacter(RoR2.BodyIndex@)">
+            <summary>
+            Removes the Variant array storage for the character that <paramref name="bodyIndex"/> represents
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterMasterVariantStorage.TryGetVariantsStoredForCharacter(RoR2.BodyIndex@,VAPI.CharacterVariantDef[]@)">
+            <summary>
+            Attempts to retrieve the <see cref="T:VAPI.CharacterVariantDef"/> that are used for the body that <paramref name="bodyIndex"/> represents.
+            <para></para>
+            <paramref name="variantDefs"/> is null if this method returns false, if this method returns true then the array is not null, but may be empty.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterMasterVariantStorage.HasVariantsForBody(RoR2.BodyIndex)">
+            <summary>
+            Returns true if this Master Storage has variants for the body that <paramref name="bodyIndex"/> represents.
+            </summary>
+        </member>
+        <member name="T:VAPI.ModelLocatorSizeUpdater">
+            <summary>
+            A runtime component that's added to a Character that needs to have a specific scale. You do not need to add this component manually.
+            <para></para>
+            Some vanilla characters have their model locators disabled or their autoUpdateModelTransform set to false, in scenarios where this is the case, VAPI adds this component to the character which will manually drive the size change.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantComponent">
+            <summary>
+            Base class for Components that are applied to Variants.
+            <para></para>
+            The <see cref="T:VAPI.CharacterVariantDef"/> has an array of this class in the form of the <see cref="T:VAPI.VariantComponentCollection"/> class. When said variant def is applied, any stored components will also be applied to the character.
+            <para></para>
+            VarianceAPI supports specifying at what object this component needs to be added via the <see cref="T:VAPI.VariantComponent.TargetComponentObjectAttribute"/>. This attribute is necessary for VAPI to be able to automatically add your component to a character.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantComponent.TargetComponentObjectAttribute">
+            <summary>
+            Attribute that defines the target object for this component
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantComponent.TargetComponentObjectAttribute.TargetObject">
+            <summary>
+            Represents valid objects for this component to be added to
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantComponent.TargetComponentObjectAttribute.TargetObject.CharacterBody">
+            <summary>
+            The component will be added to the CharacterBody object
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantComponent.TargetComponentObjectAttribute.TargetObject.CharacterMaster">
+            <summary>
+            The component will be added to the CharacterMaster object
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantComponent.TargetComponentObjectAttribute.TargetObject.CharacterModel">
+            <summary>
+            The component will be added to the CharacterModel object
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantComponent.TargetComponentObjectAttribute.targetObject">
+            <summary>
+            The target object for this component
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantComponent.TargetComponentObjectAttribute.useOnServer">
+            <summary>
+            If true, this component will be added on the Server.
+            <para></para>
+            <b>Defaults to False</b>
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantComponent.TargetComponentObjectAttribute.useOnClient">
+            <summary>
+            If true, this component will be added on the Client.
+            <para></para>
+            <b>Defaults to False</b>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponent.TargetComponentObjectAttribute.#ctor(VAPI.VariantComponent.TargetComponentObjectAttribute.TargetObject)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantDeathRewards">
+            <summary>
+            A runtime component that's added to a Character that needs to drop rewards via VAPI's reward system. You do not need to add this component manually.
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantDeathRewards.characterBodyVariantController">
+            <summary>
+            Access to the variant controller for the body
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantDeathRewards.characterBody">
+            <summary>
+            Access to the character body
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantDeathRewards.deathRewards">
+            <summary>
+            Access to the base DeathRewards component, this may be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDeathRewards.noItemRewardServer">
+            <summary>
+            Set on the server. If true, this variant will not drop any items
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDeathRewards.noGoldExpModificationsServer">
+            <summary>
+            Set on the server. If true, this variant will not recieve any gold or experience modifiers
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathRewards.OnKilledServer(RoR2.DamageReport)">
+            <summary>
+            Do not call this method manually.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantEquipmentHandler">
+            <summary>
+            Runtime Monobehaviour used to fire equipments from variants, you do not need to add this component manually.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantEquipmentHandler.TIME_BETWEEN_ATTEMPTS">
+            <summary>
+            The time between attempts of firing the equipment
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantEquipmentHandler.EquipmentData">
+            <summary>
+            Data for the equipment
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantEquipmentHandler.characterMaster">
+            <summary>
+            The CharacterMaster that's firing the equipment
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantEquipmentHandler.inventory">
+            <summary>
+            The <see cref="P:VAPI.VariantEquipmentHandler.characterMaster"/>'s inventory
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantEquipmentHandler.AddEquipmentData(RoR2.EquipmentIndex,System.Single,System.Single,System.Single)">
+            <summary>
+            Adds a new equipment data to this behaviour
+            </summary>
+            <param name="equipmentIndex">The equipment we want to fire</param>
+            <param name="aiMaxUseHealthFraction">The AI's health must be lower than this fraction for the equipment to fire</param>
+            <param name="aiMaxUseDistance">The AI's distance to it's target must be lower than this value for the equipment to fire</param>
+            <param name="timeBetweenEquipmentSwitches">The time between equipment switches</param>
+        </member>
+        <member name="M:VAPI.VariantEquipmentHandler.RemoveEquipmentData(RoR2.EquipmentIndex)">
+            <summary>
+            Removes the equipment data associated with <paramref name="index"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantSpawnManager">
+            <summary>
+            The <see cref="T:VAPI.VariantSpawnManager"/> is a Run Behaviour that handles the spawning of Variants.
+            <para></para>
+            This behaviour only exists if <see cref="F:VAPI.VAPIContent.VarianceAPI"/> is enabled in the run.
+            <para></para>
+            This component subscribes to the body's start event to turn it into a variant. It has mainly <see cref="T:Xoroshiro128Plus"/> instances on the server to manage specific server related RNG.
+            <br></br>
+            If you do not wish for the VariantSpawnManager to handle the variants for a scripted summon, consider using <see cref="T:VAPI.VariantMasterSummon"/> or <see cref="T:VAPI.VariantDirectorSpawnRequest"/>.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantSpawnManager.artifactSpawnRateMultiplier">
+            <summary>
+            The config for the Artifact of Variance's multiplier
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantSpawnManager.instance">
+            <summary>
+            Returns the singleton instance of the manager
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantSpawnManager.variantRng">
+            <summary>
+            The base RNG for the other RNG classes in this manager, available only on the server
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantSpawnManager.variantSpawnRng">
+            <summary>
+            The RNG handling variant spawns, available only on the server
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantSpawnManager.variantRewardRng">
+            <summary>
+            The RNG handling variant rewards, available only on the server
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSpawnManager.IsVariantAvailable(VAPI.CharacterVariantIndex)">
+            <summary>
+            Returns true if <paramref name="variantIndex"/> is enabled in the run.
+            </summary>
+        </member>
+        <member name="T:VAPI.DisposableCollectionHelper">
+            <summary>
+            An <see cref="T:System.IDisposable"/> class used to dispose multiple <see cref="T:System.IDisposable"/> instances in a row.
+            <br></br>
+            Can dispose in reverse order.
+            </summary>
+        </member>
+        <member name="M:VAPI.DisposableCollectionHelper.#ctor(System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="disposeInReverseOrder">If this is true, the disposing will be done using a reverse for loop rather than a regular for loop</param>
+        </member>
+        <member name="M:VAPI.DisposableCollectionHelper.AddDisposable(System.IDisposable)">
+            <summary>
+            Adds a new Disposable instance to the internal list
+            </summary>
+            <param name="disposable">The disposable instance, can be null</param>
+        </member>
+        <member name="M:VAPI.DisposableCollectionHelper.Dispose">
+            <summary>
+            Disposes the <see cref="T:System.IDisposable"/> instances in this.
+            </summary>
+        </member>
+        <member name="T:VAPI.GupVariantHelper">
+            <summary>
+            Static class that handles proper variant propagation for Gups, Geeps and Gips.
+            <br></br>
+            This class is used to check which variants should be used when a Gup/Geep dies, and has to spawn new monsters. The class's utilities goes unused if <see cref="F:VAPI.VAPIConfig._modifyGupDeathStates"/> is false.
+            <para></para>
+            Say for example you add a new "Gup" type called "Explosive", which explodes and dies when it uses it's spike attack. If you only want "Explosive Gup" to spawn "Explosive Geep", and "Explosive Geep" spawn "Explosive Gip", you can use this class to ensure that's the case.
+            </summary>
+        </member>
+        <member name="M:VAPI.GupVariantHelper.AddVariantToGupBlacklist(VAPI.CharacterVariantDef)">
+            <summary>
+            Adds a variant to the gup blacklist.
+            <br></br>
+            If a Gup/Geep dies and has <paramref name="def"/> in it's variant defs, it will not be propagated to it's children.
+            <para></para>
+            This is explicitly used by Nebby's Wrath's "Goop" variant, since it splits into Gups, we don't want those new gups to also be Goops to avoid an infinite goop problem
+            </summary>
+            <param name="def">The variant def to blacklist</param>
+        </member>
+        <member name="M:VAPI.GupVariantHelper.AddGupVariantRelation(VAPI.CharacterVariantDef,VAPI.CharacterVariantDef,VAPI.CharacterVariantDef)">
+            <summary>
+            Adds a new relation between 3 variant defs.
+            <br></br>
+            If modifyGupDeathStates is true in VAPI's config. When a Gup dies that has <paramref name="gupVariant"/> in it's list. The <paramref name="geepVariant"/> will be added to the resulting geep.
+            <br></br>
+            Same thing applies to Geeps dying and spawning Gips
+            </summary>
+            <param name="gupVariant">The Gup character variant def</param>
+            <param name="geepVariant">The Geep character variant def</param>
+            <param name="gipVariant">The Gip character variant def</param>
+        </member>
+        <member name="T:VAPI.ItemBuffHooks">
+            <summary>
+            Class with hooks related to the built in buffs and items from VAPI
+            </summary>
+        </member>
+        <member name="T:VAPI.LazyLoader`1">
+            <summary>
+            A Struct that lazily loads an asset of type <typeparamref name="T"/> from within VarianceAPI's Asset Bundle.
+            <br></br>
+            Only interact with these structs if <see cref="T:VAPI.VAPIAssets"/> has initialized, otherwise an exception will be thrown when you try to load the asset. You can ensure this exception is not thrown by using <see cref="F:VAPI.VAPIAssets.assetsAvailability"/>
+            </summary>
+            <typeparam name="T">The type of asset to load</typeparam>
+        </member>
+        <member name="P:VAPI.LazyLoader`1.asset">
+            <summary>
+            The asset, it's loaded on demand if its unloaded
+            </summary>
+        </member>
+        <member name="M:VAPI.LazyLoader`1.op_Explicit(VAPI.LazyLoader{`0})~`0">
+            <summary>
+            Explicitly converts this into <see cref="!:T"/>
+            <br></br>
+            May be null if the asset doesnt exist
+            </summary>
+            <param name="lazyLoader"></param>
+        </member>
+        <member name="M:VAPI.LazyLoader`1.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="assetName">The name of the asset to load</param>
+        </member>
+        <member name="T:VAPI.CachedNameScriptableObject">
+            <summary>
+            A <see cref="T:UnityEngine.ScriptableObject"/> whose name is cached to avoid allocations.
+            </summary>
+        </member>
+        <member name="P:VAPI.CachedNameScriptableObject.name">
+            <summary>
+            Obsolete, use <see cref="P:VAPI.CachedNameScriptableObject.cachedName"/> instead
+            </summary>
+        </member>
+        <member name="P:VAPI.CachedNameScriptableObject.cachedName">
+            <summary>
+            The cached name for this scriptable object
+            </summary>
+        </member>
+        <member name="M:VAPI.CachedNameScriptableObject.Awake">
+            <summary>
+            Base method assigns <see cref="F:VAPI.CachedNameScriptableObject._cachedName"/> to base.name
+            </summary>
+        </member>
+        <member name="M:VAPI.CachedNameScriptableObject.OnValidate">
+            <summary>
+            Base method assigns <see cref="F:VAPI.CachedNameScriptableObject._cachedName"/> to base.name
+            </summary>
+        </member>
+        <member name="M:VAPI.CachedNameScriptableObject.CreateInstance``1(System.String)">
+            <summary>
+            Creates an instance of a <see cref="T:VAPI.CachedNameScriptableObject"/>
+            </summary>
+            <typeparam name="T">The instance of <see cref="T:VAPI.CachedNameScriptableObject"/> to create</typeparam>
+            <param name="name">The name for the CachedNameScriptableObject</param>
+        </member>
+        <member name="T:VAPI.CharacterVariantDef">
+            <summary>
+            Main ScriptableObject that defines a Variant for a character. These are catalogued by the <see cref="T:VAPI.CharacterVariantCatalog"/>.
+            <br></br>
+            When a variant is added to the catalog via a <see cref="T:VAPI.VariantPack"/>, and it's <see cref="F:VAPI.CharacterVariantDef.targetBody"/> points to a valid <see cref="T:RoR2.CharacterBody"/> prefab, the variant becomes available for spawning via the character's <see cref="T:VAPI.CharacterVariantProvider"/>. This provider is later used for creating them in a run.
+            <para></para>
+            It is extremely recommended to create new ones in code via the <see cref="T:VAPI.CharacterVariantDefBuilder"/>, or by cloning an existing one using <see cref="M:VAPI.CharacterVariantDef.CreateInstance(VAPI.CharacterVariantDef,System.String)"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDef.characterVariantIndex">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantIndex"/> assigned to this variant def
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDef.associatedConfigFile">
+            <summary>
+            The config file used to configure this variant. Set by the VariantPackManager. This can be null.
+            <br></br>
+            If it exists, Configurations for this variant's <see cref="F:VAPI.CharacterVariantDef.spawnRate"/> and <see cref="F:VAPI.CharacterVariantDef.isUnique"/> will be created
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDef.ownerPlugin">
+            <summary>
+            The mod that added this Variant. Set by the VariantPackManager. This is only null if the VariantPackManager has not initialized.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDef.hasProvider">
+            <summary>
+            True if at least one <see cref="T:VAPI.CharacterVariantProvider"/> has this variant in it's internal collection.
+            <br></br>
+            This is rarely false, a situation where this is false is where a variant is added to a <see cref="T:VAPI.VariantPack"/>, but the <see cref="F:VAPI.CharacterVariantDef.targetBody"/> resolves to a nonexistent Body Prefab. This is most commonly seen on Modded Variants.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDef.IsAvailable">
+            <summary>
+            Returns true if this variant is available under the current run context.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDef.CreateInstance(VAPI.CharacterVariantDef,System.String)">
+            <summary>
+            Creates a clone of <paramref name="other"/>, assigns its name to <paramref name="newName"/> and returns the clone.
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantDefBuilder">
+            <summary>
+            Class used to build <see cref="T:VAPI.CharacterVariantDef"/>s at runtime.
+            <br></br>
+            Contains a variety of chaning methods to create the variants themselves.
+            <para></para>
+            Keep in mind that all of VAPI 3.0's types for a CharacterVariantDef (Interfaces, Classes and Structs) should not be reused across diferent variants. As a result it is recommended to utilize this builder, as it will call said types' "Clone" method, ensuring that no instance is shared.
+            <br></br>
+            VarianceAPI cannot guarantee that an implementation of one of it's interfaces handles the application of multiple instances of a character or multiple instances of a variant, so this is enforced.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDefBuilder.characterVariantDefName">
+            <summary>
+            The name value for the CharacterVariantDef that will be built
+            <br></br>
+            This cannot be null, empty or whitespace
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.targetBody">
+            <summary>
+            The target character for this variant, this cannot be null
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.characterVariantTier">
+            <summary>
+            The Tier for this variant, can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.isUnique">
+            <summary>
+            Wether the variant is unique or not by default. This shouldn't be configured directly as VAPI's systems will configure it properly.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.isHidden">
+            <summary>
+            Wether the variant is hidden or not by default. Hidden variants do not recieve config entries for their spawn rate or uniqueness values. They also don't show up in the Rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDefBuilder.spawnRate">
+            <summary>
+            The Spawn rate (0 -> 100) for this variant to spawn. Cannot be NaN, Infinity or Subnormal.
+            <br></br>
+            Gets clamped between 0 and 100
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.arrivalToken">
+            <summary>
+            A token to display in the chat when this variant spawns, can be left null.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.spawnCondition">
+            <summary>
+            The Spawn Condition for this variant, see <see cref="T:VAPI.IVariantSpawnCondition"/> for more information. Can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.masterModifiers">
+            <summary>
+            A list of <see cref="T:VAPI.IVariantMasterModifier"/>s for this variant, see said interface for more information.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.inventoryDefinition">
+            <summary>
+            The inventory definition for this variant, can be left null.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.bodyModifiers">
+            <summary>
+            A list of <see cref="T:VAPI.IVariantBodyModifier"/>s for this variant, see said interface for more information
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.nameProvider">
+            <summary>
+            The name provider for this variant, can be left null. See <see cref="T:VAPI.IVariantNameProvider"/> for more information
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.deathStateOverride">
+            <summary>
+            An <see cref="T:EntityStates.EntityState"/> that'll be used as the variant's death state.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.skillReplacements">
+            <summary>
+            A list of <see cref="T:VAPI.VariantSkillReplacement"/>s for this variant
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.statModifier">
+            <summary>
+            A StatModifier for this variant, can be left null. see <see cref="T:VAPI.IVariantStatModifier"/> for more information
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.variantBuffs">
+            <summary>
+            The BuffStorage for this variant
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.visualModifier">
+            <summary>
+            The visual modifier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantDefBuilder.scaleMultiplier">
+            <summary>
+            The scale multiplier for this variant, value cannot be NaN, Infinity or Subnormal.
+            <para></para>
+            Ensures value cannot be less or equal to 0.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantDefBuilder.variantComponents">
+            <summary>
+            The components for this variant
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetCharacterVariantDefName(System.String)">
+            <summary>Chainable method, sets <see cref="P:VAPI.CharacterVariantDefBuilder.characterVariantDefName"/> to <paramref name="name"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetCharacterTarget(VAPI.CharacterVariantTarget)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.targetBody"/> to <paramref name="target"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetVariantTier(VAPI.CharacterVariantTierDef)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.characterVariantTier"/> to <paramref name="tierDef"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetIsUnique(System.Boolean)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.isUnique"/> to <paramref name="_isUnique"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetSpawnRate(System.Single)">
+            <summary>Chainable method, sets <see cref="P:VAPI.CharacterVariantDefBuilder.spawnRate"/> to <paramref name="_spawnRate"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetArrivalToken(System.String)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.arrivalToken"/> to <paramref name="_arrivalToken"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.AddMasterModifier(VAPI.IVariantMasterModifier)">
+            <summary>Chainable method, adds <paramref name="modifier"/> to <see cref="F:VAPI.CharacterVariantDefBuilder.masterModifiers"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetVariantInventoryDefinition(VAPI.VariantInventoryDefinition)">
+            <summary>Chainable method, Sets <see cref="F:VAPI.CharacterVariantDefBuilder.inventoryDefinition"/> to <paramref name="_inventoryDefinition"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.AddBodyModifier(VAPI.IVariantBodyModifier)">
+            <summary>Chainable method, adds <paramref name="modifier"/> to <see cref="F:VAPI.CharacterVariantDefBuilder.bodyModifiers"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetNameProvider(VAPI.IVariantNameProvider)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.nameProvider"/> to <paramref name="_nameProvider"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetDeathStateOverride``1">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.deathStateOverride"/> to the type in <typeparamref name="T"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetDeathStateOverride(VAPI.VariantDeathStateOverride)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.deathStateOverride"/> to <paramref name="deathOverride"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.AddSkillReplacement(VAPI.VariantSkillReplacement)">
+            <summary>Chainable method, adds <paramref name="replacement"/> to <see cref="F:VAPI.CharacterVariantDefBuilder.skillReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetStatModifier(VAPI.IVariantStatModifier)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.statModifier"/> to <paramref name="_statModifier"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetVariantBuffs(VAPI.VariantBuffStorage)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.variantBuffs"/> to <paramref name="storage"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetVisualModifier(VAPI.CharacterVariantVisualModifier)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.visualModifier"/> to <paramref name="_visualModifier"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetScaleMultiplier(System.Single)">
+            <summary>Chainable method, sets <see cref="P:VAPI.CharacterVariantDefBuilder.scaleMultiplier"/> to <paramref name="_scaleMultiplier"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.SetComponentCollection(VAPI.VariantComponentCollection)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantDefBuilder.variantComponents"/> to <paramref name="collection"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantDefBuilder.Build">
+            <summary>
+            Builds the <see cref="T:VAPI.CharacterVariantDef"/> from the data within the builder
+            </summary>
+            <returns>The created variant, returns null if an exception occurs</returns>
+        </member>
+        <member name="T:VAPI.CharacterVariantTarget">
+            <summary>
+            Serializable class that represents a the "Target Character" for a CharacterVariantDef.
+            <para></para>
+            Internally uses a <see cref="T:VAPI.AddressReferencedAssets.AddressReferencedBody"/> to store the body's reference. Which can be either a direct reference, address reference, or a catalog name reference.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.TryLoadCharacterComponent(RoR2.CharacterBody@)">
+            <summary>
+            Attempts to load the <see cref="T:RoR2.CharacterBody"/> component stored in this <see cref="T:VAPI.CharacterVariantTarget"/>.
+            <para></para>
+            <paramref name="characterComponent"/> is null only if this method returns false.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.LoadCharacterComponent">
+            <summary>
+            Loads the <see cref="T:RoR2.CharacterBody"/> component stored in this <see cref="T:VAPI.CharacterVariantTarget"/>.
+            <para></para>
+            Result may be null if:
+            <list type="bullet">
+            <item>The body catalog is not available</item>
+            <item>The <see cref="F:VAPI.CharacterVariantTarget.targetBody"/> value points to a non-existent body</item>
+            <item>The <see cref="F:VAPI.CharacterVariantTarget.targetBody"/> value doesnt point to a CharacterBody</item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.IsKeyValid">
+            <summary>
+            Returns true if this <see cref="T:VAPI.CharacterVariantTarget"/> has a valid value.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.Clone">
+            <summary>
+            Clones this <see cref="T:VAPI.CharacterVariantTarget"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.#ctor(VAPI.AddressReferencedAssets.AddressReferencedBody)">
+            <summary>
+            Constructor. Sets the targetBody for this instance via <paramref name="_targetBody"/>
+            </summary>
+            <param name="_targetBody">The target body to use</param>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.#ctor(System.String)">
+            <summary>
+            Constructor. Encapsulates <paramref name="_addressOrCatalogName"/> inside a <see cref="T:VAPI.AddressReferencedAssets.AddressReferencedBody"/> then calls <see cref="M:VAPI.CharacterVariantTarget.#ctor(VAPI.AddressReferencedAssets.AddressReferencedBody)"/>
+            </summary>
+            <param name="_addressOrCatalogName">The body's name</param>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.#ctor(UnityEngine.GameObject)">
+            <summary>
+            Constructor. Encapsulates <paramref name="_bodyPrefab"/> inside a <see cref="T:VAPI.AddressReferencedAssets.AddressReferencedBody"/> then calls <see cref="M:VAPI.CharacterVariantTarget.#ctor(VAPI.AddressReferencedAssets.AddressReferencedBody)"/>
+            </summary>
+            <param name="_bodyPrefab">The body to use</param>
+        </member>
+        <member name="M:VAPI.CharacterVariantTarget.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantVisualModifier">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantVisualModifier"/> is a "Skin like" system for applying visuals to a variant.
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement`1">
+            <summary>
+            Represents a replacement of <typeparamref name="T"/> for a <see cref="T:UnityEngine.Renderer"/>
+            </summary>
+            <typeparam name="T">The type of replacement</typeparam>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement`1.Clone">
+            <summary>
+            Clones this renderer replacement
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VAPI.CharacterVariantVisualModifier.LightReplacement">
+            <summary>
+            Represents a replacement of color for a <see cref="T:UnityEngine.Light"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.LightReplacement.Clone">
+            <summary>
+            Clones this light replacement
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VAPI.CharacterVariantVisualModifier.PrefabInstantiationData">
+            <summary>
+            Represents a prefab to instantiate on the variant.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.PrefabInstantiationData.Clone">
+            <summary>
+            Clones this PrefabInstantiationData
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.ApplyVisualModifiers(RoR2.CharacterModel,VAPI.CharacterBodyVariantController,System.Boolean@)">
+            <summary>
+            Applies the visual modifiers to <paramref name="characterModel"/>. Returns an <see cref="T:System.IDisposable"/> used to revert any changes done to the model.
+            </summary>
+            <param name="characterModel">The model being modified</param>
+            <param name="characterBodyVariantController">The variant controller calling this method</param>
+            <param name="appliedMeshReplacements">Becomes true if any mesh replacement is applied.</param>
+        </member>
+        <member name="T:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs">
+            <summary>
+            Struct for creating an instance of <see cref="T:VAPI.CharacterVariantVisualModifier"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.name">
+            <summary>
+            The name for the scriptable object, cannot be null.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.materialReplacements">
+            <summary>
+            A list of material replacements, can be null.
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.meshReplacements">
+            <summary>
+            A list of mesh replacements, can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.lightReplacements">
+            <summary>
+            A list of light replacements, can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.prefabInstantiationDatas">
+            <summary>
+            A list of prefabs to instantiate, can be null.
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.SetName(System.String)">
+            <summary>Chainable method. Sets <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.name"/> to <paramref name="_name"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddMaterialReplacement(VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement{UnityEngine.Material})">
+            <summary>Chainable method. Adds <paramref name="replacement"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.materialReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddMaterialReplacement(System.Collections.Generic.IEnumerable{VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement{UnityEngine.Material}})">
+            <summary>Chainable method. Adds <paramref name="replacements"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.materialReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddMeshReplacement(VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement{UnityEngine.Mesh})">
+            <summary>Chainable method. Adds <paramref name="replacement"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.meshReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddMeshReplacement(System.Collections.Generic.IEnumerable{VAPI.CharacterVariantVisualModifier.RendererTargetedReplacement{UnityEngine.Mesh}})">
+            <summary>Chainable method. Adds <paramref name="replacements"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.meshReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddLightReplacement(VAPI.CharacterVariantVisualModifier.LightReplacement)">
+            <summary>Chainable method. Adds <paramref name="replacement"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.lightReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddLightReplacement(System.Collections.Generic.IEnumerable{VAPI.CharacterVariantVisualModifier.LightReplacement})">
+            <summary>Chainable method. Adds <paramref name="replacements"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.lightReplacements"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddPrefabInstantiationData(VAPI.CharacterVariantVisualModifier.PrefabInstantiationData)">
+            <summary>Chainable method. Adds <paramref name="data"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.prefabInstantiationDatas"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.AddPrefabInstantiationData(System.Collections.Generic.IEnumerable{VAPI.CharacterVariantVisualModifier.PrefabInstantiationData})">
+            <summary>Chainable method. Adds <paramref name="datas"/> to <see cref="F:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs.prefabInstantiationDatas"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstance(VAPI.CharacterVariantVisualModifier.CreateInstanceArgs)">
+            <summary>
+            Creates an instance of <see cref="T:VAPI.CharacterVariantVisualModifier"/> based on <paramref name="args"/>'s values.
+            <para></para>
+            See <see cref="T:VAPI.CharacterVariantVisualModifier.CreateInstanceArgs"/> for more info
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantVisualModifier.CreateInstance(VAPI.CharacterVariantVisualModifier,System.String)">
+            <summary>
+            Create an instance of <see cref="T:VAPI.CharacterVariantVisualModifier"/> by cloning <paramref name="other"/> and assigning its name to <paramref name="newName"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.IValidatable">
+            <summary>
+            Interface that determines that a struct or class can be Validated by using a ScriptableObject/MonoBehaviour's "OnValidate" method
+            </summary>
+        </member>
+        <member name="M:VAPI.IValidatable.Validate">
+            <summary>
+            Validate the data in this
+            </summary>
+        </member>
+        <member name="T:VAPI.IVariantBodyModifier">
+            <summary>
+            A <see cref="T:VAPI.IVariantBodyModifier"/> is a <see cref="T:VAPI.IValidatable"/> and <see cref="T:System.ICloneable"/> interface used to define new Body modifiers. These implementations can be serialized in the editor via the <see cref="T:UnityEngine.SerializeReference"/> attribute.
+            <br></br>
+            Modifications are done via the <see cref="!:ModifyBody(CharacterMaster)"/> method.
+            <br></br>
+            Must support cloning via the <see cref="T:System.ICloneable"/> implementation.
+            <para></para>
+            <b>Built In Body Modifiers</b>
+            <list type="bullet">
+            <item><see cref="T:VAPI.LoadCharacterSoundbank"/>: Used to load an existing character's soundbank.</item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantBodyModifier.ModifyBody(RoR2.CharacterBody)">
+            <summary>
+            Modify the <paramref name="body"/> here. This method should return a disposable object used to revert any changes applied to the body.
+            </summary>
+        </member>
+        <member name="T:VAPI.LoadCharacterSoundbank">
+            <summary>
+            Loads an existing Character's Soundbank
+            </summary>
+        </member>
+        <member name="M:VAPI.LoadCharacterSoundbank.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.LoadCharacterSoundbank"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.LoadCharacterSoundbank.#ctor(System.String)">
+            <summary>
+            Constructor. Sets the loadFromBody for this instance via <paramref name="addressOrCatalogName"/>
+            </summary>
+            <param name="addressOrCatalogName">The body address or catalog name to use</param>
+        </member>
+        <member name="M:VAPI.LoadCharacterSoundbank.#ctor(UnityEngine.GameObject)">
+            <summary>
+            Constructor. Sets the loadFromBody for this instance via <paramref name="bodyPrefab"/>
+            </summary>
+            <param name="bodyPrefab">The body prefab name to use</param>
+        </member>
+        <member name="M:VAPI.LoadCharacterSoundbank.#ctor(VAPI.AddressReferencedAssets.AddressReferencedBody)">
+            <summary>
+            Constructor. Sets the loadFromBody for this instance via <paramref name="bodyReference"/>
+            </summary>
+            <param name="bodyReference">The body reference to use</param>
+        </member>
+        <member name="M:VAPI.LoadCharacterSoundbank.#ctor(VAPI.CharacterVariantTarget)">
+            <summary>
+            Constructor. Sets the loadFromBody for this instance via <paramref name="characterTarget"/>
+            </summary>
+            <param name="characterTarget">The target character to use</param>
+        </member>
+        <member name="T:VAPI.IVariantBuffInfoTimedApplication">
+            <summary>
+            Interface used to apply Buffs as a timed buff.
+            <para>Must support cloning via the <see cref="T:System.ICloneable"/> interface.</para>
+            <para>Built in implementations:</para>
+            <list type="bullet">
+            <item><see cref="T:VAPI.LegacyTimedBuffApplication"/>: The original timed buff application of VAPI 2.0</item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantBuffInfoTimedApplication.ApplyAsTimedBuff(RoR2.CharacterBody,VAPI.BuffCountPair)">
+            <summary>
+            Apply the buff in <paramref name="buffCountPair"/> to <paramref name="characterBody"/> as a timed buff
+            </summary>
+        </member>
+        <member name="T:VAPI.LegacyTimedBuffApplication">
+            <summary>
+            Represents the original buff application of VAPI 2.0.
+            <br></br>
+            Adds all the buff counts with linear time.
+            </summary>
+        </member>
+        <member name="M:VAPI.LegacyTimedBuffApplication.Clone">
+            <summary>
+            Returns a clone of this
+            </summary>
+        </member>
+        <member name="T:VAPI.BuffCountPair">
+            <summary>
+            Represents a pair of <see cref="T:RoR2.BuffDef"/>, alongside a specific integer value for it's <see cref="F:VAPI.BuffCountPair.buffCount"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantBuffInfo">
+            <summary>
+            Represents a buff to apply to a variant. Supports cloneability
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffInfo.TryGetBuffCountPair(VAPI.BuffCountPair@)">
+            <summary>
+            Tries to compute a <see cref="T:VAPI.BuffCountPair"/> out of the metadata in this <see cref="T:VAPI.VariantBuffInfo"/>
+            <br></br>
+            Returns false if <see cref="F:VAPI.VariantBuffInfo.buffDef"/> is null, or it doesnt resolve to a valid <see cref="T:RoR2.BuffDef"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffInfo.Clone">
+            <summary>
+            Clones this buff info
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffInfo.Create(System.String,System.Int32)">
+            <summary>
+            Creates an instance of <see cref="T:VAPI.VariantBuffInfo"/> with a specific buff name and count
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffInfo.Create(RoR2.BuffDef,System.Int32)">
+            <summary>
+            Creates an instance of <see cref="T:VAPI.VariantBuffInfo"/> with a specific buff and count
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantBuffStorage">
+            <summary>
+            Class that represents a collection of Buffs to apply to a variant. Can be cloned.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantBuffStorage.buffInfos">
+            <summary>
+            The buff infos to apply to the character
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.ApplyBuffs(RoR2.CharacterBody)">
+            <summary>
+            Applies the buffs stored in this to <paramref name="characterBody"/>.
+            <br></br>
+            Returns null if the body is null, or this method is called outside of a Server context.
+            <br></br>
+            Otherwise returns a Disposable interface to revert any buffs applied by this.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.Clone">
+            <summary>
+            Clones this buff storage's data into a new instance
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.#ctor(RoR2.BuffDef,System.Int32)">
+            <summary>
+            Constructor, encapuslates <paramref name="buffDef"/> and <paramref name="count"/> into a <see cref="T:VAPI.VariantBuffInfo"/> then calls <see cref="M:VAPI.VariantBuffStorage.#ctor(VAPI.VariantBuffInfo)"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor, encapuslates <paramref name="buffName"/> and <paramref name="count"/> into a <see cref="T:VAPI.VariantBuffInfo"/> then calls <see cref="M:VAPI.VariantBuffStorage.#ctor(VAPI.VariantBuffInfo)"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.#ctor(VAPI.VariantBuffInfo)">
+            <summary>
+            Constructor, assigns <paramref name="buffInfo"/> into an array of BuffInfos then calls <see cref="M:VAPI.VariantBuffStorage.#ctor(VAPI.VariantBuffInfo[])"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.#ctor(VAPI.VariantBuffInfo[])">
+            <summary>
+            Constructor, sets the buffs to use with the buffs stored in <paramref name="_buffInfos"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantBuffStorage.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantComponentCollection">
+            <summary>
+            Class that represents a collection of <see cref="T:VAPI.VariantComponent"/>s to apply to a variant. Can be cloned
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.ApplyComponents(RoR2.CharacterMaster)">
+            <summary>
+            Applies the components for a master stored in this to <paramref name="master"/>.
+            <br></br>
+            Respects networking context. Server only components will be added only to the server, and client only components only to the clients. "Host" machines will get both, as they're considered both Server and Client
+            <para></para>
+            Returns null if <paramref name="master"/> is null. Otherwise returns a Disposable object used to <b>destroy</b> all added components.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.ApplyComponents(RoR2.CharacterBody)">
+            <summary>
+            Applies the components for a body stored in this to <paramref name="body"/>.
+            <br></br>
+            Respects networking context. Server only components will be added only to the server, and client only components only to the clients. "Host" machines will get both, as they're considered both Server and Client
+            <para></para>
+            Returns null if <paramref name="body"/> is null. Otherwise returns a Disposable object used to <b>destroy</b> all added components.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.ApplyComponents(RoR2.CharacterModel)">
+            <summary>
+            Applies the components for a model stored in this to <paramref name="model"/>.
+            <br></br>
+            Respects networking context. Server only components will be added only to the server, and client only components only to the clients. "Host" machines will get both, as they're considered both Server and Client
+            <para></para>
+            Returns null if <paramref name="model"/> is null. Otherwise returns a Disposable object used to <b>destroy</b> all added components.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantComponentCollection"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.#ctor(HG.SerializableSystemType[])">
+            <summary>
+            Constructor. Initializes a new component collection with the data stored in <paramref name="variantComponentTypes"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.#ctor(HG.SerializableSystemType)">
+            <summary>
+            Constructor. Initializes a new component collection with the data stored in <paramref name="variantComponentType"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.Create``1">
+            <summary>
+            Creates a new component collection with a single component, which is identified in <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantComponentCollection.Create(System.Type[])">
+            <summary>
+            Creates a new component collection using the types stored in <paramref name="variantComponentTypes"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantDeathStateOverride">
+            <summary>
+            Struct that represents an override for a character's death state. Can be cloned
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathStateOverride.ApplyDeathStateOverride(RoR2.CharacterDeathBehavior)">
+            <summary>
+            Applies the <see cref="F:VAPI.VariantDeathStateOverride.deathStateOverride"/> to <paramref name="characterDeathBehaviour"/>.
+            <br></br>
+            Returns null if <paramref name="characterDeathBehaviour"/> is null or <see cref="F:VAPI.VariantDeathStateOverride.deathStateOverride"/> resulves to null. Otherwise returns a disposable object used to revert the death state change.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathStateOverride.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantComponentCollection"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathStateOverride.#ctor(EntityStates.SerializableEntityStateType)">
+            <summary>
+            Constructor. Sets the death state override to <paramref name="stateType"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathStateOverride.#ctor(System.String)">
+            <summary>
+            Constructor. Sets the death state override to <paramref name="typeName"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDeathStateOverride.#ctor(System.Type)">
+            <summary>
+            Constructor. Sets the death state override to <paramref name="stateType"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.AddressableItemCountPair">
+            <summary>
+            A Version of <see cref="T:RoR2.ItemCountPair"/>, but using a <see cref="T:R2API.AddressReferencedAssets.AddressReferencedItemDef"/> to store the item def. Supports cloning
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressableItemCountPair.TryGetItemCountPair(RoR2.ItemCountPair@)">
+            <summary>
+            Tries to retrieve the equivalent <see cref="T:RoR2.ItemCountPair"/> for this.
+            <br></br>
+            This method returns false if <see cref="F:VAPI.AddressableItemCountPair.itemDef"/> is null or if it resolves to an invalid Item.
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressableItemCountPair.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.AddressableItemCountPair"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressableItemCountPair.Create(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:VAPI.AddressableItemCountPair"/> with the specified <paramref name="itemName"/> and <paramref name="count"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.AddressableItemCountPair.Create(RoR2.ItemDef,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:VAPI.AddressableItemCountPair"/> with the specified <paramref name="item"/> and <paramref name="count"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantInventoryDefinition">
+            <summary>
+            A Class that represents an inventory for a variant. Can be cloned.
+            <para></para>
+            Items granted this way are Channeled. Given to the master when the variant is applied and being revoked when unapplied.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo">
+            <summary>
+            Represents information about an equipment for a variant.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo.Create(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo"/> with the specified <paramref name="equipmentName"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo.Create(RoR2.EquipmentDef)">
+            <summary>
+            Creates a new instance of <see cref="T:VAPI.VariantInventoryDefinition.AddressableEquipmentInfo"/> with the specified <paramref name="equipment"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantInventoryDefinition.ApplyToInventory(RoR2.Inventory)">
+            <summary>
+            Applies the metadata in this definition to <paramref name="targetInventory"/>
+            <para></para>
+            This returns null if <paramref name="targetInventory"/> is null or if this method is called outside of a Server Context.
+            <br></br>
+            Otherwise, returns a disposable object used to revoke all items and equipment gained this way.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantInventoryDefinition.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantInventoryDefinition"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.IVariantMasterModifier">
+            <summary>
+            A <see cref="T:VAPI.IVariantMasterModifier"/> is a <see cref="T:VAPI.IValidatable"/> and <see cref="T:System.ICloneable"/> interface used to define new Master modifiers. These implementations can be serialized in the editor via the <see cref="T:UnityEngine.SerializeReference"/> attribute.
+            <br></br>
+            Modifications are done via the <see cref="M:VAPI.IVariantMasterModifier.ModifyMaster(RoR2.CharacterMaster)"/> method.
+            <br></br>
+            Must support cloning via the <see cref="T:System.ICloneable"/> implementation.
+            <para></para>
+            <b>Built In Master Modifiers</b>
+            <list type="bullet">
+            <item><see cref="T:VAPI.UnstableAIModifier"/>: Reimplementation of VAPI 2.0's Unstable flag. Will make it so AI uses "low health" skill drivers even at max health</item>
+            <item><see cref="T:VAPI.AlwaysSprintAIModifier"/>: Reimplementation of VAPI 2.0's Always Sprint flag. Will make it so AI is always sprinting</item>
+            <item><see cref="T:VAPI.AISkillDriverAimVectorModifier"/>: Used to override the Aim Vector values for a specific skill driver</item>
+            <item><see cref="T:VAPI.BaseAIDampModifier"/>: Used to modify the Aim Vectors of the BaseAI</item>
+            <item><see cref="T:VAPI.ReplaceSkillDrivers"/>: Used to replace an AI's Skill Drivers with new ones</item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantMasterModifier.ModifyMaster(RoR2.CharacterMaster)">
+            <summary>
+            Modify the <paramref name="master"/> here. This method should return a disposable object used to revert any changes applied to the master.
+            </summary>
+        </member>
+        <member name="T:VAPI.UnstableAIModifier">
+            <summary>
+            Forces an AI to use it's "low health" skill drivers, even at max health.
+            </summary>
+        </member>
+        <member name="M:VAPI.UnstableAIModifier.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.UnstableAIModifier"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.UnstableAIModifier.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.UnstableAIModifier.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.AlwaysSprintAIModifier">
+            <summary>
+            Forces an AI to always sprint.
+            </summary>
+        </member>
+        <member name="M:VAPI.AlwaysSprintAIModifier.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.UnstableAIModifier"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.AISkillDriverAimVectorModifier">
+            <summary>
+            Changes a specific skill driver's aim vector modifiers.
+            <para></para>
+            If the specified skill driver doesnt have overrides for the values, the modifiers are applied using the BaseAI's values.
+            </summary>
+        </member>
+        <member name="P:VAPI.AISkillDriverAimVectorModifier.aimVectorMaxSpeedMultiplier">
+            <summary>
+            Multiplier applied to the SkillDriver's aimVectorMaxSpeed.
+            </summary>
+        </member>
+        <member name="P:VAPI.AISkillDriverAimVectorModifier.aimVectorDampTimeMultiplier">
+            <summary>
+            Multiplier applied to the SkillDriver's aimVectorDampTime.
+            </summary>
+        </member>
+        <member name="M:VAPI.AISkillDriverAimVectorModifier.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.AISkillDriverAimVectorModifier"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.AISkillDriverAimVectorModifier.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.AISkillDriverAimVectorModifier.#ctor(RoR2.SkillSlot,System.Single,System.Single,System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.BaseAIDampModifier">
+            <summary>
+            Changes an AI's aim vector modifiers
+            </summary>
+        </member>
+        <member name="P:VAPI.BaseAIDampModifier.baseAIDampMultiplier">
+            <summary>
+            This value is multiplied by aimVectorMaxSpeed
+            </summary>
+        </member>
+        <member name="M:VAPI.BaseAIDampModifier.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.BaseAIDampModifier"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.BaseAIDampModifier.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.BaseAIDampModifier.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.ReplaceSkillDrivers">
+            <summary>
+            Replaces an AI's Skill Drivers
+            </summary>
+        </member>
+        <member name="M:VAPI.ReplaceSkillDrivers.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.ReplaceSkillDrivers"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.ReplaceSkillDrivers.#ctor(UnityEngine.GameObject)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="_skillDriversPrefab">The skill drivers to use</param>
+        </member>
+        <member name="T:VAPI.IVariantNameProvider">
+            <summary>
+            Interface for implementing a name for a Variant.
+            <br></br>
+            Done via the <see cref="M:VAPI.IVariantNameProvider.GetVariantName(System.String)"/> method.
+            <br></br>
+            Must support cloning via the <see cref="T:System.ICloneable"/> implementation.
+            <para></para>
+            <b>Built in name providers:</b>
+            <list type="bullet">
+            <item><see cref="T:VAPI.VariantNameFormatter"/>: Uses a format token to retrieve the variant name</item>
+            <item><see cref="T:VAPI.VariantNamePrefix"/>: Reimplementation of VAPI2.0's VariantNameOverride utilizing the "Prefix" override type.</item>
+            <item><see cref="T:VAPI.VariantNameSuffix"/>: Reimplementation of VAPI2.0's VariantNameOverride utilizing the "Suffix" override type.</item>
+            <item><see cref="T:VAPI.VariantNameOverride"/>: Reimplementation of VAPI2.0's VariantNameOverride utilizing the "Complete" override type</item>
+            </list>
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantNameFormatter">
+            <summary>
+            A <see cref="T:VAPI.IVariantNameProvider"/> that provides a name utilizing a format token.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantNameFormatter.formatToken">
+            <summary>
+            The format token to utilize
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantNameFormatter.Clone">
+            <summary>
+            Returns a clone of this
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantNameFormatter.GetVariantName(System.String)">
+            <summary>
+            Calls <see cref="M:RoR2.Language.GetStringFormatted(System.String,System.Object[])"/>, first argument is <see cref="F:VAPI.VariantNameFormatter.formatToken"/> value, second argument is <paramref name="input"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantNameFormatter.Validate">
+            <summary>
+            Validate method
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantSizeModifierApplicator">
+            <summary>
+            Class that handles applying size modifiers to variants
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSizeModifierApplicator.Dispose">
+            <summary>
+            Disposes the size modifier, returning it to normal
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSizeModifierApplicator.Apply">
+            <summary>
+            Applies the size modifier
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSizeModifierApplicator.#ctor(RoR2.CharacterBody,HG.ReadOnlyArray{VAPI.CharacterVariantDef})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="targetBody">The body that will have it's size modifier</param>
+            <param name="variantDefs">The variant defs used to calculate the final size modifier</param>
+        </member>
+        <member name="T:VAPI.VariantSkillReplacement">
+            <summary>
+            Represents a replacement for a Skill.
+            <br></br>
+            This class shouldn't be reused across multiple variants, call <see cref="M:VAPI.VariantSkillReplacement.Clone"/> instead of reusing.
+            <para></para>
+            If a skill replacement's SkillDef value is left null, a unique "unusable" skill is assigned to the slot instead.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSkillReplacement.ApplySkillReplacement(RoR2.SkillLocator)">
+            <summary>
+            Applies the skill replacements to the skill locator.
+            <para></para>
+            Returns null if <paramref name="skillLocator"/> is null, or if the GenericSkill cannot be resolved.
+            <br></br>
+            Otherwise, returns a disposable object used to revert the skill override.
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSkillReplacement.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantSkillReplacement"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSkillReplacement.#ctor(RoR2.Skills.SkillDef,RoR2.SkillSlot)">
+            <summary>
+            Constructor for a skill replacement targetting a skill slot
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSkillReplacement.#ctor(RoR2.Skills.SkillDef,System.String)">
+            <summary>
+            Constructor for a skill replacement targetting a slot name
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSkillReplacement.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.IVariantSpawnCondition">
+            <summary>
+            A <see cref="T:VAPI.IVariantSpawnCondition"/> is a <see cref="T:VAPI.IValidatable"/> and <see cref="T:System.ICloneable"/> interface used to define spawn conditions for Variants. These implementations can be serialized in the editor via the <see cref="T:UnityEngine.SerializeReference"/> arrtibute.
+            <br></br>
+            If <see cref="M:VAPI.IVariantSpawnCondition.IsAvailable"/> resolves to true, then the Variant can spawn. This is called each time the Stage changes in the run.
+            <br></br>
+            Must support cloning via the <see cref="T:System.ICloneable"/> implementation
+            <para></para>
+            <b>Built in spawn conditions:</b>
+            <list type="bullet">
+            <item><see cref="T:VAPI.BasicSpawnCondition"/>: The Reimplementation of VAPI2.0's VariantSpawnCondition.</item>
+            <item><see cref="T:VAPI.VariantDependantCondition"/>: A dependant condition, the variant can only spawn if <see cref="F:VAPI.VariantDependantCondition.dependantVariantDef"/> can also spawn. This is used mainly by the <see cref="T:VAPI.VariantCloning"/> class.</item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:VAPI.IVariantSpawnCondition.requiredUnlock">
+            <summary>
+            The required unlockable for this variant, this can return null and it's utilized to determine wether a Variant requires an UnlockableDef to be accessible from the In-Lobby RuleBook
+            </summary>
+        </member>
+        <member name="P:VAPI.IVariantSpawnCondition.requiredExpansionDefs">
+            <summary>
+            The required expansion defs for this variant, this can return null and it's utilized to determine wether a Variant requires the Expansions in this Enumerable to be accessible from the In-Lobby RuleBook
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantSpawnCondition.IsAvailable">
+            <summary>
+            Wether this variant is Available or not
+            </summary>
+            <returns>True if the variant is available, otherwise false.</returns>
+        </member>
+        <member name="T:VAPI.BasicSpawnCondition">
+            <summary>
+            A Spawn Condition that reimplements VAPI2.0's VariantSpawnCondition scriptable object
+            <br></br>
+            Open to inheritance, make sure to override <see cref="M:VAPI.BasicSpawnCondition.IsAvailable"/> and <see cref="M:VAPI.BasicSpawnCondition.Clone"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicSpawnCondition.stages">
+            <summary>
+            Which stages this variant can spawn
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.IsAvailable">
+            <summary>
+            Returns true if the variant is available using these spawn conditions. Override this method if you're inheriting from this
+            <br></br>
+            Requires the following methods to return true:
+            <list type="bullet">
+            <item><see cref="M:VAPI.BasicSpawnCondition.AreExpansionRequirementsMet"/></item>
+            <item><see cref="M:VAPI.BasicSpawnCondition.AreUnlockableRequirementsMet"/></item>
+            <item><see cref="M:VAPI.BasicSpawnCondition.AreStageRequirementsMet"/></item>
+            <item><see cref="M:VAPI.BasicSpawnCondition.IsStageCountGreaterThanMinimum"/></item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.Validate">
+            <summary>
+            Validate method
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.IsStageCountGreaterThanMinimum">
+            <summary>
+            Returns true if <see cref="F:RoR2.Run.stageClearCount"/> is greater or equal than <see cref="F:VAPI.BasicSpawnCondition.minimumStageCompletions"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.AreExpansionRequirementsMet">
+            <summary>
+            Returns true if all the expansions in <see cref="F:VAPI.BasicSpawnCondition.requiredExpansionDefs"/> are enabled in the run.
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.AreUnlockableRequirementsMet">
+            <summary>
+            Returns true if unlockable requirements are met
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.AreStageRequirementsMet">
+            <summary>
+            Returns true if stage requirements are met.
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.Clone">
+            <summary>
+            Returns a clone of this as an instance of <see cref="T:VAPI.BasicSpawnCondition"/>
+            <br></br>
+            Override this method if youre inheriting from this class.
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.MinStages(System.Int32)">
+            <summary>
+            Creates na instance of BasicSpawnCondition with min stages required for completion
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.#ctor(System.Nullable{System.Int32},System.Nullable{R2API.DirectorAPI.Stage},System.String[],System.Nullable{HG.Either{System.String,RoR2.UnlockableDef}},System.Nullable{HG.Either{System.String,RoR2.UnlockableDef}},HG.Either{System.String,RoR2.ExpansionManagement.ExpansionDef}[])">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicSpawnCondition.#ctor">
+            <summary>
+            PArameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantDependantCondition">
+            <summary>
+            A Spawn Condition that returns true if the <see cref="F:VAPI.VariantDependantCondition.dependantVariantDef"/>'s availability also resolves to true.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDependantCondition.cannotSpawn">
+            <summary>
+            Wether the variant can spawn or not, this is checked before the <see cref="F:VAPI.VariantDependantCondition.dependantVariantDef"/> isAvailable check is done.
+            <br></br>
+            This is used mostly for scenarios where we want to add a variant that depends on another variant's availability spawning, but want to control wether it can spawn or not via a config.
+            <para></para>
+            As a more direct example, The Original 30 and Nebby's Wrath set this value depending on a config to check wether "ally Variants" is set to true or false
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDependantCondition.Clone">
+            <summary>
+            Clones the metadata in this into a new instance of <see cref="T:VAPI.VariantDependantCondition"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDependantCondition.#ctor(VAPI.CataloguedVariantReference)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDependantCondition.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDependantCondition.#ctor(VAPI.CharacterVariantDef)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.IVariantStatModifier">
+            <summary>
+            A <see cref="T:VAPI.IVariantStatModifier"/> is a <see cref="T:VAPI.IValidatable"/> and <see cref="T:System.ICloneable"/> interface used to define stat modifiers for a Variant. These implementations can be serialized in the editor via the <see cref="T:UnityEngine.SerializeReference"/> attribute.
+            <br></br>
+            Utilizes R2API's RecalculateStats internally.
+            <br></br>
+            Must support cloning via the <see cref="T:System.ICloneable"/> implementation, as variants shouldnt share the same instance of a StatModifier.
+            <para></para>
+            <b>Built in Stat Modifiers:</b>
+            <list type="bullet">
+            <item><see cref="T:VAPI.BasicStatModifier"/>: The reimplementation of VAPI2.0's stat modifiers.</item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantStatModifier.ApplyStatModifiers(R2API.RecalculateStatsAPI.StatHookEventArgs,RoR2.CharacterBody)">
+            <summary>
+            Apply the stat modifiers of this to <paramref name="args"/>.
+            </summary>
+        </member>
+        <member name="T:VAPI.BasicStatModifier">
+            <summary>
+            A stat modifier that reimplements VAPI2.0's stat modifiers.
+            <br></br>
+            Open to inheritance, make sure to override <see cref="M:VAPI.BasicStatModifier.ApplyStatModifiers(R2API.RecalculateStatsAPI.StatHookEventArgs,RoR2.CharacterBody)"/>, and <see cref="M:VAPI.BasicStatModifier.Clone"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.healthMultiplier">
+            <summary>
+            The health multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.regenMultiplier">
+            <summary>
+            Regeneration multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.shieldMultiplier">
+            <summary>
+            Shield multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.moveSpeedMultiplier">
+            <summary>
+            Movement Speed multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.attackSpeedMultiplier">
+            <summary>
+            Attack Speed multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.damageMultiplier">
+            <summary>
+            Damage multiplier for this variant
+            </summary>
+        </member>
+        <member name="P:VAPI.BasicStatModifier.armorMultiplier">
+            <summary>
+            Armor multiplier for this variant
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicStatModifier.ApplyStatModifiers(R2API.RecalculateStatsAPI.StatHookEventArgs,RoR2.CharacterBody)">
+            <summary>
+            Applies the stat modifiers in this to <paramref name="targetBody"/>. Should not be called directly
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicStatModifier.Clone">
+            <summary>
+            Returns a clone of this as an instance of <see cref="T:VAPI.BasicStatModifier"/>.
+            <br></br>
+            Override this method if you're inheriting from this class
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicStatModifier.Validate">
+            <summary>
+            Validate method
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicStatModifier.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VAPI.BasicStatModifier.#ctor">
+            <summary>
+            Parameterless Constructor
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantTierDef">
+            <summary>
+            Scriptable object that defines a Tier for variants. These are catalogued by the <see cref="T:VAPI.CharacterVariantTierCatalog"/>.
+            <br></br>
+            The metadata in here mainly drives the reward system, alongside items and buffs that the variant should have due to being part of the tier.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.canDropCommon">
+            <summary>
+            Returns true if <see cref="F:VAPI.CharacterVariantTierDef.commonItemRewardChance"/> is greater than 0
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.canDropUncommon">
+            <summary>
+            Returns true if <see cref="F:VAPI.CharacterVariantTierDef.uncommonItemRewardChance"/> is greater than 0
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.canDropLegendary">
+            <summary>
+            Returns true if <see cref="F:VAPI.CharacterVariantTierDef.legendaryItemRewardChance"/> is greater than 0
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.canDropBoss">
+            <summary>
+            Returns true if <see cref="F:VAPI.CharacterVariantTierDef.bossItemRewardChance"/> is greater than 0
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.characterVariantTierIndex">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantTierIndex"/> assigned to this VariantTierDef
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.associatedConfigFile">
+            <summary>
+            The config file used to configure this variant tier. Set by the VariantPackManager. This can be null.
+            <br></br>
+            If it exists, Configurations for this tier's <see cref="F:VAPI.CharacterVariantTierDef.bonusArmor"/>, <see cref="F:VAPI.CharacterVariantTierDef.experienceRewardCoefficient"/>, <see cref="F:VAPI.CharacterVariantTierDef.goldRewardCoefficient"/>, <see cref="F:VAPI.CharacterVariantTierDef.commonItemRewardChance"/>, <see cref="F:VAPI.CharacterVariantTierDef.uncommonItemRewardChance"/>, <see cref="F:VAPI.CharacterVariantTierDef.legendaryItemRewardChance"/> and <see cref="F:VAPI.CharacterVariantTierDef.bossItemRewardChance"/> are generated.
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantTierDef.ownerPlugin">
+            <summary>
+            The mod that added this Variant Tier. Set by the VariantPackManager. This is only null if the VariantPackManager has not initialized.
+            </summary>
+        </member>
+        <member name="T:VAPI.CharacterVariantTierDef.CreateInstanceArgs">
+            <summary>
+            Struct used to create an instance of <see cref="T:VAPI.CharacterVariantTierDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.name">
+            <summary>
+            The name for the scriptable object, must be unique
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.announceArrivalInChat">
+            <summary>
+            Defaults to false
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.bonusArmor">
+            <summary>
+            Defaults to 0
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.expRewardCoefficient">
+            <summary>
+            Defaults to 1
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.goldRewardCoefficient">
+            <summary>
+            Defaults to 1
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.commonItemRewardChance">
+            <summary>
+            Defaults to 0
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.uncommonItemRewardChance">
+            <summary>
+            Defaults to 0
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.legendaryItemRewardChance">
+            <summary>
+            Defaults to 0
+            </summary>
+        </member>
+        <member name="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.bossItemRewardChance">
+            <summary>
+            Defaults to 0
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetName(System.String)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.name"/> to <paramref name="_name"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetAnnounceArrivalInChat(System.Boolean)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.announceArrivalInChat"/> to <paramref name="_announceArrivalInChat"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.AddTierItem(VAPI.AddressableItemCountPair)">
+            <summary>Chainable method, adds <paramref name="item"/> to <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.tierItems"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetTierBuff(R2API.AddressReferencedAssets.AddressReferencedBuffDef)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.tierBuffDef"/> to <paramref name="_tierBuffDef"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetBonusArmor(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.bonusArmor"/> to <paramref name="_bonusArmor"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetExpRewardCoefficient(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.expRewardCoefficient"/> to <paramref name="_expRewardCoefficient"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetGoldRewardCoefficient(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.goldRewardCoefficient"/> to <paramref name="_goldRewardCoefficient"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetCommonItemRewardChance(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.commonItemRewardChance"/> to <paramref name="_commonItemRewardChance"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetUncommonItemRewardChance(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.uncommonItemRewardChance"/> to <paramref name="_uncommonItemRewardChance"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetLegendaryItemRewardChance(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.legendaryItemRewardChance"/> to <paramref name="_legendaryItemRewardChance"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstanceArgs.SetBossItemRewardChance(System.Single)">
+            <summary>Chainable method, sets <see cref="F:VAPI.CharacterVariantTierDef.CreateInstanceArgs.bossItemRewardChance"/> to <paramref name="_bossItemRewardChance"/></summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstance(VAPI.CharacterVariantTierDef.CreateInstanceArgs)">
+            <summary>
+            Creates an instance of a <see cref="T:VAPI.CharacterVariantTierDef"/> based off the arguments passed in <paramref name="args"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantTierDef.CreateInstance(VAPI.CharacterVariantTierDef,System.String)">
+            <summary>
+            Creates a clone of <paramref name="other"/>, assigns its name to <paramref name="name"/>, and returns the clone.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantDirectorSpawnRequest">
+            <summary>
+            A <see cref="T:RoR2.DirectorSpawnRequest"/> class encapsulator that will turn the spawned character into a variant.
+            <para></para>
+            This is done by subscribing to the <see cref="F:RoR2.DirectorSpawnRequest.onSpawnedServer"/>, and then applying any variants and modifiers.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantDirectorSpawnRequest.VariantDirectorSpawnResult">
+            <summary>
+            The report of the director spawn request
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.VariantDirectorSpawnResult.spawnResult">
+            <summary>
+            The base <see cref="T:RoR2.SpawnCard.SpawnResult"/> from the DirectorSpawnRequest
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.VariantDirectorSpawnResult.variantDefs">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantDef"/>s that the character has
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDirectorSpawnRequest.VariantDirectorSpawnResult.#ctor(RoR2.SpawnCard.SpawnResult,VAPI.CharacterVariantDef[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="spawnResult">The base <see cref="T:RoR2.SpawnCard.SpawnResult"/> from the DirectorSpawnREquest</param>
+            <param name="variantDefs">The character's variant defs</param>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.spawnRequest">
+            <summary>
+            The DirectorSpawnRequest that will be turned into a variant
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.preassignedVariantDefs">
+            <summary>
+            The VariantDefs for the character
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.preassignedVariantDefsAreAdditive">
+            <summary>
+            If true, <see cref="F:VAPI.VariantDirectorSpawnRequest.preassignedVariantDefs"/> will be considered "Additive".
+            <br></br>
+            The variant spawn manager will still roll for variants, but it is guaranteed that the spawned variant has the variant defs in the array.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.spawnManagerMultiplier">
+            <summary>
+            The SpawnManager's process for rolling variants will multiply all spawn rates by this value.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.requesterDeathRewards">
+            <summary>
+            The death rewards from the requester, if supplied the summon will have the same gold and experience reward
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.deathRewardsCoefficient">
+            <summary>
+            A reward coefficient of <see cref="F:VAPI.VariantDirectorSpawnRequest.requesterDeathRewards"/>'s gold and experience amounts
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.supressArrivalMessage">
+            <summary>
+            If true, the announcement system will not announce the variant's arrival.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.noItemReward">
+            <summary>
+            If true, when the summoned variant dies it is guaranteed to never drop items
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantDirectorSpawnRequest.noGoldExpModifications">
+            <summary>
+            If true, when the summoned variant is spawned it is guaranteed to not recieve any reward modifications from the applied variants.
+            </summary>
+        </member>
+        <member name="E:VAPI.VariantDirectorSpawnRequest.onSpawnPerformed">
+            <summary>
+            Event called when the DirectorSpawnRequest is performed, and the result is turned into a variant
+            </summary>
+        </member>
+        <member name="E:VAPI.VariantDirectorSpawnRequest.onServerVariantSpawnedGlobal">
+            <summary>
+            Event called when any DirectorSpawnRequest is performed, and it's result is turned into a variant
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantDirectorSpawnRequest.#ctor(RoR2.DirectorSpawnRequest)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="spawnRequest">The DirectorSpawnREquest, from which once performed succesfully, will be turned into a variant.</param>
+        </member>
+        <member name="T:VAPI.VariantMasterSummon">
+            <summary>
+            A class that encapsulates a <see cref="T:RoR2.MasterSummon"/>.
+            <para></para>
+            Used to turn the master summoned into a variant.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantMasterSummon.VariantMasterSummonReport">
+            <summary>
+            The report of the VariantSummon
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.VariantMasterSummonReport.masterSummonReport">
+            <summary>
+            The base masterSummonReport from the MasterSummon
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.VariantMasterSummonReport.summonInstanceVariants">
+            <summary>
+            The <see cref="T:VAPI.CharacterVariantDef"/>s that the summon has
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantMasterSummon.VariantMasterSummonReport.#ctor(RoR2.MasterSummon.MasterSummonReport,VAPI.CharacterVariantDef[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="masterSummonReport">The base master summon report</param>
+            <param name="summonInstanceVariants">The summon's character variant defs</param>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.preassignedVariantDefs">
+            <summary>
+            The VariantDefs for the master
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.preassignedVariantDefsAreAdditive">
+            <summary>
+            If true, <see cref="F:VAPI.VariantMasterSummon.preassignedVariantDefs"/> will be considered "Additive".
+            <br></br>
+            The variant spawn manager will still roll for variants, but it is guaranteed that the spawned variant has the variant defs in the array.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.spawnManagerMultiplier">
+            <summary>
+            The SpawnManager's process for rolling variants will multiply all spawn rates by this value.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.summonerDeathRewards">
+            <summary>
+            The death rewards from the summoner, if supplied the summon will have the same gold and experience reward
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.deathRewardsCoefficient">
+            <summary>
+            A reward coefficient of <see cref="F:VAPI.VariantMasterSummon.summonerDeathRewards"/>'s gold and experience amounts
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.supressArrivalMessage">
+            <summary>
+            If true, the announcement system will not announce the variant's arrival.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.noItemReward">
+            <summary>
+            If true, when the summoned variant dies it is guaranteed to never drop items
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantMasterSummon.noGoldExpModifications">
+            <summary>
+            If true, when the summoned variant is spawned it is guaranteed to not recieve any reward modifications from the applied variants.
+            </summary>
+        </member>
+        <member name="E:VAPI.VariantMasterSummon.onSummonPerformed">
+            <summary>
+            Event called when the summon is performed
+            </summary>
+        </member>
+        <member name="E:VAPI.VariantMasterSummon.onServerVariantSummonGlobal">
+            <summary>
+            Event called when any <see cref="T:VAPI.VariantMasterSummon"/> is performed
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantMasterSummon.#ctor(RoR2.MasterSummon)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="masterSummon">The master summon, from which once performed, will be turned into a variant</param>
+        </member>
+        <member name="T:VAPI.SyncListCharacterVariantIndex">
+            <summary>
+            Inherits from <see cref="T:UnityEngine.Networking.SyncListStruct`1"/>, used to sync CharacterVariantIndices
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIAssets">
+            <summary>
+            VarianceAPI's assets class
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIAssets.assetsAvailability">
+            <summary>
+            Resource availability that becomes available when VAPI initializes this class
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIAssets.LoadAsset``1(System.String)">
+            <summary>
+            Loads an Asset from VAPI
+            </summary>
+            <typeparam name="TAsset">The Asset's type</typeparam>
+            <param name="name">The name of the Asset</param>
+            <returns>The loaded asset, which may be null if it doesnt exist</returns>
+        </member>
+        <member name="M:VAPI.VAPIAssets.LoadAssetAsync``1(System.String)">
+            <summary>
+            Loads an Asset from VAPI asynchronously.
+            <br></br>
+            Once you retrieve the asset you should dispose of the request by calling <see cref="M:VAPI.VAPIAssetRequest`1.Dispose"/>
+            </summary>
+            <typeparam name="TAsset">The type of asset</typeparam>
+            <param name="name">The name of the asset</param>
+            <returns>A <see cref="T:VAPI.VAPIAssetRequest`1"/> which can be awaited</returns>
+        </member>
+        <member name="M:VAPI.VAPIAssets.LoadAssets``1">
+            <summary>
+            Loads all assets of type <typeparamref name="TAsset"/>
+            </summary>
+            <typeparam name="TAsset">The type of assets to load</typeparam>
+            <returns>All assets of type <typeparamref name="TAsset"/>. The array may be null if VAPI has no assets of type <typeparamref name="TAsset"/></returns>
+        </member>
+        <member name="M:VAPI.VAPIAssets.LoadAllAssetsAsync``1">
+            <summary>
+            Loads all assets of type <typeparamref name="TAsset"/> asynchronously
+            <br></br>
+            Once you retrieve the assets you should dispose of the request by calling <see cref="M:VAPI.VAPIAssetRequest`1.Dispose"/>
+            </summary>
+            <typeparam name="TAsset">The type of assets to load</typeparam>
+            <returns>A VAPIAssetRequest which can be awaited</returns>
+        </member>
+        <member name="T:VAPI.VAPIAssetRequest">
+            <summary>
+            An abstract class that represents an Async request for a VarianceAPI Asset.
+            <br></br>
+            Look at <see cref="T:VAPI.VAPIAssetRequest`1"/> for a generic version
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIAssetRequest.boxedAsset">
+            <summary>
+            The loaded asset, boxed in a <see cref="T:UnityEngine.Object"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIAssetRequest.boxedAssets">
+            <summary>
+            The Loaded assets, boxed in an array of <see cref="T:UnityEngine.Object"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIAssetRequest.isComplete">
+            <summary>
+            Returns true if the AssetRequest has finished loading
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIAssetRequest.LoadAsset">
+            <summary>
+            Implement the asset loading here
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.VAPIAssetRequest.Reset">
+            <summary>
+            Resets the asset request, you should not call this yourself.
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIAssetRequest`1">
+            <summary>
+            A class that represents an async asset request from VarianceAPI's assetbundle.
+            <para></para>
+            This class is pooled internally, to return the request to the pool, call <see cref="M:VAPI.VAPIAssetRequest`1.Dispose"/>.
+            </summary>
+            <typeparam name="TAsset">The type of asset being loaded</typeparam>
+        </member>
+        <member name="P:VAPI.VAPIAssetRequest`1.asset">
+            <summary>
+            The loaded asset
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIAssetRequest`1.assets">
+            <summary>
+            The array of loaded assets
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIAssetRequest`1.Dispose">
+            <summary>
+            Disposes this AssetRequest and returns it to the pool
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIConfig">
+            <summary>
+            VarianceAPI's config class
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIConfig.PREFIX">
+            <summary>
+            Base prefix for VarianceAPI's config file
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIConfig.GENERAL">
+            <summary>
+            Identifier for VarianceAPI's General config file
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIConfig.REWARDS">
+            <summary>
+            Identifier for VarianceAPI's Rewards config file
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIConfig.generalConfig">
+            <summary>
+            VarianceAPI's general config file
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIConfig.rewardsConfig">
+            <summary>
+            VarianceAPI's rewards config file
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIContent">
+            <summary>
+            VarianceAPI's <see cref="T:RoR2.ContentManagement.IContentPackProvider"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.VarianceAPI">
+            <summary>
+            Access to VAPI's ExpansionDef, this expansion must be enabled for Variants to spawn. Loads on demand
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIContent.Artifacts">
+            <summary>
+            VAPI's Artifact
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Artifacts.Variance">
+            <summary>
+            Reference to the Artifact of Variance. Loads on demand
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIContent.VariantTierDefs">
+            <summary>
+            VAPI's Built in <see cref="T:VAPI.CharacterVariantTierDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.VariantTierDefs.Common">
+            <summary>
+            Reference to the Common tier. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.VariantTierDefs.Uncommon">
+            <summary>
+            Reference to the Uncommon tier. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.VariantTierDefs.Rare">
+            <summary>
+            Reference to the Rare tier. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.VariantTierDefs.Legendary">
+            <summary>
+            Reference to the Legendary tier. Loads on demand
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIContent.Buffs">
+            <summary>
+            VAPI's Built in <see cref="T:RoR2.BuffDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Buffs.VAPIVariant">
+            <summary>
+            Reference to a <see cref="T:RoR2.BuffDef"/> that's applied to a character that's a Variant. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Buffs.VAPILinearArmorBonus">
+            <summary>
+            Reference to a <see cref="T:RoR2.BuffDef"/> that adds +1 armor per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Buffs.VAPIIncreaseScale">
+            <summary>
+            Reference to a <see cref="T:RoR2.BuffDef"/> that increases the character's scale by 1%. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Buffs.VAPIDecreaseScale">
+            <summary>
+            Reference to a <see cref="T:RoR2.BuffDef"/> that reduces the character's scale by 1%. Loads on demand
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIContent.Items">
+            <summary>
+            VAPI's Built in <see cref="T:RoR2.ItemDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.GreenHealthbar">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that changes a Character's health bar to green by default. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.Plus1Crit">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that adds +1% crit chance per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.ExtraPrimary">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that adds +1 primary stock per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.ExtraSecondary">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that adds +1 Secondary stock per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.ExtraUtility">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that adds +1 Utility stock per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.ExtraSpecial">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that adds +1 Special stock per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.GlobalCDR">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that decreases ALL cooldowns by 1% per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.PrimaryCDR">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that decreases Primary cooldown by 1% per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.SecondaryCDR">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that decreases Secondary cooldown by 1% per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.UtilityCDR">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that decreases Utility cooldown by 1% per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIContent.Items.SpecialCDR">
+            <summary>
+            Reference to an <see cref="T:RoR2.ItemDef"/> that decreases Special cooldown by 1% per stack. Loads on demand
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIContent.identifier">
+            <summary>
+            The ConntentPack's identifier
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIContent.readOnlyContentPack">
+            <summary>
+            A <see cref="T:RoR2.ContentManagement.ReadOnlyContentPack"/> of this contentpack
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIContent.readOnlyVariantPack">
+            <summary>
+            A <see cref="T:VAPI.ReadOnlyVariantPack"/> of VAPI's base variantpack.
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPILog">
+            <summary>
+            Log class for VAPI
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIMain">
+            <summary>
+            VarianceAPI's main class
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIMain.GUID">
+            <summary>
+            VarianceAPI's GUID. Which is "com.Nebby.VAPI"
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIMain.MOD_NAME">
+            <summary>
+            The Mod's name. Which is "VarianceAPI"
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIMain.VERSION">
+            <summary>
+            The Mod's version
+            </summary>
+        </member>
+        <member name="P:VAPI.VAPIMain.instance">
+            <summary>
+            Access to the instance of VAPI's main class
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIMain.ThrowIfUninitialized">
+            <summary>
+            Throws an <see cref="T:System.InvalidOperationException"/> if <see cref="P:VAPI.VAPIMain.instance"/> is null
+            </summary>
+        </member>
+        <member name="T:VAPI.VAPIUtils">
+            <summary>
+            Utility methods for VarianceAPI
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.waitForEndOfFrame">
+            <summary>
+            A static readonly instance of <see cref="T:UnityEngine.WaitForEndOfFrame"/>
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIUtils.GetBodyIndex(System.String)">
+            <summary>
+            Retrieves the <see cref="T:RoR2.BodyIndex"/> for <paramref name="bodyName"/>
+            <br></br>
+            Uses DebugToolkit's partial body recognition if installed
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIUtils.GetMasterIndex(System.String)">
+            <summary>
+            Retrieves the <see cref="T:RoR2.MasterCatalog.MasterIndex"/> for <paramref name="masterName"/>
+            <br></br>
+            Uses DebugToolkit's partial master recognition if installed
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIUtils.CloneAddressReferencedAsset``2(``0)">
+            <summary>
+            Method utilized to clone an <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset"/>.
+            <br></br>
+            returns an empty <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset"/> if <paramref name="other"/> is null
+            </summary>
+            <typeparam name="T1">The type of AddressReferencedAsset we're cloning</typeparam>
+            <typeparam name="T2">The type of asset that <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset"/> is loading</typeparam>
+            <param name="other">The <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset"/> that we're copying</param>
+        </member>
+        <member name="T:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs">
+            <summary>
+            Struct used for the arguments of <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.spawnedInstance">
+            <summary>
+            The spawned instance to turn into a variant
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.supressArrivalMessage">
+            <summary>
+            If true, the arrival messages and sfx are supressed. <b>Defaults to false</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.preassignedVariantDefs">
+            <summary>
+            An array of <see cref="T:VAPI.CharacterVariantDef"/> to set to the body. If left null, the <see cref="T:VAPI.VariantSpawnManager"/> will roll for the character's variants. <b>Defaults to null</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.preassignedVariantDefsAreAdditive">
+            <summary>
+            If true, the <see cref="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.preassignedVariantDefs"/> are considered additive. <see cref="T:VAPI.VariantSpawnManager"/> will roll for variants to add on top of the ones preassigned. <b>Defaults to false</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.spawnManagerMultiplier">
+            <summary>
+            A multiplied that's applied on top of any existing spawn rate multipliers. <b>Defaults to 1</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.baseDeathRewards">
+            <summary>
+            If supplied, the DeathRewards for the spawned variant will recieve this's gold and exp rewards. <b>Defaults to null</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.deathRewardsCoefficient">
+            <summary>
+            If <see cref="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.baseDeathRewards"/> is not null, the base gold and exp rewards are multiplied by this value. <b>Defaults to 1</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.noItemRewards">
+            <summary>
+            If true, the spawned variant will not drop items. <b>Defaults to false</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs.noGoldExpModifications">
+            <summary>
+            If true, the spawned variant will not recieve any gold or exp modifications. <b>Defaults to false</b>
+            </summary>
+        </member>
+        <member name="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)">
+            <summary>
+            Method utilized for transforming a newly spawned character into a Variant. Both <see cref="T:VAPI.VariantMasterSummon"/> and <see cref="T:VAPI.VariantDirectorSpawnRequest"/> utilize this method.
+            <br></br>
+            See <see cref="T:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs"/> for more information
+            </summary>
+            <param name="args">The arguments for this method</param>
+        </member>
+        <member name="M:VAPI.VAPIUtils.IsVariantAvailable(VAPI.CharacterVariantDef)">
+            <summary>
+            Returns True if <paramref name="characterVariantDef"/> can spawn under the current run context.
+            <para></para>
+            This is done by checking if the VariantDef is enabled on the Run's rulebook, and then returning the value of <paramref name="characterVariantDef"/>'s spawn condition.
+            <br></br>
+            If no spawn condition exists and the variant is available in the rulebook, it returns true.
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantCloning">
+            <summary>
+            Static class with methods for Cloning Variants from one body to "common" variation bodies.
+            <br></br>
+            For example, <see cref="M:VAPI.VariantCloning.CloneIntoDevotedLemurian(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)"/> can be used to clone a CharacterVariantDef for a LemurianBody into a CharacterVariantDef for a Devoted Lemurian
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoDevotedLemurian(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Lemurian variant into a Devoted Lemurian variant. Returns null if <paramref name="def"/> is null or not a lemurian variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a Lemurian Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoDevotedLemurianBruiser(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a LemurianBruiser variant into a Devoted Elder Lemurian variant. Returns null if <paramref name="def"/> is null or not an elder lemurian variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a LemurianBruiser Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoBeetleGuardGland(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a BeetleGuard variant into a Beetle Guard Ally from the Queen's Gland item. Returns null if <paramref name="def"/> is null or not a Beetle Guard variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a BeetleGuard Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoRoboBallGreenBuddy(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a RoboBallMini variant into a Delighted Probe variant. Returns null if <paramref name="def"/> is null or not a RoboBallMini variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a RoboBallMini Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoRoboBallRedBuddy(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a RoboBallMini variant into a Quiet Probe variant. Returns null if <paramref name="def"/> is null or not a RoboBallMini variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a RoboBallMini Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoMinorConstructOnKill(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a MinorConstruct variant into a MinorConstructOnKill variant. Returns null if <paramref name="def"/> is null or not a MinorConstruct variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a MinorConstruct Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoVoidMegaCrabAlly(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Void Devastator variant into a Void Devastator Ally variant from the Newly Hatched Zoea item. Returns null if <paramref name="def"/> is null or not a VoidMegaCrab variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a VoidMegaCrab Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoVoidJailerAlly(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Void Jailer variant into a Void Jailer Ally variant from the Newly Hatched Zoea item. Returns null if <paramref name="def"/> is null or not a VoidJailer variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a VoidJailer Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoNullifierAlly(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Void Reaver variant into a Void Reaver Ally variant from the Newly Hatched Zoea item. Returns null if <paramref name="def"/> is null or not a Nullifier variant
+            </summary>
+            <param name="def">The source VariantDef, must point to a Nullifier Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoLemurianPolymorph(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Lemurian variant into a Lemurian Polymorph variant. Returns null if <paramref name="def"/> is null or not a lemurian variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a Lemurian Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoWispSoul(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Lesser Wisp variant into a Soul Lesser Wisp variant. Returns null if <paramref name="def"/> is null or not a Lesser Wisp variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a Wisp Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoSuperRoboBallBoss(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Solus Control Unit variant into an Alloy Worship Unit variant. Returns null if <paramref name="def"/> is null or not a Solus Control Unit variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a RoboBallBoss Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoMinorConstructAttachable(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a MinorConstruct variant into a MinorConstructAttachable variant. Returns null if <paramref name="def"/> is null or not a MinorConstruct variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a MinorConstruct Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoOverloadingWorm(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a MagmaWorm variant into an OverloadingWorm variant. Returns null if <paramref name="def"/> is null or not a MagmaWorm variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a MagmaWorm Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.VariantCloning.AddLunarScavToClone(System.String,System.String)">
+            <summary>
+            Adds a new Lunar Scavenger to clone when an end user calls <see cref="M:VAPI.VariantCloning.CloneIntoLunarScavs(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)"/>
+            </summary>
+            <param name="cloneSuffix">The suffix to append to the <see cref="T:VAPI.CharacterVariantDef"/>. By convention this is usually the "name" of the Twisted Scavenger, for example "Kipkip"</param>
+            <param name="bodyName">The body prefab name of the twisted scavenger</param>
+            <returns>True if the lunar scav was added to the clone array, false if there's a clone suffix conflict.</returns>
+        </member>
+        <member name="M:VAPI.VariantCloning.AddSanctumScavToClone(System.String,System.String)">
+            <summary>
+            Adds a new Sanctum Scavenger to clone when an end user calls <see cref="M:VAPI.VariantCloning.CloneIntoSanctumScavs(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)"/>
+            </summary>
+            <param name="cloneSuffix">The suffix to append to the <see cref="T:VAPI.CharacterVariantDef"/>. By convention this currently is the string "Sanctum" followed by a number, such as "Sanctum1"</param>
+            <param name="bodyName">The body prefab name of the sanctum scavenger</param>
+            <returns>True if the Sanctum scav was added to the clone array, false if there's a clone suffix conflict.</returns>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoLunarScavs(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Scavenger variant into an LunarScavenger variant. Returns null if <paramref name="def"/> is null or not a Scavenger variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a Scav Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneIntoSanctumScavs(VAPI.CharacterVariantDef,System.Boolean,System.Boolean)">
+            <summary>
+            Clones a Scavenger variant into an SanctumScavenger variant. Returns null if <paramref name="def"/> is null or not a Scavenger variant.
+            </summary>
+            <param name="def">The source VariantDef, must point to a Scav Variant</param>
+            <param name="makeHidden">If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations</param>
+            <param name="resultAvailableOnlyIfSrcAvailable">If true, the cloned variant will only be available if <paramref name="def"/> is also available.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VAPI.VariantCloning.CloneForOtherBodyArgs">
+            <summary>
+            Arguments for <see cref="M:VAPI.VariantCloning.CloneForOtherBody(VAPI.VariantCloning.CloneForOtherBodyArgs)"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.src">
+            <summary>
+            The source CharacterVariantDef to clone. Cannot be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.requiredSrcBodyName">
+            <summary>
+            The cloning will proceed if the target body from <see cref="F:VAPI.VariantCloning.CloneForOtherBodyArgs.src"/> has this name. Cannot be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.targetBodyName">
+            <summary>
+            The target body for the new variant def. Cannot be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.cloneSuffix">
+            <summary>
+            A Suffix to append to the new variant def. Cannot be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.makeHidden">
+            <summary>
+            If true, the cloned variant will be hidden from the rulebook and will not recieve spawning and uniqueness configurations. <b>Defaults to true</b>
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantCloning.CloneForOtherBodyArgs.resultAvailableOnlyIfSrcAvailable">
+            <summary>
+            If true, the cloned variant will only be available if <see cref="F:VAPI.VariantCloning.CloneForOtherBodyArgs.src"/> is also available. <b>Defaults to true</b>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantCloning.CloneForOtherBody(VAPI.VariantCloning.CloneForOtherBodyArgs)">
+            <summary>
+            Class used for cloning a variant into another variant for another body. It is recommended to use the built in methods instead of this.
+            <para></para>
+            See <see cref="T:VAPI.VariantCloning.CloneForOtherBodyArgs"/> for more information
+            </summary>
+        </member>
+        <member name="T:VAPI.ReadOnlyVariantPack">
+            <summary>
+            A read only representation of a <see cref="T:VAPI.VariantPack"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.isValid">
+            <summary>
+            Returns true if the ReadOnlyVariantPack is valid.
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.ownerPlugin">
+            <summary>
+            Access to the plugin that added the pack
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.tierConfig">
+            <summary>
+            Access to the pack's tier config, may be null.
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.variantConfig">
+            <summary>
+            Access to the pack's variant config, may be null
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.identifier">
+            <summary>
+            Access to the pack's identifier
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.nameToken">
+            <summary>
+            Access to the pack's name token, used in the rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.tooltipToken">
+            <summary>
+            Access to the pack's tooltip token, used in the rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.descriptionToken">
+            <summary>
+            Access to the pack's description token, used in the rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.packIcon">
+            <summary>
+            Access to this pack's icon, used in the rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.packEnabledChoice">
+            <summary>
+            Access to this pack's enabled choice, this is null up until VarianceAPI's Rulebook Class initializes
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.characterVariantTierDefs">
+            <summary>
+            Access to this pack's <see cref="T:VAPI.CharacterVariantTierDef"/>s
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.characterVariantDefs">
+            <summary>
+            Access to this pack's <see cref="T:VAPI.CharacterVariantDef"/>
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.variantPackIndex">
+            <summary>
+            Access to this pack's index
+            </summary>
+        </member>
+        <member name="P:VAPI.ReadOnlyVariantPack.isHidden">
+            <summary>
+            Returns if this pack is hidden from the rulebook
+            </summary>
+        </member>
+        <member name="M:VAPI.ReadOnlyVariantPack.#ctor(VAPI.VariantPack)">
+            <summary>
+            Constructor. Throws a <see cref="T:System.ArgumentNullException"/> if <paramref name="src"/> is null.
+            </summary>
+            <param name="src">The VariantPack to encapsulate in a <see cref="T:VAPI.ReadOnlyVariantPack"/></param>
+        </member>
+        <member name="T:VAPI.VariantPack">
+            <summary>
+            The <see cref="T:VAPI.VariantPack"/> is a class used to store and specify which <see cref="T:VAPI.CharacterVariantDef"/>s and which <see cref="T:VAPI.CharacterVariantTierDef"/>s are from your mod.
+            <br></br>
+            A ReadOnly version of this can be exposed via the <see cref="T:VAPI.ReadOnlyVariantPack"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.ownerPlugin">
+            <summary>
+            The plugin that added this pack
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.tierConfig">
+            <summary>
+            The config file for this pack's tiers, can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.variantConfig">
+            <summary>
+            The config file for this pack's variants, can be null
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.identifier">
+            <summary>
+            An identifier for this pack, must be unique.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.nameToken">
+            <summary>
+            The name token for this pack, this is used in the rulebook for enabling/disabling variant packs.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.tooltipToken">
+            <summary>
+            The tooltip token for this pack, this is used in the rulebook for enabling/disabling variant packs.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.descriptionToken">
+            <summary>
+            The description token for this pack, this is used in the rulebook for enabling/disabling variant packs.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.packIcon">
+            <summary>
+            The icon for this pack, this is used in the rulebook for enabling/disabling variant packs.
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.characterVariantTierDefs">
+            <summary>
+            A <see cref="T:RoR2.ContentManagement.NamedAssetCollection`1"/> that contains your pack's <see cref="T:VAPI.CharacterVariantTierDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.characterVariantDefs">
+            <summary>
+            A <see cref="T:RoR2.ContentManagement.NamedAssetCollection`1"/> that contains your pack's <see cref="T:VAPI.CharacterVariantDef"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPack.isHidden">
+            <summary>
+            Wether this pack is hidden from the rulebook
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPack.variantPackIndex">
+            <summary>
+            Your VariantPack's unique index, used for networking purposes and general housekeeping
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPack.packEnabledChoice">
+            <summary>
+            Your VariantPack's enabled choice in the rulebook, this is null up until VarianceAPI's rulebook class initializes
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantPack.#ctor(System.String,System.String,System.String,System.String,UnityEngine.Sprite,BepInEx.BaseUnityPlugin,BepInEx.Configuration.ConfigFile,BepInEx.Configuration.ConfigFile,System.Boolean)">
+            <summary>
+            Constructor for creating a Variant Pack
+            </summary>
+            <param name="_identifier">A unique identifier for this variant pack, this is not user facing</param>
+            <param name="_nameToken">The token utilized on the lobby to display this VariantPack.</param>
+            <param name="_tooltipToken">The token utilized as the tooltip on the lobby to display this VariantPack.</param>
+            <param name="_descriptionToken">The token utilized as the description on the lobby to display this VariantPack</param>
+            <param name="_packIcon">The icon for this pack, utilized in the built in Risk of Options generator and in the lobby for the "Pack Enabled" icon</param>
+            <param name="_ownerPlugin">The plugin that's adding this VariantPack</param>
+            <param name="_tierConfig">The ConfigFile for configuring this VariantPack's tiers. If left null, the Tiers in this VariantPack cannot be configured</param>
+            <param name="_variantConfig">The ConfigFile for configuring this VariantPack's Variants. If left null, the Variants in this VariantPack cannot be configured</param>
+            <param name="_isHidden">Wether the VariantPack is hidden from the rulebook display, this shouldnt really be set to true, unless you're creating a Pack that contains exclusively tiers</param>
+            <exception cref="T:System.ArgumentNullException">When any of the non-nullable arguments are null</exception>
+        </member>
+        <member name="T:VAPI.VariantPackIndex">
+            <summary>
+            Index for <see cref="T:VAPI.VariantPack"/>s
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPackIndex.None">
+            <summary>
+            Represents an invalid index
+            </summary>
+        </member>
+        <member name="T:VAPI.VariantPackManager">
+            <summary>
+            Class for managing VariantPacks, VariantPacks are added to this class and then <see cref="T:VAPI.CharacterVariantTierCatalog"/> and <see cref="T:VAPI.CharacterVariantCatalog"/> use them to register their respective scriptable objects
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPackManager.characterVariantTierDefs">
+            <summary>
+            Returns a read only array of all the <see cref="T:VAPI.CharacterVariantTierDef"/>s from the API
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPackManager.characterVariantDefs">
+            <summary>
+            Returns a read only array of all the <see cref="T:VAPI.CharacterVariantDef"/>s from the API
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPackManager.registeredVariantPacks">
+            <summary>
+            Returns an read only array of all the <see cref="T:VAPI.ReadOnlyVariantPack"/>s from the API
+            </summary>
+        </member>
+        <member name="P:VAPI.VariantPackManager.variantPackCount">
+            <summary>
+            Returns the amount of VariantPacks registered in the manager
+            <br></br>
+            Returns -1 if the manager is not initialized
+            </summary>
+        </member>
+        <member name="F:VAPI.VariantPackManager.managerAvailability">
+            <summary>
+            Manager availability, becomes available once all variants are registered 
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantPackManager.AddVariantPack(VAPI.VariantPack)">
+            <summary>
+            Adds a VariantPack to the manager.
+            <br></br>
+            Throws an <see cref="T:System.InvalidOperationException"/> if the manager has already initialized
+            </summary>
+            <param name="variantPack">The VariantPack to add</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.GetVariantPack(VAPI.VariantPackIndex)">
+            <summary>
+            Retrieves the <see cref="T:VAPI.ReadOnlyVariantPack"/> at the requested <paramref name="index"/>.
+            <br></br>
+            The value returned may be invalid if the <paramref name="index"/> is out of bounds
+            </summary>
+            <param name="index">The index of variant pack to retrieve</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.FindVariantPackIndex(System.String)">
+            <summary>
+            Finds the <see cref="T:VAPI.VariantPackIndex"/> which pack has the provided <paramref name="variantPackIdentifier"/>.
+            <br></br>
+            Returns <see cref="F:VAPI.VariantPackIndex.None"/> if there's no pack with the specified identifier
+            </summary>
+            <param name="variantPackIdentifier">The pack identifier</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.FindVariantPackIndex(VAPI.CharacterVariantIndex)">
+            <summary>
+            Finds the <see cref="T:VAPI.VariantPackIndex"/> that owns the provided <paramref name="variantIndex"/>
+            <br></br>
+            Returns <see cref="F:VAPI.VariantPackIndex.None"/> if no pack contains a character variant def of the specified index.
+            </summary>
+            <param name="variantIndex">The <see cref="T:VAPI.CharacterVariantIndex"/> to retrieve it's Pack.</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.FindVariantPackIndex(VAPI.CharacterVariantDef)">
+            <summary>
+            Finds the <see cref="T:VAPI.VariantPackIndex"/> that owns the provided <paramref name="variantDef"/>
+            <br></br>
+            Returns <see cref="F:VAPI.VariantPackIndex.None"/> if no pack contains the specified variantDef
+            </summary>
+            <param name="variantDef">The <see cref="T:VAPI.CharacterVariantDef"/> to retrieve it's Pack</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.FindVariantPackIndex(VAPI.CharacterVariantTierIndex)">
+            <summary>
+            Finds the <see cref="T:VAPI.VariantPackIndex"/> that owns the provided <paramref name="tierIndex"/>
+            <br></br>
+            Returns <see cref="F:VAPI.VariantPackIndex.None"/> if no pack contains a CharacterVariantTierDef of the specified index.
+            </summary>
+            <param name="tierIndex">The <see cref="T:VAPI.CharacterVariantTierIndex"/> to retrieve it's Pack.</param>
+        </member>
+        <member name="M:VAPI.VariantPackManager.FindVariantPackIndex(VAPI.CharacterVariantTierDef)">
+            <summary>
+            Finds the <see cref="T:VAPI.VariantPackIndex"/> that owns the provided <paramref name="tierDef"/>
+            <br></br>
+            Returns <see cref="F:VAPI.VariantPackIndex.None"/> if no pack contains the specified tierDef
+            </summary>
+            <param name="tierDef">The <see cref="T:VAPI.CharacterVariantTierDef"/> to retrieve it's Pack</param>
+        </member>
+        <member name="M:VAPI.VariantSpawnHooks.StygianCopyOverVariantsMasterSummon(MonoMod.Cil.ILContext)">
+            <summary>
+            We want to wrap the MasterSummon from NetworkedAffixDeathBehaviour.TrySpawnGhostBodyViaMasterSummon inside a VariantMasterSummon to ensure the variants are passed into the stygian ghost.
+            <br></br>
+            We'll need to retrieve the list of variants from the "sourceBody" arg's master storage, so we can shortcircuit if the master storage doesnt exist.
+            <para></para>
+            We'll do this by putting our cursor right before the MasterSummon.Perform() call, and then creating the VariantSummon wrapper if applicable.
+            <para></para>
+            <code>
+            CharacterMaster characterMaster = new MasterSummon
+            {
+                masterPrefab = gameObject,
+                ignoreTeamMemberLimit = false,
+                teamIndexOverride = sourceBody.teamComponent.teamIndex,
+                position = sourceBody.footPosition,
+                rotation = rotation,
+                summonerBodyObject = attachedBody.gameObject,
+                inventoryToCopy = sourceBody.inventory,
+                preSpawnSetupCallback = PreSpawnSetupCallback
+            }
+            --- ILCursor goes here
+            .Perform();
+            </code>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSpawnHooks.GhostCopyOverVariants(MonoMod.Cil.ILContext)">
+            <summary>
+            We want to wrap the MasterSummon from the Util.TryToCreateGhost inside a VariantMasterSummon to ensure the Variants are passed onto the ghost.
+            <br></br>
+            We'll need to retrieve the list of variants from the "targetBody" arg's master storage, so we can shortcircuit if the master storage doesnt exist.
+            <para></para>
+            We'll do this by putting our cursor right before the targetBody.GetComponentCharacterDirection() call, and then creating the VariantSummon wrapper if applicable.
+            <para></para>
+            <code>
+            MasterSummon obj = new MasterSummon
+            {
+                masterPrefab = characterMaster.gameObject,
+                ignoreTeamMemberLimit = false,
+                position = targetBody.footPosition
+            };
+            --- ILCursor goes here
+            CharacterDirection component = targetBody.GetComponentCharacterDirection();
+            </code>
+            </summary>
+        </member>
+        <member name="M:VAPI.VariantSpawnHooks.EnsureArtifactOfSoulWispsHaveNoRewards(MonoMod.Cil.ILContext)">
+            <summary>
+            We want to wrap the MasterSummon from the GlobalEventManager.OnCharacterDeath inside a VariantMasterSummon to ensure the created artifact of soul wisps have no rewards.
+            <br></br>
+            We'll pass in a _null_ array, this is to ensure that the wisp can still roll its own variants while the VariantRewards component removes rewards alltogether.
+            <para></para>
+            We'll do this by putting our cursor right before the masterSummon.Perform() call, and then creating the VariantSummon wrapper.
+            <para></para>
+            <code>
+            MasterSummon masterSummon = new MasterSummon();
+            masterSummon.position = position3;
+            masterSummon.ignoreTeamMemberLimit = true;
+            masterSummon.masterPrefab = CommonAssets.wispSoulMasterPrefabMasterComponent.gameObject;
+            masterSummon.summonerBodyObject = gameObject;
+            masterSummon.rotation = Quaternion.LookRotation(ray.direction);
+            --- ILCursor goes here
+            masterSummon.Perform();
+            </code>
+            </summary>
+        </member>
+        <member name="T:EntityStates.GoToMain">
+            <summary>
+            An entity state that immedaitly sets the next state to main. A skilldef with this state is assigned to a generic slot if <see cref="F:VAPI.VariantSkillReplacement.skillDef"/> is left null
+            </summary>
+        </member>
+    </members>
+</doc>

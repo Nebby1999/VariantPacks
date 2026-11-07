@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
+  m_Name: BadassLemurianVisuals
+  m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  materialReplacements: []
+  meshReplacements: []
+  lightReplacements: []
+  prefabInstantiationDatas:
+  - prefabDirectReference: {fileID: 0}
+    prefabAddress:
+      m_AssetGUID: 234a79a8d76a03a468eccfa30598ab56
+      m_SubObjectName: 
+      m_SubObjectType: 
+    transformPath: 
+    childLocatorEntry: Chest
+    useChildLocatorEntry: 1
+    localPosition: {x: 0, y: 0, z: 1.75}
+    localRotation: {x: 90, y: 0, z: 0}
+    localScale: {x: 8, y: 8, z: 8}
+  - prefabDirectReference: {fileID: 0}
+    prefabAddress:
+      m_AssetGUID: 8d521eec533d0d247b4b91d3fb0e3899
+      m_SubObjectName: 
+      m_SubObjectType: 
+    transformPath: 
+    childLocatorEntry: Head
+    useChildLocatorEntry: 1
+    localPosition: {x: 0, y: 2.92, z: -1.07}
+    localRotation: {x: -118.516, y: 0, z: 0}
+    localScale: {x: 2.472, y: 2.472, z: 2.472}

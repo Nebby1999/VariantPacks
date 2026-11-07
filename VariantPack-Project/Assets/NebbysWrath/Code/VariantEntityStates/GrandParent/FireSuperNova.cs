@@ -24,7 +24,7 @@ namespace EntityStates.GrandParentBoss.Great
         [SerializeField]
         public string effectMuzzleString = "SpawnMuzzle";
 
-        public static GameObject novaEffectPrefab = NWAssets.LoadAsset<GameObject>("SuperNovaexplosion");
+        public static GameObject novaEffectPrefab = NWAssets.LoadAsset<GameObject>("SuperNovaCannonExplosion");
         public static GameObject novaImpactEffectPrefab = EntityStates.VagrantMonster.FireMegaNova.novaImpactEffectPrefab;
         public static string novaSoundString = "Play_vagrant_R_explode";
         public static float novaDamageCoefficient = 25;

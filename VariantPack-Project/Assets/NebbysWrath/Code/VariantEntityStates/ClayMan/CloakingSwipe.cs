@@ -41,6 +41,7 @@ namespace EntityStates.ClaymanMonster.Assasin
             attack.isCrit = Util.CheckRoll(critStat, base.characterBody.master);
             attack.damage = (attack.isCrit ? damageCoefficient/ 10 : damageCoefficient) * damageStat;
             attack.damageType = attack.isCrit ? DamageType.SuperBleedOnCrit : DamageType.BleedOnHit;
+            attack.damageType.damageSource |= DamageSource.Primary;
             attack.hitEffectPrefab = hitEffectPrefab;
             Util.PlaySound(attackString, base.gameObject);
             if ((bool)modelTransform)

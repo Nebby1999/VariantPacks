@@ -5,102 +5,94 @@
 
     "NW_ENRAGED_PREFIX": "Enraged",
     "NW_SOMEWHATANCIENT_PREFIX": "Somewhat-Ancient",
-    "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
-
     "NW_STONE_PREFIX": "Stone",
-    "NW_ARCHAICSTONEWISP_ARRIVAL": "The archaic energies from the earth accumulate...",
     "NW_AEONIC_PREFIX": "Aeonic",
     "NW_SOMEWHATARCHAIC_PREFIX": "Somewhat-Archaic",
-
     "NW_ANCIENT_PREFIX": "Ancient",
     "NW_ENORMOUS_PREFIX": "Enormous",
     "NW_PYGMY_PREFIX": "Pygmy",
-
     "NW_MALFUNCTIONING_PREFIX": "Malfunctioning",
     "NW_SWARMING_PREFIX": "Swarming",
-
-    "NW_EMPRESS_SUFFIX": "Imperatrix",
     "NW_MATRIARCH_PREFIX": "Matriarchal",
-
     "NW_ALPHA_PREFIX": "Alpha",
-
     "NW_ALUMINUM_PREFIX": "Aluminum-Plated",
     "NW_STEEL_PREFIX": "Steel-Plated",
-
     "NW_DEVOURER_PREFIX": "Devourer",
     "NW_STARVING_PREFIX": "Starving",
-
     "NW_ASSASSIN_PREFIX": "Assassin",
-    "NW_SOLDIER_SUFFIX": "Soldier",
-
     "NW_VAMPIRIC_PREFIX": "Vampiric",
-
-    "NW_KJARO_ARRIVAL": "The Ghost of Kjaro appears with a thirst for vengance!",
-    "NW_KJARO_OVERRIDE": "Ghost of Kjaro",
-    "NW_RUNALD_ARRIVAL": "The Ghost of Runald appears with a thirst for vengance!",
-    "NW_RUNALD_OVERRIDE": "Ghost of Runald",
-    "NW_INCINERATING_ARRIVAL": "The ground heats up from the arrival of an Elder Lemurian...",
     "NW_INCINERATING_PREFIX": "Incinerating",
-
     "NW_GREAT_PREFIX": "Greater",
     "NW_SUNWORSHIPPING_PREFIX": "Heliolatric",
-
     "NW_AMALGAMATED_PREFIX": "Amalgamated",
-    "NW_GREATERSTONEWISP_ARRIVAL": "The greater energies from the earth accumulate...",
     "NW_SOMEWHATGREAT_PREFIX": "Somewhat-Great",
-
     "NW_MORTAR_PREFIX": "Mortar",
-
     "NW_BRUISER_PREFIX": "Bruiser",
     "NW_ICHOR_PREFIX": "Ichor",
-
     "NW_BERSERKER_PREFIX": "Berserker",
-
     "NW_ALMOSTARCHAIC_PREFIX": "Almost-Archaic",
     "NW_LEASTEST_PREFIX": "Leastest",
-
     "NW_AD_PREFIX": "AD",
     "NW_HEALER_PREFIX": "Healer",
-    "NW_MAMMASHROOM_ARRIVAL": "A matriarchal fungus appears.",
     "NW_MAMMA_PREFIX": "Mamma",
-
     "NW_ADOLESCERE_PREFIX": "Adolescere",
     "NW_CHILDISH_PREFIX": "Childish",
-
     "NW_SWARMER_PREFIX": "Swarmer",
-    "NW_MK2_SUFFIX": "MK2",
     "NW_GAUSSIAN_PREFIX": "Gaussian",
-
-    "NW_COLOSSALGOLEM_ARRIVAL": "A massive stone golem materializes...",
     "NW_COLOSSAL_PREFIX": "Colossal",
-
     "NW_MOTHERSHIP_PREFIX": "Mothership",
-
     "NW_GAMMA_PREFIX": "Gamma",
-
     "NW_TRANSPLANAR_PREFIX": "Transplanar",
-    
     "NW_TINY_PREFIX": "Tiny",
     "NW_ARMORMELTER_PREFIX": "Armormelter",
-    "NW_ARMORMELTERPEST_ARRIVAL": "A Corrosive pest shows up...",
-    
-    "NW_ARMORMELTERVERMIN_ARRIVAL": "A Corrosive vermin shows up...",
-
-    "NW_MOLTEN_PREFIX": "Molten",
-
-    "NW_GOOP_OVERRIDE": "Goop",
-    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt...",
     "NW_TARRED_PREFIX": "Tarred",
-
     "NW_OVERFLOWING_PREFIX": "Overflowing",
-
-    "NW_COLLAPSED_ARRIVAL": "A child of the Void appears...",
     "NW_COLLAPSED_PREFIX": "Collapsed",
     "NW_DENSE_PREFIX": "Dense",
-
     "NW_ELECTRIC_PREFIX": "Electric",
-
     "NW_PROTO_PREFIX": "Prototype",
-    "NW_OMICRON_PREFIX": "Omicron"
+    "NW_OMICRON_PREFIX": "Omicron",
+    "NW_MEATBALLER_PREFIX" : "Lobber",
+    "NW_SLAMMER_PREFIX": "Slammer",
+    "NW_KLEPTOMANIAC_PREFIX": "Kleptomaniac",
+    "NW_CLOAKED_PREFIX": "Cloaked",
+    "NW_SCRAPYARD_PREFIX": "Scrapyard",
+    "NW_KAMIKAZE_PREFIX": "Kamikaze",
+    "NW_PINKY_PREFIX": "Pinky",
+    "NW_PROTOWING_PREFIX": "Prototype-Wing",
+    "NW_GLITCHED_PREFIX": "Glitched",
+    "NW_OILSPILL_PREFIX": "Oilspiller",
+    "NW_ROLLER_PREFIX": "Roller",
+    "NW_THETA_PREFIX": "Theta",
+    "NW_BLOATED_PREFIX": "Bloated",
+    "NW_EMPRESS_SUFFIX": "Imperatrix",
+    "NW_SOLDIER_SUFFIX": "Soldier",
+    "NW_HATCHLING_SUFFIX": "Hatchling",
+    "NW_MK2_SUFFIX": "MK2",
+    "NW_KJARO_OVERRIDE": "Ghost of Kjaro",
+    "NW_RUNALD_OVERRIDE": "Ghost of Runald",
+    "NW_GOOP_OVERRIDE": "Goop",
+    "NW_ABANDONED_OVERRIDE": "Abandoned Core",
+    
+    "NW_ANCIENTSTONEWISP_ARRIVAL": "The ancient energies from the earth accumulate...",
+    "NW_ARCHAICSTONEWISP_ARRIVAL": "The archaic energies from the earth accumulate...",
+    "NW_KJARO_ARRIVAL": "The Ghost of Kjaro appears with a thirst for vengance!",
+    "NW_RUNALD_ARRIVAL": "The Ghost of Runald appears with a thirst for vengance!",
+    "NW_INCINERATING_ARRIVAL": "The ground heats up from the arrival of an Elder Lemurian...",
+    "NW_GREATERSTONEWISP_ARRIVAL": "The greater energies from the earth accumulate...",
+    "NW_MAMMASHROOM_ARRIVAL": "A matriarchal fungus appears.",
+    "NW_COLOSSALGOLEM_ARRIVAL": "A massive stone golem materializes...",
+    "NW_ARMORMELTERPEST_ARRIVAL": "A Corrosive pest shows up...",
+    "NW_ARMORMELTERVERMIN_ARRIVAL": "A Corrosive vermin shows up...",
+    "NW_GOOP_ARRIVAL": "An Overpowering smell of Strawberries can be felt...",
+    "NW_COLLAPSEDCHILD_ARRIVAL": "A child of the Void appears...",
+    "NW_ANCIENTWORM_ARRIVAL": "An ancient worm digs thru the earth...",
+    "NW_EVILBUDDY_ARRIVAL": "???: \"0022; I HATE YOU >:C\"",
+    "NW_PINKY_ARRIVAL": "A \"Pinky\" shows up...",
+    "NW_PROTOWING_ARRIVAL": "A Prototype Wing Unit has been deployed...",
+    "NW_GLITCHED_ARRIVAL": "Solus Wing: \"4e554c4c205245464552454e434520455843455054494f4e\"",
+    
+    "NW_LEMURIAN_MEATBALL_NAME": "Spit Fire Bomb",
+    "NW_LEMURIAN_MEATBALL_DESC": "Spit an arcing fire bomb that deals <style=cIsDamage>100% Damage</style>. The fire bomb leaves a sphere of flames that deals <style=cIsDamage>13x11% Damage</style> over 3 seconds.\r\nIf you're <style=cIsHealth>Badass</style>, additionally fire a Missile that deals <style=cIsDamage>100% Damage</style>."
   }
 }

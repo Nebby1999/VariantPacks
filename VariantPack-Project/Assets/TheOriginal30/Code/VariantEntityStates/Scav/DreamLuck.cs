@@ -1,6 +1,4 @@
-﻿using EntityStates;
-using EntityStates.ScavMonster;
-using RoR2;
+﻿using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,47 +17,47 @@ namespace EntityStates.ScavMonster.Dream
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = FindItem.baseDuration / this.attackSpeedStat;
-            base.PlayCrossfade("Body", "SitRummage", "Sit.playbackRate", this.duration, 0.1f);
-            Util.PlaySound(FindItem.sound, base.gameObject);
+            duration = FindItem.baseDuration / attackSpeedStat;
+            PlayCrossfade("Body", "SitRummage", "Sit.playbackRate", duration, 0.1f);
+            Util.PlaySound(FindItem.sound, gameObject);
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
                 WeightedSelection<List<PickupIndex>> weightedSelection = new WeightedSelection<List<PickupIndex>>(8);
-                weightedSelection.AddChoice(Run.instance.availableTier3DropList.Where(new Func<PickupIndex, bool>(this.PickupIsNonBlacklistedItem)).ToList<PickupIndex>(), FindItem.tier3Chance);
+                weightedSelection.AddChoice(Run.instance.availableTier3DropList.Where(new Func<PickupIndex, bool>(PickupIsNonBlacklistedItem)).ToList<PickupIndex>(), FindItem.tier3Chance);
 
                 List<PickupIndex> list = weightedSelection.Evaluate(UnityEngine.Random.value);
-                this.dropPickup = list[UnityEngine.Random.Range(0, list.Count)];
+                dropPickup = list[UnityEngine.Random.Range(0, list.Count)];
 
-                PickupDef pickupDef = PickupCatalog.GetPickupDef(this.dropPickup);
+                PickupDef pickupDef = PickupCatalog.GetPickupDef(dropPickup);
                 if (pickupDef != null)
                 {
                     ItemDef itemDef = ItemCatalog.GetItemDef(pickupDef.itemIndex);
                     if (itemDef != null)
                     {
-                        this.itemsToGrant = 0;
+                        itemsToGrant = 0;
 
                         switch (itemDef.tier)
                         {
                             case ItemTier.Tier1:
-                                this.itemsToGrant = FindItem.tier1Count;
+                                itemsToGrant = FindItem.tier1Count;
                                 break;
                             case ItemTier.Tier2:
-                                this.itemsToGrant = FindItem.tier2Count;
+                                itemsToGrant = FindItem.tier2Count;
                                 break;
                             case ItemTier.Tier3:
-                                this.itemsToGrant = FindItem.tier3Count;
+                                itemsToGrant = FindItem.tier3Count;
                                 break;
                             default:
-                                this.itemsToGrant = 1;
+                                itemsToGrant = 1;
                                 break;
                         }
                     }
                 }
             }
 
-            Transform transform = base.FindModelChild("PickupDisplay");
-            this.pickupDisplay = transform.GetComponent<PickupDisplay>();
+            Transform transform = FindModelChild("PickupDisplay");
+            pickupDisplay = transform.GetComponent<PickupDisplay>();
             pickupDisplay.SetPickup(new UniquePickup(dropPickup), false);
         }
 
@@ -73,12 +71,12 @@ namespace EntityStates.ScavMonster.Dream
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if (fixedAge >= duration && isAuthority)
             {
-                this.outer.SetNextState(new GrantItem
+                outer.SetNextState(new GrantItem
                 {
-                    dropPickup = this.dropPickup,
-                    itemsToGrant = this.itemsToGrant
+                    dropPickup = dropPickup,
+                    itemsToGrant = itemsToGrant
                 });
             }
         }
@@ -86,13 +84,13 @@ namespace EntityStates.ScavMonster.Dream
         public override void OnSerialize(NetworkWriter writer)
         {
             base.OnSerialize(writer);
-            writer.Write(this.dropPickup);
+            writer.Write(dropPickup);
         }
 
         public override void OnDeserialize(NetworkReader reader)
         {
             base.OnDeserialize(reader);
-            this.dropPickup = reader.ReadPickupIndex();
+            dropPickup = reader.ReadPickupIndex();
         }
 
         private bool PickupIsNonBlacklistedItem(PickupIndex pickupIndex)

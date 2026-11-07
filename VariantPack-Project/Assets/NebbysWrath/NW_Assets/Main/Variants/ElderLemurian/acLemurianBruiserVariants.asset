@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1229136950, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: acLemurianBruiserVariants
+  m_EditorClassIdentifier: 
+  assets:
+  - {fileID: 11400000, guid: f9bb5fd695121f14aa429f5499a4bb10, type: 2}
+  - {fileID: 11400000, guid: 0cb901facca028646a6028a80607abff, type: 2}
+  - {fileID: 11400000, guid: a0a28070dc03c1547a96218019cb3b55, type: 2}
