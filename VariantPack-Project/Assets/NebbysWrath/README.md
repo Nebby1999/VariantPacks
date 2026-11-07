@@ -13,7 +13,11 @@ Playing with the following mod causes certain cross-over features
 | [Archaic Wisp](https://thunderstore.io/package/Moffein/Archaic_Wisp/) | Allows the Somewhat-Archaic Wisp, Archaic Stone Wisp and Aeonic Wisp to spawn |
 | [The Original 30](https://thunderstore.io/package/Nebby/VariantPack_TheOriginal30/) | Adds ClayMen, Imps, HermitCrabs and Solus Probes to the Spectral Jellyfish spawn list |
 
-## Variant Tablesheet
+## Variant Tablesheets
+
+### Base Game
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_1.png)
 
 <details><summary>Base Game Variants (Click me!)</summary>
 <p>
@@ -74,6 +78,10 @@ Playing with the following mod causes certain cross-over features
 </p>
 </details>
 
+### Survivors of the Void
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_2.png)
+
 <details><summary>Survivors of the Void Variants (Click me!)</summary>
 <p>
 
@@ -98,6 +106,10 @@ Playing with the following mod causes certain cross-over features
 </p>
 </details>
 
+### Seekers of the Storm
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_3.png)
+
 <details><summary>Seekers of the Storm Variants (Click me!)</summary>
 <p>
 
@@ -110,6 +122,9 @@ Playing with the following mod causes certain cross-over features
 </p>
 </details>
 
+### Alloyed Collective
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_4.png)
 
 <details><summary>Alloyed Collective Variants (Click me!)</summary>
 <p>
@@ -131,6 +146,10 @@ Playing with the following mod causes certain cross-over features
 
 </p>
 </details>
+
+### Modded Enemies
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_5.png)
 
 <details><summary>Modded Variants (Click me!)</summary>
 <p>
