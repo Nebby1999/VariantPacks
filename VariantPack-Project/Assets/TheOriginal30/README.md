@@ -1,6 +1,10 @@
 # Variant Pack - The Original 30
 
-The Original 30 (Abreviated as "TO30") is a port of Rob's origiginal Variants from the [MonsterVariants](https://thunderstore.io/package/rob/MonsterVariants/) mod. A total of 30 unique and quirky variants have been added to the game.
+The Original 30 is a port of Rob's original variants from the [MonsterVariants](https://thunderstore.io/package/rob/MonsterVariants/) mods. Adds a total of 30 unique variants to the base game cast.
+
+I've tried to keep their original essence intact, these are almost one to one recreations of their original behaviours back in the day.
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_1.png)
 
 ## Variant Tablesheet
 
@@ -43,22 +47,20 @@ The Original 30 (Abreviated as "TO30") is a port of Rob's origiginal Variants fr
 </p>
 </details>
 
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_2.png)
+
 ### Donations
 
 If you like what i do, and wish to help me out, consider donating on my Ko-fi
 
-[![ko-fi](https://media.discordapp.net/attachments/850538397647110145/994431434817273936/SupportNebby.png)](https://ko-fi.com/nebby1999)
+[![ko-fi](https://raw.githubusercontent.com/Nebby1999/VarianceAPI/refs/heads/Main/MarkdownFiles%7E/Readme/KofiButton.png)](https://ko-fi.com/nebby1999)
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_3.png)
 
 ## Special Thanks
 
 * Thanks to Rob for designing all of these variants.
 * Thanks to PapaZach for designing the VariantPack's icon.
 
-## Pictures
-
-![](https://cdn.discordapp.com/attachments/850538397647110145/882677402285772860/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/854536117864235038/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/854536133832605716/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/882677508884033607/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/854536180148994078/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/882677364184743988/unknown.png)
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_4.png)
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_5.png)

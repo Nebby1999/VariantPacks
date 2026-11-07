@@ -1,6 +1,6 @@
 # Variant Pack - Nebby's Wrath
 
-Nebby's Wrath (Abbreviated as "NW") is a port of the Variantsss from MonsterVariantsPlus. A total of 48 unique, powerful and difficult variants have been added to the game.
+Nebby's Wrath is the main Variant Pack created by Nebby. Adds a total of 87 Variants to the game, including Survivors of the Void, Seekers of the Storm and Alloyed Collective. Alongside some modded enemies.
 
 ## Features
 
@@ -15,80 +15,137 @@ Playing with the following mod causes certain cross-over features
 
 ## Variant Tablesheet
 
-<details><summary>(Click me!)</summary>
+<details><summary>Base Game Variants (Click me!)</summary>
 <p>
 
 | Character | Variant Name | Details |
 |--|--|--|
-| Beetle Queen | Beetle Imperatrix | Has two royal beetle guards, it only spawns common Beetles, but these beetles will always be variants if Beetle Variants are in the game |
-| Beetle Queen | Beetle Matriarch | Spawns both Beetle Guards and regular Beetles |
-| Brass Contraption | Aluminum Contraption | Less health, smaller, with faster attack and movement speed |
-| Brass Contraption | Steel Contraption | Increased Health, fires a single, large steel ball |
-| Bighorn Bison | Alpha Bison | Quicker than a regular bison with an explosing charge attack |
-| Clay Dunestrider | Devourer Dunestrider | Can only use it's desesperation attack once, the attack is powered up |
-| Clay Dunestrider | Starving Dunesstrider | Uses it's desesperation Attack as soon as possible |
-| Clay Dunestrider | Overflowing Dunestrider | All attacks inflict tar, spawns 2 Tarred Goop when killed
-| Clay Templar | Vampiric Templar | Steals life on hit, healing itself |
-| Clay Templar | Overflowing Templar | All attacks inflict tar, spawns 2 Tarred Geep when killed
-| Stone Golem | Colossal Golem | It's golem laser is replaced by a Titan Laser |
-| Grandparent | Great Grandparent | Increased health and attack, self detonates in a super nova on death |
-| Grandparent | Heliocratic Grandparent | Uses it's desesperation Attack as soon as posssible |
-| Greater Wisp | Amalgamated Wisp | 5 Lesser wisp combined into one, fires wisp embers and splits into 5 lesser wisps on death |
-| Greater Wisp | Greater Stone Wisp | Fires two stone golem laser instead of two fireballs |
-| Greater Wisp | Somewhat-Great Wisp | Decreased health and size, increased attack speed and movement speed |
-| Hermit Crab | Mortar Crab | Has a Behemoth |
-| Imp | Bruiser Imp | Increased damage, attack speed and movement speed, cannot teleport |
-| Imp | Ichor Imp | 50% chance to inflict bleed, inflicts pulverized on attack |
-| Imp Overlord | Berserker Overlord | Cannot fire void spikes, increased movement and attack speed |
-| Imp Overlord | Ichor Overlord | 50% chance to inflict bleed, fires Ichor Spikes which inflicts pulverized |
-| Elder Lemurian | Ghost of Kjaro | Miniboss, increased health and stats, guaranteed to be a Fire elite, can summon lemurians to aid in the fight |
-| Elder Lemurian | Ghost of Runald | Miniboss, increased health and stats, guaranteed to be an Ice elite, can summon lemurianss to aid in the fight |
-| Elder Lemurian | Incinerating Elder Lemurian | Fires 5 small fireballs, extremely deathly Flamebreath with a large warning window |
-| Mini Mushrum | ADShroom | Reduced damage, increased attack speed, fires grenades quickly which inflict Pulverized |
-| Mini Mushrum | Healer Shroom | reduced attack speed, fires grenades which heal enemies and harms the player |
-| Mini Mushrum | Mamma Shroom | Cannot move, has 5 Bustling Fungus |
-| Ancient Wisp | Enraged Wisp | Enrages as Soon as possible, Requires moffein's AncientWisp mod |
-| Ancient Wisp | Ancient Stone Wisp | Increased health armor and lowered speed, has Stone Titan-like attacks. Requires moffein's Ancient Wisp mod |
-| Ancient Wisp | Somewhat-Ancient Wisp | Decreased Health and Size, increased attack speed and movement speed. Requires moffein's Ancient Wisp mod |
-| Archaic wisp | Aeonic Wisp | Increased Damage and defense, Requires moffein's Archaic Wisp mod |
-| Archaic Wisp | Archaic Stone Wisp | Fires two stone titan lasers, Requires moffein's Archaic Wisp mod |
-| Archaic Wisp | Somewhat-Archaic Wisp | Decreased Health and Size, increased attack speed and movement speed, Requires moffein's Archaic Wisp mod |
-| Clay Man | Assassin Clay Man | Increased movement speed and reduced health, chance to inflict bleeding, invisible but shows itself when attacking. attacking lasts twice as long |
-| Clay Man | Clay Soldier | Slower with higher health, increased attack speed |
-| Clay Man | Overflowing Clay Man | All attacks inflict tar, spawns 2 Tarred Gip when killed |
-| Parent | Adolescere | Teleports around more often, usually out of reach, has a planula and heals itself quickly |
-| Parent | Child | increased movement and attack speed, on death, spawns two enraged parents |
-| Solus Control Unit | Malfunctioning Solus Control Unit | Uses it's desesperation attack as soon as possible |
-| Solus Control Unit | Swarming Solus Control Unit | Decreased size, Increased movement and attack speed, only spawns Swarmer probes |
-| Solus Probe | Gaussian Solus Probe | Fires Gauss Bursts at the enemy, akin to Engineer's default turrets |
-| Solus Probe | Solus Probe MK2 | Charges and Fires a burst of Solus Control Unit projectiles |
-| Solus Probe | Swarmer Probe | Decreased size, increased movement and attack speed |
-| Alloy Worship Unit | Malfunctioning Alloy Worship Unit | Uses it's desesperation attack as soon as possible |
-| Alloy Worship Unit | Swarming Allow Worship Unit | Decreased size, Increased movement and attack speed, only spawns Swarmer probes |
-| Stone Titan | Ancient Titan | Uses it's desesperation attack as soon as possible |
-| Aurelionite | Ancient Aurelionite | Uses it's desesperation attack as soon as possible |
-| Aurelionite | Enormous Aurelionite | Greatly increased size and damage |
-| Aurelionite | Pygmy Aurelionite | Decreased size, increased movement speed |
-| Wandering Vagrant | Mothership Vagrant | Tracking bomb skill replaced by spawning jellyfishes, spawns 10 jellyfishes on death, or 3 MOAJ if The Original 30 is installed |
-| Lesser Wisp | Almost-Archaic Wisp | Fires an Archaic Wisp fireball |
-| Lesser Wisp | Leastest Wisp | Reduced Size, Increased movement and attack speedd |
-| Lesser Wisp | Lessser Stone Wisp | Fires a stone golem laser |
-| Alpha Construct | Gamma Construct | Increased attack speed, teleports to nearby players every now and then |
-| Void Barnacle | Transplanar Barnacle | Increased attack speed, teleports to nearby players every now and then |
-| Blind Pest | Armormelter Pest | Attacks reduces armor permanently |
-| Blind Pest | Tiny Pest | Reduced size, Increased movement and attack speed |
-| Blind Vermin | Armormelter Vermin | Attacks reduces armor permanently |
-| Blind Vermin | Tiny Vermin | Reduced size, Increased movement and attack speed |
-| Gup | Goop | Increased health, size and damage, reduced speed, splits into two Gups when killed. |
-| Gup | Tarred Gup | Inflicts tar on hit |
-| Geep | Tarred Geep | Inflicts tar on hit |
-| Gip | Tarred Gip | Inflicts tar on hit | 
-| Magma Worm | Molten Worm | Reduced length, has a single ignition tank |
-| Child | Collapsed Child | Attack spawns a void reaver implosion |
-| Child | Dense Child | Attack has insane knockback |
-| Scorch Wurm | Electric Wurm | Fires overloading worm orbs that strike down lightning |
-| Xi Construct | Proto Construct | Uses it's shield always |
-| Xi construct | Omicron Construct | Highly aggressive, doesnt spawn alpha construct, shield is replaced by a homing laser barrage |
+| Aurelionite | Ancient Aurelionite | Can use it's laser projectile and beam regardless of health value |
+| Aurelionite | Enormous Aurelionite | Twice the health and damage, lower movement and attack speed |
+| Aurelionite | Pygmy Aurelionite | Smaller with 5 times the movement speed |
+| Beetle Queen | Beetle Empress | Has two "royal beetle guards", only spawns variant beetles |
+| Beetle Queen | Beetle Imperatrix | Spawns both Beetles and Beetle Guards |
+| Bison | Alpha Bison | A bison with an exploding ram attack |
+| Bison | Pinky | An extremely agressive bison, has insane armor from the front but is extremely vulnerable from the back |
+| Brass Contraption | Aluminum Contraption | Smaller, fires more often, less health |
+| Brass Contraption | Steel Contraption | Larger, has more health, fires a singular massive steel ball |
+| Clay Dunestrider | Devourer Dunestrider | It's tendril attack is considerably more lethal |
+| Clay Dunestrider | Starving Dunestrider | Can use it's tendril attack regardless of health value |
+| Clay Dunestrider | Overflowing Dunestrider | Spawns a "Tarred Goop" on kill, requires Survivors of the Void |
+| Clay Templar | Vampiric Clay Templar | Life steal on hit, can generate barrier on overheal |
+| Clay Templar | Overflowing Templar | Spawns a "Tarred Geep" on kill, requires Survivors of the Void |
+| Elder Lemurian | Ghost of Kjaro | A "Boss" Elder Lemurian that has increased stats, and summons a horde of lemurian ghosts with a skill |
+| Elder Lemurian | Ghost of Runald | A "Boss" Elder Lemurian that has increased stats, and summons a horde of lemurian ghosts with a skill |
+| Elder Lemurian | Incinerating Elder Lemurian | Extremly fast, fires in volleys of 5 fireballs, has a deadly flamebreath |
+| Grand Parent | Great Grandparent | Twice the health, explodes with a supernova on death |
+| Grand Parent | Sun Worshipper | Can use it's sun attack regardless of health value |
+| Greater Wisp | Amalgamated Great Wisp | Fires Lesser Wisp embers, on death spawns 5 Lesser Wisps |
+| Greater Wisp | Greater Stone Wisp | Fires two golem lasers, higher health and size, lower movement speed |
+| Greater Wisp | Somewhat Great Wisp | Smaller size, smaller health, higher movement and attack speed |
+| Hermit Crab | Mortar Crab | Fires explosive rocks |
+| Imp | Bruiser Imp | Unable to teleport, insanely fast, deals higher damage to higher health enemies |
+| Imp | Ichor Imp | Inflicts Pulverized on hit |
+| Imp Overlord | Berserker Overlord | Cannot fire spikes, insanely fast, can slam the ground more often |
+| Imp Overlord | Ichor Overlord | Inflicts Pulverized on hit |
+| Lemurian | Meatballer Lemurian | Twice the health, spits out the Scorch Wurm's projectile |
+| Lesser Wisp | Almost Archaic Wisp | Fires an Archaic Wisp Fireball |
+| Lesser Wisp | Leastest Wisp | half the health, very fast |
+| Lesser Wisp | Lesser Stone Wisp | Fires a Stone Golem Laser |
+| Magma Worm | Ancient Worm | Behaves more like a Risk of Rain Returns worm |
+| Overloading Worm | Ancient Worm | Behaves more like a Risk of Rain Returns worm |
+| Magma Worm | Hatchling Worm | Shorter size, always throws projectiles |
+| Overloading Worm | Hatchling Worm | Shorter size, always throws projectiles |
+| Mini Mushrum | ADShroom | Fires spores that inflict pulverized, very high attack speed |
+| Mini Mushrum | Healer Shroom | Fires spores that hear nearby allies |
+| Mini Mushrum | Mamma Shroom | Cannot move, has bungus and aegis |
+| Nullifier | Kamikaze Reaver | Moves very fast to it's target, upon being close kills itself |
+| Parent | Childish | Cannot teleport, higher move speed and attack speed, on death spawns 2 enraged parents |
+| Parent | Adolescent | Teleports multiple times, heals when being hit |
+| Solus Control Unit | Malfunctioning SCU | Can use it's knockup attack regardless of health value |
+| Solus Control Unit | Proto Wing | Summon attack can spawn the entire solus family, requires Alloyed Collective |
+| Solus Control Unit | Swarming SCU | Smaller, higher attack and movement speed, spawns swarmer probes |
+| Solus Probe | Gaussian Probe | Fires the same bullets as the Engi Turrets |
+| Solus Probe | Solus Probe MK2 | Fires the Solus Control Unit Projectiles |
+| Solus Probe | Swarmer Probe | Smaller, faster movement and attack speed |
+| Stone Golem | Colossal Golem | Fires a stone titan laser |
+| Stone Titan | Ancient Stone Titan | Can use it's laser projectile and beam regardless of health value |
+| Mothership Vagrant | It's bubble volley attack is replaced with summoning Jellyfishes |
+
+</p>
+</details>
+
+<details><summary>Survivors of the Void Variants (Click me!)</summary>
+<p>
+
+| Character | Variant Name | Details |
+|--|--|--|
+| Alpha Construct | Gamma Construct | Teleports near it's target every 20 seconds |
+| Alpha Construct | Theta Construct | Fires two tracking beams, one towards its target and the other at an angle |
+| Blind Vermin | Armormelter Vermin | Bite inflicts -6 armor permanently |
+| Blind Vermin | Tiny Vermin | Faster, smaller, attacks more often |
+| Clay Apothecary | Overflowing Apothecary | Spawns a Tarred Gup on death |
+| Blind Pest | Armormelter Pest | Spit inflicts -6 armor permanently |
+| Blind Pest | Bloated Pest | Fires 3 beetle queen spit balls in an arc, has double health |
+| Blind Pest | Tiny Pest | Faster, Smaller, Attacks more often |
+| Gup | Goop | Massive Gup, double health, spawns two "Gups" on kil (there's infinite gup loop) |
+| Gup | Tarred Gup | Inflicts Tar on hit |
+| Geep | Tarred Geep | Inflicts Tar on hit |
+| Gip | Tarred Gip | Inflicts Tar on hit |
+| Void Barnacle | Transplanar Barnacle | Teleports near it's target every 20 seconds |
+| Xi Construct | Omicron Construct | Cannot spawn minor construct, fires homing lasers, shield replaced with a laser barrage |
+| Xi Construct | Proto Construct | Can use it's shield regardless of health value |
+
+</p>
+</details>
+
+<details><summary>Seekers of the Storm Variants (Click me!)</summary>
+<p>
+
+| Character | Variant Name | Details |
+|--|--|--|
+| Child | Collapsed Child | It's attack causes a void implosion on hit |
+| Child | Dense Child | It's projectile has insane knockback |
+| Scorch Wurm | Electric Wurm | Fires Overloading Worm Projectiles |
+
+</p>
+</details>
+
+
+<details><summary>Alloyed Collective Variants (Click me!)</summary>
+<p>
+
+| Character | Variant Name | Details |
+|--|--|--|
+| Deffective Unit | Deffective Slammer | Lacks it's projectile attack, instead slams repeatedly once near it's target |
+| Deffective Unit | Evil Buddy | Best Buddy hates you |
+| Extractor Unit | Cloaked Extractor | Becomes cloaked while out of combat |
+| Extractor Unit | Kleptomaniac Extractor | Cannot share items, but instead continues to steal from it's target |
+| Mine Pod | Roller Pod | Spawns Solus Amalgamator Roller enemies | 
+| Solus Amalgamator | Malfunctioning Amalgamator | Can use it's knockup attack regardless of health value |
+| Solus Mine | Invalidating Mine | Explosion disables your inventory |
+| Solus Mine | Nullifying Mine | Explosion inflicts a permanent nullify stacking debuff |
+| Solus Wing | Glitched Wing | It's permanently glitched out |
+| Solus Scorcher | Oilspill | Cannot light things on fire, spits out oil more frequently |
+| Vulture Hunter | Scrapyard Hunter | Can rain junk from the sky regardless of health value |
+
+
+</p>
+</details>
+
+<details><summary>Modded Variants (Click me!)</summary>
+<p>
+
+| Character | Variant Name | Details |
+|--|--|--|
+| Ancient Wisp | Ancient Stone Wisp | A slower, punchier and healthier version of the Ancient Wisp, attacks replaced with Stone Titan equivalents and on enrage spawns two Greater Stone Wisps (or Greater Archaic Wisps) |
+| Ancient Wisp | Enraged Wisp | Enrages as soon as possible |
+| Ancient Wisp | Somewhat Ancient Wisp | A faster, less punchier and brittle version of the Ancient Wisp, on enrage spawns two Somewhat Great Wisps (or Somewhat Archaic Wisps) |
+| Archaic Wisp | Aeonic Wisp | Double health, higher damage |
+| Archaic Wisp | Archaic Stone Wisp | Fires two titan lasers, higher health and slower movement speed |
+| Archaic Wisp | Somewhat Archaic Wisp | Faster movement speed, faster attack speed, less health |
+| Clay Man | Clay Assassin | Cloaked and Faster, uncloaks only while attacking, has a chance to inflict bleed |
+| Clay Man | Clay Soldier | Slower, Healthier, attacks more often |
+| Clay Man | Overflowing Clayman | Spawns a "Tarred Gip" on kill, requires Survivors of the Void |
 
 </p>
 </details>
@@ -97,16 +154,9 @@ Playing with the following mod causes certain cross-over features
 
 If you like what i do, and wish to help me out, consider donating on my Ko-fi
 
-[![ko-fi](https://media.discordapp.net/attachments/850538397647110145/994431434817273936/SupportNebby.png)](https://ko-fi.com/nebby1999)
+[![ko-fi](https://raw.githubusercontent.com/Nebby1999/VarianceAPI/refs/heads/Main/MarkdownFiles%7E/Readme/KofiButton.png)](https://ko-fi.com/nebby1999)
 
 ## Special Thanks
 
 * Thanks to prodzpodproductions for designing the VariantPack's icon.
 * Thanks to Arlwiss for providing me with the Sprites of the Greater Wisp and Lesser Wisp, which are used for the new loading screen enemy portrait.
-
-## Pictures
-
-![](https://media.discordapp.net/attachments/850538397647110145/882679033417048134/unknown.png?width=1203&height=676)
-![](https://cdn.discordapp.com/attachments/850538397647110145/882682671787028551/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/882684186819973170/unknown.png)
-![](https://cdn.discordapp.com/attachments/850538397647110145/882685493257596988/unknown.png)

@@ -24,7 +24,7 @@ MonoBehaviour:
   spawnRate: 4
   arrivalToken: 
   spawnCondition:
-    rid: 8453672705155661954
+    rid: -2
   masterModifiers: []
   inventoryDefinition:
     itemsToGrant:
@@ -44,6 +44,7 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8121176549267341312
   deathStateOverride:
@@ -63,32 +64,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8121176549267341312
       type: {class: VariantNameSuffix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
         suffixToken: NW_HATCHLING_SUFFIX
-    - rid: 8453672705155661954
-      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        minimumStageCompletions: 0
-        _stages:
-          Value: -1
-        customStages: []
-        requiredUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
-        forbiddenUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
-        requiredExpansionDefs:
-        - _asset: {fileID: 0}
-          _address: RoR2/DLC1/Common/DLC1.asset
-          _useDirectReference: 0
-          _canLoadFromCatalog: 1
     - rid: 8453672705155661956
       type: {class: BasicStatModifier, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

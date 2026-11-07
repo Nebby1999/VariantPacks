@@ -68,9 +68,9 @@ MonoBehaviour:
         loadFromBody:
           targetBody:
             _asset: {fileID: 0}
-            _address: 
+            _address: 64ee0a4463fdfdc41ac7a06c8f5f2f0f
             _useDirectReference: 0
-            _canLoadFromCatalog: 1
+            _canLoadFromCatalog: 0
     - rid: 8453672705155662056
       type: {class: VariantNameSuffix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

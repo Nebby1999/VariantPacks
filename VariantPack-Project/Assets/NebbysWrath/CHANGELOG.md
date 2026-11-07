@@ -1,114 +1,37 @@
 # Changelogs
 
-## '2.1.2'
-* Recompiled for Alloyed Collective
+## 3.0.0 - Rewrite
 
-## '2.1.0'
-* Updated to Seekers of the Storm
-* Fixed a couple of bugs
+* Rewritten to use VarianceAPI 3.0.0
+* Changed some of the spawn rates overall
 * Added the following variants:
-    * Alpha Construct
-        * Gamma Construct
-    * Void Barnacle
-        * Transplanar Barnacle
-    * Moffein Ancient Wisp
-        * Ancient Stone Wisp
-        * Somewhat Ancient Wisp
-    * Blind Pest
-        * Armormelter Pest
-        * Tiny Pest
-    * Blind Vermin
-        * Armormelter Vermin
-        * Tiny Vermin
-    * Gup
-        * Tarred Gup
-        * Goop
-    * Geep
-        * Tarred Geep
-    * Gip
-        * Tarred Gip
-    * Magma Worm
-        * Molten Worm
-    * Clay Apothecary
-        * Overflowing Apothecary
-    * Clay Dunestrider
-        * Overflowing Dunestrider
-    * Moffein Clayman
-        * Overflowing Clayman
-    * Clay Templar
-        * Overflowing Clay Templar
-    * Child
-        * Collapsed Child
-        * Dense Child
-    * Scorch Wurm
-        * Electric Wurm
-    * Xi Construct
-        * Proto Construct
-        * Omicron Construct
-        
-## '2.0.2'
-* Removed uncesesary special thanks (rob didn't design any, whoops...)
-* Fixed issue where the mod accidentally had a hard dependency on TheOriginal30
-
-## '2.0.1'
-* Updated README
-* Added Missing Dependency
-
-## '2.0.0'
-* Updated to Survivors of the Void
-* Updated to use VAPI 2.0.0
-* Greatly toned down the strength of the clayman asssassin
-* Clayman Assassin now cloaks itself and uncovers when attacking the player
-* Dependant on PrefabAPI
-
-## '1.1.1'
-* Fixed almost archaic wisps not having their visual modifiers
-* Fixed the Mamma shroom having a bad language token for its arrival
-* Fixed Solus Control Unit having a duplicate Swarming variant info
-* Fixed Alloy Worship Unit not having a swarming variant info
-* Updated Website
-
-## '1.1.0'
-* Updated to use VarianceAPI 1.0.0
-* Probably forgot a bunch of things
-* Also, certain variant reworks and tweaks. lol.
-
-## '1.0.3'
-* Fixed the Malfunctioning Alloy Worship Unit having a spawn chance of 0 by default
-* Fixed the Mamma shroom not having it's size modifier
-* Prolly other things i forgor
-* Oh yeah, mesh swaps i guess
-
-## '1.0.2'
-* Fixed SolusProbe MK2 having a size modifier of 0
-* Fixed the Aeonic Wisp not spawning
-* Increased Kjaro & Runald's armor by 50 points
-
-## '1.0.1' "Hotfix Update"
-* Fixed Bruiser Imps not having their prefix
-* Fixed Variants being able to use the EmptySkillDef, which caused them to stay idly doing nothing
-* Fixed a REALLY BAD coding error (forgot to call orig(self))
-
-## '1.0.0'
-* Finished implementing all the variants, horray!
-* Updated to use VarianceAPI 0.8.0
-* Updated icon and fixed the fucking "Ariants" typo lol
-
-## '0.0.3'
-* Fixed the Ichor Imp having problems with its material
-* Fixed the Ichor Imp not attacking.
-
-## '0.0.2'
-* Added back the following Variants:
-* Alpha Bison
-* Amalgamated Greater Wisp
-* Greater Stone Wisp
-* Somewhat-Great Wisp
-* Bruiser Imp
-* Ichor Imp
-* Adolescent
-* Child
-* Updated to use Variance API 0.7.1
-
-## '0.0.1'
-* Initial Release
+    * Ancient Worm
+    * Bloated Pest
+    * Cloaked Extractor
+    * Deffective Slammer
+    * Evil Buddy
+    * Glitched Wing
+    * Hatchling Worm
+    * Invalidaint Mine
+    * Kamikaze Reaver
+    * Kleptomaniac Extractor
+    * Malfunctioning Amalgamator
+    * Meatballer Lemurian
+    * Nullifying Mine
+    * Oilspiller
+    * Pinky
+    * Proto Wing
+    * Roller Pod
+    * Scrapyard Hunter
+    * Theta Construct
+* Added Configurations for adding the following Variant Clones. These are true by default
+    * Ally Variants. Creates Variant versions of the following bodies:
+        * Lemurian (Artifact of Devotion)
+        * Elder Lemurian (Artifact of Devotion)
+        * Alpha Construct (Defense Nucleus)
+        * Solus Probe (Empathy Cores)
+        * Void Reaver (Newly Hatched Zoea)
+    * Polymorph Lemurian. Creates variant versions of the Lemurian Polymorph from DLC4, using the existing Lemurian Variants
+	* Artifact of Soul Wisps. Creates Variant versions of the Artifact of Soul wisps, using the existing Lesser Wisp variants
+    * Alloy Worship Unit. Creates variant versions of the Alloy Worship Unit, using the existing Solus Control Unit variants
+* Probably some other things i'm forgetting
