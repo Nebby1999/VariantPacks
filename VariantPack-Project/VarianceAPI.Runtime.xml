@@ -3051,6 +3051,7 @@
             <item><see cref="F:VAPI.CharacterVariantDef.scaleMultiplier"/></item>
             <item><see cref="F:VAPI.CharacterVariantDef.visualModifier"/></item>
             <item><see cref="F:VAPI.CharacterVariantDef.variantNameProvider"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.arrivalToken"/></item>
             </list>
             <para></para>
             All modifiers are disposed when <see cref="M:VAPI.IVariantBodyApplicator.UnapplyVariants(VAPI.CharacterBodyVariantController)"/>
@@ -3145,6 +3146,12 @@
             </summary>
             <param name="src">The controller to activate the name modifiers</param>
             <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.AnnounceArrival(VAPI.CharacterBodyVariantController)">
+            <summary>
+            Announces the arrival of the monster. Only gets announced if <paramref name="src"/>'s <see cref="P:VAPI.CharacterBodyVariantController.supressArrivalMessageServer"/> is set to false and <see cref="F:VAPI.VAPIConfig._sendArrivalMessages"/> is set to true
+            </summary>
+            <param name="src"></param>
         </member>
         <member name="T:VAPI.DefaultVariantMasterApplicator">
             <summary>
