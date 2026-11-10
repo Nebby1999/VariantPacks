@@ -1,5 +1,15 @@
 # Changelogs
 
+## 3.1.0 - Couple more variants
+
+* Added the following variants
+    * Explosive Gup
+    * Explosive Geep
+    * Explosive Gip
+    * Stalker Mimic
+    * Gluttonous Mimic
+    * Lesser Poltergeist
+
 ## 3.0.0 - Rewrite
 
 * Rewritten to use VarianceAPI 3.0.0

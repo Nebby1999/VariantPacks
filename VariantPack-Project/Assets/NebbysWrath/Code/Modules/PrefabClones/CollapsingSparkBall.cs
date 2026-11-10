@@ -12,8 +12,6 @@ namespace NW.PrefabClones
 {
     public class CollapsingSparkBall : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
-
         public GameObject asset => collapsingSparkBallProjectile;
         public static GameObject collapsingSparkBallProjectile;
 
@@ -52,7 +50,6 @@ namespace NW.PrefabClones
             ParallelCoroutine.ReturnToPool(coroutine);
 
             collapsingSparkBallProjectile = PrefabAPI.InstantiateClone(projectileRequest.Result, "CollapsingSparkBall", true);
-            collapsingSparkBallProjectile.AddComponent<ClonedPrefabBehaviour>();
 
             var impactExplosion = collapsingSparkBallProjectile.GetComponent<ProjectileImpactExplosion>();
             impactExplosion.blastDamageCoefficient = 0;
@@ -64,7 +61,7 @@ namespace NW.PrefabClones
 
             var controller = collapsingSparkBallProjectile.GetComponent<ProjectileController>();
             controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
-            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "CollapsingSparkBallGhost");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "CollapsingSparkBallGhost", false);
 
             ghostPrefab.GetComponentInChildren<Light>().color = Color.black;
             ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = moonMeshMat.Result;

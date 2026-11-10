@@ -8,7 +8,7 @@
             <summary>
             An <see cref="T:R2API.AddressReferencedAssets.AddressReferencedAsset`1"/> that loads GameObjects, and has support for loading via the Body Catalog.
             <br></br>
-            Like other uses of AddressReferencedAsset, it is not recommended to reuse an instance across various <see cref="T:VAPI.CharacterVariantTarget"/>, instead clone them via <see cref="!:VAPIUtils.CloneAddressReferencedAsset&lt;T1, T2&gt;(T1?)"/>
+            Like other uses of AddressReferencedAsset, it is not recommended to reuse an instance across various <see cref="T:VAPI.CharacterVariantTarget"/>, instead clone them via <see cref="M:VAPI.VAPIUtils.CloneAddressReferencedAsset``2(``0)"/>
             </summary>
         </member>
         <member name="P:VAPI.AddressReferencedAssets.AddressReferencedBody.CanLoadFromCatalog">
@@ -232,7 +232,33 @@
         </member>
         <member name="T:VAPI.CharacterVariantMask.Enumerator">
             <summary>
-            Enumerator
+            Enumerator for CharacterVariantMask
+            </summary>
+        </member>
+        <member name="P:VAPI.CharacterVariantMask.Enumerator.Current">
+            <summary>
+            The current CharacterVariantIndex that was enumerated
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Enumerator.#ctor(System.Boolean[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="array">The array being enumerated</param>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Enumerator.Dispose">
+            <summary>
+            Dispose method
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Enumerator.MoveNext">
+            <summary>
+            Moves to the next CharacterVariantIndex
+            </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Enumerator.Reset">
+            <summary>
+            Resets the enumerator
             </summary>
         </member>
         <member name="P:VAPI.CharacterVariantMask.Count">
@@ -291,6 +317,13 @@
             <summary>
             Clones this mask to <paramref name="other"/>
             </summary>
+        </member>
+        <member name="M:VAPI.CharacterVariantMask.Swap(VAPI.CharacterVariantMask,VAPI.CharacterVariantMask)">
+            <summary>
+            Swaps the values from <paramref name="maskA"/> to <paramref name="maskB"/>
+            </summary>
+            <param name="maskA">The mask to swap it's values to <paramref name="maskB"/></param>
+            <param name="maskB">The mask to swap it's values to <paramref name="maskA"/></param>
         </member>
         <member name="M:VAPI.CharacterVariantMask.GetEnumerator">
             <summary>
@@ -512,6 +545,11 @@
             an array of VariantDefs that are guaranteed to be included on the final array.
             </summary>
         </member>
+        <member name="M:VAPI.CharacterVariantProvider.RollVariantDefsArgs.ToString">
+            <summary>
+            Returns a human readable representation of the current arguments
+            </summary>
+        </member>
         <member name="M:VAPI.CharacterVariantProvider.RollVariantDefs(VAPI.CharacterVariantProvider.RollVariantDefsArgs)">
             <summary>
             Rolls an array of <see cref="T:VAPI.CharacterVariantDef"/>s from this provider.
@@ -596,6 +634,8 @@
             Variants are mainly spawned via the <see cref="T:VAPI.VariantSpawnManager"/>, done when the Body calls "Start"
             <br></br>
             When an array of <see cref="T:VAPI.CharacterVariantDef"/> is assigned via <see cref="M:VAPI.CharacterBodyVariantController.SetCharacterVariantDefsServer(VAPI.CharacterVariantDef[])"/>, the controller will try and store this array in the <see cref="T:VAPI.CharacterMasterVariantStorage"/> on the master. This in turn will apply any master modifications, and store the variants in case the body respawns.
+            <para></para>
+            The application of <see cref="T:VAPI.CharacterVariantDef"/>s on the Body are handled via an implementation of <see cref="T:VAPI.IVariantBodyApplicator"/>. The default implementation of this interface is via the <see cref="T:VAPI.DefaultVariantBodyApplicator"/>. See <see cref="T:VAPI.IVariantBodyApplicator"/> for more information.
             <para></para>
             If you want to "Script" a variant spawn, it is recommended to utilize <see cref="T:VAPI.VariantMasterSummon"/> and <see cref="T:VAPI.VariantDirectorSpawnRequest"/>. Alternatively you can use <see cref="M:VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariant(VAPI.VAPIUtils.TransformSpawnedInstanceIntoVariantArgs)"/>.
             </summary>
@@ -709,11 +749,11 @@
             The array is rejected if <see cref="P:VAPI.CharacterBodyVariantController.variantsApplied"/> is true.
             </summary>
         </member>
-        <member name="P:VAPI.CharacterBodyVariantController.cachedVariantName">
+        <member name="P:VAPI.CharacterBodyVariantController.nameModifiersActive">
             <summary>
-            The current variant name for this character.
+            Wether name modifiers from the assigned variants are active or not.
             <br></br>
-            This is calculated by running the <see cref="T:VAPI.IVariantNameProvider"/> of the applied variants against the <see cref="P:VAPI.CharacterBodyVariantController.characterBody"/>'s name token
+            This shouldn't be set outside of a class implementing <see cref="T:VAPI.IVariantBodyApplicator"/>
             </summary>
         </member>
         <member name="M:VAPI.CharacterBodyVariantController.ModifyStatArguments(R2API.RecalculateStatsAPI.StatHookEventArgs)">
@@ -727,8 +767,10 @@
             <para></para>
             This component is added automatically to any CharacterMaster prefab whose body prefab has the <see cref="T:VAPI.CharacterBodyVariantController"/> component, it is not necessary to add it manually.
             <br></br>
-            As the name implies, it's main purpose is to store the <see cref="T:VAPI.CharacterVariantDef"/>s that are applied to the body. This way the variant is preserved when the body respawns or when being taken to a new stage.
-            <br></br>
+            As the name implies, it's main purpose is to store the <see cref="T:VAPI.CharacterVariantDef"/>s that are applied to the body. This way the variant is preserved when the body respawns or when being taken to a new stage.    
+            <para></para>
+            The application of <see cref="T:VAPI.CharacterVariantDef"/>s on the Master are handled via an implementation of <see cref="T:VAPI.IVariantMasterApplicator"/>. The default implementation of this interface is via the <see cref="T:VAPI.DefaultVariantMasterApplicator"/>. See <see cref="T:VAPI.IVariantMasterApplicator"/> for more information.
+            <para></para>
             Only one set of variant defs may be applied to the master at a time, if the Master's body index changes, the variants are unapplied.
             </summary>
         </member>
@@ -878,11 +920,6 @@
             The time between attempts of firing the equipment
             </summary>
         </member>
-        <member name="T:VAPI.VariantEquipmentHandler.EquipmentData">
-            <summary>
-            Data for the equipment
-            </summary>
-        </member>
         <member name="P:VAPI.VariantEquipmentHandler.characterMaster">
             <summary>
             The CharacterMaster that's firing the equipment
@@ -901,6 +938,15 @@
             <param name="aiMaxUseHealthFraction">The AI's health must be lower than this fraction for the equipment to fire</param>
             <param name="aiMaxUseDistance">The AI's distance to it's target must be lower than this value for the equipment to fire</param>
             <param name="timeBetweenEquipmentSwitches">The time between equipment switches</param>
+        </member>
+        <member name="M:VAPI.VariantEquipmentHandler.SetEquipmentData(RoR2.EquipmentIndex,System.Single,System.Single)">
+            <summary>
+            Sets the equipment data to this behaviour
+            </summary>
+            <param name="equipmentIndex"></param>
+            <param name="forceOverride"></param>
+            <param name="aiMaxUseHealthFraction"></param>
+            <param name="aiMaxUseDistance"></param>
         </member>
         <member name="M:VAPI.VariantEquipmentHandler.RemoveEquipmentData(RoR2.EquipmentIndex)">
             <summary>
@@ -1023,7 +1069,7 @@
         </member>
         <member name="M:VAPI.LazyLoader`1.op_Explicit(VAPI.LazyLoader{`0})~`0">
             <summary>
-            Explicitly converts this into <see cref="!:T"/>
+            Explicitly converts this into <typeparamref name="T"/>
             <br></br>
             May be null if the asset doesnt exist
             </summary>
@@ -1472,7 +1518,7 @@
             <summary>
             A <see cref="T:VAPI.IVariantBodyModifier"/> is a <see cref="T:VAPI.IValidatable"/> and <see cref="T:System.ICloneable"/> interface used to define new Body modifiers. These implementations can be serialized in the editor via the <see cref="T:UnityEngine.SerializeReference"/> attribute.
             <br></br>
-            Modifications are done via the <see cref="!:ModifyBody(CharacterMaster)"/> method.
+            Modifications are done via the <see cref="M:VAPI.IVariantBodyModifier.ModifyBody(RoR2.CharacterBody)"/> method.
             <br></br>
             Must support cloning via the <see cref="T:System.ICloneable"/> implementation.
             <para></para>
@@ -1551,6 +1597,16 @@
         <member name="T:VAPI.BuffCountPair">
             <summary>
             Represents a pair of <see cref="T:RoR2.BuffDef"/>, alongside a specific integer value for it's <see cref="F:VAPI.BuffCountPair.buffCount"/>
+            </summary>
+        </member>
+        <member name="F:VAPI.BuffCountPair.buffDef">
+            <summary>
+            The BuffDef to grant
+            </summary>
+        </member>
+        <member name="F:VAPI.BuffCountPair.buffCount">
+            <summary>
+            The amount of buffs to grant
             </summary>
         </member>
         <member name="T:VAPI.VariantBuffInfo">
@@ -2976,6 +3032,252 @@
             If no spawn condition exists and the variant is available in the rulebook, it returns true.
             </summary>
         </member>
+        <member name="T:VAPI.DefaultVariantBodyApplicator">
+            <summary>
+            Default implementation for applying <see cref="T:VAPI.CharacterVariantDef"/> to <see cref="T:RoR2.CharacterBody"/>.
+            <br></br>
+            While this class cannot be inherited, the nested class <see cref="T:VAPI.DefaultVariantBodyApplicator.MethodImpls"/> expose a way to reuse the same logic as the default variant body applicator. When writing custom applicators it is recommended to reuse those methods unless you need a custom implementation.
+            <para></para>
+            <br></br>
+            By default it implements the following modifiers when <see cref="M:VAPI.IVariantBodyApplicator.ApplyVariants(VAPI.CharacterBodyVariantController,HG.ReadOnlyArray{VAPI.CharacterVariantDef})"/> is called:
+            <list type="number">
+            <item><see cref="F:VAPI.CharacterVariantDef.variantTier"/> modifiers</item>
+            <item><see cref="F:VAPI.CharacterVariantDef.bodyModifiers"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.variantBuffs"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.skillReplacements"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.deathStateOverride"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.additionalVariantComponents"/> that target the <see cref="T:RoR2.CharacterBody"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.additionalVariantComponents"/> that target the <see cref="T:RoR2.CharacterModel"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.scaleMultiplier"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.visualModifier"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.variantNameProvider"/></item>
+            </list>
+            <para></para>
+            All modifiers are disposed when <see cref="M:VAPI.IVariantBodyApplicator.UnapplyVariants(VAPI.CharacterBodyVariantController)"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.DefaultVariantBodyApplicator.MethodImpls">
+            <summary>
+            Class that contains the default method implementations for applying modifiers.
+            <br></br>
+            When writing custom <see cref="T:VAPI.IVariantBodyApplicator"/>, it is recommended to create an instance of this class and use it to apply modifiers.
+            </summary>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyTierModifications(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the Tier Modifiers from <paramref name="variantDef"/>.
+            </summary>
+            <param name="src">The controller that needs the Tier Modifiers</param>
+            <param name="variantDef">The variant to apply it's Tier Modifiers</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyBodyModifiers(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,System.Int32,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.IVariantBodyModifier"/>s from <paramref name="variantDef"/>
+            </summary>
+            <param name="src">The controller that needs the body modification</param>
+            <param name="variantDef">The variant to apply one of it's body modifiers</param>
+            <param name="bodyModifierIndex">The index of the body modifier to apply</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyBuffs(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantBuffStorage"/> from <paramref name="variantDef"/>.
+            </summary>
+            <param name="src">The controller that needs the Buffs applied</param>
+            <param name="variantDef">The variant to apply it's <see cref="T:VAPI.VariantBuffStorage"/></param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplySkillReplacement(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,System.Int32,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantSkillReplacement"/>s from <paramref name="variantDef"/>
+            </summary>
+            <param name="src">The controller that needs the Skill Replacements</param>
+            <param name="variantDef">The variant to apply one of it's Skill Replacements</param>
+            <param name="skillReplacementIndex">The index of the SkillReplacement to apply</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyCharacterDeathStateOverride(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantDeathStateOverride"/> from <paramref name="variantDef"/>.
+            </summary>
+            <param name="src">The controller that needs the Death State Override</param>
+            <param name="variantDef">The variant to apply it's Death State Override</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyBodyComponents(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantComponent"/>s from <paramref name="variantDef"/> that target the <see cref="T:RoR2.CharacterBody"/>
+            </summary>
+            <param name="src">The controller that needs the Variant Components</param>
+            <param name="variantDef">The variant to apply it's Components that target the <see cref="T:RoR2.CharacterBody"/></param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyModelComponents(VAPI.CharacterBodyVariantController,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantComponent"/>s from <paramref name="variantDef"/> that target the <see cref="T:RoR2.CharacterModel"/>
+            </summary>
+            <param name="src">The controller that needs the Variant Components</param>
+            <param name="variantDef">The variant to apply it's Components that target the <see cref="T:RoR2.CharacterBody"/></param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyScaleModifiers(VAPI.CharacterBodyVariantController,HG.ReadOnlyArray{VAPI.CharacterVariantDef},VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the Scale Modifiers from <paramref name="variantDefs"/> to the <see cref="T:RoR2.CharacterBody"/> from <paramref name="src"/>
+            </summary>
+            <param name="src">The controller that needs the Scale Modifiers</param>
+            <param name="variantDefs">The variants to apply their scale modifiers</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ApplyVisualModifiersAfterSkin(VAPI.CharacterBodyVariantController,System.Collections.Generic.List{VAPI.CharacterVariantVisualModifier},VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the Visual Modifiers from <paramref name="visualModifiers"/> to the <see cref="T:RoR2.CharacterModel"/> from <paramref name="src"/>
+            <br></br>
+            This is done via a coroutine that gets assigned to <paramref name="src"/>, it will apply the modifiers after the <see cref="T:RoR2.SkinDef"/> has been applied
+            </summary>
+            <param name="src">The controller that needs the Visual Modifiers</param>
+            <param name="visualModifiers">The visual modifiers to apply</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantBodyApplicator.MethodImpls.ActivateNameModifiers(VAPI.CharacterBodyVariantController,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Activates the Name Modifiers for <paramref name="src"/>
+            </summary>
+            <param name="src">The controller to activate the name modifiers</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to</param>
+        </member>
+        <member name="T:VAPI.DefaultVariantMasterApplicator">
+            <summary>
+            Default implementation for applying <see cref="T:VAPI.CharacterVariantDef"/> to <see cref="T:RoR2.CharacterMaster"/>.
+            <br></br>
+            While this class cannot be inherited, the nested class <see cref="T:VAPI.DefaultVariantMasterApplicator.MethodImpls"/> expose a way to reuse the same logic as the default variant master applicator. When writing custom applicators it is recommended to reuse those methods unless you need a custom implementation.
+            <para></para>
+            <br></br>
+            By default it implements the following modifiers when <see cref="M:VAPI.IVariantMasterApplicator.ApplyVariants(VAPI.CharacterMasterVariantStorage,HG.ReadOnlyArray{VAPI.CharacterVariantDef})"/> is called:
+            <list type="number">
+            <item><see cref="F:VAPI.CharacterVariantDef.variantTier"/>'s master modifiers</item>
+            <item><see cref="F:VAPI.CharacterVariantDef.inventoryDefinition"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.masterModifiers"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.additionalVariantComponents"/> that target the <see cref="T:RoR2.CharacterMaster"/></item>
+            </list>
+            <para></para>
+            All modifiers are disposed when <see cref="M:VAPI.IVariantMasterApplicator.UnapplyVariants(VAPI.CharacterMasterVariantStorage,System.Boolean)"/>
+            </summary>
+        </member>
+        <member name="T:VAPI.DefaultVariantMasterApplicator.MethodImpls">
+            <summary>
+            Class that contains the default method implementations for applying modifiers.
+            <br></br>
+            When writing custom <see cref="T:VAPI.IVariantMasterApplicator"/>, it is recommended to create an instance of this class and use it to apply modifiers.
+            </summary>
+        </member>
+        <member name="M:VAPI.DefaultVariantMasterApplicator.MethodImpls.ApplyTierModifications(VAPI.CharacterMasterVariantStorage,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the tier modifications from <paramref name="variantDef"/>.
+            </summary>
+            <param name="src">The storage that needs the tier modifications</param>
+            <param name="variantDef">The variant to apply it's tier modifications</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantMasterApplicator.MethodImpls.ApplyInventoryDefinition(VAPI.CharacterMasterVariantStorage,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantInventoryDefinition"/> from <paramref name="variantDef"/>
+            </summary>
+            <param name="src">The storage that needs the inventory</param>
+            <param name="variantDef">The variant to apply it's inventory definition</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantMasterApplicator.MethodImpls.ApplyMasterModifier(VAPI.CharacterMasterVariantStorage,VAPI.CharacterVariantDef,System.Int32,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.IVariantMasterModifier"/>s from <paramref name="srcDef"/>
+            </summary>
+            <param name="src">The storage that needs the master modification</param>
+            <param name="srcDef">The variant to apply one of it's master modifiers</param>
+            <param name="modifierIndex">The index of the master modifier to apply</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="M:VAPI.DefaultVariantMasterApplicator.MethodImpls.ApplyComponents(VAPI.CharacterMasterVariantStorage,VAPI.CharacterVariantDef,VAPI.DisposableCollectionHelper)">
+            <summary>
+            Applies the <see cref="T:VAPI.VariantComponent"/>s stored in <paramref name="variantDef"/> that target the <see cref="T:RoR2.CharacterMaster"/> of <paramref name="src"/>
+            </summary>
+            <param name="src">The storage that needs the components</param>
+            <param name="variantDef">The variant to apply it's components to the master</param>
+            <param name="disposableCollectionHelper">The DisposableCollectionHelper where the disposable modification will be added to.</param>
+        </member>
+        <member name="T:VAPI.IVariantBodyApplicator">
+            <summary>
+            An <see cref="T:VAPI.IVariantBodyApplicator"/> is an interface used to handle the application and unapplication of <see cref="T:VAPI.CharacterVariantDef"/>s for a Body.
+            <br></br>
+            This is useful on scenarios where certain modifiers from <see cref="T:VAPI.CharacterVariantDef"/>s may "ruin" fighting the character.
+            <para></para>
+            The default Body Applicatior for all variants is the <see cref="T:VAPI.DefaultVariantBodyApplicator"/>, however, a custom applicator for a Body can be specified by implementing the interface on a component and adding said component to the CharacterBody Prefab. When writing custom applicators it is recommended to create an instance of <see cref="T:VAPI.DefaultVariantBodyApplicator.MethodImpls"/>, as said class contains the default methods for applying modifiers.
+            <br></br>
+            An example of this is the <see cref="T:VAPI.MimicVariantBodyApplicator"/>, a custom applicator of <see cref="T:VAPI.CharacterVariantDef"/> that applies and unapplies specific modifiers based on wether the Mimic is disguised or not.
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantBodyApplicator.ApplyVariants(VAPI.CharacterBodyVariantController,HG.ReadOnlyArray{VAPI.CharacterVariantDef})">
+            <summary>
+            Apply the <paramref name="characterVariantDefs"/> to the <see cref="T:RoR2.CharacterBody"/> from <paramref name="src"/>.
+            </summary>
+            <param name="src">The <see cref="T:VAPI.CharacterBodyVariantController"/> that called this method</param>
+            <param name="characterVariantDefs">The <see cref="T:VAPI.CharacterVariantDef"/>s to apply.</param>
+        </member>
+        <member name="M:VAPI.IVariantBodyApplicator.UnapplyVariants(VAPI.CharacterBodyVariantController)">
+            <summary>
+            Unapply the <see cref="T:VAPI.CharacterVariantDef"/>s applied to the <see cref="T:RoR2.CharacterBody"/> from <paramref name="src"/>.
+            </summary>
+            <param name="src">The <see cref="T:VAPI.CharacterBodyVariantController"/> that called this method</param>
+        </member>
+        <member name="T:VAPI.IVariantMasterApplicator">
+            <summary>
+            An <see cref="T:VAPI.IVariantMasterApplicator"/> is an interface used to handle the application and unapplication of <see cref="T:VAPI.CharacterVariantDef"/>s for a Master
+            <br></br>
+            This is useful on scenarios where certain modifiers from <see cref="T:VAPI.CharacterVariantDef"/>s may "ruin" fighting the character.
+            <para></para>
+            The default Master Applicator for all variants is the <see cref="T:VAPI.DefaultVariantMasterApplicator"/>, however, a custom applicator for a Body can be specified by implementing the interface on a component, and adding said component to the CharacterMaster Prefab
+            </summary>
+        </member>
+        <member name="M:VAPI.IVariantMasterApplicator.ApplyVariants(VAPI.CharacterMasterVariantStorage,HG.ReadOnlyArray{VAPI.CharacterVariantDef})">
+            <summary>
+            Apply the <paramref name="characterVariantDefs"/> to the <see cref="T:RoR2.CharacterMaster"/> from <paramref name="src"/>
+            </summary>
+            <param name="src">The <see cref="T:VAPI.CharacterMasterVariantStorage"/> that called this method</param>
+            <param name="characterVariantDefs">The <see cref="T:VAPI.CharacterVariantDef"/>s to apply.</param>
+        </member>
+        <member name="M:VAPI.IVariantMasterApplicator.UnapplyVariants(VAPI.CharacterMasterVariantStorage,System.Boolean)">
+            <summary>
+            Unapply the <see cref="T:VAPI.CharacterVariantDef"/>s applied to the <see cref="T:RoR2.CharacterMaster"/> from <paramref name="src"/>.
+            <para></para>
+            In scenarios where <paramref name="bodyIndexChanged"/> is true, it is <b>Heavily Recommended</b> to dispose any and all master modifiers.
+            </summary>
+            <param name="src">The <see cref="T:VAPI.CharacterMasterVariantStorage"/> that called this method</param>
+            <param name="bodyIndexChanged">If true, the <see cref="T:RoR2.CharacterBody"/> for the CharacterMaster changed, in scenarios where this is true it is <b>heavily recommended</b> to dispose any and all master modifiers.</param>
+        </member>
+        <member name="T:VAPI.MimicVariantBodyApplicator">
+            <summary>
+            An implementation of <see cref="T:VAPI.IVariantBodyApplicator"/> thats assigned to DLC4's Mimic enemy (<see cref="F:RoR2.DLC4Content.BodyPrefabs.MimicBody"/>).
+            <para></para>
+            This implementation opts to apply and unapply modifiers <b>depending</b> on wether the Mimic is currently Disguised as a Chest or not.
+            <br></br>
+            The modifiers that are applied when the mimic is <b>not</b> disguised are:
+            <list type="bullet">
+            <item><see cref="F:VAPI.CharacterVariantDef.scaleMultiplier"/></item>
+            <item><see cref="F:VAPI.CharacterVariantDef.variantNameProvider"/>s</item>
+            <item><see cref="F:VAPI.CharacterVariantDef.visualModifier"/></item>
+            </list>
+            Once the Mimic goes back into hiding, the modifiers above are <b>unapplied</b>
+            </summary>
+        </member>
+        <member name="E:VAPI.MimicVariantBodyApplicator.onDisguisedChanged">
+            <summary>
+            Event that's fired when <see cref="P:VAPI.MimicVariantBodyApplicator.isDisguised"/> changes value.
+            </summary>
+        </member>
+        <member name="P:VAPI.MimicVariantBodyApplicator.isDisguised">
+            <summary>
+            Wether the mimic is currently disguised or not
+            </summary>
+        </member>
         <member name="T:VAPI.VariantCloning">
             <summary>
             Static class with methods for Cloning Variants from one body to "common" variation bodies.
@@ -3176,6 +3478,28 @@
             <summary>
             A read only representation of a <see cref="T:VAPI.VariantPack"/>
             </summary>
+        </member>
+        <member name="T:VAPI.ReadOnlyVariantPack.IdentifierComparer">
+            <summary>
+            An <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation for <see cref="T:VAPI.ReadOnlyVariantPack"/> that compares <see cref="P:VAPI.ReadOnlyVariantPack.identifier"/>s
+            </summary>
+        </member>
+        <member name="M:VAPI.ReadOnlyVariantPack.IdentifierComparer.Equals(VAPI.ReadOnlyVariantPack,VAPI.ReadOnlyVariantPack)">
+            <summary>
+            Returns true if the Identifiers on <paramref name="x"/> and <paramref name="y"/> are equal.
+            <br></br>
+            If either <paramref name="x"/> or <paramref name="y"/> point to an invalid VariantPack, it returns false
+            </summary>
+            <param name="x">A Read only variant pack</param>
+            <param name="y">A read only variant pack</param>
+        </member>
+        <member name="M:VAPI.ReadOnlyVariantPack.IdentifierComparer.GetHashCode(VAPI.ReadOnlyVariantPack)">
+            <summary>
+            Returns the HashCode for <paramref name="obj"/>, by calling the GetHashCode() method of <see cref="P:VAPI.ReadOnlyVariantPack.identifier"/>
+            <br></br>
+            If <paramref name="obj"/> points to an invalid VariantPack, it returns -1
+            </summary>
+            <param name="obj">The ReadOnlyVariantPack to obtain it's hash code</param>
         </member>
         <member name="P:VAPI.ReadOnlyVariantPack.isValid">
             <summary>

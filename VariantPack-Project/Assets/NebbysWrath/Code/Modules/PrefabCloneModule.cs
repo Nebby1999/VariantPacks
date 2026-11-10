@@ -10,12 +10,7 @@ using UnityEngine;
 
 namespace NW.Modules
 {
-    public class ClonedPrefabBehaviour : MonoBehaviour
-    {
-        public int uniqueIndex;
-    }
-
-    internal interface IClonedPrefabContentPiece : IGameObjectContentPiece<ClonedPrefabBehaviour>
+    internal interface IClonedPrefabContentPiece : IContentPiece<GameObject>
     {
 
     }
@@ -23,7 +18,7 @@ namespace NW.Modules
     internal static class PrefabCloneModule
     {
         private static List<IClonedPrefabContentPiece> _instancedClasses = new List<IClonedPrefabContentPiece>();
-        public static IEnumerator Initialize(IContentPieceProvider<GameObject> contentPieceProvider)
+        public static IEnumerator Initialize(IContentPieceProvider contentPieceProvider)
         {
             var contents = contentPieceProvider.GetContents().OfType<IClonedPrefabContentPiece>();
 

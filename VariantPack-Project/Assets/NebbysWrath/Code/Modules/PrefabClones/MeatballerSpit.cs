@@ -13,8 +13,6 @@ namespace NW.PrefabClones
 {
     public sealed class MeatballerSpit : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => throw new NotImplementedException();
-
         public GameObject asset => projectilePrefab;
         public static GameObject projectilePrefab;
         private static GameObject _dotZone;

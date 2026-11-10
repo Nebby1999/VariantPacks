@@ -17,8 +17,6 @@ namespace NW.PrefabClones
 {
     public class IchorSpike : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
-
         public GameObject asset => ichorSpike;
         public static GameObject ichorSpike;
 
@@ -54,11 +52,10 @@ namespace NW.PrefabClones
             ParallelCoroutine.ReturnToPool(coroutine);
 
             ichorSpike = PrefabAPI.InstantiateClone(projectileRequest.Result, "IchorSpikeProjectile", true);
-            ichorSpike.AddComponent<ClonedPrefabBehaviour>();
 
             var controller = ichorSpike.GetComponent<ProjectileController>();
             controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
-            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "IchorSpikeGhost");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "IchorSpikeGhost", false);
             ghostPrefab.GetComponent<Light>().color = new Color(0.98f, 0.71f, 0, 1);
             ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = selfRequest.asset.material;
             controller.ghostPrefab = ghostPrefab;

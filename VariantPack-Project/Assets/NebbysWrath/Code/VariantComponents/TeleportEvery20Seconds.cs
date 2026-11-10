@@ -18,25 +18,37 @@ namespace NW.Components
     {
         private CharacterBody _characterBody;
         private EntityStateMachine _bodyStateMachine;
-        private float _timeBetweenTeleports = 20f;
+        private RangeFloat _timeBetweenTeleports = new RangeFloat
+        {
+            min = 15f,
+            max = 25f
+        };
         private bool _scaleWithAttackSpeed = true;
 
-        private Run.FixedTimeStamp timeStamp;
+        private Run.FixedTimeStamp timeStampAuthority;
+        private bool _targetingAndPredictionControllerAdded;
         private TargetingAndPredictionController _targetingAndPredictionController;
 
         private void Awake()
         {
             _characterBody = GetComponent<CharacterBody>();
-            _targetingAndPredictionController = gameObject.EnsureComponent<TargetingAndPredictionController>();
+            if(!gameObject.TryGetComponent(out _targetingAndPredictionController))
+            {
+                _targetingAndPredictionControllerAdded = true;
+                gameObject.AddComponent<TargetingAndPredictionController>();
+            }
         }
 
         private void Start()
         {
             _bodyStateMachine = EntityStateMachine.FindByCustomName(gameObject, "Body");
-            timeStamp = GetTimeForNextTeleport();
+            if(Util.HasEffectiveAuthority(gameObject))
+            {
+                timeStampAuthority = GetTimeForNextTeleport();
+            }
         }
 
-        private Run.FixedTimeStamp GetTimeForNextTeleport() => Run.FixedTimeStamp.now + (_timeBetweenTeleports / ((_scaleWithAttackSpeed && _characterBody) ? _characterBody.attackSpeed : 1));
+        private Run.FixedTimeStamp GetTimeForNextTeleport() => Run.FixedTimeStamp.now + (UnityEngine.Random.Range(_timeBetweenTeleports.min, _timeBetweenTeleports.max) / ((_scaleWithAttackSpeed && _characterBody) ? _characterBody.attackSpeed : 1));
 
         private void FixedUpdate()
         {
@@ -45,17 +57,17 @@ namespace NW.Components
                 return;
             }
 
-            if(timeStamp.hasPassed)
+            if(timeStampAuthority.hasPassed)
             {
                 if(!Util.HasEffectiveAuthority(gameObject))
                 {
-                    timeStamp = GetTimeForNextTeleport();
+                    timeStampAuthority = GetTimeForNextTeleport();
                     return;
                 }
 
                 if(TrySetTeleportState())
                 {
-                    timeStamp = GetTimeForNextTeleport();
+                    timeStampAuthority = GetTimeForNextTeleport();
                 }
             }
         }
@@ -85,10 +97,11 @@ namespace NW.Components
 
         private void OnDestroy()
         {
-            if(_targetingAndPredictionController)
+            if(_targetingAndPredictionController && _targetingAndPredictionControllerAdded)
             {
                 Destroy(_targetingAndPredictionController);
                 _targetingAndPredictionController = null;
+                _targetingAndPredictionControllerAdded = false;
             }
         }
     }

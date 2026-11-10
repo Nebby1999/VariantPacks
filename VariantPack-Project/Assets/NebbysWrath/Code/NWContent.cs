@@ -79,6 +79,9 @@ namespace NW
             //DLC1
             public static CharacterVariantDef ArmormelterPest;
             public static CharacterVariantDef ArmormelterVermin;
+            public static CharacterVariantDef ExplosiveGup;
+            public static CharacterVariantDef ExplosiveGeep;
+            public static CharacterVariantDef ExplosiveGip;
             public static CharacterVariantDef GammaConstruct;
             public static CharacterVariantDef Goop;
             public static CharacterVariantDef OmicronConstruct;
@@ -109,6 +112,10 @@ namespace NW
             public static CharacterVariantDef Oilspill;
             public static CharacterVariantDef RollerPod;
             public static CharacterVariantDef ScrapyardHunter;
+
+            //DLC4
+            public static CharacterVariantDef StalkerMimic;
+            public static CharacterVariantDef GluttonousMimic;
 
             //Mods
             public static CharacterVariantDef AeonicWisp;
@@ -213,6 +220,7 @@ namespace NW
 
             GupVariantHelper.AddVariantToGupBlacklist(CharacterVariants.Goop);
             GupVariantHelper.AddGupVariantRelation(CharacterVariants.TarredGup, CharacterVariants.TarredGeep, CharacterVariants.TarredGip);
+            GupVariantHelper.AddGupVariantRelation(CharacterVariants.ExplosiveGup, CharacterVariants.ExplosiveGeep, CharacterVariants.ExplosiveGip);
 
             args.ReportProgress(1f);
             yield break;
@@ -293,8 +301,8 @@ namespace NW
             ParallelCoroutine.ReturnToPool(parallelCoroutine);
 
             //Initialize prefabs after damage types
-            IContentPieceProvider<GameObject> clonedPrefabProvider = ContentUtil.CreateGameObjectGenericContentPieceProvider<ClonedPrefabBehaviour>(NWMain.instance, _contentPack);
-            var coroutine = PrefabCloneModule.Initialize(clonedPrefabProvider);
+            IContentPieceProvider clonedPrefabContentPieceProvider = ContentUtil.CreateContentPieceProvider<IClonedPrefabContentPiece>(NWMain.instance, _contentPack);
+            var coroutine = PrefabCloneModule.Initialize(clonedPrefabContentPieceProvider);
 
             while(coroutine.MoveNext())
             {

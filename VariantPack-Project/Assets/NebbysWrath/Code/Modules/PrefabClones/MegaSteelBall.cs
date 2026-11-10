@@ -17,8 +17,6 @@ namespace NW.PrefabClones
 {
     public class MegaSteelBall : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => throw new NotImplementedException();
-
         public GameObject asset => projectilePrefab;
         public static GameObject projectilePrefab;
         public static GameObject preppedBall;
@@ -59,7 +57,7 @@ namespace NW.PrefabClones
             projectilePrefab.transform.localScale *= 4;
             ProjectileController controller = projectilePrefab.GetComponent<ProjectileController>();
             controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
-            controller.ghostPrefab = projectileGhostRequest.Result.InstantiateClone("SteelBallGhost");
+            controller.ghostPrefab = projectileGhostRequest.Result.InstantiateClone("SteelBallGhost", false);
             controller.ghostPrefab.transform.localScale *= 4;
             controller.ghostPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial = materialRequest.asset.material;
             ProjectileDamage projectileDamage = projectilePrefab.EnsureComponent<ProjectileDamage>();

@@ -17,7 +17,7 @@ namespace EntityStates.Bell.BellWeapon.Steel
         public static float baseTimeBetweenBarrages = ChargeTrioBomb.baseTimeBetweenBarrages;
         public static GameObject bombProjectilePrefab = NW.PrefabClones.MegaSteelBall.projectilePrefab;
         public static GameObject muzzleflashPrefab = ChargeTrioBomb.muzzleflashPrefab;
-        public static float damageCoefficient = 1;
+        public static float damageCoefficient = 3;
         public static float force = ChargeTrioBomb.force * 3;
         public static float selfForce = ChargeTrioBomb.force;
 

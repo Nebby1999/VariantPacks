@@ -12,8 +12,6 @@ namespace NW.PrefabClones
 {
     public class OmicronProjectile : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
-
         public GameObject asset => omicronProjectile;
         public static GameObject omicronProjectile;
 
@@ -46,7 +44,6 @@ namespace NW.PrefabClones
             ParallelCoroutine.ReturnToPool(coroutine);
 
             omicronProjectile = PrefabAPI.InstantiateClone(projectileRequest.Result, "OmicronLaser", true);
-            omicronProjectile.AddComponent<ClonedPrefabBehaviour>();
 
             if(omicronProjectile.TryGetComponent<ProjectileSteerTowardTarget>(out var steer))
             {
@@ -62,7 +59,7 @@ namespace NW.PrefabClones
 
             var controller = omicronProjectile.GetComponent<ProjectileController>();
             controller.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
-            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "OmicronLaserGhost");
+            var ghostPrefab = PrefabAPI.InstantiateClone(projectileGhostRequest.Result, "OmicronLaserGhost", false);
             var trail = ghostPrefab.GetComponentInChildren<TrailRenderer>();
 
             var gradient = new Gradient();

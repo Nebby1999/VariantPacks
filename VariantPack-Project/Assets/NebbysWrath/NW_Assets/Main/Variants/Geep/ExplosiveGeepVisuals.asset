@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2750b497e2bd30742854f28a17bacfec, type: 3}
+  m_Name: ExplosiveGeepVisuals
+  m_EditorClassIdentifier: 
+  _vanillaTargetObject:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  materialReplacements: []
+  meshReplacements: []
+  lightReplacements: []
+  prefabInstantiationDatas:
+  - prefabDirectReference: {fileID: 0}
+    prefabAddress:
+      m_AssetGUID: 2ee35977cdb22924c8577045ee9078a3
+      m_SubObjectName: 
+      m_SubObjectType: 
+    transformPath: 
+    childLocatorEntry: Core
+    useChildLocatorEntry: 1
+    localPosition: {x: 0, y: 0.55, z: 0.5}
+    localRotation: {x: 60, y: 180, z: 180}
+    localScale: {x: 0.3, y: 0.3, z: 0.3}

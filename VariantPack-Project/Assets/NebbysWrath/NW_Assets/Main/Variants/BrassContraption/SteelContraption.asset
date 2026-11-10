@@ -38,6 +38,7 @@ MonoBehaviour:
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8453672705155661874
   deathStateOverride:
@@ -74,6 +75,6 @@ MonoBehaviour:
         _shieldMultiplier: 1
         _moveSpeedMultiplier: 0.5
         _attackSpeedMultiplier: 0.75
-        _damageMultiplier: 1.5
+        _damageMultiplier: 1
         armorBonus: 30
         _armorMultiplier: 1

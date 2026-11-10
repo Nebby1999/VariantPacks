@@ -1,6 +1,6 @@
 # Variant Pack - Nebby's Wrath
 
-Nebby's Wrath is the main Variant Pack created by Nebby. Adds a total of 87 Variants to the game, including Survivors of the Void, Seekers of the Storm and Alloyed Collective. Alongside some modded enemies.
+Nebby's Wrath is the main Variant Pack created by Nebby. Adds a total of 93 Variants to the game, including Survivors of the Void, Seekers of the Storm, Alloyed Collective and Hallowed Concepts. Alongside some modded enemies.
 
 ## Features
 
@@ -95,9 +95,12 @@ Playing with the following mod causes certain cross-over features
 | Blind Pest | Armormelter Pest | Spit inflicts -6 armor permanently |
 | Blind Pest | Bloated Pest | Fires 3 beetle queen spit balls in an arc, has double health |
 | Blind Pest | Tiny Pest | Faster, Smaller, Attacks more often |
+| Gup | Explosive Gup | A gup with a Volatile Battery stuck to itself, starts detoation sequence at 50% health. Damage dealt propotional to remaining health |
 | Gup | Goop | Massive Gup, double health, spawns two "Gups" on kil (there's infinite gup loop) |
 | Gup | Tarred Gup | Inflicts Tar on hit |
+| Geep | Explosive Geep | A geep with a Volatile Battery stuck to itself, starts detoation sequence at 50% health. Damage dealt propotional to remaining health |
 | Geep | Tarred Geep | Inflicts Tar on hit |
+| Gip | Explosive Gip | A gip with a Volatile Battery stuck to itself, starts detoation sequence at 50% health. Damage dealt propotional to remaining health |
 | Gip | Tarred Gip | Inflicts Tar on hit |
 | Void Barnacle | Transplanar Barnacle | Teleports near it's target every 20 seconds |
 | Xi Construct | Omicron Construct | Cannot spawn minor construct, fires homing lasers, shield replaced with a laser barrage |
@@ -142,6 +145,23 @@ Playing with the following mod causes certain cross-over features
 | Solus Wing | Glitched Wing | It's permanently glitched out |
 | Solus Scorcher | Oilspill | Cannot light things on fire, spits out oil more frequently |
 | Vulture Hunter | Scrapyard Hunter | Can rain junk from the sky regardless of health value |
+
+
+</p>
+</details>
+
+### Hallowed Concepts
+
+![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_6.png)
+
+<details><summary>Alloyed Collective Variants (Click me!)</summary>
+<p>
+
+| Character | Variant Name | Details |
+|--|--|--|
+| Mimic | Stalker | Teleports behind it's target every 20 seconds |
+| Mimic | Gluttonous | Cannot Lick nor Burrow, Twice as fast |
+| Poltergeist | Lesser | Smaller, stupid fast |
 
 
 </p>

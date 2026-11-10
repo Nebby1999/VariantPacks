@@ -17,8 +17,6 @@ namespace NW.PrefabClones
 {
     public class ArmorBreakerGrenade : IClonedPrefabContentPiece, IContentPackModifier
     {
-        public ClonedPrefabBehaviour component => asset.GetComponent<ClonedPrefabBehaviour>();
-
         public GameObject asset => projectile;
         public static GameObject projectile;
         private GameObject _childProjectile;
@@ -47,7 +45,6 @@ namespace NW.PrefabClones
             ParallelCoroutine.ReturnToPool(routine);
 
             projectile = PrefabAPI.InstantiateClone(sporeGrenadeRequest.Result, "ArmorBreakerGrenade", true);
-            projectile.AddComponent<ClonedPrefabBehaviour>();
             var projectileController = projectile.GetComponent<ProjectileController>();
 
             _projectileGhost = sporeGrenadeGhostRequest.Result.InstantiateClone("ArmorBreakerGrenadeGhost", false);
