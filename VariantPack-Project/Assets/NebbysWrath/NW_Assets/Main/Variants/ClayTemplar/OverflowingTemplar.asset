@@ -24,7 +24,7 @@ MonoBehaviour:
   spawnRate: 10
   arrivalToken: 
   spawnCondition:
-    rid: 8453672705155661900
+    rid: 8121176865519697922
   masterModifiers: []
   inventoryDefinition:
     itemsToGrant:
@@ -40,10 +40,12 @@ MonoBehaviour:
         _address: 
         _useDirectReference: 0
         _canLoadFromCatalog: 1
+      overrideEquipment: 0
       canTriggerEquipment: 0
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8453672705155661901
   deathStateOverride:
@@ -63,28 +65,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8453672705155661900
-      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+    - rid: 8121176865519697922
+      type: {class: ExpansionRequirementCondition, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
-        minimumStageCompletions: 0
-        _stages:
-          Value: -1
-        customStages: []
-        requiredUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
-        forbiddenUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
         requiredExpansionDefs:
         - _asset: {fileID: 0}
           _address: d4f30c23b971a9b428e2796dc04ae099
           _useDirectReference: 0
-          _canLoadFromCatalog: 1
+          _canLoadFromCatalog: 0
     - rid: 8453672705155661901
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:

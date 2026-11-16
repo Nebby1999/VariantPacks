@@ -1,8 +1,11 @@
 using HG;
 using RoR2;
+using RoR2.ExpansionManagement;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VAPI;
+using Random = UnityEngine.Random;
 
 namespace TO30.Components
 {
@@ -10,50 +13,120 @@ namespace TO30.Components
     [TargetComponentObject(TargetComponentObjectAttribute.TargetObject.CharacterBody, useOnClient = false, useOnServer = true)]
     public sealed class SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath : VariantComponent, IOnKilledServerReceiver
     {
-        public static void AddMaster(MasterCatalog.MasterIndex master)
+        public static void AddWeightedMaster(MasterCatalog.MasterIndex master, float weight = 1)
         {
-            if(!_availableMastersToSpawn.Contains(master))
+            if (master == MasterCatalog.MasterIndex.none)
+                return;
+
+            _allMastersThatMaySpawn.Add(new WeightedMaster { masterIndex = master, weight = weight });
+        }
+        private struct WeightedMaster
+        {
+            private struct WeightedMasterComparer : IEqualityComparer<WeightedMaster>
             {
-                _availableMastersToSpawn.Add(master);
+                public bool Equals(WeightedMaster x, WeightedMaster y)
+                {
+                    return x.masterIndex == y.masterIndex;
+                }
+
+                public int GetHashCode(WeightedMaster obj)
+                {
+                    return obj.masterIndex.GetHashCode();
+                }
+            }
+            public static IEqualityComparer<WeightedMaster> GetEqualityComparer()
+            {
+                return new WeightedMasterComparer();
+            }
+
+            public MasterCatalog.MasterIndex masterIndex;
+            public float weight;
+
+            public bool IsAvailable()
+            {
+                if (!Run.instance)
+                    return false;
+
+                var masterPrefab = MasterCatalog.GetMasterPrefab(masterIndex);
+                if (!masterPrefab || !masterPrefab.TryGetComponent<CharacterMaster>(out var characterMaster))
+                    return false;
+
+                //Ensure the master's expansion requirement is met
+                if(masterPrefab.TryGetComponent<ExpansionRequirementComponent>(out var expansionRequirementComponent))
+                {
+                    //If the master has an expansion requirement, and the expansion is not enabled, its not available.
+                    if(expansionRequirementComponent.requiredExpansion && Run.instance.IsExpansionEnabled(expansionRequirementComponent.requiredExpansion) == false)
+                    {
+                        return false;
+                    }
+                }
+
+                if (!characterMaster.bodyPrefab)
+                    return false;
+
+                if(characterMaster.bodyPrefab.TryGetComponent<ExpansionRequirementComponent>(out expansionRequirementComponent))
+                {
+                    if (expansionRequirementComponent.requiredExpansion && Run.instance.IsExpansionEnabled(expansionRequirementComponent.requiredExpansion) == false)
+                        return false;
+                }
+
+                return true;
             }
         }
-        private static readonly List<MasterCatalog.MasterIndex> _availableMastersToSpawn = new List<MasterCatalog.MasterIndex>();
+        private static readonly HashSet<WeightedMaster> _allMastersThatMaySpawn = new HashSet<WeightedMaster>(WeightedMaster.GetEqualityComparer());
 
         public int enemyCount = 1;
         public CharacterBody characterBody { get; private set; }
         public DeathRewards deathRewards { get; private set; }
 
-        private GameObject chosenMasterPrefab;
-        private CharacterVariantProvider chosenMonsterVariantDefProvider;
+        private WeightedSelection<MasterCatalog.MasterIndex> _masterSelection = new WeightedSelection<MasterCatalog.MasterIndex>();
+        private GameObject _chosenMasterPrefab;
+        private CharacterVariantProvider _chosenMonsterVariantDefProvider;
 
         private void Awake()
         {
             characterBody = GetComponent<CharacterBody>();
             deathRewards = GetComponent<DeathRewards>();
+            _masterSelection = new WeightedSelection<MasterCatalog.MasterIndex>(_allMastersThatMaySpawn.Count);
+            foreach(var weightedMaster in _allMastersThatMaySpawn)
+            {
+                if(weightedMaster.IsAvailable())
+                {
+                    _masterSelection.AddChoice(weightedMaster.masterIndex, weightedMaster.weight);
+                }
+            }
         }
 
         private void Start()
         {
             if(VariantSpawnManager.instance)
             {
-                chosenMasterPrefab = MasterCatalog.GetMasterPrefab(VariantSpawnManager.instance.variantSpawnRng.NextElementUniform(_availableMastersToSpawn));
-                var chosenMaster = chosenMasterPrefab.GetComponent<CharacterMaster>();
+                _chosenMasterPrefab = GetMasterPrefab(VariantSpawnManager.instance.variantSpawnRng.nextNormalizedFloat);
+                if (!_chosenMasterPrefab)
+                    return;
+
+                var chosenMaster = _chosenMasterPrefab.GetComponent<CharacterMaster>();
                 if(!chosenMaster.bodyPrefab)
                 {
                     return;
                 }
 
-                chosenMonsterVariantDefProvider = CharacterVariantCatalog.FindCharacterVariantProvider(chosenMaster.bodyPrefab);
-                if(chosenMonsterVariantDefProvider == null)
+                _chosenMonsterVariantDefProvider = CharacterVariantCatalog.FindCharacterVariantProvider(chosenMaster.bodyPrefab);
+                if(_chosenMonsterVariantDefProvider == null)
                 {
-                    TO30Log.Error($"{this} rolled a {chosenMasterPrefab} to spawn but said master's body has no variant def provider!");
+                    TO30Log.Error($"{this} rolled a {_chosenMasterPrefab} to spawn but said master's body has no variant def provider!");
                 }
             }
         }
 
+        private GameObject GetMasterPrefab(float normalizedIndex)
+        {
+            return MasterCatalog.GetMasterPrefab(_masterSelection.Evaluate(normalizedIndex));
+        }
+
         public void OnKilledServer(DamageReport damageReport)
         {
-            if(chosenMasterPrefab == null || chosenMonsterVariantDefProvider == null || !VariantSpawnManager.instance)
+            if(_chosenMasterPrefab == null || _chosenMonsterVariantDefProvider == null || !VariantSpawnManager.instance)
             {
                 return;
             }
@@ -66,12 +139,12 @@ namespace TO30.Components
                 ignoreTeamMemberLimit = true,
                 teamIndexOverride = characterBody.teamComponent.teamIndex,
                 position = position,
-                masterPrefab = chosenMasterPrefab,
+                masterPrefab = _chosenMasterPrefab,
                 preSpawnSetupCallback = PreSpawnSetupCallback,
                 summonerBodyObject = null
             };
 
-            var variant = chosenMonsterVariantDefProvider.allVariants[VariantSpawnManager.instance.variantSpawnRng.RangeInt(0, chosenMonsterVariantDefProvider.totalVariantCount)];
+            var variant = _chosenMonsterVariantDefProvider.allVariants[VariantSpawnManager.instance.variantSpawnRng.RangeInt(0, _chosenMonsterVariantDefProvider.totalVariantCount)];
             VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
             {
                 deathRewardsCoefficient = 1f,

@@ -24,7 +24,7 @@ MonoBehaviour:
   spawnRate: 1
   arrivalToken: NW_PROTOWING_ARRIVAL
   spawnCondition:
-    rid: 8121176582070206468
+    rid: 8121176865519697923
   masterModifiers: []
   inventoryDefinition:
     itemsToGrant: []
@@ -34,10 +34,12 @@ MonoBehaviour:
         _address: 
         _useDirectReference: 0
         _canLoadFromCatalog: 1
+      overrideEquipment: 0
       canTriggerEquipment: 0
       aiMaxUseHealthFraction: 0
       aiMaxUseDistance: 0
       timeBetweenEquipmentSwitches: 0
+  bodyModifiers: []
   variantNameProvider:
     rid: 8121176582070206469
   deathStateOverride:
@@ -58,28 +60,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8121176582070206468
-      type: {class: BasicSpawnCondition, ns: VAPI, asm: VarianceAPI.Runtime}
-      data:
-        minimumStageCompletions: -1
-        _stages:
-          Value: 0
-        customStages: []
-        requiredUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
-        forbiddenUnlock:
-          _asset: {fileID: 0}
-          _address: 
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
-        requiredExpansionDefs:
-        - _asset: {fileID: 0}
-          _address: 234e83997deed274291470be69e7662e
-          _useDirectReference: 0
-          _canLoadFromCatalog: 0
     - rid: 8121176582070206469
       type: {class: VariantNamePrefix, ns: VAPI, asm: VarianceAPI.Runtime}
       data:
@@ -97,3 +77,11 @@ MonoBehaviour:
         _damageMultiplier: 1.2
         armorBonus: 50
         _armorMultiplier: 1
+    - rid: 8121176865519697923
+      type: {class: ExpansionRequirementCondition, ns: VAPI, asm: VarianceAPI.Runtime}
+      data:
+        requiredExpansionDefs:
+        - _asset: {fileID: 0}
+          _address: 234e83997deed274291470be69e7662e
+          _useDirectReference: 0
+          _canLoadFromCatalog: 0
