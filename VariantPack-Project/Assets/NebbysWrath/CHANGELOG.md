@@ -1,5 +1,20 @@
 # Changelogs
 
+## 3.1.1 - HD Sprites
+
+* Added a "Risk of Rain Returns" version of the Amalgamated Wisp sprite that appears on loading screens (Thanks TangoKnight!)
+    * This is configurable, when the config is being bound and you have Kina's "LoadingSpriteAdditions" mod installed, they'll be turned on by default.
+* Most of the spawn conditions from the mod now use the simpler ``ExpansionRequirementCondition`` instead of ``BasicSpawnCondition``
+* Fixed an issue where the Ancient Magma Worm and the Ancient Overloading Worm would never spawn naturally.
+* Added the following enemies to The Original 30's spectral jellyfish pool:
+    * Alpha Construct
+    * Blind Pest
+    * Blind Vermin
+    * Gip
+    * Void Barnacle
+    * Child
+    * Solus Scorcher
+
 ## 3.1.0 - Couple more variants
 
 * Added the following variants

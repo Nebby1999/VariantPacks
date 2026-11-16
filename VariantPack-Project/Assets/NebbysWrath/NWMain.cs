@@ -27,12 +27,13 @@ namespace NW
     [BepInDependency(VAPI.VAPIMain.GUID)]
     [BepInDependency(LoadingScreenFix.LoadingScreenFix.PluginGUID)]
     [BepInDependency(TO30.TO30Main.GUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("kina.LoadingSpriteAdditions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class NWMain : BaseUnityPlugin
     {
         public const string GUID = "com.Nebby.NW";
         public const string MODNAME = "Nebbys Wrath";
-        public const string VERSION = "3.1.0";
+        public const string VERSION = "3.1.1";
 
         public static NWMain instance { get; private set; }
         private void Awake()
@@ -43,7 +44,7 @@ namespace NW
 
             new NWContent();
 
-            bool configuredBoolUseRoRRSprites = new ConfiguredBool(true)
+            bool configuredBoolUseRoRRSprites = new ConfiguredBool(MSUtil.IsModInstalled("kina.LoadingSpriteAdditions"))
                 .WithModName(this)
                 .WithModGUID(this)
                 .WithConfigFile(Config)

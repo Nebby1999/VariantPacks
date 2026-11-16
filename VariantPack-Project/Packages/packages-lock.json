@@ -95,6 +95,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "kingenderbrine-propersave": {
+      "version": "file:ProperSave",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "mmhook-assemblies": {
       "version": "file:mmhook-assemblies",
       "depth": 0,
@@ -120,11 +126,11 @@
       "dependencies": {}
     },
     "nebby-varianceapi": {
-      "version": "https://github.com/Nebby1999/VarianceAPI.git#3.1.0",
+      "version": "https://github.com/Nebby1999/VarianceAPI.git#feat/3.1.2",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d1de7e4df31d2848300755b0610e44fe3177da8e"
+      "hash": "2c4ab313e4050a80ca4f7a8ae2a03aa5dd97e528"
     },
     "pseudopulse-seekerspatcher": {
       "version": "file:SeekersPatcher",
@@ -265,13 +271,13 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#feat/Bugfixes",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#feat/SimpleSpriteAnimationSupport",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "c50984c79c82f907fe5e48a10061781e9ca88527"
+      "hash": "ba6cdd83204aa8619265725476146d5b5ad50848"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.7.3",

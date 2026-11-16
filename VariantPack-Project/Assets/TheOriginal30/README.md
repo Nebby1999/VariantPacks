@@ -61,6 +61,7 @@ If you like what i do, and wish to help me out, consider donating on my Ko-fi
 
 * Thanks to Rob for designing all of these variants.
 * Thanks to PapaZach for designing the VariantPack's icon.
+* Thanks to TangoKnight for making the "Risk of Rain Returns" sprite for the Flamethrower Lemurian
 
 ![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_4.png)
 ![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/TheOriginal30/ReadmeImages/TO30_Showcase_5.png)

@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.1 - Sprites n Stuff
+
+* Added a "Risk of Rain Returns" version of the Flamethrower Lemurian sprite that appears on loading screens (Thanks TangoKnight!)
+    * This is configurable, when the config is being bound and you have Kina's "LoadingSpriteAdditions" mod installed, they'll be turned on by default.
+* The Spectral Jellyfish now respects "Availability" checks
+* Fixed an issue where the PluginInfo's version was out of date
+
 ## 3.0.0 - Rewrite
 
 * Rewritten to use VarianceAPI 3.0.0

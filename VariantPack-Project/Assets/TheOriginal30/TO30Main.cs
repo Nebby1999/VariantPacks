@@ -19,12 +19,13 @@ namespace TO30
 {
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInDependency(VAPI.VAPIMain.GUID)]
+    [BepInDependency("kina.LoadingSpriteAdditions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class TO30Main : BaseUnityPlugin
     {
         public const string GUID = "com.Nebby.TO30";
         public const string MODNAME = "The Original 30";
-        public const string VERSION = "2.2.1";
+        public const string VERSION = "3.0.1";
 
         public static TO30Main instance { get; private set; }
         private void Awake()
@@ -36,7 +37,7 @@ namespace TO30
 
             new TO30Content();
 
-            bool configuredBoolUseRoRRSprites = new ConfiguredBool(true)
+            bool configuredBoolUseRoRRSprites = new ConfiguredBool(MSUtil.IsModInstalled("kina.LoadingSpriteAdditions"))
                 .WithModName(this)
                 .WithModGUID(this)
                 .WithConfigFile(Config)
@@ -56,10 +57,10 @@ namespace TO30
 
         private void AddSpectralSummons()
         {
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("BeetleMaster"), 1);
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("ImpMaster"), 1);
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("LemurianMaster"), 1);
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("WispMaster"), 1);
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("BeetleMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("ImpMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("LemurianMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("WispMaster"));
         }
     }
 }
