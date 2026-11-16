@@ -115,6 +115,7 @@ namespace TO30.Components
                 if(_chosenMonsterVariantDefProvider == null)
                 {
                     TO30Log.Error($"{this} rolled a {_chosenMasterPrefab} to spawn but said master's body has no variant def provider!");
+                    return;
                 }
             }
         }
@@ -144,7 +145,7 @@ namespace TO30.Components
                 summonerBodyObject = null
             };
 
-            var variant = _chosenMonsterVariantDefProvider.allVariants[VariantSpawnManager.instance.variantSpawnRng.RangeInt(0, _chosenMonsterVariantDefProvider.totalVariantCount)];
+            var variant = _chosenMonsterVariantDefProvider.filteredVariants[VariantSpawnManager.instance.variantSpawnRng.RangeInt(0, _chosenMonsterVariantDefProvider.filteredVariants.Count)];
             VariantMasterSummon variantSummon = new VariantMasterSummon(masterSummon)
             {
                 deathRewardsCoefficient = 1f,

@@ -80,7 +80,7 @@ namespace EntityStates.LemurianMonster.Flamethrower
                 var variantDefsApplied = variantController.GetCharacterVariantDefs();
 
                 //Retrieve the dependant variant defs
-                List<CharacterVariantDef> badassDefs = CharacterVariantCatalog.RetrieveDependantSpawnVariants(TO30Content.CharacterVariants.BadassLemurian);
+                using var _ = CharacterVariantCatalog.RetrieveDependantSpawnVariants(TO30Content.CharacterVariants.BadassLemurian, out var badassDefs);
                 badassDefs.Add(TO30Content.CharacterVariants.BadassLemurian); //add the basic one
 
                 foreach(var badassDef in badassDefs)

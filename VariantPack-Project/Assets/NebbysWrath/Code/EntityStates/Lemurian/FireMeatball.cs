@@ -62,7 +62,7 @@ namespace EntityStates.LemurianMonster.Meatballer
 
                 //Retrieve the dependant variant defs
                 var badassDef = CharacterVariantCatalog.GetCharacterVariantDef(CharacterVariantCatalog.FindCharacterVariantIndex("BadassLemurian"));
-                List<CharacterVariantDef> badassDefs = CharacterVariantCatalog.RetrieveDependantSpawnVariants(badassDef);
+                using var _ = CharacterVariantCatalog.RetrieveDependantSpawnVariants(badassDef, out var badassDefs);
                 badassDefs.Add(badassDef); //add the basic one
 
                 foreach (var defToCheck in badassDefs)
