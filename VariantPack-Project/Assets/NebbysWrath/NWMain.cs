@@ -11,6 +11,8 @@ using MonoMod.Cil;
 using Mono.Cecil.Cil;
 using EntityStates;
 using RoR2.ContentManagement;
+using MSU.Config;
+using UnityEngine;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
@@ -41,7 +43,21 @@ namespace NW
 
             new NWContent();
 
-            LoadingScreenFix.LoadingScreenFix.AddSpriteAnimations(NWAssets.GetLoadingScreenBundle());
+            bool configuredBoolUseRoRRSprites = new ConfiguredBool(true)
+                .WithModName(this)
+                .WithModGUID(this)
+                .WithConfigFile(Config)
+                .WithSection("General")
+                .WithKey("Use RoRR loading sprites")
+                .WithDescription("Uses the Risk of Rain Returns style of the Amalgamated Greater Wisp on the loading screens")
+                .DoConfigure();
+
+            var loadingScreenBundle = NWAssets.GetLoadingScreenBundle();
+
+            Vector2? sizeDelta = configuredBoolUseRoRRSprites ? new Vector2(64, 64) : null;
+
+            LoadingScreenFix.LoadingScreenFix.AddSpriteAnimation(configuredBoolUseRoRRSprites ? loadingScreenBundle.LoadAsset<SimpleSpriteAnimation>("ssaAmalgamatedWispWalkReturns") : loadingScreenBundle.LoadAsset<SimpleSpriteAnimation>("ssaAmalgamatedWispWalk"), null, sizeDelta);
+
             RoR2Application.onLoad += OnLoad;
         }
 
@@ -62,10 +78,17 @@ namespace NW
         {
             if (MSUtil.IsModInstalled("com.Moffein.ClayMen"))
             {
-                TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
+                TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("MoffeinClayManMaster"));
             }
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
-            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddMaster(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("HermitCrabMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("RoboBallMiniMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("MinorConstructMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("FlyingVerminMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("VerminMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("GipMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("VoidBarnacleMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("ChildMaster"));
+            TO30.Components.SpectralJellyfishSpawnRandomLesserEnemyVariantOnDeath.AddWeightedMaster(MasterCatalog.FindMasterIndex("TankerMaster"));
         }
     }
 }
