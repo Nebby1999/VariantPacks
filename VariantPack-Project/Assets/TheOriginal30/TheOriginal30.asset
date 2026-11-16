@@ -76,7 +76,7 @@ MonoBehaviour:
   Name: VariantPack_TheOriginal30
   Description: The Original Thirty Variants developed by Rob, ported and modified
     to VarianceAPI.
-  Version: 3.0.0
+  Version: 3.0.1
   Dependencies:
   - {fileID: -3892906877110538616, guid: fcb9990091998194f96ac649c34ad280, type: 2}
 --- !u!114 &114431642618062350
