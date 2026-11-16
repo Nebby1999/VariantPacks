@@ -154,7 +154,7 @@ Playing with the following mod causes certain cross-over features
 
 ![](https://raw.githubusercontent.com/Nebby1999/VariantPacks/refs/heads/Main/VariantPack-Project/Assets/NebbysWrath/ReadmeImages/NW_Showcase_6.png)
 
-<details><summary>Alloyed Collective Variants (Click me!)</summary>
+<details><summary>Hallowed Concepts Variants (Click me!)</summary>
 <p>
 
 | Character | Variant Name | Details |

@@ -1,7 +1,9 @@
 {
   "strings": {
     "NW_VARIANTPACK_NAME": "Nebby's Wrath",
-    "NW_VARIANTPACK_DESC": "The variants originally developed for MonsterVariants+, Experience the new friends that made your runs more chaotic and dangerous.",
+    "NW_VARIANTPACK_TOOLTIP": "Adds 90+ Variants, spread across Base Game, Survivors of the Void, Seekers of the Storm, Alloyed Collective and Hallowed Concepts enemies.",
+    "NW_VARIANTPACK_DESC": "Adds 90+ Variants, spread across Base Game, Survivors of the Void, Seekers of the Storm, Alloyed Collective and Hallowed Concepts enemies.",
+    "VAPI_RISKOFOPTIONS_COM.NEBBY1999.NW": "Configuration for Nebby's Wrath",
 
     "NW_ENRAGED_PREFIX": "Enraged",
     "NW_SOMEWHATANCIENT_PREFIX": "Somewhat-Ancient",

@@ -74,7 +74,8 @@ MonoBehaviour:
   - <ManifestPluginStaging>
   Author: Nebby
   Name: VariantPack_NebbysWrath
-  Description: Variants from MonsterVariantsPlus, Ported to VarianceAPI.
+  Description: "\t87 Variants spread across Base Game, Survivors of the Void, Seekers
+    of the Storm, Alloyed Collective and Hallowed Concepts enemies."
   Version: 3.1.1
   Dependencies:
   - {fileID: -3892906877110538616, guid: fcb9990091998194f96ac649c34ad280, type: 2}

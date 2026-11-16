@@ -1,7 +1,9 @@
 {
   "strings": {
     "TO30_VARIANTPACK_NAME": "The Original Thirty",
+    "TO30_VARIANTPACK_TOOLTIP": "Adds The Original Thirty Variants developed by Rob.",
     "TO30_VARIANTPACK_DESC":  "Adds The Original Thirty Variants developed by Rob.",
+    "VAPI_RISKOFOPTIONS_COM.NEBBY1999.TO30": "Configuration for The Original 30",
     
     "TO30_ARMORED_PREFIX": "Armored",
     "TO30_BATTLE_PREFIX": "Battle",
